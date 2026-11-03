@@ -1,0 +1,163 @@
+:root {
+    --primary: #1f1d2b;
+    --accent: #8b263e;       /* To granat fosc / morat de Quaresma */
+    --bg: #f8f7f5;
+    --card-bg: #ffffff;
+    --text: #2c2c2c;
+    --muted: #666666;
+    --border: #e6e2de;
+  }
+  
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.7;
+    color: var(--text);
+    background-color: var(--bg);
+  }
+  
+  .container {
+    max-width: 850px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  /* Header */
+  .hero {
+    background: linear-gradient(rgba(15, 15, 20, 0.85), rgba(15, 15, 20, 0.95)), var(--primary);
+    color: #fff;
+    padding: 60px 0 40px;
+    text-align: center;
+  }
+  
+  .tag {
+    display: inline-block;
+    background-color: var(--accent);
+    color: #fff;
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 4px 12px;
+    border-radius: 20px;
+    margin-bottom: 15px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+  
+  .hero h1 {
+    font-size: 2.3rem;
+    letter-spacing: -0.5px;
+    margin-bottom: 8px;
+  }
+  
+  .subtitle {
+    color: #d1d5db;
+    font-size: 1.1rem;
+  }
+  
+  /* Navegació */
+  .nav-bar {
+    background: #fff;
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    text-align: center;
+  }
+  
+  .nav-bar a {
+    display: inline-block;
+    padding: 12px 14px;
+    color: var(--muted);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: color 0.2s;
+  }
+  
+  .nav-bar a:hover {
+    color: var(--accent);
+  }
+  
+  /* Contingut */
+  main {
+    padding: 40px 20px;
+  }
+  
+  .card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 28px;
+    margin-bottom: 28px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  }
+  
+  .card h2 {
+    color: var(--primary);
+    font-size: 1.5rem;
+    margin-bottom: 14px;
+    border-bottom: 2px solid var(--border);
+    padding-bottom: 6px;
+  }
+  
+  .card p {
+    margin-bottom: 12px;
+  }
+  
+  .highlight-box {
+    background-color: #fcf9f9;
+    border-left: 4px solid var(--accent);
+    padding: 16px;
+    margin-top: 16px;
+    border-radius: 0 6px 6px 0;
+  }
+  
+  .highlight-box ul, .card ul {
+    padding-left: 20px;
+    margin-top: 8px;
+  }
+  
+  .card li {
+    margin-bottom: 6px;
+  }
+  
+  /* Línia temporal */
+  .timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 14px;
+  }
+  
+  .timeline-item {
+    border-left: 3px solid var(--accent);
+    padding-left: 14px;
+  }
+  
+  .timeline-item .time {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--accent);
+    letter-spacing: 0.5px;
+  }
+  
+  .timeline-item h3 {
+    font-size: 1.1rem;
+    margin: 2px 0 4px;
+  }
+  
+  /* Footer */
+  footer {
+    text-align: center;
+    padding: 30px 20px;
+    font-size: 0.85rem;
+    color: var(--muted);
+    border-top: 1px solid var(--border);
+    background-color: #fff;
+  }
