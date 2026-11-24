@@ -1794,23 +1794,22 @@ h1, h2, h3, h4 {
 }
 
 .social-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 7px 14px;
-  border-radius: 999px;
-  border: 1px solid rgba(237, 226, 201, 0.34);
+  display: inline-grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid rgba(237, 226, 201, 0.36);
   background: rgba(255, 255, 255, 0.06);
   color: var(--cream);
-  font-size: 0.86rem;
-  font-weight: 600;
-  transition: background-color 0.2s, border-color 0.2s, color 0.2s;
+  transition: background-color 0.2s, border-color 0.2s, color 0.2s, transform 0.2s;
 }
 
 .social-link:hover {
   background: var(--secondary);
   border-color: var(--secondary);
   color: #231811;
+  transform: translateY(-1px);
 }
 
 .footer-sitemap {
