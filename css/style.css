@@ -548,11 +548,11 @@ h1, h2, h3, h4 {
 
 .metrics-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
 }
 
 .metric-item {
-  padding: 24px 20px;
+  padding: 28px 24px;
   text-align: center;
   border-right: 1px solid var(--border);
 }
@@ -564,14 +564,18 @@ h1, h2, h3, h4 {
 .metric-value {
   display: block;
   font-family: var(--font-serif);
-  font-size: 2.15rem;
+  font-size: 2.45rem;
   font-weight: 700;
   color: var(--primary);
   line-height: 1.1;
+  margin-bottom: 6px;
 }
 
 .metric-label {
-  font-size: 0.86rem;
+  display: block;
+  font-size: 1.08rem;
+  font-weight: 500;
+  line-height: 1.4;
   color: var(--text-muted);
 }
 
@@ -1717,9 +1721,6 @@ h1, h2, h3, h4 {
    RESPONSIVE
    ========================================================================== */
 @media (max-width: 1024px) {
-  .metrics-grid { grid-template-columns: repeat(2, 1fr); }
-  .metric-item:nth-child(2) { border-right: none; }
-  .metric-item:nth-child(1), .metric-item:nth-child(2) { border-bottom: 1px solid var(--border); }
   .feature, .featured-news, .scene-explorer, .contact-layout { grid-template-columns: 1fr; gap: 2.2rem; }
   .feature.reverse .image, .feature.reverse .text { order: unset; }
   .cards-grid, .press-grid { grid-template-columns: repeat(2, 1fr); }
@@ -1750,9 +1751,11 @@ h1, h2, h3, h4 {
   }
   .hero { height: 420px; }
   .carousel-btn { width: 40px; height: 40px; font-size: 1.2rem; }
-  .cards-grid, .cards-grid--2, .press-grid, .gallery-grid, .form-row-2 {
+  .cards-grid, .cards-grid--2, .press-grid, .gallery-grid, .form-row-2, .metrics-grid {
     grid-template-columns: 1fr;
   }
+  .metric-item { border-right: none; border-bottom: 1px solid var(--border); }
+  .metric-item:last-child { border-bottom: none; }
   .press-row { grid-template-columns: 1fr; gap: 14px; }
   .press-outlet-col { border-right: none; border-bottom: 1px solid var(--border); padding-right: 0; padding-bottom: 10px; }
   .featured-news-body, .modal-content, .form-card { padding: 24px; }
