@@ -857,8 +857,7 @@
               <h3 class="card-title">${escapeHtml(n.title)}</h3>
               <p class="card-excerpt">${escapeHtml(n.excerpt)}</p>
               <div class="card-footer">
-                <span style="font-size:0.8rem;color:var(--text-muted)">${escapeHtml(n.tags.slice(0, 2).join(" · "))}</span>
-                <button type="button" class="card-action-btn" data-open-news="${escapeHtml(n.id)}">${escapeHtml(ui.readShort)}</button>
+                <button type="button" class="card-action-btn" data-open-news="${escapeHtml(n.id)}">${escapeHtml(ui.readArticle)}</button>
               </div>
             </div>
           </article>`
