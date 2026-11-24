@@ -102,9 +102,55 @@
     return DATA.protagonists.map((item, i) => (list && list[i] ? { ...item, ...list[i] } : item));
   }
 
+  const MONTH_MAP = {
+    gener: 1, enero: 1, january: 1, januar: 1,
+    febrer: 2, febrero: 2, february: 2, februar: 2,
+    marc: 3, marzo: 3, march: 3, marz: 3,
+    abril: 4, april: 4,
+    maig: 5, mayo: 5, may: 5, mai: 5,
+    juny: 6, junio: 6, june: 6, juni: 6,
+    juliol: 7, julio: 7, july: 7, juli: 7,
+    agost: 8, agosto: 8, august: 8,
+    setembre: 9, septiembre: 9, september: 9,
+    octubre: 10, october: 10, oktober: 10,
+    novembre: 11, noviembre: 11, november: 11,
+    desembre: 12, diciembre: 12, december: 12, dezember: 12
+  };
+
+  function getNewsTimestamp(item) {
+    if (item.isoDate) {
+      const ts = Date.parse(item.isoDate);
+      if (!Number.isNaN(ts)) return ts;
+    }
+    const raw = String(item.date || "")
+      .toLowerCase()
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "");
+    const yearMatch = raw.match(/\b(19\d{2}|20\d{2})\b/);
+    if (!yearMatch) return 0;
+    const year = Number(yearMatch[1]);
+    let month = 1;
+    for (const [name, num] of Object.entries(MONTH_MAP)) {
+      if (raw.includes(name)) {
+        month = num;
+        break;
+      }
+    }
+    const dayMatch = raw.match(/\b([1-2]?\d|3[01])\b/);
+    const day = dayMatch ? Number(dayMatch[1]) : 1;
+    return Date.UTC(year, month - 1, day);
+  }
+
   function getLocalizedNews() {
     const map = dict().data && dict().data.news;
-    return DATA.news.map((n) => (map && map[n.id] ? { ...n, ...map[n.id] } : n));
+    return DATA.news
+      .map((n) => {
+        const baseTs = getNewsTimestamp(n);
+        const merged = map && map[n.id] ? { ...n, ...map[n.id] } : { ...n };
+        merged._ts = baseTs || getNewsTimestamp(merged);
+        return merged;
+      })
+      .sort((a, b) => b._ts - a._ts);
   }
 
   function getAllPressItems() {
@@ -340,7 +386,7 @@
             : ""
         }
         <div class="tags-row" style="margin-bottom:22px">
-          ${item.tags.map((tag) => `<span class="badge badge--sand">#${escapeHtml(tag)}</span>`).join("")}
+          ${item.tags.map((tag) => `<span class="badge badge--sand">${escapeHtml(tag)}</span>`).join("")}
         </div>
         <div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;padding-top:16px;border-top:1px solid var(--border)">
           <button type="button" class="btn btn--outline btn--sm" id="copy-news-link">${escapeHtml(ui.copyLink)}</button>
@@ -1108,6 +1154,7 @@
       id: raw.id || "noticia-" + (idx + 1),
       category: raw.categoria || raw.category || "Actualitat",
       date: raw.data || raw.date || "",
+      isoDate: raw.dataIso || raw.isoDate || "",
       readTime: raw.lectura || raw.readTime || "3 min",
       featured: Boolean(raw.destacada !== undefined ? raw.destacada : raw.featured),
       image: raw.imatge || raw.image || "img/hero/hero1.jpg",
