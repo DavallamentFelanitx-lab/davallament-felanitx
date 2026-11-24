@@ -8,6 +8,10 @@
   const DATA = window.DAVALLAMENT_DATA;
   const I18N = window.I18N;
   const CONTACT_EMAIL = "davallamentfelanitx@gmail.com";
+  const SOCIAL_LINKS = {
+    instagram: "https://www.instagram.com/davallamentfelanitx/",
+    facebook: "https://www.facebook.com/davallamentfelanitx/"
+  };
   const STORAGE_KEY_LANG = "davallament_felanitx_lang_v1";
 
   const NAV_LINKS = [
@@ -358,15 +362,56 @@
 
     const footerHost = document.getElementById("site-footer-host");
     if (footerHost) {
+      const footerCols = NAV_LINKS.filter((item) => Array.isArray(item.children) && item.children.length > 0);
       footerHost.innerHTML = `
         <footer class="site-footer">
           <div class="container">
-            <div class="footer-centered">
-              <h3>${escapeHtml(d.footer.title)}</h3>
-              <nav class="footer-nav" aria-label="Footer navigation">
-                ${NAV_LINKS.map((item) => `<a href="${item.href}" data-nav-key="${item.key}">${escapeHtml(d.nav[item.key])}</a>`).join("")}
-              </nav>
+            <div class="footer-top-bar">
+              <a href="index.html" class="footer-brand-name">${escapeHtml(d.footer.title)}</a>
+              <div class="footer-social" aria-label="Xarxes socials">
+                <a href="${SOCIAL_LINKS.instagram}" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Instagram">
+                  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                  </svg>
+                  <span>Instagram</span>
+                </a>
+                <a href="${SOCIAL_LINKS.facebook}" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Facebook">
+                  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                  </svg>
+                  <span>Facebook</span>
+                </a>
+              </div>
             </div>
+
+            <nav class="footer-sitemap" aria-label="Mapa del web">
+              ${footerCols
+                .map((col) => {
+                  const extraLink =
+                    col.key === "representacio"
+                      ? `<li><a href="galeria.html">${escapeHtml(d.nav.galeria)}</a></li>`
+                      : col.key === "contacte"
+                      ? `<li><a href="mailto:${CONTACT_EMAIL}">${CONTACT_EMAIL}</a></li>`
+                      : "";
+                  return `
+                    <div class="footer-col">
+                      <a href="${col.href}" class="footer-col-title">${escapeHtml(d.nav[col.key])}</a>
+                      <ul class="footer-sublinks">
+                        ${col.children
+                          .map(
+                            (sub) =>
+                              `<li><a href="${sub.href}">${escapeHtml((d.subnav && d.subnav[sub.key]) || sub.key)}</a></li>`
+                          )
+                          .join("")}
+                        ${extraLink}
+                      </ul>
+                    </div>`;
+                })
+                .join("")}
+            </nav>
+
             <div class="footer-bottom">
               <span>${escapeHtml(d.footer.copy)}</span>
             </div>
