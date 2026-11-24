@@ -50,7 +50,14 @@
         { href: "entitat.html#convocatories", key: "entConvocatories" }
       ]
     },
-    { href: "galeria.html", key: "galeria" },
+    {
+      href: "galeria.html",
+      key: "galeria",
+      children: [
+        { href: "galeria.html#fotografies", key: "galFotos" },
+        { href: "galeria.html#multimedia", key: "galMultimedia" }
+      ]
+    },
     {
       href: "contacte.html",
       key: "contacte",
@@ -219,6 +226,30 @@
   function getLocalizedGallery() {
     const map = dict().data && dict().data.gallery;
     return DATA.gallery.map((g) => (map && map[g.id] ? { ...g, ...map[g.id] } : g));
+  }
+
+  function getLocalizedVideos() {
+    const map = dict().data && dict().data.videos;
+    return (DATA.videos || []).map((v) => (map && map[v.id] ? { ...v, ...map[v.id] } : v));
+  }
+
+  function extractYouTubeId(input) {
+    const raw = String(input || "").trim();
+    if (!raw) return "";
+    if (/^[a-zA-Z0-9_-]{11}$/.test(raw)) return raw;
+    const patterns = [
+      /[?&]v=([a-zA-Z0-9_-]{11})/,
+      /youtu\.be\/([a-zA-Z0-9_-]{11})/,
+      /youtube\.com\/embed\/([a-zA-Z0-9_-]{11})/,
+      /youtube-nocookie\.com\/embed\/([a-zA-Z0-9_-]{11})/,
+      /youtube\.com\/shorts\/([a-zA-Z0-9_-]{11})/,
+      /youtube\.com\/live\/([a-zA-Z0-9_-]{11})/
+    ];
+    for (const re of patterns) {
+      const m = raw.match(re);
+      if (m) return m[1];
+    }
+    return "";
   }
 
   /* ------------------------------------------------------------------------
@@ -633,6 +664,10 @@
             <span class="hero-kicker" id="hero-kicker">${escapeHtml(slidesData[0].kicker)}</span>
             <h1 class="hero-slide-title" id="hero-title">${escapeHtml(slidesData[0].title)}</h1>
             <p class="hero-slide-sub" id="hero-sub">${escapeHtml(slidesData[0].subtitle)}</p>
+            <div class="hero-actions">
+              <a href="representacio.html" class="btn btn--sand">${escapeHtml(ui.discoverScenes)}</a>
+              <a href="galeria.html#multimedia" class="btn btn--ghost-light">${escapeHtml(ui.watchVideo || "Veure vídeo")}</a>
+            </div>
           </div>
         </div>
         <button type="button" class="carousel-btn prev" id="hero-prev" aria-label="Previous">❮</button>
@@ -720,6 +755,28 @@
 
       homeNews.querySelectorAll("[data-open-news]").forEach((btn) => {
         btn.addEventListener("click", () => openNewsArticle(btn.dataset.openNews));
+      });
+    }
+
+    const mosaicHost = document.getElementById("home-photo-mosaic");
+    if (mosaicHost) {
+      const photos = getLocalizedGallery();
+      mosaicHost.innerHTML = photos
+        .slice(0, 4)
+        .map(
+          (g, idx) => `
+          <button type="button" class="mosaic-tile mosaic-tile--${idx + 1}" data-mosaic-idx="${idx}">
+            <img src="${escapeHtml(g.src)}" alt="${escapeHtml(g.title)}" loading="lazy">
+            <div class="mosaic-caption">
+              <span class="mosaic-album">${escapeHtml(g.album)}</span>
+              <strong>${escapeHtml(g.title)}</strong>
+            </div>
+          </button>`
+        )
+        .join("");
+
+      mosaicHost.querySelectorAll("[data-mosaic-idx]").forEach((btn) => {
+        btn.addEventListener("click", () => openLightbox(photos, Number(btn.dataset.mosaicIdx)));
       });
     }
   }
@@ -1058,6 +1115,46 @@
 
     renderPills();
     renderGrid();
+
+    const videosHost = document.getElementById("gallery-videos");
+    if (videosHost) {
+      const videos = getLocalizedVideos();
+      videosHost.classList.toggle("video-grid--single", videos.length === 1);
+      if (!videos.length) {
+        videosHost.innerHTML = `<div class="empty-state"><p>${escapeHtml(ui.noVideos || "Properament publicarem nous vídeos.")}</p></div>`;
+      } else {
+        videosHost.innerHTML = videos
+          .map((v) => {
+            const ytId = extractYouTubeId(v.youtubeId || v.youtubeUrl);
+            const watchUrl = ytId ? `https://www.youtube.com/watch?v=${ytId}` : (v.youtubeUrl || "#");
+            const embedHtml = ytId
+              ? `<iframe src="https://www.youtube-nocookie.com/embed/${escapeHtml(ytId)}?rel=0" title="${escapeHtml(v.title)}" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`
+              : `<div class="video-placeholder"><p>${escapeHtml(ui.videoUnavailable || "Vídeo pendent d'enllaçar.")}</p></div>`;
+            return `
+              <article class="video-card">
+                <div class="video-frame">
+                  ${embedHtml}
+                </div>
+                <div class="video-info">
+                  <div class="card-meta">
+                    ${v.year ? `<span class="badge badge--sand">${escapeHtml(v.year)}</span>` : ""}
+                    ${v.source ? `<span>${escapeHtml(v.source)}</span>` : ""}
+                  </div>
+                  <h3>${escapeHtml(v.title)}</h3>
+                  ${v.description ? `<p>${escapeHtml(v.description)}</p>` : ""}
+                  ${
+                    ytId
+                      ? `<div class="video-footer">
+                          <a href="${escapeHtml(watchUrl)}" target="_blank" rel="noopener noreferrer" class="link-arrow">${escapeHtml(ui.watchOnYouTube || "Veure a YouTube ↗")}</a>
+                        </div>`
+                      : ""
+                  }
+                </div>
+              </article>`;
+          })
+          .join("");
+      }
+    }
   }
 
   /* ------------------------------------------------------------------------
@@ -1169,6 +1266,18 @@
     };
   }
 
+  function normalizeVideoItem(raw, idx) {
+    return {
+      id: raw.id || "video-" + (idx + 1),
+      title: raw.titol || raw.title || "",
+      year: String(raw.any !== undefined ? raw.any : raw.year || ""),
+      source: raw.font || raw.source || "",
+      youtubeUrl: raw.youtubeUrl || raw.url || "",
+      youtubeId: raw.youtubeId || "",
+      description: raw.descripcio || raw.description || ""
+    };
+  }
+
   async function loadExternalYaml(page) {
     if (!window.SimpleYAML || window.location.protocol === "file:") return;
     const tasks = [];
@@ -1203,11 +1312,21 @@
       );
     }
 
-    if (page === "galeria") {
+    if (page === "inici" || page === "galeria") {
       tasks.push(
         window.SimpleYAML.fetchYamlList("data/galeria.yaml")
           .then((items) => {
             if (items && items.length) DATA.gallery = items.map(normalizeGalleryItem);
+          })
+          .catch(() => {})
+      );
+    }
+
+    if (page === "galeria") {
+      tasks.push(
+        window.SimpleYAML.fetchYamlList("data/multimedia.yaml")
+          .then((items) => {
+            if (items && items.length) DATA.videos = items.map(normalizeVideoItem);
           })
           .catch(() => {})
       );

@@ -26,7 +26,8 @@ davallament-felanitx/
 │   ├── noticies.yaml       # Fitxer editable de notícies
 │   ├── junta.yaml          # Fitxer editable de la Junta Directiva
 │   ├── convocatories.yaml  # Fitxer editable de convocatòries a reunions i assemblees
-│   └── galeria.yaml        # Fitxer editable de la galeria d'imatges
+│   ├── galeria.yaml        # Fitxer editable de la galeria d'imatges
+│   └── multimedia.yaml     # Fitxer editable dels vídeos de YouTube (apartat Multimèdia)
 ├── js/
 │   ├── data.js             # Textos base, escenes, cronologia i dades de reserva
 │   ├── i18n.js             # Traduccions completes de tota la web (CA, ES, EN, DE)
@@ -98,7 +99,7 @@ Copia aquesta plantilla i enganxa-la a dalt de tot de `data/noticies.yaml` perqu
 
 - **`estat`:** `proxima` (apareix destacada en verd a dalt de tot) o `realitzada`.
 
-### 3. Afegir una fotografia nova (`data/galeria.yaml`)
+### 4. Afegir una fotografia nova (`data/galeria.yaml`)
 
 1. Puja la imatge a la carpeta `img/` (per exemple `img/galeria/foto-nova.jpg`).
 2. Afegeix la fitxa a `data/galeria.yaml`:
@@ -112,6 +113,19 @@ Copia aquesta plantilla i enganxa-la a dalt de tot de `data/noticies.yaml` perqu
   credit: "Associació El Davallament de Felanitx"
   imatge: "img/galeria/foto-nova.jpg"
   descripcio: "Peu de foto descriptiu que apareix a la targeta i al visor a pantalla completa."
+```
+
+### 5. Canviar o afegir un vídeo de YouTube (`data/multimedia.yaml`)
+
+Edita `data/multimedia.yaml` i enganxa qualsevol enllaç de YouTube a `youtubeUrl`:
+
+```yaml
+- id: davallament-2025-ib3
+  titol: "El Davallament de Felanitx 2025 — 50è Aniversari"
+  any: "2025"
+  font: "IB3 Televisió"
+  youtubeUrl: "https://www.youtube.com/watch?v=paEAKhoOjV4"
+  descripcio: "Descripció breu que apareix davall el reproductor."
 ```
 
 ---

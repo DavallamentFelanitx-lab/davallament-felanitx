@@ -5,20 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="noindex, nofollow">
   <title>El Davallament de Felanitx — Associació El Davallament</title>
-  <meta name="description" content="Web oficial de divulgació de l'Associació El Davallament de Felanitx: història des de 1975, la representació, notícies, arxiu de premsa i galeria de fotografies reals.">
+  <meta name="description" content="Web oficial de divulgació de l'Associació El Davallament de Felanitx: història des de 1975, la representació, notícies, l'entitat i galeria de fotografies reals i vídeos.">
   <link rel="icon" type="image/png" href="img/logo/logo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=10">
+  <link rel="stylesheet" href="css/style.css?v=11">
 </head>
 <body data-page="inici">
   <div id="site-header-host"></div>
 
   <main id="main-content">
-    <section class="hero" id="hero-carousel" aria-label="Carrusel de fotografies d'El Davallament de Felanitx"></section>
+    <section class="hero hero--cinema" id="hero-carousel" aria-label="Carrusel de fotografies d'El Davallament de Felanitx"></section>
 
-    <section class="section intro">
+    <section class="section section--compact intro">
       <div class="container">
         <h2 class="section-title" data-i18n="home.welcomeTitle">Benvinguts</h2>
         <div class="separator"></div>
@@ -47,54 +47,72 @@
       </div>
     </section>
 
-    <section class="feature-band">
-      <div class="feature">
-        <div class="image">
-          <img src="img/hero/hero1.jpg" alt="El Davallament de la Creu davant la portalada de Sant Miquel">
-        </div>
-        <div class="text">
-          <span class="eyebrow" data-i18n="home.f1Eyebrow">Des de 1975</span>
-          <h2 data-i18n="home.f1Title">Història</h2>
-          <div class="separator left"></div>
-          <p data-i18n="home.f1Text">
-            Descobriu l'origen i l'evolució del Davallament de Felanitx al llarg del temps: des de les arrels medievals dins el temple i el salt a l'escalinata el 28 de març de 1975 fins a l'històric 50è aniversari.
-          </p>
-          <a href="historia.html" class="button" data-i18n="ui.readMore">Llegir més →</a>
+    <!-- Visual Portal Cards (full-bleed photography) -->
+    <section class="section">
+      <div class="container">
+        <div class="visual-portals">
+          <a href="historia.html" class="visual-portal">
+            <img src="img/hero/hero1.jpg" alt="El Davallament de la Creu davant la portalada de Sant Miquel">
+            <div class="visual-portal-overlay">
+              <span class="visual-portal-eyebrow" data-i18n="home.f1Eyebrow">Des de 1975</span>
+              <h2 data-i18n="home.f1Title">Història</h2>
+              <p data-i18n="home.p1Short">De les arrels medievals dins el temple a més de mig segle a l'escalinata.</p>
+              <span class="visual-portal-cta" data-i18n="ui.readMore">Llegir més →</span>
+            </div>
+          </a>
+
+          <a href="representacio.html" class="visual-portal">
+            <img src="img/hero/hero2.jpg" alt="Escena del Camí del Calvari amb els Armats a l'escalinata de Sant Miquel">
+            <div class="visual-portal-overlay">
+              <span class="visual-portal-eyebrow" data-i18n="home.f2Eyebrow">Vuit escenes · Divendres Sant</span>
+              <h2 data-i18n="home.f2Title">La representació</h2>
+              <p data-i18n="home.p2Short">Personatges, textos tradicionals i la música de Joan Martorell a cel obert.</p>
+              <span class="visual-portal-cta" data-i18n="ui.discoverScenes">Descobrir les escenes →</span>
+            </div>
+          </a>
+
+          <a href="galeria.html" class="visual-portal">
+            <img src="img/hero/hero4.jpg" alt="La Caiguda amb la Creu i la Verònica a la Parròquia de Sant Miquel">
+            <div class="visual-portal-overlay">
+              <span class="visual-portal-eyebrow" data-i18n="home.f3Eyebrow">Fotografies Originals</span>
+              <h2 data-i18n="home.f3Title">Galeria i multimèdia</h2>
+              <p data-i18n="home.p3Short">Les imatges i els vídeos més colpidors de la nit de Divendres Sant.</p>
+              <span class="visual-portal-cta" data-i18n="ui.viewGallery">Veure galeria →</span>
+            </div>
+          </a>
         </div>
       </div>
     </section>
 
-    <section class="feature-band feature-band--cream">
-      <div class="feature reverse">
-        <div class="image">
-          <img src="img/hero/hero2.jpg" alt="Escena del Camí del Calvari amb els Armats a l'escalinata de Sant Miquel">
+    <!-- Editorial Photo Mosaic (clickable to open fullscreen Lightbox) -->
+    <section class="section section--cream">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <span class="eyebrow" data-i18n="home.mosaicEyebrow">Recorregut Visual</span>
+            <h2 class="section-title" data-i18n="home.mosaicTitle">El Davallament en imatges</h2>
+          </div>
+          <a href="galeria.html" class="link-arrow" data-i18n="ui.viewGallery">Veure galeria →</a>
         </div>
-        <div class="text">
-          <span class="eyebrow" data-i18n="home.f2Eyebrow">Vuit escenes · Divendres Sant</span>
-          <h2 data-i18n="home.f2Title">La representació</h2>
-          <div class="separator left"></div>
-          <p data-i18n="home.f2Text">
-            Coneix els personatges, els textos tradicionals de la representació, la música de Joan Martorell i els elements escènics que transformen la pedra de marès en un teatre a cel obert.
-          </p>
-          <a href="representacio.html" class="button" data-i18n="ui.discoverScenes">Descobrir les escenes →</a>
-        </div>
+
+        <div class="photo-mosaic" id="home-photo-mosaic"></div>
       </div>
     </section>
 
-    <section class="feature-band">
-      <div class="feature">
-        <div class="image">
-          <img src="img/hero/hero4.jpg" alt="La Caiguda amb la Creu i la Verònica a la Parròquia de Sant Miquel">
-        </div>
-        <div class="text">
-          <span class="eyebrow" data-i18n="home.f3Eyebrow">Fotografies Originals</span>
-          <h2 data-i18n="home.f3Title">Galeria d'imatges</h2>
-          <div class="separator left"></div>
-          <p data-i18n="home.f3Text">
-            Un recorregut visual per les escenes més emotives de la representació: el judici de Pilat, els armats, la Verònica i el silenci colpidor del descendiment davant la portalada de Sant Miquel.
-          </p>
-          <a href="galeria.html" class="button" data-i18n="ui.viewGallery">Veure galeria →</a>
-        </div>
+    <!-- Atmospheric Full-Bleed Multimedia Banner -->
+    <section class="video-banner" aria-label="Multimèdia del Davallament">
+      <img class="video-banner-bg" src="img/hero/hero3.jpg" alt="" aria-hidden="true">
+      <div class="video-banner-scrim" aria-hidden="true"></div>
+      <div class="container video-banner-inner">
+        <span class="eyebrow video-banner-eyebrow" data-i18n="home.videoEyebrow">Multimèdia · 50è Aniversari</span>
+        <h2 data-i18n="home.videoTitle">Reviu la representació en vídeo</h2>
+        <p data-i18n="home.videoText">
+          Submergeix-te en l'atmosfera de Divendres Sant, la posada en escena i la banda sonora del Davallament de Felanitx a l'apartat de multimèdia.
+        </p>
+        <a href="galeria.html#multimedia" class="btn btn--sand video-banner-btn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>
+          <span data-i18n="home.videoCta">Veure el vídeo a Galeria</span>
+        </a>
       </div>
     </section>
 
@@ -121,19 +139,28 @@
         </div>
 
         <div class="cards-grid">
-          <article class="info-card">
+          <article class="info-card info-card--icon">
+            <div class="info-card-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+            </div>
             <h3 data-i18n="home.g1Title">Ubicació</h3>
             <p data-i18n-html="home.g1Html">
               <strong>Escalinata de la Parròquia de Sant Miquel</strong> i <strong>Plaça de sa Font de Santa Margalida</strong>, Felanitx (Mallorca).
             </p>
           </article>
-          <article class="info-card">
+          <article class="info-card info-card--icon">
+            <div class="info-card-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+            </div>
             <h3 data-i18n="home.g2Title">Horari i accés</h3>
             <p data-i18n-html="home.g2Html">
               Cada <strong>Divendres Sant a les 21:00 h</strong>. Accés lliure i gratuït. Es recomana arribar 30–40 minuts abans.
             </p>
           </article>
-          <article class="info-card">
+          <article class="info-card info-card--icon">
+            <div class="info-card-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+            </div>
             <h3 data-i18n="home.g3Title">Participa-hi</h3>
             <p data-i18n-html="home.g3Html">
               Vols formar part del grup d'actors, figurants, vestuari o voluntariat? <a href="contacte.html" style="color:var(--primary);font-weight:600;text-decoration:underline">Contacta amb l'Associació</a>.

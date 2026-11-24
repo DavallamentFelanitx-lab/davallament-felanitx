@@ -421,5 +421,16 @@ window.DAVALLAMENT_DATA = {
       src: "img/hero/hero3.jpg",
       caption: "Ponç Pilat presideix el pretori des de l'arc de pedra lateral mentre té lloc l'escena de la flagel·lació davant la mirada del poble."
     }
+  ],
+
+  videos: [
+    {
+      id: "davallament-2025-ib3",
+      title: "El Davallament de Felanitx 2025 — 50è Aniversari",
+      year: "2025",
+      source: "IB3 Televisió",
+      youtubeUrl: "https://www.youtube.com/watch?v=paEAKhoOjV4",
+      description: "Retransmissió televisiva del cinquantenari del Davallament de Felanitx, celebrat el Divendres Sant de 2025 a la Plaça de sa Font de Santa Margalida."
+    }
   ]
 };

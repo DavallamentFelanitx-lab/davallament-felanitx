@@ -4,13 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="noindex, nofollow">
-  <title>Galeria d'Imatges | El Davallament de Felanitx</title>
-  <meta name="description" content="Galeria de fotografies reals del Davallament de Felanitx a l'escalinata de la Parròquia de Sant Miquel.">
+  <title>Galeria i Multimèdia | El Davallament de Felanitx</title>
+  <meta name="description" content="Galeria de fotografies reals i vídeos del Davallament de Felanitx a l'escalinata de la Parròquia de Sant Miquel.">
   <link rel="icon" type="image/png" href="img/logo/logo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=10">
+  <link rel="stylesheet" href="css/style.css?v=11">
 </head>
 <body data-page="galeria">
   <div id="site-header-host"></div>
@@ -26,15 +26,23 @@
           <span>/</span>
           <span data-i18n="nav.galeria">Galeria</span>
         </nav>
-        <h1 data-i18n="galeria.bannerTitle">Galeria d'imatges</h1>
+        <h1 data-i18n="galeria.bannerTitle">Galeria i multimèdia</h1>
         <p data-i18n="galeria.bannerSub">
-          Fotografies reals de la representació del Davallament a l'escalinata i la portalada de la Parròquia de Sant Miquel de Felanitx.
+          Fotografies reals i enregistraments en vídeo de la representació del Davallament a l'escalinata i la portalada de la Parròquia de Sant Miquel de Felanitx.
         </p>
       </div>
     </section>
 
-    <section class="section">
+    <section class="section" id="fotografies">
       <div class="container">
+        <div class="section-header">
+          <div>
+            <span class="eyebrow" data-i18n="galeria.photosEyebrow">Fotografies Originals</span>
+            <h2 class="section-title" data-i18n="galeria.photosTitle">Fotografies</h2>
+          </div>
+          <a href="#multimedia" class="link-arrow" data-i18n="galeria.jumpToMedia">Anar a multimèdia ↓</a>
+        </div>
+
         <div class="toolbar" role="region" aria-label="Filtrar per àlbum">
           <div class="filter-pills" id="gallery-albums"></div>
           <span style="font-size:0.86rem;color:var(--text-muted)" data-i18n="galeria.kbdHint">Al visor pots navegar amb les fletxes ← →</span>
@@ -45,6 +53,21 @@
         </div>
 
         <div class="gallery-grid" id="gallery-grid"></div>
+      </div>
+    </section>
+
+    <section class="section section--cream" id="multimedia">
+      <div class="container">
+        <div class="section-header section-header--center">
+          <span class="eyebrow" data-i18n="galeria.mediaEyebrow">Vídeo i Retransmissions</span>
+          <h2 class="section-title" data-i18n="galeria.mediaTitle">Multimèdia</h2>
+          <div class="separator"></div>
+          <p style="max-width:680px;color:var(--text-muted)" data-i18n="galeria.mediaLead">
+            Reviu la força escènica, la música i el silenci del Davallament de Felanitx a través dels enregistraments i retransmissions en vídeo.
+          </p>
+        </div>
+
+        <div class="video-grid" id="gallery-videos"></div>
       </div>
     </section>
   </main>
