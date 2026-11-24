@@ -45,20 +45,6 @@
     - "La música també hi juga un paper fonamental. La banda sonora composta i orquestrada pel músic porrerenc Joan Martorell l'any passat dona una nova dimensió sonora a cadascuna de les escenes. Aquest Divendres Sant la música i l'escenografia varen estar acompanyades per la narració de Maria Mascaró i de l'actor Miquel Gelabert, que varen oferir una sentida lectura dels textos tradicionals escrits expressament per al Davallament."
     - "Tot i que la representació en aquest emplaçament es fa des de fa 51 anys, anteriorment es celebrava a l'interior de l'església i la seva història es remunta a l'Edat Mitjana. Un cop finalitzat el Davallament, va tenir lloc la tradicional Processó de l'Enterrament, que va concloure al convent de Sant Agustí."
 
-- id: arxiu-ciutada-digitalitzacio
-  titol: "En marxa la recopilació de retalls de premsa i fotografies antigues (1975–2026)"
-  categoria: "Patrimoni i Cultura"
-  data: "22 de març de 2026"
-  dataIso: "2026-03-22"
-  lectura: "3 min"
-  destacada: false
-  imatge: "img/hero/hero4.jpg"
-  resum: "L'Associació posa en marxa una hemeroteca digital oberta perquè les famílies felanitxeres puguin compartir records, programes i articles antics."
-  etiquetes: ["Hemeroteca", "Arxiu", "Memòria"]
-  cos:
-    - "Amb l'objectiu de preservar la història escrita i visual del Davallament, aquest portal incorpora un arxiu de notícies de premsa on qualsevol persona pot consultar cròniques des de 1975 fins avui."
-    - "Si conserves material històric a casa, ens pots escriure a davallamentfelanitx@gmail.com o a través de la pàgina de Contacte per col·laborar en la digitalització."
-
 - id: presentacio-cartell-2026
   titol: "Presentació del cartell oficial del Davallament de Felanitx 2026"
   categoria: "Edició 2026"
@@ -78,20 +64,6 @@
     - "Després de la celebració del cinquantenari, el Davallament de 2026 vol donar continuïtat a aquesta fita, tot posant un èmfasi especial en la banda sonora creada expressament per a l'ocasió, així com en la consolidació dels nous elements incorporats en els darrers anys."
     - "El Davallament de Felanitx se celebra el Divendres Sant, dia 3 d'abril de 2026, a les 21:00 h, al replà de l'església parroquial de Sant Miquel, amb la direcció artística de Joan Toni Sunyer."
     - "Des de l'organització s'ha volgut expressar un agraïment especial a l'Ajuntament de Felanitx, al Centre Cultural, a la Fundació Barceló i a la Parròquia de Sant Miquel per la seva col·laboració i suport constant, que fan possible que aquesta tradició es mantingui viva any rere any."
-
-- id: convocatoria-voluntariat-2026
-  titol: "Crida oberta a figurants, actors, vestuari i equip tècnic voluntari"
-  categoria: "Convocatòries"
-  data: "12 de febrer de 2026"
-  dataIso: "2026-02-12"
-  lectura: "3 min"
-  destacada: false
-  imatge: "img/hero/hero3.jpg"
-  resum: "L'Associació convida veïns i veïnes de totes les edats a sumar-se als assajos i als tallers de preparació per mantenir viu el relleu generacional."
-  etiquetes: ["Voluntariat", "Assajos", "Associació"]
-  cos:
-    - "Cada any, més de 160 persones fan possible el Davallament de manera totalment altruista. Des d'infants fins a gent gran, tothom hi té un paper essencial dins o darrere l'escena."
-    - "No cal experiència teatral prèvia per participar-hi: pots inscriure't com a figurant, actor, col·laborador de vestuari o suport tècnic a través de la pàgina de Contacte d'aquest web."
 
 - id: cinquantenari-2025-historic
   titol: "Un 50è aniversari històric: sis escenaris, música original i directe a IB3"

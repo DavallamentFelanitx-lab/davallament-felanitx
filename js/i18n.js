@@ -41,7 +41,7 @@ window.I18N = {
       readShort: "Llegir →",
       readFullArticle: "Llegir l'article complet →",
       featuredPrefix: "Destacat · ",
-      latestBadge: "La notícia més recent",
+      latestBadge: "Notícia destacada",
       allYears: "Tots els anys",
       readTimeSuffix: " de lectura",
       copyLink: "Copiar enllaç",
@@ -229,7 +229,7 @@ window.I18N = {
       readShort: "Leer →",
       readFullArticle: "Leer el artículo completo →",
       featuredPrefix: "Destacado · ",
-      latestBadge: "La noticia más reciente",
+      latestBadge: "Noticia destacada",
       allYears: "Todos los años",
       readTimeSuffix: " de lectura",
       copyLink: "Copiar enlace",
@@ -453,26 +453,6 @@ window.I18N = {
             "La presentación oficial del 50.º aniversario incluyó el descubrimiento del cartel conmemorativo diseñado por el artista internacional nacido en Felanitx, Miquel Barceló.",
             "La Associació El Davallament de Felanitx agradeció públicamente este gesto generoso que vincula la creación contemporánea con medio siglo de memoria popular y patrimonio compartido."
           ]
-        },
-        "convocatoria-voluntariat-2026": {
-          category: "Convocatorias", date: "12 de febrero de 2026", readTime: "3 min",
-          title: "Llamamiento abierto a figurantes, actores, vestuario y equipo técnico voluntario",
-          excerpt: "La Asociación invita a vecinos de todas las edades a sumarse a los ensayos y talleres de preparación para mantener vivo el relevo generacional.",
-          tags: ["Voluntariado", "Ensayos", "Asociación"],
-          body: [
-            "Cada año, más de 160 personas hacen posible el Davallament de manera totalmente altruista. Desde niños hasta mayores, todos tienen un papel esencial dentro o detrás de la escena.",
-            "No hace falta experiencia teatral previa para participar: puedes inscribirte como figurante, actor, colaborador de vestuario o apoyo técnico a través de la página de Contacto de esta web."
-          ]
-        },
-        "arxiu-ciutada-digitalitzacio": {
-          category: "Patrimonio y Cultura", date: "22 de marzo de 2026", readTime: "3 min",
-          title: "En marcha la recopilación de recortes de prensa y fotografías antiguas (1975–2026)",
-          excerpt: "La Asociación pone en marcha una hemeroteca digital abierta para que las familias felanitxeras puedan compartir recuerdos, programas y artículos antiguos.",
-          tags: ["Hemeroteca", "Archivo", "Memoria"],
-          body: [
-            "Con el objetivo de preservar la historia escrita y visual del Davallament, este portal incorpora un archivo de noticias de prensa donde cualquier persona puede consultar crónicas desde 1975 hasta hoy.",
-            "Si conservas material histórico en casa, puedes escribirnos a davallamentfelanitx@gmail.com o a través de la página de Contacto para colaborar en su digitalización."
-          ]
         }
       },
       pressArchive: {
@@ -539,7 +519,7 @@ window.I18N = {
       readShort: "Read →",
       readFullArticle: "Read full article →",
       featuredPrefix: "Featured · ",
-      latestBadge: "Most recent news",
+      latestBadge: "Featured news",
       allYears: "All years",
       readTimeSuffix: " read",
       copyLink: "Copy link",
@@ -763,26 +743,6 @@ window.I18N = {
             "The official presentation of the 50th anniversary featured the unveiling of the commemorative poster created by internationally renowned Felanitx artist Miquel Barceló.",
             "Associació El Davallament de Felanitx expressed deep gratitude for a generous work linking contemporary art with half a century of shared local heritage."
           ]
-        },
-        "convocatoria-voluntariat-2026": {
-          category: "Open Calls", date: "February 12, 2026", readTime: "3 min",
-          title: "Open call for extras, actors, costume makers, and technical volunteers",
-          excerpt: "The Association invites residents of all ages to join rehearsals and preparation workshops to pass the tradition on to new generations.",
-          tags: ["Volunteering", "Rehearsals", "Association"],
-          body: [
-            "Every year, more than 160 people make El Davallament possible on a completely voluntary basis—from children to seniors, onstage and backstage.",
-            "No prior acting experience is needed: you can sign up as an extra, actor, costume helper, or technical volunteer via the Contact page."
-          ]
-        },
-        "arxiu-ciutada-digitalitzacio": {
-          category: "Heritage & Culture", date: "March 22, 2026", readTime: "3 min",
-          title: "Community drive to collect historic press clippings and photographs (1975–2026)",
-          excerpt: "The Association launches an open digital press archive so Felanitx families can share keepsakes, programmes, and historic articles.",
-          tags: ["Press Archive", "Heritage", "Memory"],
-          body: [
-            "To preserve the written and visual memory of El Davallament, this portal features a searchable press archive spanning 1975 to today.",
-            "If you preserve historic material at home, feel free to write to davallamentfelanitx@gmail.com or via the Contact page to help with our digital archive."
-          ]
         }
       },
       pressArchive: {
@@ -849,7 +809,7 @@ window.I18N = {
       readShort: "Lesen →",
       readFullArticle: "Vollständigen Artikel lesen →",
       featuredPrefix: "Empfohlen · ",
-      latestBadge: "Neueste Nachricht",
+      latestBadge: "Hervorgehobene Nachricht",
       allYears: "Alle Jahre",
       readTimeSuffix: " Lesezeit",
       copyLink: "Link kopieren",
@@ -1072,26 +1032,6 @@ window.I18N = {
           body: [
             "Bei der offiziellen Vorstellung des 50. Jubiläums wurde das vom international bekannten Künstler Miquel Barceló entworfene Plakat enthüllt.",
             "Die Associació El Davallament de Felanitx dankte öffentlich für diese großzügige Geste, die zeitgenössische Kunst mit einem halben Jahrhundert gelebter Tradition verbindet."
-          ]
-        },
-        "convocatoria-voluntariat-2026": {
-          category: "Aufrufe", date: "12. Februar 2026", readTime: "3 Min.",
-          title: "Offener Aufruf für Statisten, Darsteller, Kostüm- und Technikhelfer",
-          excerpt: "Der Verein lädt Einwohner jeden Alters ein, sich den Proben und Werkstätten anzuschließen, um den Generationswechsel lebendig zu halten.",
-          tags: ["Ehrenamt", "Proben", "Verein"],
-          body: [
-            "Jedes Jahr machen mehr als 160 Menschen den Davallament rein ehrenamtlich möglich – von Kindern bis zu Senioren, auf und hinter der Bühne.",
-            "Theatererfahrung ist nicht erforderlich: Über die Kontaktseite dieser Website können Sie sich als Statist, Darsteller oder Helfer anmelden."
-          ]
-        },
-        "arxiu-ciutada-digitalitzacio": {
-          category: "Kulturerbe", date: "22. März 2026", readTime: "3 Min.",
-          title: "Sammlung historischer Presseausschnitte und Fotografien gestartet (1975–2026)",
-          excerpt: "Der Verein eröffnet ein digitales Pressearchiv, damit Familien Erinnerungsstücke, Programme und alte Artikel teilen können.",
-          tags: ["Pressearchiv", "Archiv", "Erinnerung"],
-          body: [
-            "Um die schriftliche und visuelle Geschichte des Davallament zu bewahren, bietet dieses Portal ein durchsuchbares Pressearchiv von 1975 bis heute.",
-            "Wenn Sie historisches Material zu Hause aufbewahren, schreiben Sie uns gerne an davallamentfelanitx@gmail.com oder über die Kontaktseite."
           ]
         }
       },

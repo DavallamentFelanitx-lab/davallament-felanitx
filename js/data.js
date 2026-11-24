@@ -317,38 +317,6 @@ window.DAVALLAMENT_DATA = {
         "La presentació oficial del 50è aniversari va incloure la descoberta del cartell commemoratiu dissenyat per l'artista internacional nascut a Felanitx, Miquel Barceló.",
         "L'Associació El Davallament de Felanitx va agrair públicament aquest gest generós que vincula la creació contemporània amb mig segle de memòria popular i patrimoni compartit."
       ]
-    },
-    {
-      id: "convocatoria-voluntariat-2026",
-      category: "Convocatòries",
-      date: "12 de febrer de 2026",
-      isoDate: "2026-02-12",
-      readTime: "3 min",
-      featured: false,
-      image: "img/hero/hero3.jpg",
-      title: "Crida oberta a figurants, actors, vestuari i equip tècnic voluntari",
-      excerpt: "L'Associació convida veïns i veïnes de totes les edats a sumar-se als assajos i als tallers de preparació per mantenir viu el relleu generacional.",
-      tags: ["Voluntariat", "Assajos", "Associació"],
-      body: [
-        "Cada any, més de 160 persones fan possible el Davallament de manera totalment altruista. Des d'infants fins a gent gran, tothom hi té un paper essencial dins o darrere l'escena.",
-        "No cal experiència teatral prèvia per participar-hi: pots inscriure't com a figurant, actor, col·laborador de vestuari o suport tècnic a través de la pàgina de Contacte d'aquest web."
-      ]
-    },
-    {
-      id: "arxiu-ciutada-digitalitzacio",
-      category: "Patrimoni i Cultura",
-      date: "22 de març de 2026",
-      isoDate: "2026-03-22",
-      readTime: "3 min",
-      featured: false,
-      image: "img/hero/hero4.jpg",
-      title: "En marxa la recopilació de retalls de premsa i fotografies antigues (1975–2026)",
-      excerpt: "L'Associació posa en marxa una hemeroteca digital oberta perquè les famílies felanitxeres puguin compartir records, programes i articles antics.",
-      tags: ["Hemeroteca", "Arxiu", "Memòria"],
-      body: [
-        "Amb l'objectiu de preservar la història escrita i visual del Davallament, aquest portal incorpora un arxiu de notícies de premsa on qualsevol persona pot consultar cròniques des de 1975 fins avui.",
-        "Si conserves material històric a casa, ens pots escriure a davallamentfelanitx@gmail.com o a través de la pàgina de Contacte per col·laborar en la digitalització."
-      ]
     }
   ],
 
