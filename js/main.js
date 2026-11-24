@@ -387,10 +387,6 @@
             <nav class="footer-sitemap" aria-label="Mapa del web">
               ${footerCols
                 .map((col) => {
-                  const extraLink =
-                    col.key === "contacte"
-                      ? `<li><a href="mailto:${CONTACT_EMAIL}">${CONTACT_EMAIL}</a></li>`
-                      : "";
                   const children = Array.isArray(col.children) ? col.children : [];
                   return `
                     <div class="footer-col">
@@ -402,7 +398,6 @@
                               `<li><a href="${sub.href}">${escapeHtml((d.subnav && d.subnav[sub.key]) || sub.key)}</a></li>`
                           )
                           .join("")}
-                        ${extraLink}
                       </ul>
                     </div>`;
                 })
