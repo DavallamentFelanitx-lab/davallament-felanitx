@@ -626,7 +626,6 @@
           <article class="card">
             <div class="card-media">
               <img src="${escapeHtml(n.image)}" alt="${escapeHtml(n.title)}" loading="lazy">
-              <span class="badge badge--overlay">${escapeHtml(n.category)}</span>
             </div>
             <div class="card-body">
               <div class="card-meta"><span>${escapeHtml(n.date)}</span> · <span>${escapeHtml(n.readTime)}</span></div>
@@ -850,7 +849,6 @@
           <article class="card">
             <div class="card-media">
               <img src="${escapeHtml(n.image)}" alt="${escapeHtml(n.title)}" loading="lazy">
-              <span class="badge badge--overlay">${escapeHtml(n.category)}</span>
             </div>
             <div class="card-body">
               <div class="card-meta"><span>${escapeHtml(n.date)}</span> · <span>${escapeHtml(n.readTime)}</span></div>
