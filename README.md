@@ -67,7 +67,7 @@ Copia aquesta plantilla i enganxa-la a dalt de tot de `data/noticies.yaml` perqu
 ```
 
 - **Categories suggerides:** `Cròniques`, `50è Aniversari`, `Convocatòries`, `Patrimoni i Cultura` (en pots crear de noves i apareixeran automàticament com a botó de filtre).
-- **`destacada: true`:** la primera notícia marcada com a `true` surt en format gran a la capçalera de `noticies.html`.
+- **Ordenació i notícia destacada automàtica:** les notícies s'ordenen automàticament per data (de més recent a més antiga) i la darrera publicada apareix sempre en gran a la capçalera de `noticies.html`.
 
 ### 2. Afegir un retall de premsa (`data/arxiu-premsa.yaml`)
 

@@ -775,7 +775,7 @@
     let activeCategory = allLabel;
     let query = searchInput ? searchInput.value : "";
 
-    const lead = newsList.find((n) => n.featured) || newsList[0];
+    const lead = newsList[0];
     if (featuredHost && lead) {
       featuredHost.innerHTML = `
         <article class="featured-news">

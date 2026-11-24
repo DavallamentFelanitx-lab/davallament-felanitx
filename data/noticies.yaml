@@ -1,7 +1,8 @@
 # ============================================================================
 # NOTÍCIES — Associació El Davallament de Felanitx
 # ============================================================================
-# Les notícies s'ordenen automàticament per ordre cronològic (de més recent a més antiga).
+# Les notícies s'ordenen automàticament per ordre cronològic (de més recent a més antiga)
+# i la notícia més recent apareix automàticament destacada a dalt de tot de Notícies.
 #
 # Com afegir una notícia nova:
 #   1. Copia una fitxa completa (des de "- id:" fins al darrer paràgraf de "cos:")
