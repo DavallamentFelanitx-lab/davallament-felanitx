@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Arxiu de Premsa | El Davallament de Felanitx</title>
+  <meta name="description" content="Hemeroteca i arxiu de notícies de premsa del Davallament de Felanitx des de 1975 fins al 2026: Diario de Mallorca, Ultima Hora, Diari de Balears, Setmanari Felanitx i IB3.">
+  <link rel="icon" type="image/png" href="img/logo/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="arxiu">
+  <div id="site-header-host"></div>
+
+  <main id="main-content">
+    <section class="page-banner">
+      <div class="page-banner-bg" aria-hidden="true">
+        <img src="img/hero/hero3.jpg" alt="">
+      </div>
+      <div class="container page-banner-inner">
+        <nav class="breadcrumb" aria-label="Fil d'Ariadna">
+          <a href="index.html">Inici</a>
+          <span>/</span>
+          <span>Arxiu de Premsa</span>
+        </nav>
+        <h1>Arxiu de notícies de premsa</h1>
+        <p>
+          Hemeroteca digital (1975–2026) amb cròniques i retalls publicats als mitjans locals i balears sobre el Davallament de Felanitx.
+        </p>
+        <div style="margin-top:22px">
+          <button type="button" class="btn btn--sand" id="open-contribute-btn">+ Aportar un retall a l'hemeroteca</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="toolbar" role="region" aria-label="Filtres de l'arxiu de premsa">
+          <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center">
+            <label for="press-outlet-filter" class="sr-only">Mitjà</label>
+            <select id="press-outlet-filter" class="select-field"></select>
+
+            <label for="press-decade-filter" class="sr-only">Època</label>
+            <select id="press-decade-filter" class="select-field">
+              <option value="Totes">Totes les èpoques (1975–2026)</option>
+              <option value="2026">Edició 2026</option>
+              <option value="2025">50è Aniversari (2025)</option>
+              <option value="2010-2024">Dècada 2010–2024</option>
+              <option value="1990-2009">Anys 1990–2009</option>
+              <option value="1975-1989">Orígens 1975–1989</option>
+            </select>
+          </div>
+
+          <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;flex:1;justify-content:flex-end">
+            <div class="search-field">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+              <label for="press-search" class="sr-only">Cercar a l'arxiu</label>
+              <input id="press-search" type="search" placeholder="Cercar titular, mitjà o any...">
+            </div>
+
+            <div class="view-toggle" role="group" aria-label="Tipus de vista">
+              <button type="button" id="view-list-btn" class="active">Llista</button>
+              <button type="button" id="view-grid-btn">Fitxes</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="results-bar">
+          <span id="press-count"></span>
+          <span>Fes clic a qualsevol entrada per obrir el retall complet</span>
+        </div>
+
+        <div id="press-results"></div>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer-host"></div>
+
+  <script defer src="js/data.js"></script>
+  <script defer src="js/yaml-loader.js"></script>
+  <script defer src="js/main.js"></script>
+</body>
+</html>

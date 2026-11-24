@@ -1,0 +1,88 @@
+# ============================================================================
+# NOTÍCIES — Associació El Davallament de Felanitx
+# ============================================================================
+# Com afegir una notícia nova:
+#   1. Copia una fitxa completa (des de "- id:" fins al darrer paràgraf de "cos:")
+#   2. Enganxa-la a dalt de tot per tal que aparegui la primera.
+#   3. Desa el fitxer (o fes "Commit changes" directament a GitHub).
+#
+# Camps:
+#   id:         identificador únic sense espais ni accents (ex: edicio-2027)
+#   titol:      titular de la notícia (entre cometes)
+#   categoria:  Cròniques | 50è Aniversari | Convocatòries | Patrimoni i Cultura
+#   data:       data visible (ex: "26 de març de 2027")
+#   lectura:    temps estimat (ex: "3 min")
+#   destacada:  true (surt en gran a la portada de Notícies) o false
+#   imatge:     ruta de la fotografia dins el repositori (ex: "img/hero/hero1.jpg")
+#   resum:      resum curt per a la targeta
+#   etiquetes:  llista entre claudàtors (ex: ["Edició 2027", "Sant Miquel"])
+#   cos:        paràgrafs de la notícia, un per cada línia començada amb "    - "
+# ============================================================================
+
+- id: edicio-2026-escalinata
+  titol: "El Davallament de Felanitx 2026 emociona de nou a l'escalinata de Sant Miquel"
+  categoria: "Cròniques"
+  data: "4 d'abril de 2026"
+  lectura: "4 min"
+  destacada: true
+  imatge: "img/hero/hero1.jpg"
+  resum: "Prop de dos cents veïns i veïnes varen donar vida a una edició que va recuperar el marc clàssic de la façana parroquial conservant la força sonora del cinquantenari."
+  etiquetes: ["Edició 2026", "Sant Miquel", "Divendres Sant"]
+  cos:
+    - "La nit del Divendres Sant, 3 d'abril de 2026, Felanitx va tornar a congregar centenars de residents i visitants d'arreu de Mallorca a les 21:00 hores davant la Parròquia de Sant Miquel."
+    - "Després de la celebració extraordinària del 50è aniversari el 2025, enguany la posada en escena va tornar a concentrar-se en el seu marc històric original: el replà i l'escalinata de Sant Miquel, recuperant la verticalitat icònica de cada escena."
+    - "La continuïtat de la banda sonora original de Joan Martorell i la il·luminació dramàtica varen envoltar els versos del pare Antoni Oliver Monserrat en un silenci absolut que només es va rompre amb l'ovació final."
+    - "Tot seguit, les confraries del municipi i la Banda de Música de Felanitx varen iniciar la tradicional Processó de l'Enterrament pels carrers del centre històric."
+
+- id: cinquantenari-2025-historic
+  titol: "Un 50è aniversari històric: sis escenaris, música original i directe a IB3"
+  categoria: "50è Aniversari"
+  data: "19 d'abril de 2025"
+  lectura: "5 min"
+  destacada: false
+  imatge: "img/hero/hero4.jpg"
+  resum: "Felanitx va commemorar mig segle del Davallament a l'aire lliure amb un desplegament sense precedents a la Plaça de sa Font de Santa Margalida."
+  etiquetes: ["50è Aniversari", "IB3 Televisió", "Cinquantenari"]
+  cos:
+    - "Cinquanta anys després d'aquell 28 de març de 1975 en què la representació va sortir a l'exterior, Felanitx va viure una edició commemorativa inoblidable."
+    - "Sota la direcció de Joan Toni Sunyer i Marta Obrador, l'escenificació es va desplegar per sis escenaris al voltant de la Plaça de sa Font de Santa Margalida, estrenant la música original de Joan Martorell."
+    - "Per primera vegada, IB3 Televisió va retransmetre l'acte en directe per a totes les Illes Balears, apropant la tradició a milers d'espectadors."
+
+- id: cartell-miquel-barcelo
+  titol: "Miquel Barceló signa el cartell commemoratiu dels 50 anys del Davallament"
+  categoria: "50è Aniversari"
+  data: "14 de març de 2025"
+  lectura: "3 min"
+  destacada: false
+  imatge: "img/hero/hero2.jpg"
+  resum: "L'artista felanitxer va col·laborar en l'efemèride regalant a la seva vila una imatge carregada de força expressiva i simbolisme."
+  etiquetes: ["Miquel Barceló", "Art", "Cartell"]
+  cos:
+    - "La presentació oficial del 50è aniversari va incloure la descoberta del cartell commemoratiu dissenyat per l'artista internacional nascut a Felanitx, Miquel Barceló."
+    - "L'Associació El Davallament de Felanitx va agrair públicament aquest gest generós que vincula la creació contemporània amb mig segle de memòria popular i patrimoni compartit."
+
+- id: convocatoria-voluntariat-2026
+  titol: "Crida oberta a figurants, actors, vestuari i equip tècnic voluntari"
+  categoria: "Convocatòries"
+  data: "12 de febrer de 2026"
+  lectura: "3 min"
+  destacada: false
+  imatge: "img/hero/hero3.jpg"
+  resum: "L'Associació convida veïns i veïnes de totes les edats a sumar-se als assajos i als tallers de preparació per mantenir viu el relleu generacional."
+  etiquetes: ["Voluntariat", "Assajos", "Associació"]
+  cos:
+    - "Cada any, més de 160 persones fan possible el Davallament de manera totalment altruista. Des d'infants fins a gent gran, tothom hi té un paper essencial dins o darrere l'escena."
+    - "No cal experiència teatral prèvia per participar-hi: pots inscriure't com a figurant, actor, col·laborador de vestuari o suport tècnic a través de la pàgina de Contacte d'aquest web."
+
+- id: arxiu-ciutada-digitalitzacio
+  titol: "En marxa la recopilació de retalls de premsa i fotografies antigues (1975–2026)"
+  categoria: "Patrimoni i Cultura"
+  data: "22 de març de 2026"
+  lectura: "3 min"
+  destacada: false
+  imatge: "img/hero/hero4.jpg"
+  resum: "L'Associació posa en marxa una hemeroteca digital oberta perquè les famílies felanitxeres puguin compartir records, programes i articles antics."
+  etiquetes: ["Hemeroteca", "Arxiu", "Memòria"]
+  cos:
+    - "Amb l'objectiu de preservar la història escrita i visual del Davallament, aquest portal incorpora un arxiu de notícies de premsa on qualsevol persona pot consultar cròniques des de 1975 fins avui."
+    - "A més, mitjançant el botó d'aportació ciutadana a l'Arxiu de Premsa, es poden catalogar noves referències de retalls conservats a casa."

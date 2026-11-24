@@ -1,42 +1,84 @@
 <!DOCTYPE html>
 <html lang="ca">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Història | Davallament de Felanitx</title>
-
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/responsive.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Història | El Davallament de Felanitx</title>
+  <meta name="description" content="Història i cronologia del Davallament de Felanitx: dels orígens litúrgics i el 28 de març de 1975 fins al 50è aniversari i l'actualitat.">
+  <link rel="icon" type="image/png" href="img/logo/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
 </head>
+<body data-page="historia">
+  <div id="site-header-host"></div>
 
-<body>
+  <main id="main-content">
+    <section class="page-banner">
+      <div class="page-banner-bg" aria-hidden="true">
+        <img src="img/hero/hero1.jpg" alt="">
+      </div>
+      <div class="container page-banner-inner">
+        <nav class="breadcrumb" aria-label="Fil d'Ariadna">
+          <a href="index.html">Inici</a>
+          <span>/</span>
+          <span>Història</span>
+        </nav>
+        <h1>Història del Davallament</h1>
+        <p>
+          Més de mig segle de teatre sacre a l'escalinata de Sant Miquel i segles de tradició viva al cor de Felanitx.
+        </p>
+      </div>
+    </section>
 
-<header class="page-header">
+    <section class="section">
+      <div class="container">
+        <div style="max-width:860px;margin:0 auto 3.5rem">
+          <span class="eyebrow">Memòria Col·lectiva</span>
+          <h2 class="section-title">De l'interior del temple a la monumental escalinata</h2>
+          <div class="separator left"></div>
+          <p style="color:var(--text-muted);font-size:1.06rem;margin-bottom:16px">
+            Les representacions dels davallaments formen part de la tradició medieval mallorquina de Setmana Santa. A Felanitx, durant generacions la cerimònia va tenir lloc dins la <strong>Parròquia de Sant Miquel</strong>, fins que el <strong>28 de març de 1975</strong> la Creuada de l'Amor Diví, juntament amb Antoni Grimalt Obrador i Lluís Bou Monserrat, impulsaren el trasllat definitiu a l'aire lliure.
+          </p>
+          <p style="color:var(--text-muted);font-size:1.06rem">
+            A partir dels textos escrits expressament pel pare teatí felanitxer <strong>Antoni Oliver Monserrat</strong>, la representació es va convertir en una cita ineludible del calendari cultural i devocional de Mallorca, capaç de mobilitzar generacions senceres de felanitxers de manera totalment altruista.
+          </p>
+          <blockquote class="quote-box">
+            <p>«Allò que va néixer el 1975 amb il·lusió i esforç veïnal s'ha convertit en una senya d'identitat que uneix tot el poble de Felanitx.»</p>
+            <cite>— Associació El Davallament de Felanitx</cite>
+          </blockquote>
+        </div>
 
-    <nav>
-        <a href="index.html">Inici</a>
-        <a href="historia.html">Història</a>
-        <a href="representacio.html">Representació</a>
-        <a href="galeria.html">Galeria</a>
-        <a href="arxiu.html">Arxiu</a>
-        <a href="contacte.html">Contacte</a>
-    </nav>
+        <div class="section-header section-header--center">
+          <span class="eyebrow">Línia Temporal</span>
+          <h2 class="section-title">Fites principals (1975–2026)</h2>
+          <div class="separator"></div>
+        </div>
 
-</header>
+        <div class="timeline" id="timeline-list"></div>
+      </div>
+    </section>
 
-<section class="page-title">
-    <h1>Història</h1>
-</section>
+    <section class="section section--cream">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <span class="eyebrow">Persones i Col·lectius</span>
+            <h2 class="section-title">Protagonistes d'aquesta història</h2>
+          </div>
+          <a href="arxiu.html" class="link-arrow">Explorar l'arxiu de premsa →</a>
+        </div>
 
-<main class="container">
-    <p>Contingut pendent...</p>
-</main>
+        <div class="cards-grid" id="protagonists-grid"></div>
+      </div>
+    </section>
+  </main>
 
-<footer>
-    <div class="container">
-        <p>© Davallament de Felanitx</p>
-    </div>
-</footer>
+  <div id="site-footer-host"></div>
 
+  <script defer src="js/data.js"></script>
+  <script defer src="js/main.js"></script>
 </body>
 </html>

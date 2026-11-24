@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Galeria d'Imatges | El Davallament de Felanitx</title>
+  <meta name="description" content="Galeria de fotografies reals del Davallament de Felanitx a l'escalinata de la Parròquia de Sant Miquel.">
+  <link rel="icon" type="image/png" href="img/logo/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="galeria">
+  <div id="site-header-host"></div>
+
+  <main id="main-content">
+    <section class="page-banner">
+      <div class="page-banner-bg" aria-hidden="true">
+        <img src="img/hero/hero1.jpg" alt="">
+      </div>
+      <div class="container page-banner-inner">
+        <nav class="breadcrumb" aria-label="Fil d'Ariadna">
+          <a href="index.html">Inici</a>
+          <span>/</span>
+          <span>Galeria</span>
+        </nav>
+        <h1>Galeria d'imatges</h1>
+        <p>
+          Fotografies reals de la representació del Davallament a l'escalinata i la portalada de la Parròquia de Sant Miquel de Felanitx.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="toolbar" role="region" aria-label="Filtrar per àlbum">
+          <div class="filter-pills" id="gallery-albums"></div>
+          <span style="font-size:0.86rem;color:var(--text-muted)">Al visor pots navegar amb les fletxes ← →</span>
+        </div>
+
+        <div class="results-bar">
+          <span id="gallery-count"></span>
+        </div>
+
+        <div class="gallery-grid" id="gallery-grid"></div>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer-host"></div>
+
+  <script defer src="js/data.js"></script>
+  <script defer src="js/yaml-loader.js"></script>
+  <script defer src="js/main.js"></script>
+</body>
+</html>

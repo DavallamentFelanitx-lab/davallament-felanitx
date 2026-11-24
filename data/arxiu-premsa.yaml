@@ -1,0 +1,150 @@
+# ============================================================================
+# ARXIU DE PREMSA (HEMEROTECA) — Associació El Davallament de Felanitx
+# ============================================================================
+# Per afegir un retall de premsa nou, copia una fitxa i enganxa-la a dalt.
+# Valors recomanats per a "epoca": "2026" | "2025" | "2010-2024" | "1990-2009" | "1975-1989"
+# ============================================================================
+
+- id: uh-2026-04-04
+  mitja: "Ultima Hora"
+  data: "4 d'abril de 2026"
+  any: 2026
+  epoca: "2026"
+  seccio: "Part Forana · Felanitx"
+  ref: "FEL-PREMSA-2026-01"
+  titular: "El Davallament de Felanitx torna a emocionar a l'escalinata de Sant Miquel"
+  resum: "Crònica de la nit de Divendres Sant 2026, destacant el retorn a l'escenari clàssic de la façana parroquial i el silenci absolut del públic."
+  fragment: "«Després de la fita històrica del cinquantenari, Felanitx va demostrar ahir vespre que la força del seu Davallament rau en la pedra de Sant Miquel i en l'entrega de prop de dos cents veïns.»"
+  context: "Cobertura posterior a l'edició del 3 d'abril de 2026."
+
+- id: vf-2026-03-28
+  mitja: "Viu Felanitx"
+  data: "28 de març de 2026"
+  any: 2026
+  epoca: "2026"
+  seccio: "Cultura i Tradicions"
+  ref: "FEL-PREMSA-2026-02"
+  titular: "Tot a punt per al Davallament 2026: horaris, música i textos d'Antoni Oliver"
+  resum: "Guia prèvia a la Setmana Santa felanitxera amb l'horari de Divendres Sant a les 21:00 h i el seguici amb la Banda de Música."
+  fragment: "«Els assajos generals confirmen la bona salut del relleu generacional preservant els versos del pare Antoni Oliver Monserrat.»"
+  context: "Article informatiu local adreçat als felanitxers i visitants."
+
+- id: mc-2026-03-30
+  mitja: "Mallorca Caprice"
+  data: "30 de març de 2026"
+  any: 2026
+  epoca: "2026"
+  seccio: "Agenda Cultural"
+  ref: "FEL-PREMSA-2026-03"
+  titular: "El Davallament de Felanitx, cita imprescindible de la Setmana Santa a Mallorca"
+  resum: "Selecció cultural dels actes més autèntics de l'illa, subratllant el silenci col·lectiu i el valor patrimonial del teatre sacre."
+  fragment: "«Pocs indrets de la Mediterrània aconsegueixen transformar una escalinata parroquial en un teatre a cel obert tan colpidor com Felanitx la nit de Divendres Sant.»"
+  context: "Publicació cultural de projecció insular."
+
+- id: dm-2025-04-19
+  mitja: "Diario de Mallorca"
+  data: "19 d'abril de 2025"
+  any: 2025
+  epoca: "2025"
+  seccio: "Part Forana · Especial 50è Aniversari"
+  ref: "FEL-PREMSA-2025-01"
+  titular: "Felanitx fa història en el 50è aniversari d'un Davallament multitudinari i retransmès per IB3"
+  resum: "Reportatge especial sobre el cinquantenari, el cartell de Miquel Barceló i la implicació de tot el poble."
+  fragment: "«Mig segle d'història culminat en una nit irrepetible: sis escenaris, 160 actors amateurs i milers d'espectadors presencials i televisius.»"
+  context: "Portada de la secció de Part Forana amb testimonis de participants des de 1975."
+
+- id: db-2025-04-18
+  mitja: "Diari de Balears"
+  data: "18 d'abril de 2025"
+  any: 2025
+  epoca: "2025"
+  seccio: "Cultura · Illes Balears"
+  ref: "FEL-PREMSA-2025-02"
+  titular: "Cinquanta anys del Davallament de Felanitx: tradició viva, nova música i mirada contemporània"
+  resum: "Anàlisi de la renovació artística liderada per Joan Toni Sunyer i Marta Obrador i de la banda sonora de Joan Martorell."
+  fragment: "«La proposta del cinquantenari demostra que la tradició popular és un llenguatge viu capaç de dialogar amb el teatre i la música del segle XXI.»"
+  context: "Reportatge cultural sobre la dimensió escènica del 50è aniversari."
+
+- id: uh-2025-03-15
+  mitja: "Ultima Hora"
+  data: "15 de març de 2025"
+  any: 2025
+  epoca: "2025"
+  seccio: "Cultura i Societat"
+  ref: "FEL-PREMSA-2025-03"
+  titular: "Miquel Barceló posa imatge als 50 anys del Davallament de Felanitx"
+  resum: "Notícia de la presentació del cartell commemoratiu i de l'ampliació d'escenaris a la Plaça de sa Font de Santa Margalida."
+  fragment: "«L'artista felanitxer s'ha volgut sumar a una commemoració molt sentida a la vila, aportant un cartell d'enorme força plàstica.»"
+  context: "Publicat un mes abans del Divendres Sant del cinquantenari."
+
+- id: ib3-2025-04-18
+  mitja: "IB3 Notícies"
+  data: "18 d'abril de 2025"
+  any: 2025
+  epoca: "2025"
+  seccio: "Especial Setmana Santa"
+  ref: "FEL-PREMSA-2025-04"
+  titular: "Primera retransmissió en directe del Davallament de Felanitx per la televisió pública balear"
+  resum: "Seguiment de l'operatiu audiovisual desplegat a Felanitx per emetre l'acte del 50è aniversari arreu de les Illes."
+  fragment: "«Un desplegament tècnic sense precedents va permetre que totes les Illes Balears visquessin en directe el descendiment des de Sant Miquel.»"
+  context: "Fita mediàtica que va multiplicar l'abast històric de l'acte."
+
+- id: sf-2024-03-30
+  mitja: "Setmanari Felanitx"
+  data: "30 de març de 2024"
+  any: 2024
+  epoca: "2010-2024"
+  seccio: "Crònica Local"
+  ref: "FEL-PREMSA-2024-01"
+  titular: "Felanitx escalfa motors cap al cinquantenari amb un Davallament ple de sentiment"
+  resum: "Crònica del 49è aniversari i primers anuncis dels preparatius dels 50 anys."
+  fragment: "«El silenci de la plaça en el moment de la Pietat torna a confirmar perquè aquest acte és insubstituïble en el calendari felanitxer.»"
+  context: "Publicació setmanal de referència del municipi."
+
+- id: dm-2022-04-16
+  mitja: "Diario de Mallorca"
+  data: "16 d'abril de 2022"
+  any: 2022
+  epoca: "2010-2024"
+  seccio: "Part Forana"
+  ref: "FEL-PREMSA-2022-01"
+  titular: "El retorn més esperat: Felanitx recupera el seu Davallament després de la pandèmia"
+  resum: "Crònica de la represa de la representació a l'aire lliure després de dos anys d'aturada sanitària."
+  fragment: "«Quan es varen encendre els primers focus sobre l'escalinata de Sant Miquel, un calfred compartit va recórrer la multitud retrobada.»"
+  context: "Testimoni periodístic del retrobament comunitari de 2022."
+
+- id: uh-2015-04-04
+  mitja: "Ultima Hora"
+  data: "4 d'abril de 2015"
+  any: 2015
+  epoca: "2010-2024"
+  seccio: "Part Forana · 40è Aniversari"
+  ref: "FEL-PREMSA-2015-01"
+  titular: "Quaranta anys d'emoció i devoció popular a l'escalinata de Felanitx"
+  resum: "Reportatge commemoratiu dels 40 anys del format exterior amb testimonis de tres generacions de participants."
+  fragment: "«Allò que va néixer el 1975 amb mitjans senzills i molta il·lusió s'ha convertit en un referent del teatre popular mallorquí.»"
+  context: "Monogràfic del 40è aniversari."
+
+- id: sf-2000-04-22
+  mitja: "Setmanari Felanitx"
+  data: "22 d'abril de 2000"
+  any: 2000
+  epoca: "1990-2009"
+  seccio: "25è Aniversari"
+  ref: "FEL-PREMSA-2000-01"
+  titular: "Noces d'argent del Davallament a l'exterior: vint-i-cinc anys fent poble"
+  resum: "Edició especial dedicada al 25è aniversari, rememorant la tasca dels impulsors de 1975."
+  fragment: "«Vint-i-cinc Divendres Sants consecutius han consolidat un ritual cívic i religiós que identifica Felanitx arreu de Mallorca.»"
+  context: "Fons hemerogràfic local del canvi de segle."
+
+- id: sf-1975-04-05
+  mitja: "Setmanari Felanitx"
+  data: "5 d'abril de 1975"
+  any: 1975
+  epoca: "1975-1989"
+  seccio: "Crònica de Setmana Santa"
+  ref: "FEL-PREMSA-1975-01"
+  titular: "Èxit aclaparador del primer Davallament representat a l'escalinata de Sant Miquel"
+  resum: "Crònica històrica del 28 de març de 1975, impulsat per la Creuada de l'Amor Diví, Antoni Grimalt Obrador i Lluís Bou Monserrat amb textos del P. Antoni Oliver."
+  fragment: "«Mai no s'havia vist la plaça tan plena ni tan silenciosa. L'encert de traslladar l'acte a l'exterior ha dotat la nit de Divendres Sant d'una grandesa inoblidable.»"
+  context: "Document fundacional de l'hemeroteca del Davallament modern."

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Notícies | El Davallament de Felanitx</title>
+  <meta name="description" content="Notícies, cròniques de les edicions recents, actes del 50è aniversari i convocatòries d'assajos de l'Associació El Davallament de Felanitx.">
+  <link rel="icon" type="image/png" href="img/logo/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="noticies">
+  <div id="site-header-host"></div>
+
+  <main id="main-content">
+    <section class="page-banner">
+      <div class="page-banner-bg" aria-hidden="true">
+        <img src="img/hero/hero4.jpg" alt="">
+      </div>
+      <div class="container page-banner-inner">
+        <nav class="breadcrumb" aria-label="Fil d'Ariadna">
+          <a href="index.html">Inici</a>
+          <span>/</span>
+          <span>Notícies</span>
+        </nav>
+        <h1>Notícies i actualitat</h1>
+        <p>
+          Cròniques de les darreres edicions, convocatòries de participació, projectes culturals i novetats de l'Associació.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div id="news-featured"></div>
+
+        <div class="toolbar" role="region" aria-label="Filtres de notícies">
+          <div class="filter-pills" id="news-categories"></div>
+          <div class="search-field">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <label for="news-search" class="sr-only">Cercar notícies</label>
+            <input id="news-search" type="search" placeholder="Cercar notícia, tema o any...">
+          </div>
+        </div>
+
+        <div class="results-bar">
+          <span id="news-count"></span>
+          <a href="arxiu.html" class="link-arrow">Cerques retalls històrics? Ves a l'Arxiu de Premsa →</a>
+        </div>
+
+        <div class="cards-grid" id="news-grid"></div>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer-host"></div>
+
+  <script defer src="js/data.js"></script>
+  <script defer src="js/yaml-loader.js"></script>
+  <script defer src="js/main.js"></script>
+</body>
+</html>
