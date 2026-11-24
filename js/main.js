@@ -7,7 +7,7 @@
 
   const DATA = window.DAVALLAMENT_DATA;
   const I18N = window.I18N;
-  const STORAGE_KEY_PRESS = "davallament_felanitx_press_v1";
+  const CONTACT_EMAIL = "davallamentfelanitx@gmail.com";
   const STORAGE_KEY_LANG = "davallament_felanitx_lang_v1";
 
   const NAV_LINKS = [
@@ -108,26 +108,8 @@
   }
 
   function getAllPressItems() {
-    let custom = [];
-    try {
-      const raw = localStorage.getItem(STORAGE_KEY_PRESS);
-      if (raw) custom = JSON.parse(raw);
-    } catch (_) {}
     const map = dict().data && dict().data.pressArchive;
-    const base = DATA.pressArchive.map((p) => (map && map[p.id] ? { ...p, ...map[p.id] } : p));
-    return [...custom, ...base];
-  }
-
-  function saveCustomPressItem(entry) {
-    let custom = [];
-    try {
-      const raw = localStorage.getItem(STORAGE_KEY_PRESS);
-      if (raw) custom = JSON.parse(raw);
-    } catch (_) {}
-    custom.unshift(entry);
-    try {
-      localStorage.setItem(STORAGE_KEY_PRESS, JSON.stringify(custom));
-    } catch (_) {}
+    return DATA.pressArchive.map((p) => (map && map[p.id] ? { ...p, ...map[p.id] } : p));
   }
 
   function getLocalizedGallery() {
@@ -857,7 +839,6 @@
     const gridBtn = document.getElementById("view-grid-btn");
     const resultsHost = document.getElementById("press-results");
     const countHost = document.getElementById("press-count");
-    const contributeBtn = document.getElementById("open-contribute-btn");
 
     const ui = dict().ui;
     let selectedOutlet = "Tots";
@@ -961,92 +942,6 @@
       });
     }
 
-    function openContributeModal() {
-      const u = dict().ui;
-      const html = `
-        <div class="modal-content">
-          <span class="eyebrow">${escapeHtml(u.contributeEyebrow)}</span>
-          <h2>${escapeHtml(u.contributeTitle)}</h2>
-          <p style="color:var(--text-muted);margin-bottom:20px">${escapeHtml(u.contributeDesc)}</p>
-          <form id="contribute-press-form" class="form-grid">
-            <div class="form-row-2">
-              <div class="form-group">
-                <label for="cp-outlet">${escapeHtml(u.cpOutlet)}</label>
-                <input id="cp-outlet" type="text" required placeholder="${escapeHtml(u.cpOutletPh)}">
-              </div>
-              <div class="form-group">
-                <label for="cp-year">${escapeHtml(u.cpYear)}</label>
-                <input id="cp-year" type="number" min="1970" max="2030" required value="2026">
-              </div>
-            </div>
-            <div class="form-row-2">
-              <div class="form-group">
-                <label for="cp-date">${escapeHtml(u.cpDate)}</label>
-                <input id="cp-date" type="text" required placeholder="${escapeHtml(u.cpDatePh)}">
-              </div>
-              <div class="form-group">
-                <label for="cp-section">${escapeHtml(u.cpSection)}</label>
-                <input id="cp-section" type="text" placeholder="${escapeHtml(u.cpSectionPh)}">
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="cp-headline">${escapeHtml(u.cpHeadline)}</label>
-              <input id="cp-headline" type="text" required placeholder="${escapeHtml(u.cpHeadlinePh)}">
-            </div>
-            <div class="form-group">
-              <label for="cp-summary">${escapeHtml(u.cpSummary)}</label>
-              <textarea id="cp-summary" required placeholder="${escapeHtml(u.cpSummaryPh)}"></textarea>
-            </div>
-            <div class="form-group">
-              <label for="cp-excerpt">${escapeHtml(u.cpExcerpt)}</label>
-              <textarea id="cp-excerpt" placeholder="${escapeHtml(u.cpExcerptPh)}"></textarea>
-            </div>
-            <div style="display:flex;justify-content:flex-end;gap:12px">
-              <button type="button" class="btn btn--outline btn--sm" id="cancel-cp">${escapeHtml(u.cancel)}</button>
-              <button type="submit" class="btn btn--sm">${escapeHtml(u.addToArchive)}</button>
-            </div>
-          </form>
-        </div>
-      `;
-      openModal(html, u.contributeTitle);
-      document.getElementById("cancel-cp").addEventListener("click", closeModal);
-      document.getElementById("contribute-press-form").addEventListener("submit", (e) => {
-        e.preventDefault();
-        const year = Number(document.getElementById("cp-year").value) || 2026;
-        let decade = "2026";
-        if (year === 2025) decade = "2025";
-        else if (year >= 2010 && year <= 2024) decade = "2010-2024";
-        else if (year >= 1990 && year <= 2009) decade = "1990-2009";
-        else if (year < 1990) decade = "1975-1989";
-
-        const summary = document.getElementById("cp-summary").value.trim();
-        const excerpt = document.getElementById("cp-excerpt").value.trim();
-
-        saveCustomPressItem({
-          id: "custom-" + Date.now(),
-          outlet: document.getElementById("cp-outlet").value.trim(),
-          date: document.getElementById("cp-date").value.trim(),
-          year,
-          decade,
-          section: document.getElementById("cp-section").value.trim() || u.contributeEyebrow,
-          ref: `FEL-CIUTADA-${year}`,
-          headline: document.getElementById("cp-headline").value.trim(),
-          summary,
-          excerpt: excerpt ? `«${excerpt.replace(/^«|»$/g, "")}»` : `«${summary}»`,
-          context: u.archiveNoteDefault
-        });
-
-        populateOutlets();
-        selectedOutlet = "Tots";
-        selectedDecade = "Totes";
-        outletSelect.value = "Tots";
-        decadeSelect.value = "Totes";
-        renderArchive();
-        closeModal();
-        showToast(u.addedToast);
-      });
-    }
-
     outletSelect.onchange = (e) => {
       selectedOutlet = e.target.value;
       renderArchive();
@@ -1071,7 +966,6 @@
       listBtn.classList.remove("active");
       renderArchive();
     };
-    contributeBtn.onclick = openContributeModal;
 
     populateOutlets();
     renderArchive();
@@ -1079,7 +973,6 @@
     if (openDeepLink) {
       const deepId = getQueryParam("id");
       if (deepId) openPressClipping(deepId);
-      if (window.location.hash === "#aportar") openContributeModal();
     }
   }
 
@@ -1147,16 +1040,81 @@
   }
 
   /* ------------------------------------------------------------------------
-     PAGE: CONTACTE (contacte.html)
+     PAGE: CONTACTE (contacte.html) — Enviament real a davallamentfelanitx@gmail.com
      ------------------------------------------------------------------------ */
   function initContactePage() {
     const form = document.getElementById("contact-form");
+    const submitBtn = document.getElementById("contact-submit-btn");
+    const statusBox = document.getElementById("contact-status");
     if (!form) return;
-    form.onsubmit = (e) => {
+
+    form.onsubmit = async (e) => {
       e.preventDefault();
+      const ui = dict().ui;
       const name = document.getElementById("c-name").value.trim();
-      form.reset();
-      showToast(dict().ui.contactToast(name));
+      const email = document.getElementById("c-email").value.trim();
+      const topicEl = document.getElementById("c-topic");
+      const topicText = topicEl.options[topicEl.selectedIndex] ? topicEl.options[topicEl.selectedIndex].text : topicEl.value;
+      const message = document.getElementById("c-message").value.trim();
+      const honey = form.querySelector('input[name="_honey"]');
+      if (honey && honey.value) return;
+
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = ui.contactSending;
+      }
+      if (statusBox) statusBox.style.display = "none";
+
+      try {
+        const res = await fetch(`https://formsubmit.co/ajax/${CONTACT_EMAIL}`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json"
+          },
+          body: JSON.stringify({
+            Nom: name,
+            Correu: email,
+            Motiu: topicText,
+            Missatge: message,
+            _replyto: email,
+            _subject: `[Web Davallament] ${topicText} — ${name}`,
+            _template: "table"
+          })
+        });
+
+        const data = await res.json().catch(() => ({}));
+        if (res.ok && (data.success === "true" || data.success === true)) {
+          form.reset();
+          if (statusBox) {
+            statusBox.style.display = "block";
+            statusBox.style.background = "#edf7ed";
+            statusBox.style.border = "1px solid #b7dfb9";
+            statusBox.style.color = "#1e4620";
+            statusBox.textContent = ui.contactToast(name);
+          }
+          showToast(ui.contactToast(name));
+        } else {
+          throw new Error(data.message || "Send failed");
+        }
+      } catch (_) {
+        const subject = encodeURIComponent(`[Web Davallament] ${topicText} — ${name}`);
+        const body = encodeURIComponent(`${name} (${email})\n\n${message}`);
+        const mailtoUrl = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`;
+        if (statusBox) {
+          statusBox.style.display = "block";
+          statusBox.style.background = "#fcf6e8";
+          statusBox.style.border = "1px solid var(--secondary)";
+          statusBox.style.color = "var(--primary-dark)";
+          statusBox.innerHTML = `${escapeHtml(ui.contactFallback)} <a href="${mailtoUrl}" style="color:var(--primary);font-weight:700;text-decoration:underline">${CONTACT_EMAIL}</a>`;
+        }
+        window.location.href = mailtoUrl;
+      } finally {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.textContent = dict().contacte.btnSend;
+        }
+      }
     };
   }
 

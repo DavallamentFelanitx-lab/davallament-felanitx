@@ -86,7 +86,6 @@ Copia aquesta plantilla i enganxa-la a dalt de tot de `data/noticies.yaml` perqu
 ```
 
 - Valors d'`epoca` utilitzats al selector de l'arxiu: `2026`, `2025`, `2010-2024`, `1990-2009`, `1975-1989`.
-- A més, els visitants poden afegir entrades de prova des del botó **«+ Aportar un retall a l'hemeroteca»** (es guarden localment al navegador via `localStorage`).
 
 ### 3. Afegir una fotografia nova (`data/galeria.yaml`)
 

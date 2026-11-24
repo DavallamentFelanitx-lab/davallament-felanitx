@@ -46,6 +46,12 @@
 
             <div class="form-grid">
               <div class="info-card">
+                <h3 data-i18n="contacte.emailTitle">Correu electrònic</h3>
+                <p>
+                  <a href="mailto:davallamentfelanitx@gmail.com" style="color:var(--primary);font-weight:600;text-decoration:underline">davallamentfelanitx@gmail.com</a>
+                </p>
+              </div>
+              <div class="info-card">
                 <h3 data-i18n="contacte.locTitle">Indret de la representació</h3>
                 <p data-i18n-html="contacte.locHtml">
                   Parròquia de Sant Miquel · Plaça de sa Font de Santa Margalida<br>07200 Felanitx, Mallorca (Illes Balears)
@@ -65,20 +71,21 @@
             <p style="color:var(--text-muted);margin-bottom:22px;font-size:0.95rem" data-i18n="contacte.formSub">
               Omple el formulari i ens posarem en contacte amb tu al més aviat possible.
             </p>
-            <form id="contact-form" class="form-grid">
+            <form id="contact-form" class="form-grid" action="https://formsubmit.co/davallamentfelanitx@gmail.com" method="POST">
+              <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
               <div class="form-row-2">
                 <div class="form-group">
                   <label for="c-name" data-i18n="contacte.lblName">Nom i llinatges *</label>
-                  <input id="c-name" type="text" required data-i18n-placeholder="contacte.phName" placeholder="El teu nom">
+                  <input id="c-name" name="nom" type="text" required data-i18n-placeholder="contacte.phName" placeholder="El teu nom">
                 </div>
                 <div class="form-group">
                   <label for="c-email" data-i18n="contacte.lblEmail">Correu electrònic *</label>
-                  <input id="c-email" type="email" required data-i18n-placeholder="contacte.phEmail" placeholder="nom@exemple.cat">
+                  <input id="c-email" name="email" type="email" required data-i18n-placeholder="contacte.phEmail" placeholder="nom@exemple.cat">
                 </div>
               </div>
               <div class="form-group">
                 <label for="c-topic" data-i18n="contacte.lblTopic">Motiu del missatge *</label>
-                <select id="c-topic" required>
+                <select id="c-topic" name="motiu" required>
                   <option value="voluntariat" data-i18n="contacte.optVol">Vull participar com a actor / figurant / voluntari</option>
                   <option value="arxiu" data-i18n="contacte.optArch">Vull cedir fotografies o retalls de premsa antics</option>
                   <option value="premsa" data-i18n="contacte.optPress">Premsa i mitjans de comunicació</option>
@@ -87,10 +94,11 @@
               </div>
               <div class="form-group">
                 <label for="c-message" data-i18n="contacte.lblMsg">Missatge *</label>
-                <textarea id="c-message" required data-i18n-placeholder="contacte.phMsg" placeholder="Explica'ns en què et podem ajudar o com t'agradaria participar-hi..."></textarea>
+                <textarea id="c-message" name="missatge" required data-i18n-placeholder="contacte.phMsg" placeholder="Explica'ns en què et podem ajudar o com t'agradaria participar-hi..."></textarea>
               </div>
+              <div id="contact-status" role="status" aria-live="polite" style="display:none;padding:12px 16px;border-radius:6px;font-size:0.94rem"></div>
               <div>
-                <button type="submit" class="btn" data-i18n="contacte.btnSend">Enviar missatge →</button>
+                <button type="submit" class="btn" id="contact-submit-btn" data-i18n="contacte.btnSend">Enviar missatge →</button>
               </div>
             </form>
           </div>

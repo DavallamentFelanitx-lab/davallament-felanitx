@@ -67,26 +67,9 @@ window.I18N = {
       atmosphereLabel: "Atmosfera:",
       listView: "Llista",
       gridView: "Fitxes",
-      contributeEyebrow: "Col·laboració Ciutadana",
-      contributeTitle: "Aportar un retall a l'hemeroteca",
-      contributeDesc: "Afegeix la referència d'un article de premsa, crònica o programa històric del Davallament de Felanitx.",
-      cpOutlet: "Mitjà de comunicació *",
-      cpOutletPh: "Ex: Setmanari Felanitx, Diario de Mallorca...",
-      cpYear: "Any *",
-      cpDate: "Data exacta *",
-      cpDatePh: "Ex: 12 d'abril de 1982",
-      cpSection: "Secció",
-      cpSectionPh: "Ex: Cultura, Part Forana",
-      cpHeadline: "Titular *",
-      cpHeadlinePh: "Titular complet de l'article",
-      cpSummary: "Resum *",
-      cpSummaryPh: "Resum breu del contingut del retall...",
-      cpExcerpt: "Cita o fragment destacat (opcional)",
-      cpExcerptPh: "Fragment literal de la notícia...",
-      cancel: "Cancel·lar",
-      addToArchive: "Afegir a l'hemeroteca",
-      addedToast: "Retall afegit a l'hemeroteca!",
-      contactToast: (name) => `Gràcies, ${name || "amic/amiga"}! Hem registrat el teu missatge.`
+      contactSending: "Enviant missatge...",
+      contactToast: (name) => `Gràcies, ${name || "amic/amiga"}! Hem enviat el teu missatge a davallamentfelanitx@gmail.com.`,
+      contactFallback: "S'ha obert el teu client de correu per enviar el missatge directament a"
     },
     home: {
       welcomeEyebrow: "Associació El Davallament de Felanitx",
@@ -181,6 +164,7 @@ window.I18N = {
       leftEyebrow: "Associació El Davallament",
       leftTitle: "Fes poble amb nosaltres",
       leftText: "El Davallament és possible gràcies a l'esforç altruista de més de 160 veïns i veïnes. Sempre hi ha lloc per a noves incorporacions, tant a l'escenari com en vestuari, muntatge, il·luminació o arxiu documental.",
+      emailTitle: "Correu electrònic",
       locTitle: "Indret de la representació",
       locHtml: "Parròquia de Sant Miquel · Plaça de sa Font de Santa Margalida<br>07200 Felanitx, Mallorca (Illes Balears)",
       whenTitle: "Quan ens pots trobar?",
@@ -269,26 +253,9 @@ window.I18N = {
       atmosphereLabel: "Atmósfera:",
       listView: "Lista",
       gridView: "Fichas",
-      contributeEyebrow: "Colaboración Ciudadana",
-      contributeTitle: "Aportar un recorte a la hemeroteca",
-      contributeDesc: "Añade la referencia de un artículo de prensa, crónica o programa histórico del Davallament de Felanitx.",
-      cpOutlet: "Medio de comunicación *",
-      cpOutletPh: "Ej.: Setmanari Felanitx, Diario de Mallorca...",
-      cpYear: "Año *",
-      cpDate: "Fecha exacta *",
-      cpDatePh: "Ej.: 12 de abril de 1982",
-      cpSection: "Sección",
-      cpSectionPh: "Ej.: Cultura, Part Forana",
-      cpHeadline: "Titular *",
-      cpHeadlinePh: "Titular completo del artículo",
-      cpSummary: "Resumen *",
-      cpSummaryPh: "Resumen breve del contenido del recorte...",
-      cpExcerpt: "Cita o fragmento destacado (opcional)",
-      cpExcerptPh: "Fragmento literal de la noticia...",
-      cancel: "Cancelar",
-      addToArchive: "Añadir a la hemeroteca",
-      addedToast: "¡Recorte añadido a la hemeroteca!",
-      contactToast: (name) => `¡Gracias, ${name || "amigo/a"}! Hemos registrado tu mensaje.`
+      contactSending: "Enviando mensaje...",
+      contactToast: (name) => `¡Gracias, ${name || "amigo/a"}! Hemos enviado tu mensaje a davallamentfelanitx@gmail.com.`,
+      contactFallback: "Se ha abierto tu correo para enviar el mensaje directamente a"
     },
     home: {
       welcomeEyebrow: "Associació El Davallament de Felanitx",
@@ -383,6 +350,7 @@ window.I18N = {
       leftEyebrow: "Associació El Davallament",
       leftTitle: "Haz pueblo con nosotros",
       leftText: "El Davallament es posible gracias al esfuerzo altruista de más de 160 vecinos y vecinas. Siempre hay sitio para nuevas incorporaciones, tanto en escena como en vestuario, montaje, iluminación o archivo documental.",
+      emailTitle: "Correo electrónico",
       locTitle: "Lugar de la representación",
       locHtml: "Parroquia de Sant Miquel · Plaça de sa Font de Santa Margalida<br>07200 Felanitx, Mallorca (Islas Baleares)",
       whenTitle: "¿Cuándo puedes encontrarnos?",
@@ -485,7 +453,7 @@ window.I18N = {
           tags: ["Hemeroteca", "Archivo", "Memoria"],
           body: [
             "Con el objetivo de preservar la historia escrita y visual del Davallament, este portal incorpora un archivo de noticias de prensa donde cualquier persona puede consultar crónicas desde 1975 hasta hoy.",
-            "Además, mediante el botón de aportación ciudadana en el Archivo de Prensa, se pueden catalogar nuevas referencias de recortes conservados en casa."
+            "Si conservas material histórico en casa, puedes escribirnos a davallamentfelanitx@gmail.com o a través de la página de Contacto para colaborar en su digitalización."
           ]
         }
       },
@@ -579,26 +547,9 @@ window.I18N = {
       atmosphereLabel: "Atmosphere:",
       listView: "List",
       gridView: "Cards",
-      contributeEyebrow: "Community Contribution",
-      contributeTitle: "Submit a clipping to the press archive",
-      contributeDesc: "Add a reference to a newspaper article, review, or historic programme about El Davallament de Felanitx.",
-      cpOutlet: "Media outlet *",
-      cpOutletPh: "e.g. Setmanari Felanitx, Diario de Mallorca...",
-      cpYear: "Year *",
-      cpDate: "Exact date *",
-      cpDatePh: "e.g. April 12, 1982",
-      cpSection: "Section",
-      cpSectionPh: "e.g. Culture, Local News",
-      cpHeadline: "Headline *",
-      cpHeadlinePh: "Full article headline",
-      cpSummary: "Summary *",
-      cpSummaryPh: "Brief summary of the clipping...",
-      cpExcerpt: "Highlighted quote (optional)",
-      cpExcerptPh: "Short literal excerpt from the article...",
-      cancel: "Cancel",
-      addToArchive: "Add to archive",
-      addedToast: "Clipping added to the press archive!",
-      contactToast: (name) => `Thank you, ${name || "friend"}! Your message has been recorded.`
+      contactSending: "Sending message...",
+      contactToast: (name) => `Thank you, ${name || "friend"}! Your message has been sent to davallamentfelanitx@gmail.com.`,
+      contactFallback: "Your email client was opened to send the message directly to"
     },
     home: {
       welcomeEyebrow: "Associació El Davallament de Felanitx",
@@ -693,6 +644,7 @@ window.I18N = {
       leftEyebrow: "Associació El Davallament",
       leftTitle: "Be part of our community",
       leftText: "El Davallament exists thanks to the altruistic dedication of over 160 local residents. New volunteers are always welcome onstage or behind the scenes in costumes, staging, lighting, or archive work.",
+      emailTitle: "Email",
       locTitle: "Performance Venue",
       locHtml: "Sant Miquel Parish Church · Plaça de sa Font de Santa Margalida<br>07200 Felanitx, Mallorca (Balearic Islands)",
       whenTitle: "When to find us",
@@ -795,7 +747,7 @@ window.I18N = {
           tags: ["Press Archive", "Heritage", "Memory"],
           body: [
             "To preserve the written and visual memory of El Davallament, this portal features a searchable press archive spanning 1975 to today.",
-            "Using the community contribution form on the Press Archive page, residents can also log new references from clippings preserved at home."
+            "If you preserve historic material at home, feel free to write to davallamentfelanitx@gmail.com or via the Contact page to help with our digital archive."
           ]
         }
       },
@@ -889,26 +841,9 @@ window.I18N = {
       atmosphereLabel: "Atmosphäre:",
       listView: "Liste",
       gridView: "Karten",
-      contributeEyebrow: "Bürgerbeteiligung",
-      contributeTitle: "Presseausschnitt zum Archiv hinzufügen",
-      contributeDesc: "Fügen Sie den Hinweis auf einen Zeitungsartikel, Bericht oder ein historisches Programm des Davallament de Felanitx hinzu.",
-      cpOutlet: "Medium / Zeitung *",
-      cpOutletPh: "z. B. Setmanari Felanitx, Diario de Mallorca...",
-      cpYear: "Jahr *",
-      cpDate: "Genaues Datum *",
-      cpDatePh: "z. B. 12. April 1982",
-      cpSection: "Rubrik",
-      cpSectionPh: "z. B. Kultur, Lokalteil",
-      cpHeadline: "Schlagzeile *",
-      cpHeadlinePh: "Vollständige Überschrift des Artikels",
-      cpSummary: "Zusammenfassung *",
-      cpSummaryPh: "Kurze Inhaltsangabe des Ausschnitts...",
-      cpExcerpt: "Hervorgehobenes Zitat (optional)",
-      cpExcerptPh: "Kurzer Originalauszug aus dem Artikel...",
-      cancel: "Abbrechen",
-      addToArchive: "Zum Archiv hinzufügen",
-      addedToast: "Presseausschnitt zum Archiv hinzugefügt!",
-      contactToast: (name) => `Vielen Dank, ${name || "Freund/in"}! Ihre Nachricht wurde registriert.`
+      contactSending: "Nachricht wird gesendet...",
+      contactToast: (name) => `Vielen Dank, ${name || "Freund/in"}! Ihre Nachricht wurde an davallamentfelanitx@gmail.com gesendet.`,
+      contactFallback: "Ihr E-Mail-Programm wurde geöffnet, um die Nachricht direkt zu senden an"
     },
     home: {
       welcomeEyebrow: "Associació El Davallament de Felanitx",
@@ -1003,6 +938,7 @@ window.I18N = {
       leftEyebrow: "Associació El Davallament",
       leftTitle: "Werden Sie Teil der Gemeinschaft",
       leftText: "Der Davallament ist nur dank des ehrenamtlichen Einsatzes von über 160 Einwohnerinnen und Einwohnern möglich. Neue Mitwirkende sind auf der Bühne wie bei Kostümen, Technik, Beleuchtung oder Archivarbeit jederzeit willkommen.",
+      emailTitle: "E-Mail",
       locTitle: "Aufführungsort",
       locHtml: "Pfarrkirche Sant Miquel · Plaça de sa Font de Santa Margalida<br>07200 Felanitx, Mallorca (Balearen)",
       whenTitle: "Wann finden Sie uns?",
@@ -1105,7 +1041,7 @@ window.I18N = {
           tags: ["Pressearchiv", "Archiv", "Erinnerung"],
           body: [
             "Um die schriftliche und visuelle Geschichte des Davallament zu bewahren, bietet dieses Portal ein durchsuchbares Pressearchiv von 1975 bis heute.",
-            "Über das Beitragsformular im Pressearchiv können zudem neue Hinweise auf privat aufbewahrte Ausschnitte erfasst werden."
+            "Wenn Sie historisches Material zu Hause aufbewahren, schreiben Sie uns gerne an davallamentfelanitx@gmail.com oder über die Kontaktseite."
           ]
         }
       },
