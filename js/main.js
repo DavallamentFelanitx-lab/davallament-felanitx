@@ -34,20 +34,20 @@
       ]
     },
     {
-      href: "noticies.html",
-      key: "noticies",
-      children: [
-        { href: "noticies.html#destacada", key: "notDestacada" },
-        { href: "noticies.html#llistat", key: "notTotes" }
-      ]
-    },
-    {
       href: "entitat.html",
       key: "entitat",
       children: [
         { href: "entitat.html#qui-som", key: "entQuiSom" },
         { href: "entitat.html#junta", key: "entJunta" },
         { href: "entitat.html#convocatories", key: "entConvocatories" }
+      ]
+    },
+    {
+      href: "noticies.html",
+      key: "noticies",
+      children: [
+        { href: "noticies.html#destacada", key: "notDestacada" },
+        { href: "noticies.html#llistat", key: "notTotes" }
       ]
     },
     {
@@ -757,28 +757,6 @@
         btn.addEventListener("click", () => openNewsArticle(btn.dataset.openNews));
       });
     }
-
-    const mosaicHost = document.getElementById("home-photo-mosaic");
-    if (mosaicHost) {
-      const photos = getLocalizedGallery();
-      mosaicHost.innerHTML = photos
-        .slice(0, 4)
-        .map(
-          (g, idx) => `
-          <button type="button" class="mosaic-tile mosaic-tile--${idx + 1}" data-mosaic-idx="${idx}">
-            <img src="${escapeHtml(g.src)}" alt="${escapeHtml(g.title)}" loading="lazy">
-            <div class="mosaic-caption">
-              <span class="mosaic-album">${escapeHtml(g.album)}</span>
-              <strong>${escapeHtml(g.title)}</strong>
-            </div>
-          </button>`
-        )
-        .join("");
-
-      mosaicHost.querySelectorAll("[data-mosaic-idx]").forEach((btn) => {
-        btn.addEventListener("click", () => openLightbox(photos, Number(btn.dataset.mosaicIdx)));
-      });
-    }
   }
 
   /* ------------------------------------------------------------------------
@@ -1312,7 +1290,7 @@
       );
     }
 
-    if (page === "inici" || page === "galeria") {
+    if (page === "galeria") {
       tasks.push(
         window.SimpleYAML.fetchYamlList("data/galeria.yaml")
           .then((items) => {
