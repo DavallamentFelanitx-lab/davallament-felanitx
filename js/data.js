@@ -79,7 +79,7 @@ window.DAVALLAMENT_DATA = {
       src: "img/hero/hero2.jpg",
       kicker: "Escenografia i Llum",
       title: "Davant els Armats i el Poble",
-      subtitle: "Teatre popular, il·luminació dramàtica i els versos del pare felanitxer Antoni Oliver Monserrat."
+      subtitle: "Teatre popular, il·luminació dramàtica i una posada en escena plena de solemnitat."
     },
     {
       src: "img/hero/hero3.jpg",
@@ -121,7 +121,7 @@ window.DAVALLAMENT_DATA = {
       characters: ["Jesús", "Caifàs", "Ponç Pilat", "Sacerdots", "Armats"],
       atmosphere: "Tensió dramàtica, llum carmesí i arquitectures de pedra",
       shortDesc: "El judici del Sanedrí i la compareixença davant el governador romà a la balconada de pedra.",
-      fullDesc: "Aprofitant l'arc apuntat i la balconada lateral de la parròquia, l'escena davant Ponç Pilat combina la força dels textos d'Antoni Oliver Monserrat amb la presència imponent dels armats romans i la multitud."
+      fullDesc: "Aprofitant l'arc apuntat i la balconada lateral de la parròquia, l'escena davant Ponç Pilat combina la força dels textos dramàtics amb la presència imponent dels armats romans i la multitud."
     },
     {
       id: "ecce-homo",
@@ -189,7 +189,7 @@ window.DAVALLAMENT_DATA = {
     {
       year: "28 de març de 1975",
       title: "El primer Davallament a l'escalinata de Sant Miquel",
-      text: "Impulsat per la Creuada de l'Amor Diví i gràcies a l'entusiasme d'Antoni Grimalt Obrador i Lluís Bou Monserrat, el Davallament surt per primera vegada a l'aire lliure al replà i l'escalinata de Sant Miquel, amb textos dramàtics escrits pel pare teatí felanitxer Antoni Oliver Monserrat."
+      text: "Impulsat per la Creuada de l'Amor Diví i l'entusiasme d'Antoni Grimalt Obrador i veïns del poble, el Davallament surt per primera vegada a l'aire lliure al replà i l'escalinata de Sant Miquel."
     },
     {
       year: "Anys 1980–1990",
@@ -215,13 +215,8 @@ window.DAVALLAMENT_DATA = {
 
   protagonists: [
     {
-      role: "Textos fundacionals",
-      name: "P. Antoni Oliver Monserrat",
-      desc: "Pare teatí nascut a Felanitx, autor dels textos literaris i poètics que donen ànima a la representació des de 1975."
-    },
-    {
       role: "Impulsors de 1975",
-      name: "Antoni Grimalt Obrador, Lluís Bou Monserrat i la Creuada de l'Amor Diví",
+      name: "Creuada de l'Amor Diví i pioners de 1975",
       desc: "Pioners que feren possible el pas històric de l'interior del temple a l'escalinata monumental de Sant Miquel el 28 de març de 1975."
     },
     {
@@ -260,7 +255,7 @@ window.DAVALLAMENT_DATA = {
       body: [
         "La nit del Divendres Sant, 3 d'abril de 2026, Felanitx va tornar a congregar centenars de residents i visitants d'arreu de Mallorca a les 21:00 hores davant la Parròquia de Sant Miquel.",
         "Després de la celebració extraordinària del 50è aniversari el 2025, enguany la posada en escena va tornar a concentrar-se en el seu marc històric original: el replà i l'escalinata de Sant Miquel, recuperant la verticalitat icònica de cada escena.",
-        "La continuïtat de la banda sonora original de Joan Martorell i la il·luminació dramàtica varen envoltar els versos del pare Antoni Oliver Monserrat en un silenci absolut que només es va rompre amb l'ovació final.",
+        "La continuïtat de la banda sonora original de Joan Martorell i la il·luminació dramàtica varen envoltar cada escena en un silenci absolut que només es va rompre amb l'ovació final.",
         "Tot seguit, les confraries del municipi i la Banda de Música de Felanitx varen iniciar la tradicional Processó de l'Enterrament pels carrers del centre històric."
       ]
     },
@@ -349,9 +344,9 @@ window.DAVALLAMENT_DATA = {
       decade: "2026",
       section: "Cultura i Tradicions",
       ref: "FEL-PREMSA-2026-02",
-      headline: "Tot a punt per al Davallament 2026: horaris, música i textos d'Antoni Oliver",
+      headline: "Tot a punt per al Davallament 2026: horaris, música i assajos a Sant Miquel",
       summary: "Guia prèvia a la Setmana Santa felanitxera amb l'horari de Divendres Sant a les 21:00 h i el seguici amb la Banda de Música.",
-      excerpt: "«Els assajos generals confirmen la bona salut del relleu generacional preservant els versos del pare Antoni Oliver Monserrat.»",
+      excerpt: "«Els assajos generals confirmen la bona salut del relleu generacional preservant l'essència i l'emoció de la representació tradicional.»",
       context: "Article informatiu local adreçat als felanitxers i visitants."
     },
     {
@@ -480,7 +475,7 @@ window.DAVALLAMENT_DATA = {
       section: "Crònica de Setmana Santa",
       ref: "FEL-PREMSA-1975-01",
       headline: "Èxit aclaparador del primer Davallament representat a l'escalinata de Sant Miquel",
-      summary: "Crònica històrica del 28 de març de 1975, impulsat per la Creuada de l'Amor Diví, Antoni Grimalt Obrador i Lluís Bou Monserrat amb textos del P. Antoni Oliver.",
+      summary: "Crònica històrica del 28 de març de 1975, impulsat per la Creuada de l'Amor Diví i els pioners felanitxers que traslladaren la representació a l'exterior.",
       excerpt: "«Mai no s'havia vist la plaça tan plena ni tan silenciosa. L'encert de traslladar l'acte a l'exterior ha dotat la nit de Divendres Sant d'una grandesa inoblidable.»",
       context: "Document fundacional de l'hemeroteca del Davallament modern."
     }
