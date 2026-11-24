@@ -1128,7 +1128,7 @@
             const ytId = extractYouTubeId(v.youtubeId || v.youtubeUrl);
             const watchUrl = ytId ? `https://www.youtube.com/watch?v=${ytId}` : (v.youtubeUrl || "#");
             const embedHtml = ytId
-              ? `<iframe src="https://www.youtube-nocookie.com/embed/${escapeHtml(ytId)}?rel=0" title="${escapeHtml(v.title)}" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`
+              ? `<iframe src="https://www.youtube.com/embed/${escapeHtml(ytId)}?rel=0" title="${escapeHtml(v.title)}" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>`
               : `<div class="video-placeholder"><p>${escapeHtml(ui.videoUnavailable || "Vídeo pendent d'enllaçar.")}</p></div>`;
             return `
               <article class="video-card">
