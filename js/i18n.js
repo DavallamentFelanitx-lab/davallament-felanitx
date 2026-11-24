@@ -16,6 +16,20 @@ window.I18N = {
       galeria: "Galeria",
       contacte: "Contacte"
     },
+    subnav: {
+      historiaMemoria: "Orígens i memòria",
+      historiaCronologia: "Fites principals (1975–2026)",
+      historiaProtagonistes: "Protagonistes",
+      repEscenes: "Escena per escena",
+      repElements: "Elements clau i consells",
+      notDestacada: "Notícia destacada",
+      notTotes: "Totes les notícies",
+      entQuiSom: "Qui som",
+      entJunta: "Junta Directiva",
+      entConvocatories: "Convocatòries a reunions",
+      conInfo: "Dades i ubicació",
+      conFormulari: "Formulari de contacte"
+    },
     footer: {
       title: "Associació El Davallament de Felanitx",
       copy: "© Associació El Davallament de Felanitx 2026"
@@ -210,6 +224,20 @@ window.I18N = {
       entitat: "La entidad",
       galeria: "Galería",
       contacte: "Contacto"
+    },
+    subnav: {
+      historiaMemoria: "Orígenes y memoria",
+      historiaCronologia: "Hitos principales (1975–2026)",
+      historiaProtagonistes: "Protagonistas",
+      repEscenes: "Escena por escena",
+      repElements: "Elementos clave y consejos",
+      notDestacada: "Noticia destacada",
+      notTotes: "Todas las noticias",
+      entQuiSom: "Quiénes somos",
+      entJunta: "Junta Directiva",
+      entConvocatories: "Convocatorias a reuniones",
+      conInfo: "Datos y ubicación",
+      conFormulari: "Formulario de contacto"
     },
     footer: {
       title: "Associació El Davallament de Felanitx",
@@ -533,6 +561,20 @@ window.I18N = {
       galeria: "Gallery",
       contacte: "Contact"
     },
+    subnav: {
+      historiaMemoria: "Origins & Memory",
+      historiaCronologia: "Key Milestones (1975–2026)",
+      historiaProtagonistes: "Key Figures",
+      repEscenes: "Scene-by-Scene",
+      repElements: "Stagecraft & Tips",
+      notDestacada: "Featured News",
+      notTotes: "All News",
+      entQuiSom: "Who We Are",
+      entJunta: "Board of Directors",
+      entConvocatories: "Meetings & Assemblies",
+      conInfo: "Details & Venue",
+      conFormulari: "Contact Form"
+    },
     footer: {
       title: "Associació El Davallament de Felanitx",
       copy: "© Associació El Davallament de Felanitx 2026"
@@ -854,6 +896,20 @@ window.I18N = {
       entitat: "Der Verein",
       galeria: "Galerie",
       contacte: "Kontakt"
+    },
+    subnav: {
+      historiaMemoria: "Ursprünge & Erinnerung",
+      historiaCronologia: "Meilensteine (1975–2026)",
+      historiaProtagonistes: "Persönlichkeiten",
+      repEscenes: "Szene für Szene",
+      repElements: "Bühnensprache & Tipps",
+      notDestacada: "Hervorgehobene Nachricht",
+      notTotes: "Alle Nachrichten",
+      entQuiSom: "Über uns",
+      entJunta: "Vorstand",
+      entConvocatories: "Termine & Versammlungen",
+      conInfo: "Infos & Veranstaltungsort",
+      conFormulari: "Kontaktformular"
     },
     footer: {
       title: "Associació El Davallament de Felanitx",

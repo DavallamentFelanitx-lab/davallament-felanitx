@@ -12,12 +12,49 @@
 
   const NAV_LINKS = [
     { href: "index.html", key: "inici" },
-    { href: "historia.html", key: "historia" },
-    { href: "representacio.html", key: "representacio" },
-    { href: "noticies.html", key: "noticies" },
-    { href: "entitat.html", key: "entitat" },
+    {
+      href: "historia.html",
+      key: "historia",
+      children: [
+        { href: "historia.html#memoria", key: "historiaMemoria" },
+        { href: "historia.html#cronologia", key: "historiaCronologia" },
+        { href: "historia.html#protagonistes", key: "historiaProtagonistes" }
+      ]
+    },
+    {
+      href: "representacio.html",
+      key: "representacio",
+      children: [
+        { href: "representacio.html#escenes", key: "repEscenes" },
+        { href: "representacio.html#elements", key: "repElements" }
+      ]
+    },
+    {
+      href: "noticies.html",
+      key: "noticies",
+      children: [
+        { href: "noticies.html#destacada", key: "notDestacada" },
+        { href: "noticies.html#llistat", key: "notTotes" }
+      ]
+    },
+    {
+      href: "entitat.html",
+      key: "entitat",
+      children: [
+        { href: "entitat.html#qui-som", key: "entQuiSom" },
+        { href: "entitat.html#junta", key: "entJunta" },
+        { href: "entitat.html#convocatories", key: "entConvocatories" }
+      ]
+    },
     { href: "galeria.html", key: "galeria" },
-    { href: "contacte.html", key: "contacte" }
+    {
+      href: "contacte.html",
+      key: "contacte",
+      children: [
+        { href: "contacte.html#informacio", key: "conInfo" },
+        { href: "contacte.html#formulari", key: "conFormulari" }
+      ]
+    }
   ];
 
   let currentPage = "inici";
@@ -243,12 +280,32 @@
             </button>
 
             <nav class="main-nav" id="main-nav" aria-label="Main navigation">
-              ${NAV_LINKS.map(
-                (item) => `
-                <a href="${item.href}" data-nav-key="${item.key}" class="${item.key === currentPage ? "active" : ""}" ${item.key === currentPage ? 'aria-current="page"' : ""}>
-                  ${escapeHtml(d.nav[item.key])}
-                </a>`
-              ).join("")}
+              ${NAV_LINKS.map((item) => {
+                const isActive = item.key === currentPage;
+                const hasChildren = Array.isArray(item.children) && item.children.length > 0;
+                const chevron = hasChildren
+                  ? `<svg class="nav-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>`
+                  : "";
+                const subMenu = hasChildren
+                  ? `<div class="nav-dropdown" role="menu">
+                      <div class="nav-dropdown-inner">
+                        ${item.children
+                          .map(
+                            (sub) =>
+                              `<a href="${sub.href}" role="menuitem">${escapeHtml((d.subnav && d.subnav[sub.key]) || sub.key)}</a>`
+                          )
+                          .join("")}
+                      </div>
+                    </div>`
+                  : "";
+                return `
+                  <div class="nav-item${hasChildren ? " nav-item--has-sub" : ""}">
+                    <a href="${item.href}" data-nav-key="${item.key}" class="${isActive ? "active" : ""}" ${isActive ? 'aria-current="page"' : ""}>
+                      ${escapeHtml(d.nav[item.key])}${chevron}
+                    </a>
+                    ${subMenu}
+                  </div>`;
+              }).join("")}
             </nav>
           </div>
         </header>
