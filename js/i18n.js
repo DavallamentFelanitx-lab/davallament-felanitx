@@ -45,6 +45,7 @@ window.I18N = {
       copyLink: "Copiar enllaç",
       linkCopied: "Enllaç copiat al porta-retalls",
       closeReading: "Tancar lectura",
+      sourceLabel: "Font:",
       viewClipping: "Veure retall",
       readClipping: "Llegir retall →",
       openClipping: "Obrir retall →",
@@ -230,6 +231,7 @@ window.I18N = {
       copyLink: "Copiar enlace",
       linkCopied: "Enlace copiado al portapapeles",
       closeReading: "Cerrar lectura",
+      sourceLabel: "Fuente:",
       viewClipping: "Ver recorte",
       readClipping: "Leer recorte →",
       openClipping: "Abrir recorte →",
@@ -401,6 +403,19 @@ window.I18N = {
         { role: "El corazón de la asociación", name: "Más de 160 vecinos, cofradías y Banda de Música", desc: "Actores aficionados de todas las edades, vestuario, técnicos, cofradías y músicos que año tras año hacen posible una celebración 100 % altruista." }
       ],
       news: {
+        "presentacio-cartell-2026": {
+          category: "Edición 2026", date: "19 de febrero de 2026", readTime: "3 min",
+          title: "Presentación del cartel oficial del Davallament de Felanitx 2026",
+          excerpt: "Se presenta el cartel que anuncia el Davallament de Felanitx 2026, con fotografía de Sofia Binimelis Arias y diseño gráfico de Miquel Àngel Roig Maimó.",
+          tags: ["Cartel 2026", "Sofia Binimelis Arias", "Joan Toni Sunyer"],
+          body: [
+            "La noche del 18 de febrero de 2026 se presentó oficialmente el cartel que anuncia el Davallament de Felanitx 2026, obra fotográfica de la artista Sofia Binimelis Arias, quien ha sabido captar con sensibilidad y fuerza expresiva la esencia de esta representación tan arraigada en nuestro pueblo.",
+            "El diseño gráfico del cartel ha estado a cargo de Miquel Àngel Roig Maimó.",
+            "Tras la celebración del cincuentenario, el Davallament de 2026 busca dar continuidad a aquel hito, poniendo un énfasis especial en la banda sonora creada expresamente para la ocasión y en la consolidación de los nuevos elementos incorporados en los últimos años.",
+            "El Davallament de Felanitx se celebra el Viernes Santo, día 3 de abril de 2026, a las 21:00 h, en el rellano de la iglesia parroquial de Sant Miquel, bajo la dirección artística de Joan Toni Sunyer.",
+            "Desde la organización se ha querido expresar un agradecimiento especial al Ayuntamiento de Felanitx, al Centre Cultural, a la Fundació Barceló y a la Parroquia de Sant Miquel por su colaboración y apoyo constante."
+          ]
+        },
         "edicio-2026-escalinata": {
           category: "Crónicas", date: "4 de abril de 2026", readTime: "4 min",
           title: "El Davallament de Felanitx 2026 emociona de nuevo en la escalinata de Sant Miquel",
@@ -523,6 +538,7 @@ window.I18N = {
       copyLink: "Copy link",
       linkCopied: "Link copied to clipboard",
       closeReading: "Close",
+      sourceLabel: "Source:",
       viewClipping: "View clipping",
       readClipping: "Read clipping →",
       openClipping: "Open clipping →",
@@ -694,6 +710,19 @@ window.I18N = {
         { role: "The Heart of the Association", name: "160+ locals, brotherhoods & Municipal Band", desc: "Amateur actors of all ages, costumers, technicians, brotherhoods, and musicians keeping a 100% volunteer tradition alive." }
       ],
       news: {
+        "presentacio-cartell-2026": {
+          category: "2026 Edition", date: "February 19, 2026", readTime: "3 min",
+          title: "Unveiling of the official poster for El Davallament de Felanitx 2026",
+          excerpt: "The official poster announcing El Davallament de Felanitx 2026 has been unveiled, featuring photography by Sofia Binimelis Arias and graphic design by Miquel Àngel Roig Maimó.",
+          tags: ["2026 Poster", "Sofia Binimelis Arias", "Joan Toni Sunyer"],
+          body: [
+            "On the evening of February 18, 2026, the official poster announcing El Davallament de Felanitx 2026 was unveiled—a photographic artwork by Sofia Binimelis Arias that captures with sensitivity and expressive power the essence of this deeply rooted local tradition.",
+            "Graphic design for the poster was created by Miquel Àngel Roig Maimó.",
+            "Following the 50th anniversary celebration, the 2026 edition continues that momentum, placing special emphasis on the original soundtrack composed for the occasion and consolidating the new scenic elements introduced in recent years.",
+            "El Davallament de Felanitx takes place on Good Friday, April 3, 2026, at 21:00 on the landing of Sant Miquel Parish Church, under the artistic direction of Joan Toni Sunyer.",
+            "Organizers expressed their heartfelt gratitude to Felanitx Town Council, the Cultural Centre, Fundació Barceló, and Sant Miquel Parish for their ongoing support."
+          ]
+        },
         "edicio-2026-escalinata": {
           category: "Reports", date: "April 4, 2026", readTime: "4 min",
           title: "El Davallament de Felanitx 2026 moves audiences once more on Sant Miquel steps",
@@ -816,6 +845,7 @@ window.I18N = {
       copyLink: "Link kopieren",
       linkCopied: "Link in die Zwischenablage kopiert",
       closeReading: "Schließen",
+      sourceLabel: "Quelle:",
       viewClipping: "Ausschnitt ansehen",
       readClipping: "Ausschnitt lesen →",
       openClipping: "Ausschnitt öffnen →",
@@ -987,6 +1017,19 @@ window.I18N = {
         { role: "Das Herz des Vereins", name: "Über 160 Einwohner, Bruderschaften & Musikkapelle", desc: "Laiendarsteller jeden Alters, Kostümbildner, Techniker, Bruderschaften und Musiker, die eine zu 100 % ehrenamtliche Tradition tragen." }
       ],
       news: {
+        "presentacio-cartell-2026": {
+          category: "Ausgabe 2026", date: "19. Februar 2026", readTime: "3 Min.",
+          title: "Vorstellung des offiziellen Plakats zum Davallament de Felanitx 2026",
+          excerpt: "Das Plakat zur Ankündigung des Davallament de Felanitx 2026 wurde vorgestellt – mit Fotografie von Sofia Binimelis Arias und Grafikdesign von Miquel Àngel Roig Maimó.",
+          tags: ["Plakat 2026", "Sofia Binimelis Arias", "Joan Toni Sunyer"],
+          body: [
+            "Am Abend des 18. Februar 2026 wurde das offizielle Plakat für den Davallament de Felanitx 2026 vorgestellt – ein fotografisches Werk der Künstlerin Sofia Binimelis Arias, das mit Sensibilität und Ausdruckskraft das Wesen dieser tief verwurzelten Tradition einfängt.",
+            "Das Grafikdesign des Plakats stammt von Miquel Àngel Roig Maimó.",
+            "Nach dem 50. Jubiläum knüpft die Ausgabe 2026 an diesen Meilenstein an, mit besonderem Schwerpunkt auf der eigens komponierten Filmmusik sowie der Festigung der in den letzten Jahren eingeführten Neuerungen.",
+            "Der Davallament de Felanitx findet am Karfreitag, dem 3. April 2026, um 21:00 Uhr auf dem Vorplatz der Pfarrkirche Sant Miquel unter der künstlerischen Leitung von Joan Toni Sunyer statt.",
+            "Die Organisatoren dankten der Gemeinde Felanitx, dem Kulturzentrum, der Fundació Barceló und der Pfarrei Sant Miquel für ihre beständige Unterstützung."
+          ]
+        },
         "edicio-2026-escalinata": {
           category: "Berichte", date: "4. April 2026", readTime: "4 Min.",
           title: "El Davallament de Felanitx 2026 bewegt erneut auf der Treppe von Sant Miquel",

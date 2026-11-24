@@ -324,6 +324,21 @@
         <div class="article-body">
           ${item.body.map((p) => `<p>${escapeHtml(p)}</p>`).join("")}
         </div>
+        ${
+          item.poster
+            ? `<figure style="margin:22px 0;text-align:center">
+                <img src="${escapeHtml(item.poster)}" alt="${escapeHtml(item.title)}" style="max-height:520px;margin:0 auto;border-radius:8px;box-shadow:var(--shadow-md)">
+              </figure>`
+            : ""
+        }
+        ${
+          item.sourceUrl
+            ? `<p style="font-size:0.88rem;color:var(--text-muted);margin:14px 0 18px">
+                <strong>${escapeHtml(ui.sourceLabel || "Font:")}</strong>
+                <a href="${escapeHtml(item.sourceUrl)}" target="_blank" rel="noopener noreferrer" style="color:var(--primary);font-weight:600;text-decoration:underline">${escapeHtml(item.source || item.sourceUrl)} ↗</a>
+              </p>`
+            : ""
+        }
         <div class="tags-row" style="margin-bottom:22px">
           ${item.tags.map((tag) => `<span class="badge badge--sand">#${escapeHtml(tag)}</span>`).join("")}
         </div>
@@ -1096,6 +1111,9 @@
       readTime: raw.lectura || raw.readTime || "3 min",
       featured: Boolean(raw.destacada !== undefined ? raw.destacada : raw.featured),
       image: raw.imatge || raw.image || "img/hero/hero1.jpg",
+      poster: raw.cartell || raw.poster || "",
+      source: raw.font || raw.source || "",
+      sourceUrl: raw.fontUrl || raw.sourceUrl || "",
       title: raw.titol || raw.title || "Sense títol",
       excerpt: raw.resum || raw.excerpt || "",
       tags,

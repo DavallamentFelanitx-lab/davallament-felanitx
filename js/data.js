@@ -243,11 +243,32 @@ window.DAVALLAMENT_DATA = {
 
   news: [
     {
+      id: "presentacio-cartell-2026",
+      category: "Edició 2026",
+      date: "19 de febrer de 2026",
+      readTime: "3 min",
+      featured: true,
+      image: "img/noticies/presentacio-cartell-2026.jpg",
+      poster: "img/noticies/cartell-2026.jpg",
+      source: "Viu Felanitx · Ajuntament de Felanitx",
+      sourceUrl: "https://viufelanitx.com/art/17924/ahir-vespre-es-va-presentar-el-cartell-que-anuncia-el-davallament-de-felanitx-2026",
+      title: "Presentació del cartell oficial del Davallament de Felanitx 2026",
+      excerpt: "Es presenta el cartell que anuncia el Davallament de Felanitx 2026, amb fotografia de Sofia Binimelis Arias i disseny gràfic de Miquel Àngel Roig Maimó.",
+      tags: ["Cartell 2026", "Sofia Binimelis Arias", "Joan Toni Sunyer"],
+      body: [
+        "El vespre del 18 de febrer de 2026 es va presentar oficialment el cartell que anuncia el Davallament de Felanitx 2026, obra fotogràfica de l'artista Sofia Binimelis Arias, que ha sabut captar amb sensibilitat i força expressiva l'essència d'aquesta representació tan arrelada al nostre poble.",
+        "El disseny gràfic del cartell ha anat a càrrec de Miquel Àngel Roig Maimó.",
+        "Després de la celebració del cinquantenari, el Davallament de 2026 vol donar continuïtat a aquesta fita, tot posant un èmfasi especial en la banda sonora creada expressament per a l'ocasió, així com en la consolidació dels nous elements incorporats en els darrers anys.",
+        "El Davallament de Felanitx se celebra el Divendres Sant, dia 3 d'abril de 2026, a les 21:00 h, al replà de l'església parroquial de Sant Miquel, amb la direcció artística de Joan Toni Sunyer.",
+        "Des de l'organització s'ha volgut expressar un agraïment especial a l'Ajuntament de Felanitx, al Centre Cultural, a la Fundació Barceló i a la Parròquia de Sant Miquel per la seva col·laboració i suport constant, que fan possible que aquesta tradició es mantingui viva any rere any."
+      ]
+    },
+    {
       id: "edicio-2026-escalinata",
       category: "Cròniques",
       date: "4 d'abril de 2026",
       readTime: "4 min",
-      featured: true,
+      featured: false,
       image: "img/hero/hero1.jpg",
       title: "El Davallament de Felanitx 2026 emociona de nou a l'escalinata de Sant Miquel",
       excerpt: "Prop de dos cents veïns i veïnes varen donar vida a una edició que va recuperar el marc clàssic de la façana parroquial conservant la força sonora del cinquantenari.",
