@@ -722,14 +722,6 @@
         btn.addEventListener("click", () => openNewsArticle(btn.dataset.openNews));
       });
     }
-
-    const homeMeetings = document.getElementById("home-meetings-list");
-    if (homeMeetings) {
-      homeMeetings.innerHTML = getLocalizedMeetings()
-        .slice(0, 2)
-        .map((m) => renderMeetingCard(m, false))
-        .join("");
-    }
   }
 
   /* ------------------------------------------------------------------------

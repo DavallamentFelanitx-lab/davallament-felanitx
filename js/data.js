@@ -1,4 +1,4 @@
-/* ==========================================================================
+﻿/* ==========================================================================
    ASSOCIACIÓ EL DAVALLAMENT DE FELANITX — Dades del portal
    ========================================================================== */
 
@@ -376,23 +376,6 @@ window.DAVALLAMENT_DATA = {
         "Estat de comptes i balanç econòmic anual.",
         "Calendari previst d'assajos, vestuari i preparatius per a la propera edició.",
         "Precs i preguntes."
-      ]
-    },
-    {
-      id: "reunio-participants-2026",
-      title: "Reunió informativa i organització d'assajos 2026",
-      status: "realitzada",
-      date: "Febrer de 2026",
-      isoDate: "2026-02-10",
-      time: "20:00 h",
-      location: "Entorn de la Parròquia de Sant Miquel",
-      audience: "Actors, actrius, equip de vestuari i voluntariat",
-      summary: "Trobada inicial amb tots els participants per repartir calendaris d'assaig, vestuari i coordinació d'escenes a l'escalinata.",
-      agenda: [
-        "Benvinguda als nous participants i distribució de papers.",
-        "Calendari d'assajos setmanals i assaig general.",
-        "Prova i lliurament de vestuari.",
-        "Coordinació d'il·luminació, so i muntatge."
       ]
     }
   ],

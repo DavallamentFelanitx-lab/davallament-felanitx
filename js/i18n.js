@@ -1,4 +1,4 @@
-/* ==========================================================================
+﻿/* ==========================================================================
    ASSOCIACIÓ EL DAVALLAMENT DE FELANITX — Traduccions completes (CA/ES/EN/DE)
    ========================================================================== */
 
@@ -520,20 +520,6 @@ window.I18N = {
             "Calendario previsto de ensayos, vestuario y preparativos para la próxima edición.",
             "Ruegos y preguntas."
           ]
-        },
-        "reunio-participants-2026": {
-          title: "Reunión informativa y organización de ensayos 2026",
-          date: "Febrero de 2026",
-          time: "20:00 h",
-          location: "Entorno de la Parroquia de Sant Miquel",
-          audience: "Actores, actrices, equipo de vestuario y voluntariado",
-          summary: "Encuentro inicial con todos los participantes para repartir calendarios de ensayo, vestuario y coordinación de escenas en la escalinata.",
-          agenda: [
-            "Bienvenida a los nuevos participantes y distribución de papeles.",
-            "Calendario de ensayos semanales y ensayo general.",
-            "Prueba y entrega de vestuario.",
-            "Coordinación de iluminación, sonido y montaje."
-          ]
         }
       },
       gallery: {
@@ -856,20 +842,6 @@ window.I18N = {
             "Planned rehearsal, costume, and preparation calendar for the next edition.",
             "Questions and open floor."
           ]
-        },
-        "reunio-participants-2026": {
-          title: "Information & Rehearsal Planning Meeting 2026",
-          date: "February 2026",
-          time: "20:00",
-          location: "Sant Miquel Parish premises",
-          audience: "Actors, actresses, costume team, and volunteers",
-          summary: "Kick-off gathering with all participants to share rehearsal schedules, costumes, and scene coordination on the staircase.",
-          agenda: [
-            "Welcome to new participants and role assignments.",
-            "Weekly rehearsal schedule and dress rehearsal.",
-            "Costume fitting and distribution.",
-            "Lighting, sound, and stage setup coordination."
-          ]
         }
       },
       gallery: {
@@ -1191,20 +1163,6 @@ window.I18N = {
             "Kassenbericht und Jahresabschluss.",
             "Geplanter Proben-, Kostüm- und Vorbereitungsplan für die nächste Ausgabe.",
             "Verschiedenes und Fragen."
-          ]
-        },
-        "reunio-participants-2026": {
-          title: "Informationstreffen & Probenorganisation 2026",
-          date: "Februar 2026",
-          time: "20:00 Uhr",
-          location: "Pfarrkirche Sant Miquel",
-          audience: "Darstellerinnen, Darsteller, Kostümteam und Helfer",
-          summary: "Auftakttreffen mit allen Mitwirkenden zur Abstimmung von Probenplänen, Kostümen und Szenenabläufen auf der Treppe.",
-          agenda: [
-            "Begrüßung neuer Mitwirkender und Rollenverteilung.",
-            "Wöchentlicher Probenplan und Generalprobe.",
-            "Anprobe und Ausgabe der Kostüme.",
-            "Abstimmung von Licht, Ton und Aufbau."
           ]
         }
       },
