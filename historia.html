@@ -22,12 +22,12 @@
       </div>
       <div class="container page-banner-inner">
         <nav class="breadcrumb" aria-label="Fil d'Ariadna">
-          <a href="index.html">Inici</a>
+          <a href="index.html" data-i18n="ui.breadcrumbHome">Inici</a>
           <span>/</span>
-          <span>Història</span>
+          <span data-i18n="nav.historia">Història</span>
         </nav>
-        <h1>Història del Davallament</h1>
-        <p>
+        <h1 data-i18n="historia.bannerTitle">Història del Davallament</h1>
+        <p data-i18n="historia.bannerSub">
           Més de mig segle de teatre sacre a l'escalinata de Sant Miquel i segles de tradició viva al cor de Felanitx.
         </p>
       </div>
@@ -36,24 +36,24 @@
     <section class="section">
       <div class="container">
         <div style="max-width:860px;margin:0 auto 3.5rem">
-          <span class="eyebrow">Memòria Col·lectiva</span>
-          <h2 class="section-title">De l'interior del temple a la monumental escalinata</h2>
+          <span class="eyebrow" data-i18n="historia.memEyebrow">Memòria Col·lectiva</span>
+          <h2 class="section-title" data-i18n="historia.memTitle">De l'interior del temple a la monumental escalinata</h2>
           <div class="separator left"></div>
-          <p style="color:var(--text-muted);font-size:1.06rem;margin-bottom:16px">
+          <p style="color:var(--text-muted);font-size:1.06rem;margin-bottom:16px" data-i18n-html="historia.memP1Html">
             Les representacions dels davallaments formen part de la tradició medieval mallorquina de Setmana Santa. A Felanitx, durant generacions la cerimònia va tenir lloc dins la <strong>Parròquia de Sant Miquel</strong>, fins que el <strong>28 de març de 1975</strong> la Creuada de l'Amor Diví i diversos veïns del municipi impulsaren el trasllat definitiu a l'aire lliure.
           </p>
-          <p style="color:var(--text-muted);font-size:1.06rem">
+          <p style="color:var(--text-muted);font-size:1.06rem" data-i18n="historia.memP2">
             A partir dels textos tradicionals escrits expressament per a l'ocasió, la representació es va convertir en una cita ineludible del calendari cultural i devocional de Mallorca, capaç de mobilitzar generacions senceres de felanitxers de manera totalment altruista.
           </p>
           <blockquote class="quote-box">
-            <p>«Allò que va néixer el 1975 amb il·lusió i esforç veïnal s'ha convertit en una senya d'identitat que uneix tot el poble de Felanitx.»</p>
-            <cite>— Associació El Davallament de Felanitx</cite>
+            <p data-i18n="historia.quoteText">«Allò que va néixer el 1975 amb il·lusió i esforç veïnal s'ha convertit en una senya d'identitat que uneix tot el poble de Felanitx.»</p>
+            <cite data-i18n="historia.quoteCite">— Associació El Davallament de Felanitx</cite>
           </blockquote>
         </div>
 
         <div class="section-header section-header--center">
-          <span class="eyebrow">Línia Temporal</span>
-          <h2 class="section-title">Fites principals (1975–2026)</h2>
+          <span class="eyebrow" data-i18n="historia.tlEyebrow">Línia Temporal</span>
+          <h2 class="section-title" data-i18n="historia.tlTitle">Fites principals (1975–2026)</h2>
           <div class="separator"></div>
         </div>
 
@@ -65,10 +65,10 @@
       <div class="container">
         <div class="section-header">
           <div>
-            <span class="eyebrow">Persones i Col·lectius</span>
-            <h2 class="section-title">Protagonistes d'aquesta història</h2>
+            <span class="eyebrow" data-i18n="historia.prEyebrow">Persones i Col·lectius</span>
+            <h2 class="section-title" data-i18n="historia.prTitle">Protagonistes d'aquesta història</h2>
           </div>
-          <a href="arxiu.html" class="link-arrow">Explorar l'arxiu de premsa →</a>
+          <a href="arxiu.html" class="link-arrow" data-i18n="ui.exploreArchive">Explorar l'arxiu de premsa →</a>
         </div>
 
         <div class="cards-grid" id="protagonists-grid"></div>
@@ -79,6 +79,7 @@
   <div id="site-footer-host"></div>
 
   <script defer src="js/data.js"></script>
+  <script defer src="js/i18n.js"></script>
   <script defer src="js/main.js"></script>
 </body>
 </html>

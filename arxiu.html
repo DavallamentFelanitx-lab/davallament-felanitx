@@ -22,16 +22,16 @@
       </div>
       <div class="container page-banner-inner">
         <nav class="breadcrumb" aria-label="Fil d'Ariadna">
-          <a href="index.html">Inici</a>
+          <a href="index.html" data-i18n="ui.breadcrumbHome">Inici</a>
           <span>/</span>
-          <span>Arxiu de Premsa</span>
+          <span data-i18n="nav.arxiu">Arxiu de Premsa</span>
         </nav>
-        <h1>Arxiu de notícies de premsa</h1>
-        <p>
+        <h1 data-i18n="arxiu.bannerTitle">Arxiu de notícies de premsa</h1>
+        <p data-i18n="arxiu.bannerSub">
           Hemeroteca digital (1975–2026) amb cròniques i retalls publicats als mitjans locals i balears sobre el Davallament de Felanitx.
         </p>
         <div style="margin-top:22px">
-          <button type="button" class="btn btn--sand" id="open-contribute-btn">+ Aportar un retall a l'hemeroteca</button>
+          <button type="button" class="btn btn--sand" id="open-contribute-btn" data-i18n="arxiu.contributeBtn">+ Aportar un retall a l'hemeroteca</button>
         </div>
       </div>
     </section>
@@ -45,12 +45,12 @@
 
             <label for="press-decade-filter" class="sr-only">Època</label>
             <select id="press-decade-filter" class="select-field">
-              <option value="Totes">Totes les èpoques (1975–2026)</option>
-              <option value="2026">Edició 2026</option>
-              <option value="2025">50è Aniversari (2025)</option>
-              <option value="2010-2024">Dècada 2010–2024</option>
-              <option value="1990-2009">Anys 1990–2009</option>
-              <option value="1975-1989">Orígens 1975–1989</option>
+              <option value="Totes" data-i18n="arxiu.decAll">Totes les èpoques (1975–2026)</option>
+              <option value="2026" data-i18n="arxiu.dec2026">Edició 2026</option>
+              <option value="2025" data-i18n="arxiu.dec2025">50è Aniversari (2025)</option>
+              <option value="2010-2024" data-i18n="arxiu.dec2010">Dècada 2010–2024</option>
+              <option value="1990-2009" data-i18n="arxiu.dec1990">Anys 1990–2009</option>
+              <option value="1975-1989" data-i18n="arxiu.dec1975">Orígens 1975–1989</option>
             </select>
           </div>
 
@@ -61,7 +61,7 @@
                 <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
               </svg>
               <label for="press-search" class="sr-only">Cercar a l'arxiu</label>
-              <input id="press-search" type="search" placeholder="Cercar titular, mitjà o any...">
+              <input id="press-search" type="search" data-i18n-placeholder="arxiu.searchPh" placeholder="Cercar titular, mitjà o any...">
             </div>
 
             <div class="view-toggle" role="group" aria-label="Tipus de vista">
@@ -73,7 +73,7 @@
 
         <div class="results-bar">
           <span id="press-count"></span>
-          <span>Fes clic a qualsevol entrada per obrir el retall complet</span>
+          <span data-i18n="arxiu.clickHint">Fes clic a qualsevol entrada per obrir el retall complet</span>
         </div>
 
         <div id="press-results"></div>
@@ -84,6 +84,7 @@
   <div id="site-footer-host"></div>
 
   <script defer src="js/data.js"></script>
+  <script defer src="js/i18n.js"></script>
   <script defer src="js/yaml-loader.js"></script>
   <script defer src="js/main.js"></script>
 </body>

@@ -22,12 +22,12 @@
       </div>
       <div class="container page-banner-inner">
         <nav class="breadcrumb" aria-label="Fil d'Ariadna">
-          <a href="index.html">Inici</a>
+          <a href="index.html" data-i18n="ui.breadcrumbHome">Inici</a>
           <span>/</span>
-          <span>Galeria</span>
+          <span data-i18n="nav.galeria">Galeria</span>
         </nav>
-        <h1>Galeria d'imatges</h1>
-        <p>
+        <h1 data-i18n="galeria.bannerTitle">Galeria d'imatges</h1>
+        <p data-i18n="galeria.bannerSub">
           Fotografies reals de la representació del Davallament a l'escalinata i la portalada de la Parròquia de Sant Miquel de Felanitx.
         </p>
       </div>
@@ -37,7 +37,7 @@
       <div class="container">
         <div class="toolbar" role="region" aria-label="Filtrar per àlbum">
           <div class="filter-pills" id="gallery-albums"></div>
-          <span style="font-size:0.86rem;color:var(--text-muted)">Al visor pots navegar amb les fletxes ← →</span>
+          <span style="font-size:0.86rem;color:var(--text-muted)" data-i18n="galeria.kbdHint">Al visor pots navegar amb les fletxes ← →</span>
         </div>
 
         <div class="results-bar">
@@ -52,6 +52,7 @@
   <div id="site-footer-host"></div>
 
   <script defer src="js/data.js"></script>
+  <script defer src="js/i18n.js"></script>
   <script defer src="js/yaml-loader.js"></script>
   <script defer src="js/main.js"></script>
 </body>

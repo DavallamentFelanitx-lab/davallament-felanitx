@@ -27,7 +27,8 @@ davallament-felanitx/
 │   ├── arxiu-premsa.yaml   # Fitxer editable de l'arxiu de premsa (hemeroteca)
 │   └── galeria.yaml        # Fitxer editable de la galeria d'imatges
 ├── js/
-│   ├── data.js             # Textos base, escenes, cronologia, traduccions i dades de reserva
+│   ├── data.js             # Textos base, escenes, cronologia i dades de reserva
+│   ├── i18n.js             # Traduccions completes de tota la web (CA, ES, EN, DE)
 │   ├── yaml-loader.js      # Lector YAML lleuger sense dependències per al navegador
 │   └── main.js             # Capçalera, peu, carrusel, filtres, modals, lightbox i idiomes
 └── img/

@@ -1,11 +1,12 @@
 /* ==========================================================================
-   ASSOCIACIÓ EL DAVALLAMENT DE FELANITX — Controlador principal del portal
+   ASSOCIACIÓ EL DAVALLAMENT DE FELANITX — Controlador principal + i18n (CA/ES/EN/DE)
    ========================================================================== */
 
 (function () {
   "use strict";
 
   const DATA = window.DAVALLAMENT_DATA;
+  const I18N = window.I18N;
   const STORAGE_KEY_PRESS = "davallament_felanitx_press_v1";
   const STORAGE_KEY_LANG = "davallament_felanitx_lang_v1";
 
@@ -19,6 +20,11 @@
     { href: "contacte.html", key: "contacte" }
   ];
 
+  let currentPage = "inici";
+  let currentLang = "ca";
+  let heroTimer = null;
+  let activeSceneIdx = 0;
+
   function escapeHtml(str) {
     return String(str || "")
       .replace(/&/g, "&amp;")
@@ -28,40 +34,25 @@
       .replace(/'/g, "&#39;");
   }
 
-  function getLang() {
+  function getStoredLang() {
     try {
       const saved = localStorage.getItem(STORAGE_KEY_LANG);
-      if (saved && DATA.uiTranslations[saved]) return saved;
+      if (saved && I18N && I18N[saved]) return saved;
     } catch (_) {}
     return "ca";
   }
 
-  function setLang(lang) {
-    if (!DATA.uiTranslations[lang]) return;
-    try {
-      localStorage.setItem(STORAGE_KEY_LANG, lang);
-    } catch (_) {}
-    applyLanguage(lang);
+  function dict() {
+    return (I18N && I18N[currentLang]) || I18N.ca;
   }
 
-  function applyLanguage(lang) {
-    const t = DATA.uiTranslations[lang] || DATA.uiTranslations.ca;
-    document.documentElement.lang = lang;
+  function resolveKey(obj, path) {
+    return path.split(".").reduce((acc, part) => (acc && acc[part] !== undefined ? acc[part] : undefined), obj);
+  }
 
-    document.querySelectorAll(".language-selector button").forEach((btn) => {
-      btn.classList.toggle("active", btn.dataset.lang === lang);
-      btn.setAttribute("aria-pressed", String(btn.dataset.lang === lang));
-    });
-
-    document.querySelectorAll("[data-nav-key]").forEach((link) => {
-      const k = link.dataset.navKey;
-      if (t.nav[k]) link.textContent = t.nav[k];
-    });
-
-    const welcomeTitle = document.getElementById("home-welcome-title");
-    const welcomeText = document.getElementById("home-welcome-text");
-    if (welcomeTitle) welcomeTitle.textContent = t.welcomeTitle;
-    if (welcomeText) welcomeText.textContent = t.welcomeText;
+  function tKey(path) {
+    const val = resolveKey(dict(), path);
+    return val !== undefined ? val : resolveKey(I18N.ca, path);
   }
 
   function showToast(message) {
@@ -88,13 +79,43 @@
     }
   }
 
+  /* ------------------------------------------------------------------------
+     Localized Data Getters (combinen YAML/base + traduccions ES/EN/DE per id)
+     ------------------------------------------------------------------------ */
+  function getLocalizedHeroSlides() {
+    const d = dict().data && dict().data.heroSlides;
+    return DATA.heroSlides.map((slide, i) => (d && d[i] ? { ...slide, ...d[i] } : slide));
+  }
+
+  function getLocalizedScenes() {
+    const map = dict().data && dict().data.scenes;
+    return DATA.scenes.map((s) => (map && map[s.id] ? { ...s, ...map[s.id] } : s));
+  }
+
+  function getLocalizedTimeline() {
+    const list = dict().data && dict().data.timeline;
+    return DATA.timeline.map((item, i) => (list && list[i] ? { ...item, ...list[i] } : item));
+  }
+
+  function getLocalizedProtagonists() {
+    const list = dict().data && dict().data.protagonists;
+    return DATA.protagonists.map((item, i) => (list && list[i] ? { ...item, ...list[i] } : item));
+  }
+
+  function getLocalizedNews() {
+    const map = dict().data && dict().data.news;
+    return DATA.news.map((n) => (map && map[n.id] ? { ...n, ...map[n.id] } : n));
+  }
+
   function getAllPressItems() {
     let custom = [];
     try {
       const raw = localStorage.getItem(STORAGE_KEY_PRESS);
       if (raw) custom = JSON.parse(raw);
     } catch (_) {}
-    return [...custom, ...DATA.pressArchive];
+    const map = dict().data && dict().data.pressArchive;
+    const base = DATA.pressArchive.map((p) => (map && map[p.id] ? { ...p, ...map[p.id] } : p));
+    return [...custom, ...base];
   }
 
   function saveCustomPressItem(entry) {
@@ -109,45 +130,78 @@
     } catch (_) {}
   }
 
+  function getLocalizedGallery() {
+    const map = dict().data && dict().data.gallery;
+    return DATA.gallery.map((g) => (map && map[g.id] ? { ...g, ...map[g.id] } : g));
+  }
+
+  /* ------------------------------------------------------------------------
+     Apply Static DOM Translations
+     ------------------------------------------------------------------------ */
+  function applyStaticTranslations() {
+    const d = dict();
+    document.documentElement.lang = currentLang;
+
+    if (d.pageTitles && d.pageTitles[currentPage]) {
+      document.title = d.pageTitles[currentPage];
+    }
+
+    document.querySelectorAll("[data-i18n]").forEach((el) => {
+      const val = tKey(el.dataset.i18n);
+      if (typeof val === "string") el.textContent = val;
+    });
+
+    document.querySelectorAll("[data-i18n-html]").forEach((el) => {
+      const val = tKey(el.dataset.i18nHtml);
+      if (typeof val === "string") el.innerHTML = val;
+    });
+
+    document.querySelectorAll("[data-i18n-placeholder]").forEach((el) => {
+      const val = tKey(el.dataset.i18nPlaceholder);
+      if (typeof val === "string") el.setAttribute("placeholder", val);
+    });
+  }
+
   /* ------------------------------------------------------------------------
      Shared Header & Footer (amb el logo oficial img/logo/logo.png)
      ------------------------------------------------------------------------ */
-  function renderLayout(currentPage) {
-    const lang = getLang();
-    const t = DATA.uiTranslations[lang];
+  let scrollListenerBound = false;
+
+  function renderLayout() {
+    const d = dict();
 
     const headerHost = document.getElementById("site-header-host");
     if (headerHost) {
       headerHost.innerHTML = `
-        <a class="skip-link" href="#main-content">Anar al contingut principal</a>
+        <a class="skip-link" href="#main-content">${escapeHtml(d.skipLink)}</a>
         <header class="site-header" id="site-header">
           <div class="top-bar">
-            <div class="language-selector" role="group" aria-label="Selector d'idioma">
+            <div class="language-selector" role="group" aria-label="Language">
               ${["ca", "es", "en", "de"]
                 .map(
                   (code) =>
-                    `<button type="button" data-lang="${code}" class="${code === lang ? "active" : ""}" aria-pressed="${code === lang}">${code.toUpperCase()}</button>`
+                    `<button type="button" data-lang="${code}" class="${code === currentLang ? "active" : ""}" aria-pressed="${code === currentLang}">${code.toUpperCase()}</button>`
                 )
                 .join("")}
             </div>
           </div>
 
           <div class="main-header">
-            <a href="index.html" class="brand" aria-label="El Davallament de Felanitx — Inici">
-              <img src="img/logo/logo.png" alt="Logo oficial d'El Davallament de Felanitx">
+            <a href="index.html" class="brand" aria-label="El Davallament de Felanitx">
+              <img src="img/logo/logo.png" alt="Logo El Davallament de Felanitx">
             </a>
 
-            <button type="button" class="menu-toggle" id="menu-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Obrir menú">
+            <button type="button" class="menu-toggle" id="menu-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Menu">
               <span></span>
               <span></span>
               <span></span>
             </button>
 
-            <nav class="main-nav" id="main-nav" aria-label="Navegació principal">
+            <nav class="main-nav" id="main-nav" aria-label="Main navigation">
               ${NAV_LINKS.map(
                 (item) => `
                 <a href="${item.href}" data-nav-key="${item.key}" class="${item.key === currentPage ? "active" : ""}" ${item.key === currentPage ? 'aria-current="page"' : ""}>
-                  ${escapeHtml(t.nav[item.key])}
+                  ${escapeHtml(d.nav[item.key])}
                 </a>`
               ).join("")}
             </nav>
@@ -159,20 +213,28 @@
       const toggle = document.getElementById("menu-toggle");
       const nav = document.getElementById("main-nav");
 
-      let isScrolled = false;
-      function updateHeaderScroll() {
-        if (!header) return;
-        const y = window.scrollY;
-        if (!isScrolled && y > 60) {
-          isScrolled = true;
-          header.classList.add("scrolled");
-        } else if (isScrolled && y < 20) {
-          isScrolled = false;
-          header.classList.remove("scrolled");
-        }
+      if (window.scrollY > 60 && header) header.classList.add("scrolled");
+
+      if (!scrollListenerBound) {
+        scrollListenerBound = true;
+        let isScrolled = window.scrollY > 60;
+        window.addEventListener(
+          "scroll",
+          () => {
+            const hdr = document.getElementById("site-header");
+            if (!hdr) return;
+            const y = window.scrollY;
+            if (!isScrolled && y > 60) {
+              isScrolled = true;
+              hdr.classList.add("scrolled");
+            } else if (isScrolled && y < 20) {
+              isScrolled = false;
+              hdr.classList.remove("scrolled");
+            }
+          },
+          { passive: true }
+        );
       }
-      window.addEventListener("scroll", updateHeaderScroll, { passive: true });
-      updateHeaderScroll();
 
       if (toggle && nav) {
         toggle.addEventListener("click", () => {
@@ -188,11 +250,7 @@
       }
 
       headerHost.querySelectorAll(".language-selector button").forEach((btn) => {
-        btn.addEventListener("click", () => {
-          setLang(btn.dataset.lang);
-          const names = { ca: "Català", es: "Castellano", en: "English", de: "Deutsch" };
-          showToast(`Idioma de la interfície: ${names[btn.dataset.lang]}`);
-        });
+        btn.addEventListener("click", () => switchLanguage(btn.dataset.lang));
       });
     }
 
@@ -202,21 +260,32 @@
         <footer class="site-footer">
           <div class="container">
             <div class="footer-centered">
-              <h3>Associació El Davallament de Felanitx</h3>
-              <p class="footer-desc">
-                Entitat dedicada a la preservació, organització i difusió de la representació de la Passió i el Davallament que se celebra cada Divendres Sant a l'escalinata de Sant Miquel de Felanitx des de 1975.
-              </p>
-              <nav class="footer-nav" aria-label="Navegació del peu de pàgina">
-                ${NAV_LINKS.map((item) => `<a href="${item.href}" data-nav-key="${item.key}">${escapeHtml(t.nav[item.key])}</a>`).join("")}
+              <h3>${escapeHtml(d.footer.title)}</h3>
+              <p class="footer-desc">${escapeHtml(d.footer.desc)}</p>
+              <nav class="footer-nav" aria-label="Footer navigation">
+                ${NAV_LINKS.map((item) => `<a href="${item.href}" data-nav-key="${item.key}">${escapeHtml(d.nav[item.key])}</a>`).join("")}
               </nav>
             </div>
             <div class="footer-bottom">
-              <span>© Associació El Davallament de Felanitx 2026</span>
+              <span>${escapeHtml(d.footer.copy)}</span>
             </div>
           </div>
         </footer>
       `;
     }
+  }
+
+  function switchLanguage(lang) {
+    if (!I18N || !I18N[lang] || lang === currentLang) return;
+    currentLang = lang;
+    try {
+      localStorage.setItem(STORAGE_KEY_LANG, lang);
+    } catch (_) {}
+
+    renderLayout();
+    applyStaticTranslations();
+    renderCurrentPage();
+    showToast(dict().toastLang);
   }
 
   /* ------------------------------------------------------------------------
@@ -236,10 +305,10 @@
         if (e.target === backdrop) closeModal();
       });
     }
-    backdrop.setAttribute("aria-label", ariaLabel || "Detall");
+    backdrop.setAttribute("aria-label", ariaLabel || "Dialog");
     const dialog = document.getElementById("shared-modal-dialog");
     dialog.innerHTML = `
-      <button type="button" class="modal-close" id="shared-modal-close" aria-label="Tancar">✕</button>
+      <button type="button" class="modal-close" id="shared-modal-close" aria-label="Close">✕</button>
       ${htmlContent}
     `;
     dialog.scrollTop = 0;
@@ -257,8 +326,9 @@
   }
 
   function openNewsArticle(articleId) {
-    const item = DATA.news.find((n) => n.id === articleId);
+    const item = getLocalizedNews().find((n) => n.id === articleId);
     if (!item) return;
+    const ui = dict().ui;
 
     const html = `
       <img class="modal-hero-img" src="${escapeHtml(item.image)}" alt="${escapeHtml(item.title)}">
@@ -267,7 +337,7 @@
           <span class="badge badge--primary">${escapeHtml(item.category)}</span>
           <span>${escapeHtml(item.date)}</span>
           <span>·</span>
-          <span>${escapeHtml(item.readTime)} de lectura</span>
+          <span>${escapeHtml(item.readTime)}${escapeHtml(ui.readTimeSuffix)}</span>
         </div>
         <h2>${escapeHtml(item.title)}</h2>
         <div class="article-body">
@@ -277,8 +347,8 @@
           ${item.tags.map((tag) => `<span class="badge badge--sand">#${escapeHtml(tag)}</span>`).join("")}
         </div>
         <div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;padding-top:16px;border-top:1px solid var(--border)">
-          <button type="button" class="btn btn--outline btn--sm" id="copy-news-link">Copiar enllaç</button>
-          <button type="button" class="btn btn--sm" id="close-news-btn">Tancar lectura</button>
+          <button type="button" class="btn btn--outline btn--sm" id="copy-news-link">${escapeHtml(ui.copyLink)}</button>
+          <button type="button" class="btn btn--sm" id="close-news-btn">${escapeHtml(ui.closeReading)}</button>
         </div>
       </div>
     `;
@@ -287,7 +357,7 @@
     document.getElementById("copy-news-link").addEventListener("click", () => {
       const shareUrl = `${window.location.origin}${window.location.pathname.replace(/[^/]*$/, "")}noticies.html?id=${encodeURIComponent(item.id)}`;
       if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(shareUrl).then(() => showToast("Enllaç copiat al porta-retalls"));
+        navigator.clipboard.writeText(shareUrl).then(() => showToast(ui.linkCopied));
       } else {
         showToast("noticies.html?id=" + item.id);
       }
@@ -297,6 +367,7 @@
   function openPressClipping(itemId) {
     const item = getAllPressItems().find((p) => p.id === itemId);
     if (!item) return;
+    const ui = dict().ui;
 
     const html = `
       <div class="modal-content">
@@ -304,7 +375,7 @@
           <div class="clipping-masthead">
             <div class="outlet">${escapeHtml(item.outlet)}</div>
             <div class="submeta">
-              <span>${escapeHtml(item.section || "Hemeroteca")}</span>
+              <span>${escapeHtml(item.section || "Archive")}</span>
               <span>${escapeHtml(item.date)}</span>
               <span>Ref. ${escapeHtml(item.ref || "ARXIU")}</span>
             </div>
@@ -313,11 +384,11 @@
           <p style="color:var(--text-muted);margin-bottom:16px">${escapeHtml(item.summary)}</p>
           <blockquote class="clipping-quote">${escapeHtml(item.excerpt)}</blockquote>
           <p style="font-size:0.88rem;color:var(--text-muted);margin-top:14px">
-            <strong>Nota d'arxiu:</strong> ${escapeHtml(item.context || "Catalogat a l'hemeroteca digital de l'Associació El Davallament de Felanitx.")}
+            <strong>${escapeHtml(ui.archiveNoteLabel)}</strong> ${escapeHtml(item.context || ui.archiveNoteDefault)}
           </p>
         </div>
         <div style="display:flex;justify-content:flex-end;margin-top:20px">
-          <button type="button" class="btn btn--sm" id="close-clipping-btn">Tornar a l'arxiu</button>
+          <button type="button" class="btn btn--sm" id="close-clipping-btn">${escapeHtml(ui.backToArchive)}</button>
         </div>
       </div>
     `;
@@ -331,22 +402,26 @@
 
   function ensureLightbox() {
     let lb = document.getElementById("shared-lightbox");
-    if (lb) return lb;
+    if (lb) {
+      const closeBtn = document.getElementById("lb-close");
+      if (closeBtn) closeBtn.textContent = dict().ui.closeLightbox;
+      return lb;
+    }
     lb = document.createElement("div");
     lb.id = "shared-lightbox";
     lb.className = "lightbox-backdrop";
     lb.setAttribute("role", "dialog");
     lb.setAttribute("aria-modal", "true");
-    lb.setAttribute("aria-label", "Visor de fotografies");
+    lb.setAttribute("aria-label", "Photo viewer");
     lb.innerHTML = `
       <div class="lightbox-top">
         <span class="lightbox-counter" id="lb-counter"></span>
-        <button type="button" class="btn btn--sand btn--sm" id="lb-close">Tancar ✕</button>
+        <button type="button" class="btn btn--sand btn--sm" id="lb-close">${escapeHtml(dict().ui.closeLightbox)}</button>
       </div>
       <div class="lightbox-stage">
-        <button type="button" class="lightbox-nav lightbox-prev" id="lb-prev" aria-label="Anterior">❮</button>
+        <button type="button" class="lightbox-nav lightbox-prev" id="lb-prev" aria-label="Previous">❮</button>
         <img id="lb-img" src="" alt="">
-        <button type="button" class="lightbox-nav lightbox-next" id="lb-next" aria-label="Següent">❯</button>
+        <button type="button" class="lightbox-nav lightbox-next" id="lb-next" aria-label="Next">❯</button>
       </div>
       <div class="lightbox-caption">
         <h3 id="lb-title"></h3>
@@ -417,9 +492,11 @@
      PAGE: INICI (index.html)
      ------------------------------------------------------------------------ */
   function initHomePage() {
+    const ui = dict().ui;
     const heroHost = document.getElementById("hero-carousel");
     if (heroHost) {
-      const slidesData = DATA.heroSlides;
+      if (heroTimer) clearInterval(heroTimer);
+      const slidesData = getLocalizedHeroSlides();
       const slidesHtml = slidesData
         .map(
           (s, i) =>
@@ -437,9 +514,9 @@
             <p class="hero-slide-sub" id="hero-sub">${escapeHtml(slidesData[0].subtitle)}</p>
           </div>
         </div>
-        <button type="button" class="carousel-btn prev" id="hero-prev" aria-label="Imatge anterior">❮</button>
-        <button type="button" class="carousel-btn next" id="hero-next" aria-label="Imatge següent">❯</button>
-        <div class="carousel-dots" id="hero-dots" aria-label="Indicadors del carrusel"></div>
+        <button type="button" class="carousel-btn prev" id="hero-prev" aria-label="Previous">❮</button>
+        <button type="button" class="carousel-btn next" id="hero-next" aria-label="Next">❯</button>
+        <div class="carousel-dots" id="hero-dots" aria-label="Slides"></div>
       `;
 
       const slideEls = heroHost.querySelectorAll(".slide");
@@ -448,13 +525,12 @@
       const titleEl = document.getElementById("hero-title");
       const subEl = document.getElementById("hero-sub");
       let current = 0;
-      let timer = null;
 
       slidesData.forEach((s, idx) => {
         const dot = document.createElement("button");
         dot.type = "button";
         dot.className = "dot" + (idx === 0 ? " active" : "");
-        dot.setAttribute("aria-label", `Mostrar diapositiva ${idx + 1}: ${s.title}`);
+        dot.setAttribute("aria-label", `${idx + 1}: ${s.title}`);
         dot.addEventListener("click", () => {
           showSlide(idx);
           restart();
@@ -480,11 +556,11 @@
       }
 
       function start() {
-        timer = setInterval(next, 5500);
+        heroTimer = setInterval(next, 5500);
       }
 
       function restart() {
-        clearInterval(timer);
+        clearInterval(heroTimer);
         start();
       }
 
@@ -501,7 +577,7 @@
 
     const homeNews = document.getElementById("home-news-grid");
     if (homeNews) {
-      homeNews.innerHTML = DATA.news
+      homeNews.innerHTML = getLocalizedNews()
         .slice(0, 3)
         .map(
           (n) => `
@@ -515,7 +591,7 @@
               <h3 class="card-title">${escapeHtml(n.title)}</h3>
               <p class="card-excerpt">${escapeHtml(n.excerpt)}</p>
               <div class="card-footer">
-                <button type="button" class="card-action-btn" data-open-news="${escapeHtml(n.id)}">Llegir notícia →</button>
+                <button type="button" class="card-action-btn" data-open-news="${escapeHtml(n.id)}">${escapeHtml(ui.readArticle)}</button>
               </div>
             </div>
           </article>`
@@ -544,7 +620,7 @@
               <p>${escapeHtml(p.summary)}</p>
             </div>
             <div>
-              <button type="button" class="btn btn--outline btn--sm" data-open-press="${escapeHtml(p.id)}">Veure retall</button>
+              <button type="button" class="btn btn--outline btn--sm" data-open-press="${escapeHtml(p.id)}">${escapeHtml(ui.viewClipping)}</button>
             </div>
           </article>`
         )
@@ -562,7 +638,7 @@
   function initHistoriaPage() {
     const timelineEl = document.getElementById("timeline-list");
     if (timelineEl) {
-      timelineEl.innerHTML = DATA.timeline
+      timelineEl.innerHTML = getLocalizedTimeline()
         .map(
           (item) => `
           <article class="timeline-item">
@@ -576,7 +652,7 @@
 
     const protagEl = document.getElementById("protagonists-grid");
     if (protagEl) {
-      protagEl.innerHTML = DATA.protagonists
+      protagEl.innerHTML = getLocalizedProtagonists()
         .map(
           (p) => `
           <article class="info-card">
@@ -597,8 +673,12 @@
     const panelEl = document.getElementById("scene-panel");
     if (!tabsEl || !panelEl) return;
 
+    const scenes = getLocalizedScenes();
+    const ui = dict().ui;
+
     function selectScene(index) {
-      const s = DATA.scenes[index];
+      activeSceneIdx = index;
+      const s = scenes[index];
       tabsEl.querySelectorAll("button").forEach((b, i) => {
         b.classList.toggle("active", i === index);
         b.setAttribute("aria-selected", String(i === index));
@@ -606,10 +686,10 @@
       panelEl.innerHTML = `
         <img class="scene-detail-img" src="${escapeHtml(s.image)}" alt="${escapeHtml(s.title)}">
         <div class="scene-detail-body">
-          <span class="eyebrow">Escena ${escapeHtml(s.number)} · ${escapeHtml(s.location)}</span>
+          <span class="eyebrow">${escapeHtml(ui.sceneEyebrow(s.number, s.location))}</span>
           <h3>${escapeHtml(s.title)}</h3>
           <p style="color:var(--text-muted);margin-bottom:14px">${escapeHtml(s.fullDesc)}</p>
-          <p style="font-size:0.94rem;color:var(--primary)"><strong>Atmosfera:</strong> ${escapeHtml(s.atmosphere)}</p>
+          <p style="font-size:0.94rem;color:var(--primary)"><strong>${escapeHtml(ui.atmosphereLabel)}</strong> ${escapeHtml(s.atmosphere)}</p>
           <div class="tags-row">
             ${s.characters.map((c) => `<span class="badge badge--primary">${escapeHtml(c)}</span>`).join("")}
           </div>
@@ -617,10 +697,10 @@
       `;
     }
 
-    tabsEl.innerHTML = DATA.scenes
+    tabsEl.innerHTML = scenes
       .map(
         (s, idx) => `
-        <button type="button" role="tab" class="scene-tab-btn ${idx === 0 ? "active" : ""}" aria-selected="${idx === 0}" data-scene-idx="${idx}">
+        <button type="button" role="tab" class="scene-tab-btn ${idx === activeSceneIdx ? "active" : ""}" aria-selected="${idx === activeSceneIdx}" data-scene-idx="${idx}">
           <span class="scene-tab-num">${escapeHtml(s.number)}</span>
           <span>
             <strong style="display:block;font-size:0.96rem">${escapeHtml(s.title)}</strong>
@@ -633,24 +713,27 @@
     tabsEl.querySelectorAll("button").forEach((btn) => {
       btn.addEventListener("click", () => selectScene(Number(btn.dataset.sceneIdx)));
     });
-    selectScene(0);
+    selectScene(activeSceneIdx);
   }
 
   /* ------------------------------------------------------------------------
      PAGE: NOTÍCIES (noticies.html)
      ------------------------------------------------------------------------ */
-  function initNoticiesPage() {
+  function initNoticiesPage(openDeepLink) {
     const featuredHost = document.getElementById("news-featured");
     const pillsHost = document.getElementById("news-categories");
     const searchInput = document.getElementById("news-search");
     const gridHost = document.getElementById("news-grid");
     const countHost = document.getElementById("news-count");
 
-    const categories = ["Totes", ...Array.from(new Set(DATA.news.map((n) => n.category)))];
-    let activeCategory = "Totes";
-    let query = "";
+    const ui = dict().ui;
+    const newsList = getLocalizedNews();
+    const allLabel = ui.allCategory;
+    const categories = [allLabel, ...Array.from(new Set(newsList.map((n) => n.category)))];
+    let activeCategory = allLabel;
+    let query = searchInput ? searchInput.value : "";
 
-    const lead = DATA.news.find((n) => n.featured) || DATA.news[0];
+    const lead = newsList.find((n) => n.featured) || newsList[0];
     if (featuredHost && lead) {
       featuredHost.innerHTML = `
         <article class="featured-news">
@@ -659,13 +742,13 @@
           </div>
           <div class="featured-news-body">
             <div class="card-meta">
-              <span class="badge badge--primary">Destacat · ${escapeHtml(lead.category)}</span>
+              <span class="badge badge--primary">${escapeHtml(ui.featuredPrefix + lead.category)}</span>
               <span>${escapeHtml(lead.date)}</span>
             </div>
             <h2>${escapeHtml(lead.title)}</h2>
             <p style="color:var(--text-muted);margin-bottom:22px">${escapeHtml(lead.excerpt)}</p>
             <div>
-              <button type="button" class="btn" data-open-news="${escapeHtml(lead.id)}">Llegir l'article complet →</button>
+              <button type="button" class="btn" data-open-news="${escapeHtml(lead.id)}">${escapeHtml(ui.readFullArticle)}</button>
             </div>
           </div>
         </article>
@@ -691,8 +774,8 @@
 
     function renderGrid() {
       const q = query.trim().toLowerCase();
-      const filtered = DATA.news.filter((n) => {
-        const matchCat = activeCategory === "Totes" || n.category === activeCategory;
+      const filtered = newsList.filter((n) => {
+        const matchCat = activeCategory === allLabel || n.category === activeCategory;
         const matchQ =
           !q ||
           n.title.toLowerCase().includes(q) ||
@@ -701,18 +784,18 @@
         return matchCat && matchQ;
       });
 
-      countHost.textContent = `Mostrant ${filtered.length} de ${DATA.news.length} notícies`;
+      countHost.textContent = ui.newsCount(filtered.length, newsList.length);
 
       if (!filtered.length) {
         gridHost.innerHTML = `
           <div class="empty-state" style="grid-column:1 / -1">
-            <p style="margin-bottom:12px">No s'han trobat notícies amb els filtres actuals.</p>
-            <button type="button" class="btn btn--outline btn--sm" id="reset-news">Mostrar totes</button>
+            <p style="margin-bottom:12px">${escapeHtml(ui.noNewsFound)}</p>
+            <button type="button" class="btn btn--outline btn--sm" id="reset-news">${escapeHtml(ui.showAll)}</button>
           </div>`;
         document.getElementById("reset-news").addEventListener("click", () => {
-          activeCategory = "Totes";
+          activeCategory = allLabel;
           query = "";
-          searchInput.value = "";
+          if (searchInput) searchInput.value = "";
           renderPills();
           renderGrid();
         });
@@ -733,7 +816,7 @@
               <p class="card-excerpt">${escapeHtml(n.excerpt)}</p>
               <div class="card-footer">
                 <span style="font-size:0.8rem;color:var(--text-muted)">${escapeHtml(n.tags.slice(0, 2).join(" · "))}</span>
-                <button type="button" class="card-action-btn" data-open-news="${escapeHtml(n.id)}">Llegir →</button>
+                <button type="button" class="card-action-btn" data-open-news="${escapeHtml(n.id)}">${escapeHtml(ui.readShort)}</button>
               </div>
             </div>
           </article>`
@@ -745,22 +828,28 @@
       });
     }
 
-    searchInput.addEventListener("input", (e) => {
-      query = e.target.value;
-      renderGrid();
-    });
+    if (searchInput) {
+      searchInput.oninput = (e) => {
+        query = e.target.value;
+        renderGrid();
+      };
+    }
 
     renderPills();
     renderGrid();
 
-    const deepId = getQueryParam("id");
-    if (deepId) openNewsArticle(deepId);
+    if (openDeepLink) {
+      const deepId = getQueryParam("id");
+      if (deepId) openNewsArticle(deepId);
+    }
   }
 
   /* ------------------------------------------------------------------------
      PAGE: ARXIU DE PREMSA (arxiu.html)
      ------------------------------------------------------------------------ */
-  function initArxiuPage() {
+  let pressViewMode = "list";
+
+  function initArxiuPage(openDeepLink) {
     const outletSelect = document.getElementById("press-outlet-filter");
     const decadeSelect = document.getElementById("press-decade-filter");
     const searchInput = document.getElementById("press-search");
@@ -770,19 +859,23 @@
     const countHost = document.getElementById("press-count");
     const contributeBtn = document.getElementById("open-contribute-btn");
 
-    let viewMode = "list";
+    const ui = dict().ui;
     let selectedOutlet = "Tots";
-    let selectedDecade = "Totes";
-    let query = "";
+    let selectedDecade = decadeSelect ? decadeSelect.value || "Totes" : "Totes";
+    let query = searchInput ? searchInput.value : "";
+
+    if (listBtn) listBtn.textContent = ui.listView;
+    if (gridBtn) gridBtn.textContent = ui.gridView;
 
     function populateOutlets() {
       const items = getAllPressItems();
       const outlets = Array.from(new Set(items.map((p) => p.outlet))).sort();
       const current = outletSelect.value || "Tots";
       outletSelect.innerHTML =
-        `<option value="Tots">Tots els mitjans (${outlets.length})</option>` +
+        `<option value="Tots">${escapeHtml(ui.allOutlets)} (${outlets.length})</option>` +
         outlets.map((o) => `<option value="${escapeHtml(o)}">${escapeHtml(o)}</option>`).join("");
       outletSelect.value = outlets.includes(current) ? current : "Tots";
+      selectedOutlet = outletSelect.value;
     }
 
     function renderArchive() {
@@ -800,14 +893,14 @@
         return matchOutlet && matchDecade && matchQ;
       });
 
-      countHost.textContent = `${filtered.length} retalls catalogats (${all.length} en total a l'hemeroteca)`;
+      countHost.textContent = ui.pressCount(filtered.length, all.length);
 
       if (!filtered.length) {
         resultsHost.className = "";
         resultsHost.innerHTML = `
           <div class="empty-state">
-            <p style="margin-bottom:12px">Cap retall coincideix amb aquesta cerca.</p>
-            <button type="button" class="btn btn--outline btn--sm" id="reset-press">Mostrar tota l'hemeroteca</button>
+            <p style="margin-bottom:12px">${escapeHtml(ui.noPressFound)}</p>
+            <button type="button" class="btn btn--outline btn--sm" id="reset-press">${escapeHtml(ui.showAllArchive)}</button>
           </div>`;
         document.getElementById("reset-press").addEventListener("click", () => {
           selectedOutlet = "Tots";
@@ -821,7 +914,7 @@
         return;
       }
 
-      if (viewMode === "list") {
+      if (pressViewMode === "list") {
         resultsHost.className = "press-list";
         resultsHost.innerHTML = filtered
           .map(
@@ -837,7 +930,7 @@
                 <p>${escapeHtml(p.summary)}</p>
               </div>
               <div>
-                <button type="button" class="btn btn--outline btn--sm" data-open-press="${escapeHtml(p.id)}">Llegir retall →</button>
+                <button type="button" class="btn btn--outline btn--sm" data-open-press="${escapeHtml(p.id)}">${escapeHtml(ui.readClipping)}</button>
               </div>
             </article>`
           )
@@ -856,7 +949,7 @@
               <p class="card-excerpt" style="font-size:0.9rem">${escapeHtml(p.summary)}</p>
               <div class="card-footer">
                 <span class="press-ref">${escapeHtml(p.date)}</span>
-                <button type="button" class="card-action-btn" data-open-press="${escapeHtml(p.id)}">Obrir retall →</button>
+                <button type="button" class="card-action-btn" data-open-press="${escapeHtml(p.id)}">${escapeHtml(ui.openClipping)}</button>
               </div>
             </article>`
           )
@@ -869,54 +962,53 @@
     }
 
     function openContributeModal() {
+      const u = dict().ui;
       const html = `
         <div class="modal-content">
-          <span class="eyebrow">Col·laboració Ciutadana</span>
-          <h2>Aportar un retall a l'hemeroteca</h2>
-          <p style="color:var(--text-muted);margin-bottom:20px">
-            Afegeix la referència d'un article de premsa, crònica o programa històric del Davallament de Felanitx.
-          </p>
+          <span class="eyebrow">${escapeHtml(u.contributeEyebrow)}</span>
+          <h2>${escapeHtml(u.contributeTitle)}</h2>
+          <p style="color:var(--text-muted);margin-bottom:20px">${escapeHtml(u.contributeDesc)}</p>
           <form id="contribute-press-form" class="form-grid">
             <div class="form-row-2">
               <div class="form-group">
-                <label for="cp-outlet">Mitjà de comunicació *</label>
-                <input id="cp-outlet" type="text" required placeholder="Ex: Setmanari Felanitx, Diario de Mallorca...">
+                <label for="cp-outlet">${escapeHtml(u.cpOutlet)}</label>
+                <input id="cp-outlet" type="text" required placeholder="${escapeHtml(u.cpOutletPh)}">
               </div>
               <div class="form-group">
-                <label for="cp-year">Any *</label>
+                <label for="cp-year">${escapeHtml(u.cpYear)}</label>
                 <input id="cp-year" type="number" min="1970" max="2030" required value="2026">
               </div>
             </div>
             <div class="form-row-2">
               <div class="form-group">
-                <label for="cp-date">Data exacta *</label>
-                <input id="cp-date" type="text" required placeholder="Ex: 12 d'abril de 1982">
+                <label for="cp-date">${escapeHtml(u.cpDate)}</label>
+                <input id="cp-date" type="text" required placeholder="${escapeHtml(u.cpDatePh)}">
               </div>
               <div class="form-group">
-                <label for="cp-section">Secció</label>
-                <input id="cp-section" type="text" placeholder="Ex: Cultura, Part Forana">
+                <label for="cp-section">${escapeHtml(u.cpSection)}</label>
+                <input id="cp-section" type="text" placeholder="${escapeHtml(u.cpSectionPh)}">
               </div>
             </div>
             <div class="form-group">
-              <label for="cp-headline">Titular *</label>
-              <input id="cp-headline" type="text" required placeholder="Titular complet de l'article">
+              <label for="cp-headline">${escapeHtml(u.cpHeadline)}</label>
+              <input id="cp-headline" type="text" required placeholder="${escapeHtml(u.cpHeadlinePh)}">
             </div>
             <div class="form-group">
-              <label for="cp-summary">Resum *</label>
-              <textarea id="cp-summary" required placeholder="Resum breu del contingut del retall..."></textarea>
+              <label for="cp-summary">${escapeHtml(u.cpSummary)}</label>
+              <textarea id="cp-summary" required placeholder="${escapeHtml(u.cpSummaryPh)}"></textarea>
             </div>
             <div class="form-group">
-              <label for="cp-excerpt">Cita o fragment destacat (opcional)</label>
-              <textarea id="cp-excerpt" placeholder="Fragment literal de la notícia..."></textarea>
+              <label for="cp-excerpt">${escapeHtml(u.cpExcerpt)}</label>
+              <textarea id="cp-excerpt" placeholder="${escapeHtml(u.cpExcerptPh)}"></textarea>
             </div>
             <div style="display:flex;justify-content:flex-end;gap:12px">
-              <button type="button" class="btn btn--outline btn--sm" id="cancel-cp">Cancel·lar</button>
-              <button type="submit" class="btn btn--sm">Afegir a l'hemeroteca</button>
+              <button type="button" class="btn btn--outline btn--sm" id="cancel-cp">${escapeHtml(u.cancel)}</button>
+              <button type="submit" class="btn btn--sm">${escapeHtml(u.addToArchive)}</button>
             </div>
           </form>
         </div>
       `;
-      openModal(html, "Aportar un retall");
+      openModal(html, u.contributeTitle);
       document.getElementById("cancel-cp").addEventListener("click", closeModal);
       document.getElementById("contribute-press-form").addEventListener("submit", (e) => {
         e.preventDefault();
@@ -936,12 +1028,12 @@
           date: document.getElementById("cp-date").value.trim(),
           year,
           decade,
-          section: document.getElementById("cp-section").value.trim() || "Aportació ciutadana",
+          section: document.getElementById("cp-section").value.trim() || u.contributeEyebrow,
           ref: `FEL-CIUTADA-${year}`,
           headline: document.getElementById("cp-headline").value.trim(),
           summary,
           excerpt: excerpt ? `«${excerpt.replace(/^«|»$/g, "")}»` : `«${summary}»`,
-          context: "Referència incorporada mitjançant el formulari col·laboratiu d'aquest navegador."
+          context: u.archiveNoteDefault
         });
 
         populateOutlets();
@@ -951,42 +1043,44 @@
         decadeSelect.value = "Totes";
         renderArchive();
         closeModal();
-        showToast("Retall afegit a l'hemeroteca!");
+        showToast(u.addedToast);
       });
     }
 
-    outletSelect.addEventListener("change", (e) => {
+    outletSelect.onchange = (e) => {
       selectedOutlet = e.target.value;
       renderArchive();
-    });
-    decadeSelect.addEventListener("change", (e) => {
+    };
+    decadeSelect.onchange = (e) => {
       selectedDecade = e.target.value;
       renderArchive();
-    });
-    searchInput.addEventListener("input", (e) => {
+    };
+    searchInput.oninput = (e) => {
       query = e.target.value;
       renderArchive();
-    });
-    listBtn.addEventListener("click", () => {
-      viewMode = "list";
+    };
+    listBtn.onclick = () => {
+      pressViewMode = "list";
       listBtn.classList.add("active");
       gridBtn.classList.remove("active");
       renderArchive();
-    });
-    gridBtn.addEventListener("click", () => {
-      viewMode = "grid";
+    };
+    gridBtn.onclick = () => {
+      pressViewMode = "grid";
       gridBtn.classList.add("active");
       listBtn.classList.remove("active");
       renderArchive();
-    });
-    contributeBtn.addEventListener("click", openContributeModal);
+    };
+    contributeBtn.onclick = openContributeModal;
 
     populateOutlets();
     renderArchive();
 
-    const deepId = getQueryParam("id");
-    if (deepId) openPressClipping(deepId);
-    if (window.location.hash === "#aportar") openContributeModal();
+    if (openDeepLink) {
+      const deepId = getQueryParam("id");
+      if (deepId) openPressClipping(deepId);
+      if (window.location.hash === "#aportar") openContributeModal();
+    }
   }
 
   /* ------------------------------------------------------------------------
@@ -997,8 +1091,11 @@
     const gridHost = document.getElementById("gallery-grid");
     const countHost = document.getElementById("gallery-count");
 
-    const albums = ["Totes", ...Array.from(new Set(DATA.gallery.map((g) => g.album)))];
-    let activeAlbum = "Totes";
+    const ui = dict().ui;
+    const photos = getLocalizedGallery();
+    const allLabel = ui.allCategory;
+    const albums = [allLabel, ...Array.from(new Set(photos.map((g) => g.album)))];
+    let activeAlbum = allLabel;
 
     function renderPills() {
       pillsHost.innerHTML = albums
@@ -1017,8 +1114,8 @@
     }
 
     function renderGrid() {
-      const filtered = DATA.gallery.filter((g) => activeAlbum === "Totes" || g.album === activeAlbum);
-      countHost.textContent = `${filtered.length} fotografies originals del Davallament · Fes clic per ampliar`;
+      const filtered = photos.filter((g) => activeAlbum === allLabel || g.album === activeAlbum);
+      countHost.textContent = ui.galleryCount(filtered.length);
 
       gridHost.innerHTML = filtered
         .map(
@@ -1026,7 +1123,7 @@
           <button type="button" class="gallery-card" data-photo-idx="${idx}">
             <div class="gallery-thumb">
               <img src="${escapeHtml(g.src)}" alt="${escapeHtml(g.title)}" loading="lazy">
-              <span class="gallery-zoom-pill">Ampliar ↗</span>
+              <span class="gallery-zoom-pill">${escapeHtml(ui.zoomPill)}</span>
             </div>
             <div class="gallery-info">
               <div class="card-meta">
@@ -1055,16 +1152,16 @@
   function initContactePage() {
     const form = document.getElementById("contact-form");
     if (!form) return;
-    form.addEventListener("submit", (e) => {
+    form.onsubmit = (e) => {
       e.preventDefault();
       const name = document.getElementById("c-name").value.trim();
       form.reset();
-      showToast(`Gràcies, ${name || "amic/amiga"}! Hem registrat el teu missatge.`);
-    });
+      showToast(dict().ui.contactToast(name));
+    };
   }
 
   /* ------------------------------------------------------------------------
-     YAML Data Loader (data/noticies.yaml, data/arxiu-premsa.yaml, data/galeria.yaml)
+     YAML Data Loader
      ------------------------------------------------------------------------ */
   function normalizeNewsItem(raw, idx) {
     let body = [];
@@ -1168,22 +1265,26 @@
     if (tasks.length) await Promise.all(tasks);
   }
 
+  function renderCurrentPage(isInitial) {
+    if (currentPage === "inici") initHomePage();
+    else if (currentPage === "historia") initHistoriaPage();
+    else if (currentPage === "representacio") initRepresentacioPage();
+    else if (currentPage === "noticies") initNoticiesPage(Boolean(isInitial));
+    else if (currentPage === "arxiu") initArxiuPage(Boolean(isInitial));
+    else if (currentPage === "galeria") initGaleriaPage();
+    else if (currentPage === "contacte") initContactePage();
+  }
+
   /* ------------------------------------------------------------------------
      Bootstrap
      ------------------------------------------------------------------------ */
   document.addEventListener("DOMContentLoaded", async () => {
-    const page = document.body.dataset.page || "inici";
-    renderLayout(page);
-    await loadExternalYaml(page);
+    currentPage = document.body.dataset.page || "inici";
+    currentLang = getStoredLang();
 
-    if (page === "inici") initHomePage();
-    else if (page === "historia") initHistoriaPage();
-    else if (page === "representacio") initRepresentacioPage();
-    else if (page === "noticies") initNoticiesPage();
-    else if (page === "arxiu") initArxiuPage();
-    else if (page === "galeria") initGaleriaPage();
-    else if (page === "contacte") initContactePage();
-
-    applyLanguage(getLang());
+    renderLayout();
+    applyStaticTranslations();
+    await loadExternalYaml(currentPage);
+    renderCurrentPage(true);
   });
 })();

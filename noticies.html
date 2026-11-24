@@ -22,12 +22,12 @@
       </div>
       <div class="container page-banner-inner">
         <nav class="breadcrumb" aria-label="Fil d'Ariadna">
-          <a href="index.html">Inici</a>
+          <a href="index.html" data-i18n="ui.breadcrumbHome">Inici</a>
           <span>/</span>
-          <span>Notícies</span>
+          <span data-i18n="nav.noticies">Notícies</span>
         </nav>
-        <h1>Notícies i actualitat</h1>
-        <p>
+        <h1 data-i18n="noticies.bannerTitle">Notícies i actualitat</h1>
+        <p data-i18n="noticies.bannerSub">
           Cròniques de les darreres edicions, convocatòries de participació, projectes culturals i novetats de l'Associació.
         </p>
       </div>
@@ -45,13 +45,13 @@
               <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
             </svg>
             <label for="news-search" class="sr-only">Cercar notícies</label>
-            <input id="news-search" type="search" placeholder="Cercar notícia, tema o any...">
+            <input id="news-search" type="search" data-i18n-placeholder="noticies.searchPh" placeholder="Cercar notícia, tema o any...">
           </div>
         </div>
 
         <div class="results-bar">
           <span id="news-count"></span>
-          <a href="arxiu.html" class="link-arrow">Cerques retalls històrics? Ves a l'Arxiu de Premsa →</a>
+          <a href="arxiu.html" class="link-arrow" data-i18n="noticies.archiveHint">Cerques retalls històrics? Ves a l'Arxiu de Premsa →</a>
         </div>
 
         <div class="cards-grid" id="news-grid"></div>
@@ -62,6 +62,7 @@
   <div id="site-footer-host"></div>
 
   <script defer src="js/data.js"></script>
+  <script defer src="js/i18n.js"></script>
   <script defer src="js/yaml-loader.js"></script>
   <script defer src="js/main.js"></script>
 </body>

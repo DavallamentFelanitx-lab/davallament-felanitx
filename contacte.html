@@ -22,12 +22,12 @@
       </div>
       <div class="container page-banner-inner">
         <nav class="breadcrumb" aria-label="Fil d'Ariadna">
-          <a href="index.html">Inici</a>
+          <a href="index.html" data-i18n="ui.breadcrumbHome">Inici</a>
           <span>/</span>
-          <span>Contacte</span>
+          <span data-i18n="nav.contacte">Contacte</span>
         </nav>
-        <h1>Contacte i participació</h1>
-        <p>
+        <h1 data-i18n="contacte.bannerTitle">Contacte i participació</h1>
+        <p data-i18n="contacte.bannerSub">
           Escriu a l'Associació El Davallament de Felanitx si vols participar en la representació, col·laborar-hi o compartir fotografies i documents antics.
         </p>
       </div>
@@ -37,24 +37,23 @@
       <div class="container">
         <div class="contact-layout">
           <div>
-            <span class="eyebrow">Associació El Davallament</span>
-            <h2 class="section-title">Fes poble amb nosaltres</h2>
+            <span class="eyebrow" data-i18n="contacte.leftEyebrow">Associació El Davallament</span>
+            <h2 class="section-title" data-i18n="contacte.leftTitle">Fes poble amb nosaltres</h2>
             <div class="separator left"></div>
-            <p style="color:var(--text-muted);margin-bottom:24px">
+            <p style="color:var(--text-muted);margin-bottom:24px" data-i18n="contacte.leftText">
               El Davallament és possible gràcies a l'esforç altruista de més de 160 veïns i veïnes. Sempre hi ha lloc per a noves incorporacions, tant a l'escenari com en vestuari, muntatge, il·luminació o arxiu documental.
             </p>
 
             <div class="form-grid">
               <div class="info-card">
-                <h3>Indret de la representació</h3>
-                <p>
-                  Parròquia de Sant Miquel · Plaça de sa Font de Santa Margalida<br>
-                  07200 Felanitx, Mallorca (Illes Balears)
+                <h3 data-i18n="contacte.locTitle">Indret de la representació</h3>
+                <p data-i18n-html="contacte.locHtml">
+                  Parròquia de Sant Miquel · Plaça de sa Font de Santa Margalida<br>07200 Felanitx, Mallorca (Illes Balears)
                 </p>
               </div>
               <div class="info-card">
-                <h3>Quan ens pots trobar?</h3>
-                <p>
+                <h3 data-i18n="contacte.whenTitle">Quan ens pots trobar?</h3>
+                <p data-i18n-html="contacte.whenHtml">
                   Durant la Quaresma els assajos es realitzen a l'entorn de la Parròquia de Sant Miquel. La representació té lloc cada <strong>Divendres Sant a les 21:00 h</strong>.
                 </p>
               </div>
@@ -62,36 +61,36 @@
           </div>
 
           <div class="form-card">
-            <h2 style="font-size:2rem;margin-bottom:8px">Envia'ns un missatge</h2>
-            <p style="color:var(--text-muted);margin-bottom:22px;font-size:0.95rem">
+            <h2 style="font-size:2rem;margin-bottom:8px" data-i18n="contacte.formTitle">Envia'ns un missatge</h2>
+            <p style="color:var(--text-muted);margin-bottom:22px;font-size:0.95rem" data-i18n="contacte.formSub">
               Omple el formulari i ens posarem en contacte amb tu al més aviat possible.
             </p>
             <form id="contact-form" class="form-grid">
               <div class="form-row-2">
                 <div class="form-group">
-                  <label for="c-name">Nom i llinatges *</label>
-                  <input id="c-name" type="text" required placeholder="El teu nom">
+                  <label for="c-name" data-i18n="contacte.lblName">Nom i llinatges *</label>
+                  <input id="c-name" type="text" required data-i18n-placeholder="contacte.phName" placeholder="El teu nom">
                 </div>
                 <div class="form-group">
-                  <label for="c-email">Correu electrònic *</label>
-                  <input id="c-email" type="email" required placeholder="nom@exemple.cat">
+                  <label for="c-email" data-i18n="contacte.lblEmail">Correu electrònic *</label>
+                  <input id="c-email" type="email" required data-i18n-placeholder="contacte.phEmail" placeholder="nom@exemple.cat">
                 </div>
               </div>
               <div class="form-group">
-                <label for="c-topic">Motiu del missatge *</label>
+                <label for="c-topic" data-i18n="contacte.lblTopic">Motiu del missatge *</label>
                 <select id="c-topic" required>
-                  <option value="voluntariat">Vull participar com a actor / figurant / voluntari</option>
-                  <option value="arxiu">Vull cedir fotografies o retalls de premsa antics</option>
-                  <option value="premsa">Premsa i mitjans de comunicació</option>
-                  <option value="consulta">Consulta general / Informació per a visitants</option>
+                  <option value="voluntariat" data-i18n="contacte.optVol">Vull participar com a actor / figurant / voluntari</option>
+                  <option value="arxiu" data-i18n="contacte.optArch">Vull cedir fotografies o retalls de premsa antics</option>
+                  <option value="premsa" data-i18n="contacte.optPress">Premsa i mitjans de comunicació</option>
+                  <option value="consulta" data-i18n="contacte.optGen">Consulta general / Informació per a visitants</option>
                 </select>
               </div>
               <div class="form-group">
-                <label for="c-message">Missatge *</label>
-                <textarea id="c-message" required placeholder="Explica'ns en què et podem ajudar o com t'agradaria participar-hi..."></textarea>
+                <label for="c-message" data-i18n="contacte.lblMsg">Missatge *</label>
+                <textarea id="c-message" required data-i18n-placeholder="contacte.phMsg" placeholder="Explica'ns en què et podem ajudar o com t'agradaria participar-hi..."></textarea>
               </div>
               <div>
-                <button type="submit" class="btn">Enviar missatge →</button>
+                <button type="submit" class="btn" data-i18n="contacte.btnSend">Enviar missatge →</button>
               </div>
             </form>
           </div>
@@ -103,6 +102,7 @@
   <div id="site-footer-host"></div>
 
   <script defer src="js/data.js"></script>
+  <script defer src="js/i18n.js"></script>
   <script defer src="js/main.js"></script>
 </body>
 </html>
