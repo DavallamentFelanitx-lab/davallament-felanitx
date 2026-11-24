@@ -1040,81 +1040,37 @@
   }
 
   /* ------------------------------------------------------------------------
-     PAGE: CONTACTE (contacte.html) — Enviament real a davallamentfelanitx@gmail.com
+     PAGE: CONTACTE (contacte.html) — Enviament natiu via FormSubmit a davallamentfelanitx@gmail.com
      ------------------------------------------------------------------------ */
   function initContactePage() {
     const form = document.getElementById("contact-form");
     const submitBtn = document.getElementById("contact-submit-btn");
     const statusBox = document.getElementById("contact-status");
+    const nextInput = document.getElementById("contact-next-url");
     if (!form) return;
 
-    form.onsubmit = async (e) => {
-      e.preventDefault();
-      const ui = dict().ui;
-      const name = document.getElementById("c-name").value.trim();
-      const email = document.getElementById("c-email").value.trim();
-      const topicEl = document.getElementById("c-topic");
-      const topicText = topicEl.options[topicEl.selectedIndex] ? topicEl.options[topicEl.selectedIndex].text : topicEl.value;
-      const message = document.getElementById("c-message").value.trim();
-      const honey = form.querySelector('input[name="_honey"]');
-      if (honey && honey.value) return;
+    // Actualitza _next dinàmicament a la URL actual (GitHub Pages o domini propi)
+    if (nextInput && window.location.protocol.startsWith("http")) {
+      const cleanUrl = `${window.location.origin}${window.location.pathname}?enviat=1`;
+      nextInput.value = cleanUrl;
+    }
 
+    // Mostra confirmació quan FormSubmit redirigeix de tornada amb ?enviat=1
+    if (getQueryParam("enviat") === "1" && statusBox) {
+      const ui = dict().ui;
+      statusBox.style.display = "block";
+      statusBox.style.background = "#edf7ed";
+      statusBox.style.border = "1px solid #b7dfb9";
+      statusBox.style.color = "#1e4620";
+      statusBox.textContent = ui.contactToast("");
+    }
+
+    form.onsubmit = () => {
       if (submitBtn) {
         submitBtn.disabled = true;
-        submitBtn.textContent = ui.contactSending;
+        submitBtn.textContent = dict().ui.contactSending;
       }
-      if (statusBox) statusBox.style.display = "none";
-
-      try {
-        const res = await fetch(`https://formsubmit.co/ajax/${CONTACT_EMAIL}`, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Accept: "application/json"
-          },
-          body: JSON.stringify({
-            Nom: name,
-            Correu: email,
-            Motiu: topicText,
-            Missatge: message,
-            _replyto: email,
-            _subject: `[Web Davallament] ${topicText} — ${name}`,
-            _template: "table"
-          })
-        });
-
-        const data = await res.json().catch(() => ({}));
-        if (res.ok && (data.success === "true" || data.success === true)) {
-          form.reset();
-          if (statusBox) {
-            statusBox.style.display = "block";
-            statusBox.style.background = "#edf7ed";
-            statusBox.style.border = "1px solid #b7dfb9";
-            statusBox.style.color = "#1e4620";
-            statusBox.textContent = ui.contactToast(name);
-          }
-          showToast(ui.contactToast(name));
-        } else {
-          throw new Error(data.message || "Send failed");
-        }
-      } catch (_) {
-        const subject = encodeURIComponent(`[Web Davallament] ${topicText} — ${name}`);
-        const body = encodeURIComponent(`${name} (${email})\n\n${message}`);
-        const mailtoUrl = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`;
-        if (statusBox) {
-          statusBox.style.display = "block";
-          statusBox.style.background = "#fcf6e8";
-          statusBox.style.border = "1px solid var(--secondary)";
-          statusBox.style.color = "var(--primary-dark)";
-          statusBox.innerHTML = `${escapeHtml(ui.contactFallback)} <a href="${mailtoUrl}" style="color:var(--primary);font-weight:700;text-decoration:underline">${CONTACT_EMAIL}</a>`;
-        }
-        window.location.href = mailtoUrl;
-      } finally {
-        if (submitBtn) {
-          submitBtn.disabled = false;
-          submitBtn.textContent = dict().contacte.btnSend;
-        }
-      }
+      // Deixam que el navegador faci l'enviament POST natiu a FormSubmit (garanteix activació i lliurament)
     };
   }
 

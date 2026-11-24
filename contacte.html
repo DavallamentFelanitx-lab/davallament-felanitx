@@ -73,10 +73,13 @@
             </p>
             <form id="contact-form" class="form-grid" action="https://formsubmit.co/davallamentfelanitx@gmail.com" method="POST">
               <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+              <input type="hidden" name="_subject" value="Nou missatge des del web El Davallament de Felanitx">
+              <input type="hidden" name="_template" value="table">
+              <input type="hidden" name="_next" id="contact-next-url" value="https://davallamentfelanitx-lab.github.io/davallament-felanitx/contacte.html?enviat=1">
               <div class="form-row-2">
                 <div class="form-group">
                   <label for="c-name" data-i18n="contacte.lblName">Nom i llinatges *</label>
-                  <input id="c-name" name="nom" type="text" required data-i18n-placeholder="contacte.phName" placeholder="El teu nom">
+                  <input id="c-name" name="Nom" type="text" required data-i18n-placeholder="contacte.phName" placeholder="El teu nom">
                 </div>
                 <div class="form-group">
                   <label for="c-email" data-i18n="contacte.lblEmail">Correu electrònic *</label>
@@ -85,16 +88,16 @@
               </div>
               <div class="form-group">
                 <label for="c-topic" data-i18n="contacte.lblTopic">Motiu del missatge *</label>
-                <select id="c-topic" name="motiu" required>
-                  <option value="voluntariat" data-i18n="contacte.optVol">Vull participar com a actor / figurant / voluntari</option>
-                  <option value="arxiu" data-i18n="contacte.optArch">Vull cedir fotografies o retalls de premsa antics</option>
-                  <option value="premsa" data-i18n="contacte.optPress">Premsa i mitjans de comunicació</option>
-                  <option value="consulta" data-i18n="contacte.optGen">Consulta general / Informació per a visitants</option>
+                <select id="c-topic" name="Motiu" required>
+                  <option value="Participar com a actor / figurant / voluntari" data-i18n="contacte.optVol">Vull participar com a actor / figurant / voluntari</option>
+                  <option value="Cedir fotografies o retalls de premsa antics" data-i18n="contacte.optArch">Vull cedir fotografies o retalls de premsa antics</option>
+                  <option value="Premsa i mitjans de comunicació" data-i18n="contacte.optPress">Premsa i mitjans de comunicació</option>
+                  <option value="Consulta general / Informació per a visitants" data-i18n="contacte.optGen">Consulta general / Informació per a visitants</option>
                 </select>
               </div>
               <div class="form-group">
                 <label for="c-message" data-i18n="contacte.lblMsg">Missatge *</label>
-                <textarea id="c-message" name="missatge" required data-i18n-placeholder="contacte.phMsg" placeholder="Explica'ns en què et podem ajudar o com t'agradaria participar-hi..."></textarea>
+                <textarea id="c-message" name="Missatge" required data-i18n-placeholder="contacte.phMsg" placeholder="Explica'ns en què et podem ajudar o com t'agradaria participar-hi..."></textarea>
               </div>
               <div id="contact-status" role="status" aria-live="polite" style="display:none;padding:12px 16px;border-radius:6px;font-size:0.94rem"></div>
               <div>
