@@ -189,7 +189,7 @@ window.DAVALLAMENT_DATA = {
     {
       year: "28 de març de 1975",
       title: "El primer Davallament a l'escalinata de Sant Miquel",
-      text: "Impulsat per la Creuada de l'Amor Diví i l'entusiasme d'Antoni Grimalt Obrador i veïns del poble, el Davallament surt per primera vegada a l'aire lliure al replà i l'escalinata de Sant Miquel."
+      text: "Impulsat per la Creuada de l'Amor Diví i l'entusiasme dels veïns del poble, el Davallament surt per primera vegada a l'aire lliure al replà i l'escalinata de Sant Miquel."
     },
     {
       year: "Anys 1980–1990",
