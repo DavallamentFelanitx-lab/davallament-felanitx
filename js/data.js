@@ -182,9 +182,9 @@ window.DAVALLAMENT_DATA = {
 
   timeline: [
     {
-      year: "28 de març de 1975",
-      title: "El primer Davallament al replà de Sant Miquel",
-      text: "El 28 de març de 1975 es va celebrar per primera vegada al replà de l'església parroquial. Fins llavors s'havia representat a l'interior del temple. Organitzat per la Creuada de l'Amor Diví, el Davallament se celebrà davant l'emblemàtica portalada de la parròquia."
+      year: "1975",
+      title: "El primer Davallament al replà de la Parròquia de Sant Miquel",
+      text: "Impulsat per la Creuada de l'Amor Diví, el 28 de març de 1975 el Davallament es va representar per primera vegada al replà de la parròquia. Fins llavors s'havia representat a l'interior del temple."
     },
     {
       year: "Primers anys (1975–1986)",
@@ -194,12 +194,12 @@ window.DAVALLAMENT_DATA = {
     {
       year: "A partir de 1987",
       title: "De cerimònia a espectacle a l'escalinata",
-      text: "A partir de l'any 1987 –i de forma progressiva– s'incorporen personatges, s'afegeixen escenes de la Passió abans del davallament –que es representen a l'escalinata–, s'introdueix música sacra enregistrada –que és reproduïda per un potent equip de so– i es dota la celebració d'un complet equip de llum, incorporacions que suposen convertir la cerimònia en un espectacle."
+      text: "A partir de l’any 1987 –i de forma progressiva– s’incorporen personatges, s’afegeixen escenes de la Passió abans del davallament –que es representen a l’escalinata–, s’introdueix música sacra enregistrada –que és reproduïda per un potent equip de so– i es dota la celebració d’un complet equip de llum, incorporacions que suposen convertir la cerimònia en un espectacle."
     },
     {
       year: "1991",
       title: "Gent de Bulla i els textos del pare Antoni Oliver C.R.",
-      text: "L'any 1991, la representació dels personatges, a través de quadres estàtics, s'encarrega al grup de teatre Gent de Bulla, i el teatí pare Antoni Oliver C.R. escriu uns textos específicament per al Davallament de Felanitx, que es llegeixen cada any, a fi d'acompanyar, amb la música, les diferents escenes."
+      text: "L'any 1991, la representació dels personatges, a través de quadres estàtics, s'encarrega al grup de teatre felanitxer Gent de Bulla, i el teatí pare Antoni Oliver C.R. escriu uns textos específicament per al Davallament de Felanitx, que es llegeixen cada any, a fi d'acompanyar, amb la música, les diferents escenes."
     },
     {
       year: "2000",
@@ -213,23 +213,23 @@ window.DAVALLAMENT_DATA = {
     },
     {
       year: "2023",
-      title: "Renovació tècnica i direcció de Marta Obrador Barceló",
-      text: "L'edició de 2023, dirigida per la felanitxera Marta Obrador Barceló, incorpora novetats importants en la posada en escena: es renoven materials i escenaris i s'introdueixen innovadors efectes sonors i luminotècnics."
+      title: "Renovació tècnica i direcció de Marta Obrador",
+      text: "L'edició de 2023, dirigida per la felanitxera Marta Obrador, incorpora novetats importants en la posada en escena: es renoven materials i escenaris i s'introdueixen innovadors efectes sonors i luminotècnics."
     },
     {
       year: "2024",
       title: "Direcció de Joan Toni Sunyer",
-      text: "L'any 2024 assumeix la direcció escènica l'actor manacorí Joan Toni Sunyer, aprofundint en el llenguatge teatral i la intensitat dramàtica de la representació a l'escalinata de Sant Miquel."
+      text: "L'any 2024 assumeix la direcció escènica l'actor i director Joan Toni Sunyer, introduint diversos detalls i canvis en l’escenificació i el muntatge de les escenes que es representaran."
     },
     {
       year: "2025",
-      title: "50è Aniversari: sis escenaris, música original i directe a IB3",
-      text: "Felanitx celebra el 50è aniversari del Davallament a l'exterior amb una edició històrica codirigida per Marta Obrador Barceló i Joan Toni Sunyer. L'espectacle s'expandeix de manera excepcional per sis escenaris diferents a la Plaça de sa Font de Santa Margalida, estrena la banda sonora original de Joan Martorell, compta amb un cartell commemoratiu de Miquel Barceló i es retransmet per primera vegada en directe a IB3 Televisió."
+      title: "50è Aniversari: sis escenaris i nova banda sonora",
+      text: "Felanitx celebra el 50è aniversari del Davallament a l'exterior amb una edició històrica codirigida per Marta Obrador i Joan Toni Sunyer. L'espectacle s'expandeix de manera excepcional per sis escenaris diferents a la Plaça de sa Font de Santa Margalida, estrena la banda sonora original de Joan Martorell, compta amb un cartell commemoratiu de Miquel Barceló i es retransmet en directe a IB3 Televisió. Per primera vegada, el Davallament s'enllaça amb la processó del Divendres Sant i s'incorpora el pas vivent de Jesús jacent."
     },
     {
       year: "2026",
       title: "51a edició i retorn a l'escalinata tradicional",
-      text: "L'any 2026 el torna a dirigir Joan Toni Sunyer, retornant tot el protagonisme a la façana i l'escalinata de Sant Miquel, consolidant la banda sonora de Joan Martorell i batent un rècord de participació amb 160 actors i actrius d'entre 3 i gairebé 80 anys."
+      text: "L'any 2026 el Davallament torna a ser dirigit per Joan Toni Sunyer, retornant tot el protagonisme a la façana i l'escalinata de Sant Miquel, consolidant la banda sonora de Joan Martorell i batent un rècord de participació amb 160 actors i actrius d'entre 3 i gairebé 80 anys."
     }
   ],
 
@@ -241,7 +241,7 @@ window.DAVALLAMENT_DATA = {
     },
     {
       role: "Direcció del 50è Aniversari",
-      name: "Joan Toni Sunyer i Marta Obrador",
+      name: "Marta Obrador i Joan Toni Sunyer",
       desc: "Responsables de la renovació dramatúrgica i visual del cinquantenari, combinant respecte per la tradició i llenguatge escènic contemporani."
     },
     {
