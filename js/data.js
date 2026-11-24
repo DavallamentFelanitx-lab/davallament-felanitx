@@ -82,10 +82,10 @@ window.DAVALLAMENT_DATA = {
       subtitle: "Teatre popular, il·luminació dramàtica i una posada en escena plena de solemnitat."
     },
     {
-      src: "img/hero/hero3.jpg",
+      src: "img/hero/hero3.jpg?v=2",
       kicker: "Tradició i Emoció",
-      title: "El Judici de Ponç Pilat",
-      subtitle: "L'arquitectura històrica de la plaça i la façana parroquial esdevenen l'escenari natural de la Passió."
+      title: "El Sant Sopar",
+      subtitle: "El comiat dels deixebles i el pa compartit sota una posada en escena íntima i solemne davant el poble de Felanitx."
     }
   ],
 

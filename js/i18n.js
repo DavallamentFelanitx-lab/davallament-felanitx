@@ -467,7 +467,7 @@ window.I18N = {
         { kicker: "Viernes Santo · Escalinata de Sant Miquel", title: "El Davallament de Felanitx", subtitle: "El momento culminante del descendimiento de la cruz ante la portada barroca de la Parroquia de Sant Miquel." },
         { kicker: "Patrimonio Vivo desde 1975", title: "El Camino del Calvario", subtitle: "Cerca de doscientos vecinos transforman cada año la escalinata de piedra de marés en un teatro sacro al aire libre." },
         { kicker: "Escenografía y Luz", title: "Ante los Armats y el Pueblo", subtitle: "Teatro popular, iluminación dramática y una puesta en escena llena de solemnidad." },
-        { kicker: "Tradición y Emoción", title: "El Juicio de Poncio Pilato", subtitle: "La arquitectura histórica de la plaza y la fachada parroquial se convierten en el escenario natural de la Pasión." }
+        { kicker: "Tradición y Emoción", title: "La Última Cena", subtitle: "La despedida de los discípulos y el pan compartido bajo una puesta en escena íntima y solemne ante el pueblo de Felanitx." }
       ],
       scenes: {
         "entrada-jerusalem": { title: "Entrada en Jerusalén", location: "Pie de la escalinata de Sant Miquel", characters: ["Jesús", "Apóstoles", "Pueblo de Jerusalén", "Niños con palmas"], atmosphere: "Clima coral que abre el relato evangélico entre los peldaños de marés", fullDesc: "La representación arranca con la participación coral de familias y niños del pueblo que dan vida a Jerusalén con ramas de olivo y palmas, estableciendo desde el primer instante el carácter comunitario del Davallament." },
@@ -812,7 +812,7 @@ window.I18N = {
         { kicker: "Good Friday · Sant Miquel Staircase", title: "El Davallament de Felanitx", subtitle: "The climactic Descent from the Cross before the baroque portal of Sant Miquel Parish Church." },
         { kicker: "Living Heritage Since 1975", title: "The Way to Calvary", subtitle: "Nearly two hundred local residents transform the sandstone steps into an open-air sacred theatre each year." },
         { kicker: "Lighting & Stagecraft", title: "Before the Roman Guards and the Town", subtitle: "Community theatre, dramatic lighting, and a staging steeped in solemnity." },
-        { kicker: "Tradition & Emotion", title: "The Trial of Pontius Pilate", subtitle: "The historic architecture of the square and church facade become the natural stage of the Passion." }
+        { kicker: "Tradition & Emotion", title: "The Last Supper", subtitle: "The farewell with the disciples and the shared bread in an intimate, solemn staging before the people of Felanitx." }
       ],
       scenes: {
         "entrada-jerusalem": { title: "Entry into Jerusalem", location: "Foot of Sant Miquel staircase", characters: ["Jesus", "Apostles", "People of Jerusalem", "Children with palms"], atmosphere: "Choral opening along the marès stone steps", fullDesc: "The performance opens with local families and children bringing Jerusalem to life with olive branches and palms, establishing the deep community spirit of El Davallament from the very first moment." },
@@ -1157,7 +1157,7 @@ window.I18N = {
         { kicker: "Karfreitag · Treppe von Sant Miquel", title: "El Davallament de Felanitx", subtitle: "Der Höhepunkt der Kreuzabnahme vor dem barocken Portal der Pfarrkirche Sant Miquel." },
         { kicker: "Lebendiges Kulturerbe seit 1975", title: "Der Kreuzweg", subtitle: "Fast zweihundert Einwohner verwandeln jedes Jahr die Sandsteintreppe in ein geistliches Freilichttheater." },
         { kicker: "Inszenierung & Licht", title: "Vor den römischen Soldaten und dem Volk", subtitle: "Volkstheater, dramatische Lichtgestaltung und eine Inszenierung voller Feierlichkeit." },
-        { kicker: "Tradition & Emotion", title: "Das Urteil des Pontius Pilatus", subtitle: "Die historische Architektur des Platzes und der Kirchenfassade bildet die natürliche Bühne der Passion." }
+        { kicker: "Tradition & Emotion", title: "Das Letzte Abendmahl", subtitle: "Der Abschied von den Jüngern und das geteilte Brot in einer intimen, feierlichen Inszenierung vor dem Publikum von Felanitx." }
       ],
       scenes: {
         "entrada-jerusalem": { title: "Einzug in Jerusalem", location: "Fuß der Treppe von Sant Miquel", characters: ["Jesus", "Apostel", "Volk von Jerusalem", "Kinder mit Palmzweigen"], atmosphere: "Chorische Eröffnung auf den Stufen aus Marés-Stein", fullDesc: "Die Aufführung beginnt mit einheimischen Familien und Kindern, die mit Oliven- und Palmzweigen Jerusalem zum Leben erwecken und von Beginn an den Gemeinschaftsgeist des Davallament spürbar machen." },
