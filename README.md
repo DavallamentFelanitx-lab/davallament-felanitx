@@ -1,2 +1,152 @@
-# DavallamentFelanitx
-Web del Davallament de Felanitx
+# El Davallament de Felanitx — Portal Web
+
+Web divulgativa i arxiu documental de l'**Associació El Davallament de Felanitx** (Mallorca), dedicada a donar a conèixer la representació de la Passió, Mort i Descendiment de Jesucrist que se celebra cada Divendres Sant a l'escalinata de la Parròquia de Sant Miquel des de 1975.
+
+- **Web publicada (GitHub Pages):** https://davallamentfelanitx-lab.github.io/davallament-felanitx/
+- **Repositori:** https://github.com/DavallamentFelanitx-lab/davallament-felanitx
+- **Tecnologia:** HTML5, CSS3 i JavaScript pur (sense dependències ni compilació) + dades editables en format **YAML**.
+
+---
+
+## Estructura del projecte
+
+```text
+davallament-felanitx/
+├── index.html              # Pàgina principal (carrusel real, benvinguda, avançaments i guia)
+├── historia.html           # Història, cronologia (1975–2026) i protagonistes
+├── representacio.html      # Explorador interactiu escena per escena (8 quadres)
+├── noticies.html           # Notícies amb article destacat, filtres, cercador i visor modal
+├── arxiu.html              # Hemeroteca / Arxiu de premsa (filtres, vista Llista/Fitxes i aportació)
+├── galeria.html            # Galeria de fotografies reals amb filtres per àlbum i visor lightbox
+├── contacte.html           # Informació de l'Associació i formulari de contacte / voluntariat
+├── .nojekyll               # Indica a GitHub Pages que serveixi els fitxers tal qual (inclòs YAML)
+├── css/
+│   └── style.css           # Disseny responsive i identitat visual oficial
+├── data/
+│   ├── noticies.yaml       # Fitxer editable de notícies
+│   ├── arxiu-premsa.yaml   # Fitxer editable de l'arxiu de premsa (hemeroteca)
+│   └── galeria.yaml        # Fitxer editable de la galeria d'imatges
+├── js/
+│   ├── data.js             # Textos base, escenes, cronologia, traduccions i dades de reserva
+│   ├── yaml-loader.js      # Lector YAML lleuger sense dependències per al navegador
+│   └── main.js             # Capçalera, peu, carrusel, filtres, modals, lightbox i idiomes
+└── img/
+    ├── logo/
+    │   └── logo.png        # Logotip oficial d'El Davallament de Felanitx
+    └── hero/
+        ├── hero1.jpg       # El Davallament de la Creu
+        ├── hero2.jpg       # Escorta dels Armats per l'escalinata
+        ├── hero3.jpg       # El Judici de Ponç Pilat i la Flagel·lació
+        └── hero4.jpg       # La Caiguda amb la Creu i la Verònica
+```
+
+---
+
+## Com editar el contingut fàcilment (YAML)
+
+No cal tocar cap fitxer HTML ni JavaScript per actualitzar notícies, retalls de premsa o fotografies. Pots editar els fitxers `.yaml` dins la carpeta `data/` directament des de **GitHub** (fent clic al fitxer → icona del llapis **Edit** → **Commit changes**).
+
+### 1. Afegir o editar una notícia (`data/noticies.yaml`)
+
+Copia aquesta plantilla i enganxa-la a dalt de tot de `data/noticies.yaml` perquè surti la primera:
+
+```yaml
+- id: nova-noticia-2027
+  titol: "Títol de la notícia"
+  categoria: "Cròniques"
+  data: "26 de març de 2027"
+  lectura: "3 min"
+  destacada: false
+  imatge: "img/hero/hero1.jpg"
+  resum: "Resum breu que apareix a la targeta."
+  etiquetes: ["Felanitx", "Davallament"]
+  cos:
+    - "Primer paràgraf complet de la notícia."
+    - "Segon paràgraf complet de la notícia."
+```
+
+- **Categories suggerides:** `Cròniques`, `50è Aniversari`, `Convocatòries`, `Patrimoni i Cultura` (en pots crear de noves i apareixeran automàticament com a botó de filtre).
+- **`destacada: true`:** la primera notícia marcada com a `true` surt en format gran a la capçalera de `noticies.html`.
+
+### 2. Afegir un retall de premsa (`data/arxiu-premsa.yaml`)
+
+```yaml
+- id: mitja-2027-04-01
+  mitja: "Diario de Mallorca"
+  data: "1 d'abril de 2027"
+  any: 2027
+  epoca: "2026"
+  seccio: "Part Forana · Felanitx"
+  ref: "FEL-PREMSA-2027-01"
+  titular: "Titular complet publicat al diari"
+  resum: "Resum breu de la crònica o reportatge."
+  fragment: "«Cita destacada de l'article.»"
+  context: "Nota breu de context per a l'hemeroteca."
+```
+
+- Valors d'`epoca` utilitzats al selector de l'arxiu: `2026`, `2025`, `2010-2024`, `1990-2009`, `1975-1989`.
+- A més, els visitants poden afegir entrades de prova des del botó **«+ Aportar un retall a l'hemeroteca»** (es guarden localment al navegador via `localStorage`).
+
+### 3. Afegir una fotografia nova (`data/galeria.yaml`)
+
+1. Puja la imatge a la carpeta `img/` (per exemple `img/galeria/foto-nova.jpg`).
+2. Afegeix la fitxa a `data/galeria.yaml`:
+
+```yaml
+- id: foto-nova-2027
+  titol: "Títol de la fotografia"
+  album: "El Davallament"
+  any: "2027"
+  lloc: "Escalinata de Sant Miquel"
+  credit: "Associació El Davallament de Felanitx"
+  imatge: "img/galeria/foto-nova.jpg"
+  descripcio: "Peu de foto descriptiu que apareix a la targeta i al visor a pantalla completa."
+```
+
+---
+
+## Identitat visual i funcionalitats
+
+- **Paleta oficial (`css/style.css`):**
+  - Marró fusta (primari): `#6F4024`
+  - Arena / llençol (secundari): `#D9C099`
+  - Crema suau (fons alternats): `#EDE2C9` / `#F8F5EF`
+  - Capçalera blanca neta amb el logotip oficial (`img/logo/logo.png`).
+- **Tipografies:** *Cormorant Garamond* (títols) i *Source Sans 3* (text).
+- **Navegació:** capçalera fixa (*sticky*) que redueix suaument la mida en fer *scroll*, menú hamburguesa en mòbil i selector d'idioma de la interfície (`CA / ES / EN / DE`).
+- **Components interactius:** carrusel de fotos reals a l'inici, explorador de les 8 escenes a `representacio.html`, lector modal de notícies amb botó per copiar enllaç directe (`noticies.html?id=...`), visor de retalls d'hemeroteca i visor *lightbox* amb navegació per teclat (`←`, `→`, `Esc`).
+
+---
+
+## Com provar la web en local
+
+Perquè el navegador pugui llegir els fitxers `.yaml` mitjançant `fetch`, cal obrir la web des d'un servidor local (si obres `index.html` directament amb doble clic `file://`, el navegador bloqueja `fetch` per seguretat i la web mostra les dades de reserva de `js/data.js`).
+
+Amb **Python** instal·lat, executa des de la carpeta del projecte:
+
+```bash
+python -m http.server 8096 --bind 127.0.0.1
+```
+
+Després obre al navegador: **http://127.0.0.1:8096/index.html**
+
+---
+
+## Publicació a GitHub Pages i visibilitat a Google
+
+### Configuració actual (fase de proves)
+- Publicada a través de **GitHub Pages** des de la branca **`develop`** (carpeta `/ (root)`).
+- Totes les pàgines HTML inclouen l'etiqueta:
+  ```html
+  <meta name="robots" content="noindex, nofollow">
+  ```
+  Això permet compartir l'enllaç directe amb col·laboradors i membres de l'Associació **sense que Google indexi el web** mentre estigui en fase de proves.
+- Si algun cop un `git push` no dispara el desplegament automàtic de GitHub Pages, ves a **Settings → Pages**, selecciona temporalment `None` → *Save* i torna a seleccionar `develop` (`/ (root)`) → *Save*.
+
+### Quan la web estigui llesta per sortir a Google (producció)
+1. Elimina la línia `<meta name="robots" content="noindex, nofollow">` de les 7 pàgines HTML (`index.html`, `historia.html`, `representacio.html`, `noticies.html`, `arxiu.html`, `galeria.html` i `contacte.html`).
+2. Fusiona la branca `develop` dins `main` i configura **Settings → Pages** per publicar des de **`main`**.
+
+---
+
+© Associació El Davallament de Felanitx
