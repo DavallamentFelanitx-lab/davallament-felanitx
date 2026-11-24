@@ -38,7 +38,10 @@
         <div id="news-featured"></div>
 
         <div class="toolbar" role="region" aria-label="Filtres de notícies">
-          <div class="filter-pills" id="news-categories"></div>
+          <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center">
+            <label for="news-year-filter" class="sr-only">Any</label>
+            <select id="news-year-filter" class="select-field"></select>
+          </div>
           <div class="search-field">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
               <circle cx="11" cy="11" r="8"></circle>

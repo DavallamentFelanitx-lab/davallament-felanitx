@@ -760,18 +760,23 @@
   /* ------------------------------------------------------------------------
      PAGE: NOTÍCIES (noticies.html)
      ------------------------------------------------------------------------ */
+  function getNewsYear(item) {
+    if (item.isoDate && /^\d{4}/.test(item.isoDate)) return item.isoDate.slice(0, 4);
+    const m = String(item.date || "").match(/\b(19\d{2}|20\d{2})\b/);
+    return m ? m[1] : "";
+  }
+
   function initNoticiesPage(openDeepLink) {
     const featuredHost = document.getElementById("news-featured");
-    const pillsHost = document.getElementById("news-categories");
+    const yearSelect = document.getElementById("news-year-filter");
     const searchInput = document.getElementById("news-search");
     const gridHost = document.getElementById("news-grid");
     const countHost = document.getElementById("news-count");
 
     const ui = dict().ui;
     const newsList = getLocalizedNews();
-    const allLabel = ui.allCategory;
-    const categories = [allLabel, ...Array.from(new Set(newsList.map((n) => n.category)))];
-    let activeCategory = allLabel;
+    const years = Array.from(new Set(newsList.map(getNewsYear).filter(Boolean))).sort((a, b) => Number(b) - Number(a));
+    let selectedYear = yearSelect && years.includes(yearSelect.value) ? yearSelect.value : "Tots";
     let query = searchInput ? searchInput.value : "";
 
     const lead = newsList[0];
@@ -783,7 +788,7 @@
           </div>
           <div class="featured-news-body">
             <div class="card-meta">
-              <span class="badge badge--primary">${escapeHtml(ui.featuredPrefix + lead.category)}</span>
+              <span class="badge badge--primary">${escapeHtml(ui.latestBadge)}</span>
               <span>${escapeHtml(lead.date)}</span>
             </div>
             <h2>${escapeHtml(lead.title)}</h2>
@@ -797,32 +802,28 @@
       featuredHost.querySelector("[data-open-news]").addEventListener("click", () => openNewsArticle(lead.id));
     }
 
-    function renderPills() {
-      pillsHost.innerHTML = categories
-        .map(
-          (cat) =>
-            `<button type="button" class="pill-btn ${cat === activeCategory ? "active" : ""}" data-cat="${escapeHtml(cat)}">${escapeHtml(cat)}</button>`
-        )
-        .join("");
-      pillsHost.querySelectorAll("button").forEach((btn) => {
-        btn.addEventListener("click", () => {
-          activeCategory = btn.dataset.cat;
-          renderPills();
-          renderGrid();
-        });
-      });
+    if (yearSelect) {
+      yearSelect.innerHTML =
+        `<option value="Tots">${escapeHtml(ui.allYears)}</option>` +
+        years.map((y) => `<option value="${escapeHtml(y)}">${escapeHtml(y)}</option>`).join("");
+      yearSelect.value = selectedYear;
+      yearSelect.onchange = (e) => {
+        selectedYear = e.target.value;
+        renderGrid();
+      };
     }
 
     function renderGrid() {
       const q = query.trim().toLowerCase();
       const filtered = newsList.filter((n) => {
-        const matchCat = activeCategory === allLabel || n.category === activeCategory;
+        const matchYear = selectedYear === "Tots" || getNewsYear(n) === selectedYear;
         const matchQ =
           !q ||
           n.title.toLowerCase().includes(q) ||
           n.excerpt.toLowerCase().includes(q) ||
+          n.date.toLowerCase().includes(q) ||
           n.tags.some((t) => t.toLowerCase().includes(q));
-        return matchCat && matchQ;
+        return matchYear && matchQ;
       });
 
       countHost.textContent = ui.newsCount(filtered.length, newsList.length);
@@ -834,10 +835,10 @@
             <button type="button" class="btn btn--outline btn--sm" id="reset-news">${escapeHtml(ui.showAll)}</button>
           </div>`;
         document.getElementById("reset-news").addEventListener("click", () => {
-          activeCategory = allLabel;
+          selectedYear = "Tots";
           query = "";
+          if (yearSelect) yearSelect.value = "Tots";
           if (searchInput) searchInput.value = "";
-          renderPills();
           renderGrid();
         });
         return;
@@ -874,7 +875,6 @@
       };
     }
 
-    renderPills();
     renderGrid();
 
     if (openDeepLink) {
