@@ -18,7 +18,6 @@ window.I18N = {
     },
     footer: {
       title: "Associació El Davallament de Felanitx",
-      desc: "Entitat dedicada a la preservació, organització i difusió de la representació de la Passió i el Davallament que se celebra cada Divendres Sant a l'escalinata de Sant Miquel de Felanitx des de 1975.",
       copy: "© Associació El Davallament de Felanitx 2026"
     },
     pageTitles: {
@@ -204,7 +203,6 @@ window.I18N = {
     },
     footer: {
       title: "Associació El Davallament de Felanitx",
-      desc: "Entidad dedicada a la preservación, organización y difusión de la representación de la Pasión y el Descendimiento que se celebra cada Viernes Santo en la escalinata de Sant Miquel de Felanitx desde 1975.",
       copy: "© Associació El Davallament de Felanitx 2026"
     },
     pageTitles: {
@@ -498,7 +496,6 @@ window.I18N = {
     },
     footer: {
       title: "Associació El Davallament de Felanitx",
-      desc: "Association dedicated to preserving, organizing, and sharing the Passion Play and Descent from the Cross performed every Good Friday on the grand staircase of Sant Miquel in Felanitx since 1975.",
       copy: "© Associació El Davallament de Felanitx 2026"
     },
     pageTitles: {
@@ -792,7 +789,6 @@ window.I18N = {
     },
     footer: {
       title: "Associació El Davallament de Felanitx",
-      desc: "Verein zur Bewahrung, Organisation und Vermittlung des Passionsspiels und der Kreuzabnahme, die seit 1975 jeden Karfreitag auf der Treppe der Pfarrkirche Sant Miquel in Felanitx aufgeführt werden.",
       copy: "© Associació El Davallament de Felanitx 2026"
     },
     pageTitles: {

@@ -243,7 +243,6 @@
           <div class="container">
             <div class="footer-centered">
               <h3>${escapeHtml(d.footer.title)}</h3>
-              <p class="footer-desc">${escapeHtml(d.footer.desc)}</p>
               <nav class="footer-nav" aria-label="Footer navigation">
                 ${NAV_LINKS.map((item) => `<a href="${item.href}" data-nav-key="${item.key}">${escapeHtml(d.nav[item.key])}</a>`).join("")}
               </nav>
