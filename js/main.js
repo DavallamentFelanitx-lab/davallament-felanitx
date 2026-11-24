@@ -362,7 +362,7 @@
 
     const footerHost = document.getElementById("site-footer-host");
     if (footerHost) {
-      const footerCols = NAV_LINKS.filter((item) => Array.isArray(item.children) && item.children.length > 0);
+      const footerCols = NAV_LINKS.filter((item) => item.key !== "inici");
       footerHost.innerHTML = `
         <footer class="site-footer">
           <div class="container">
@@ -388,16 +388,15 @@
               ${footerCols
                 .map((col) => {
                   const extraLink =
-                    col.key === "representacio"
-                      ? `<li><a href="galeria.html">${escapeHtml(d.nav.galeria)}</a></li>`
-                      : col.key === "contacte"
+                    col.key === "contacte"
                       ? `<li><a href="mailto:${CONTACT_EMAIL}">${CONTACT_EMAIL}</a></li>`
                       : "";
+                  const children = Array.isArray(col.children) ? col.children : [];
                   return `
                     <div class="footer-col">
                       <a href="${col.href}" class="footer-col-title">${escapeHtml(d.nav[col.key])}</a>
                       <ul class="footer-sublinks">
-                        ${col.children
+                        ${children
                           .map(
                             (sub) =>
                               `<li><a href="${sub.href}">${escapeHtml((d.subnav && d.subnav[sub.key]) || sub.key)}</a></li>`
