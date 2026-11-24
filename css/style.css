@@ -517,10 +517,14 @@ h1, h2, h3, h4 {
   text-align: center;
 }
 
+.intro .section-title {
+  font-size: clamp(2.6rem, 4.4vw, 3.45rem);
+}
+
 .intro p {
   max-width: 780px;
   margin: 0 auto;
-  font-size: 1.1rem;
+  font-size: 1.12rem;
   color: var(--text-muted);
 }
 
@@ -564,10 +568,10 @@ h1, h2, h3, h4 {
 .metric-value {
   display: block;
   font-family: var(--font-serif);
-  font-size: 2.35rem;
+  font-size: 1.95rem;
   font-weight: 700;
   color: var(--primary);
-  line-height: 1.1;
+  line-height: 1.15;
   margin-bottom: 6px;
 }
 

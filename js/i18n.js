@@ -76,7 +76,7 @@ window.I18N = {
     home: {
       welcomeEyebrow: "Associació El Davallament de Felanitx",
       welcomeTitle: "Benvinguts",
-      welcomeText: "Espai dedicat a la preservació, estudi i difusió del patrimoni cultural associat al Davallament de Felanitx. Cada Divendres Sant des de 1975, el poble sencer dona vida a la Passió, Mort i Descendiment de Jesucrist a la monumental escalinata de Sant Miquel.",
+      welcomeText: "Espai dedicat a la preservació i difusió del patrimoni cultural associat al Davallament de Felanitx que es representa cada Divendres Sant des de 1975.",
       m1Val: "Des de 1975",
       m1Lbl: "Primera edició a l'escalinata de Sant Miquel",
       m2Val: "Més de 50 anys",
@@ -262,7 +262,7 @@ window.I18N = {
     home: {
       welcomeEyebrow: "Associació El Davallament de Felanitx",
       welcomeTitle: "Bienvenidos",
-      welcomeText: "Espacio dedicado a la preservación, estudio y difusión del patrimonio cultural asociado al Davallament de Felanitx. Cada Viernes Santo desde 1975, todo el pueblo da vida a la Pasión, Muerte y Descendimiento de Jesucristo en la monumental escalinata de Sant Miquel.",
+      welcomeText: "Espacio dedicado a la preservación y difusión del patrimonio cultural asociado al Davallament de Felanitx que se representa cada Viernes Santo desde 1975.",
       m1Val: "Desde 1975",
       m1Lbl: "Primera edición en la escalinata de Sant Miquel",
       m2Val: "Más de 50 años",
@@ -550,7 +550,7 @@ window.I18N = {
     home: {
       welcomeEyebrow: "Associació El Davallament de Felanitx",
       welcomeTitle: "Welcome",
-      welcomeText: "A space dedicated to preserving, studying, and sharing the cultural heritage of El Davallament de Felanitx. Every Good Friday since 1975, the whole town brings the Passion, Death, and Descent from the Cross to life on the monumental staircase of Sant Miquel.",
+      welcomeText: "A space dedicated to preserving and sharing the cultural heritage associated with El Davallament de Felanitx, performed every Good Friday since 1975.",
       m1Val: "Since 1975",
       m1Lbl: "First outdoor performance on Sant Miquel steps",
       m2Val: "Over 50 years",
@@ -838,7 +838,7 @@ window.I18N = {
     home: {
       welcomeEyebrow: "Associació El Davallament de Felanitx",
       welcomeTitle: "Willkommen",
-      welcomeText: "Ein Raum zur Bewahrung, Erforschung und Vermittlung des kulturellen Erbes des Davallament de Felanitx. Jeden Karfreitag seit 1975 erweckt das ganze Dorf die Passion, den Tod und die Kreuzabnahme auf der monumentalen Treppe von Sant Miquel zum Leben.",
+      welcomeText: "Ein Raum zur Bewahrung und Vermittlung des kulturellen Erbes des Davallament de Felanitx, der seit 1975 jeden Karfreitag aufgeführt wird.",
       m1Val: "Seit 1975",
       m1Lbl: "Erste Aufführung auf der Treppe von Sant Miquel",
       m2Val: "Über 50 Jahre",
