@@ -1,0 +1,53 @@
+# ============================================================================
+# CONVOCATÒRIES A REUNIONS I ASSEMBLEES — Associació El Davallament de Felanitx
+# ============================================================================
+# Les convocatòries s'ordenen automàticament per data (de més recent/propera a més antiga).
+#
+# Com afegir una convocatòria nova:
+#   1. Copia un bloc complet (des de "- id:" fins al darrer punt d'"ordreDelDia:")
+#   2. Posa "estat: proxima" si encara s'ha de celebrar, o "estat: realitzada" si ja ha passat.
+#   3. Desa el fitxer (o fes "Commit changes" a GitHub).
+#
+# Camps:
+#   id:           identificador únic sense espais (ex: assemblea-2027)
+#   titol:        títol de la reunió o assemblea
+#   estat:        proxima | realitzada
+#   data:         data en text (ex: "15 de gener de 2027")
+#   dataIso:      data numèrica per ordenar (ex: "2027-01-15")
+#   hora:         hora de convocatòria (ex: "20:00 h")
+#   lloc:         indret de la reunió
+#   adrecatA:     qui hi està convocat (ex: "Socis, sòcies i participants")
+#   resum:        breu nota explicativa
+#   ordreDelDia:  llista de punts a tractar (un per cada guió "    - ")
+# ============================================================================
+
+- id: assemblea-general-2026
+  titol: "Assemblea General Ordinària de l'Associació"
+  estat: "proxima"
+  data: "Data pendent de confirmar"
+  dataIso: "2026-12-15"
+  hora: "20:00 h (1a convocatòria) · 20:30 h (2a convocatòria)"
+  lloc: "Centre Cultural de Felanitx"
+  adrecatA: "Tots els socis, sòcies i col·laboradors"
+  resum: "Balanç anual de la 51a edició del Davallament i planificació de les activitats i preparatius per a la propera Setmana Santa."
+  ordreDelDia:
+    - "Lectura i aprovació de l'acta de la sessió anterior."
+    - "Valoració de l'edició del Davallament 2026."
+    - "Estat de comptes i balanç econòmic anual."
+    - "Calendari previst d'assajos, vestuari i preparatius per a la propera edició."
+    - "Precs i preguntes."
+
+- id: reunio-participants-2026
+  titol: "Reunió informativa i organització d'assajos 2026"
+  estat: "realitzada"
+  data: "Febrer de 2026"
+  dataIso: "2026-02-10"
+  hora: "20:00 h"
+  lloc: "Entorn de la Parròquia de Sant Miquel"
+  adrecatA: "Actors, actrius, equip de vestuari i voluntariat"
+  resum: "Trobada inicial amb tots els participants per repartir calendaris d'assaig, vestuari i coordinació d'escenes a l'escalinata."
+  ordreDelDia:
+    - "Benvinguda als nous participants i distribució de papers."
+    - "Calendari d'assajos setmanals i assaig general."
+    - "Prova i lliurament de vestuari."
+    - "Coordinació d'il·luminació, so i muntatge."

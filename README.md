@@ -15,16 +15,17 @@ davallament-felanitx/
 ├── index.html              # Pàgina principal (carrusel real, benvinguda, avançaments i guia)
 ├── historia.html           # Història, cronologia (1975–2026) i protagonistes
 ├── representacio.html      # Explorador interactiu escena per escena (8 quadres)
-├── noticies.html           # Notícies amb article destacat, filtres, cercador i visor modal
-├── arxiu.html              # Hemeroteca / Arxiu de premsa (filtres, vista Llista/Fitxes i aportació)
+├── noticies.html           # Notícies amb notícia destacada automàtica, cerca de text complet i lector modal
+├── entitat.html            # L'entitat: sobre l'Associació, Junta Directiva i convocatòries a reunions
 ├── galeria.html            # Galeria de fotografies reals amb filtres per àlbum i visor lightbox
-├── contacte.html           # Informació de l'Associació i formulari de contacte / voluntariat
+├── contacte.html           # Informació de l'Associació i formulari connectat a davallamentfelanitx@gmail.com
 ├── .nojekyll               # Indica a GitHub Pages que serveixi els fitxers tal qual (inclòs YAML)
 ├── css/
 │   └── style.css           # Disseny responsive i identitat visual oficial
 ├── data/
 │   ├── noticies.yaml       # Fitxer editable de notícies
-│   ├── arxiu-premsa.yaml   # Fitxer editable de l'arxiu de premsa (hemeroteca)
+│   ├── junta.yaml          # Fitxer editable de la Junta Directiva
+│   ├── convocatories.yaml  # Fitxer editable de convocatòries a reunions i assemblees
 │   └── galeria.yaml        # Fitxer editable de la galeria d'imatges
 ├── js/
 │   ├── data.js             # Textos base, escenes, cronologia i dades de reserva
@@ -69,23 +70,33 @@ Copia aquesta plantilla i enganxa-la a dalt de tot de `data/noticies.yaml` perqu
 - **Categories suggerides:** `Cròniques`, `50è Aniversari`, `Convocatòries`, `Patrimoni i Cultura` (en pots crear de noves i apareixeran automàticament com a botó de filtre).
 - **Ordenació i notícia destacada automàtica:** les notícies s'ordenen automàticament per data (de més recent a més antiga) i la darrera publicada apareix sempre en gran a la capçalera de `noticies.html`.
 
-### 2. Afegir un retall de premsa (`data/arxiu-premsa.yaml`)
+### 2. Editar la Junta Directiva (`data/junta.yaml`)
 
 ```yaml
-- id: mitja-2027-04-01
-  mitja: "Diario de Mallorca"
-  data: "1 d'abril de 2027"
-  any: 2027
-  epoca: "2026"
-  seccio: "Part Forana · Felanitx"
-  ref: "FEL-PREMSA-2027-01"
-  titular: "Titular complet publicat al diari"
-  resum: "Resum breu de la crònica o reportatge."
-  fragment: "«Cita destacada de l'article.»"
-  context: "Nota breu de context per a l'hemeroteca."
+- id: presidencia
+  carrec: "Presidència"
+  nom: "Nom i llinatges"
+  area: "Representació institucional i coordinació general."
 ```
 
-- Valors d'`epoca` utilitzats al selector de l'arxiu: `2026`, `2025`, `2010-2024`, `1990-2009`, `1975-1989`.
+### 3. Afegir una convocatòria de reunió o assemblea (`data/convocatories.yaml`)
+
+```yaml
+- id: assemblea-2027
+  titol: "Assemblea General Ordinària"
+  estat: "proxima"
+  data: "15 de gener de 2027"
+  dataIso: "2027-01-15"
+  hora: "20:00 h"
+  lloc: "Centre Cultural de Felanitx"
+  adrecatA: "Socis, sòcies i col·laboradors"
+  resum: "Resum breu de la convocatòria."
+  ordreDelDia:
+    - "Primer punt de l'ordre del dia."
+    - "Segon punt de l'ordre del dia."
+```
+
+- **`estat`:** `proxima` (apareix destacada en verd a dalt de tot) o `realitzada`.
 
 ### 3. Afegir una fotografia nova (`data/galeria.yaml`)
 

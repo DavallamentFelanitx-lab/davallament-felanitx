@@ -12,7 +12,7 @@ window.I18N = {
       historia: "Història",
       representacio: "Representació",
       noticies: "Notícies",
-      arxiu: "Arxiu de Premsa",
+      entitat: "L'entitat",
       galeria: "Galeria",
       contacte: "Contacte"
     },
@@ -25,7 +25,7 @@ window.I18N = {
       historia: "Història | El Davallament de Felanitx",
       representacio: "La Representació | El Davallament de Felanitx",
       noticies: "Notícies | El Davallament de Felanitx",
-      arxiu: "Arxiu de Premsa | El Davallament de Felanitx",
+      entitat: "L'entitat | El Davallament de Felanitx",
       galeria: "Galeria d'Imatges | El Davallament de Felanitx",
       contacte: "Contacte | El Davallament de Felanitx"
     },
@@ -35,8 +35,15 @@ window.I18N = {
       discoverScenes: "Descobrir les escenes →",
       viewGallery: "Veure galeria →",
       allNews: "Totes les notícies →",
-      consultArchive: "Consultar tota l'hemeroteca →",
-      exploreArchive: "Explorar l'arxiu de premsa →",
+      consultEntity: "Coneix l'entitat i la junta →",
+      meetingUpcoming: "Pròxima convocatòria",
+      meetingPast: "Realitzada",
+      meetingDateLabel: "Data i hora",
+      meetingPlaceLabel: "Lloc",
+      meetingAudienceLabel: "Adreçat a",
+      meetingAgendaLabel: "Ordre del dia",
+      viewAgenda: "Veure l'ordre del dia complet →",
+      noMeetings: "Actualment no hi ha convocatòries publicades.",
       readArticle: "Llegir notícia →",
       readShort: "Llegir →",
       readFullArticle: "Llegir l'article complet →",
@@ -94,8 +101,8 @@ window.I18N = {
       f3Text: "Un recorregut visual per les escenes més emotives de la representació: el judici de Pilat, els armats, la Verònica i el silenci colpidor del descendiment davant la portalada de Sant Miquel.",
       newsEyebrow: "Actualitat",
       newsTitle: "Darreres notícies",
-      pressEyebrow: "Hemeroteca 1975–2026",
-      pressTitle: "Arxiu de notícies de premsa",
+      entitatEyebrow: "L'entitat",
+      entitatTitle: "Convocatòries i vida associativa",
       guideEyebrow: "Guia per al Visitant",
       guideTitle: "Com viure el Davallament",
       g1Title: "Ubicació",
@@ -138,20 +145,22 @@ window.I18N = {
       bannerTitle: "Notícies i actualitat",
       bannerSub: "Cròniques de les darreres edicions, convocatòries de participació, projectes culturals i novetats de l'Associació.",
       searchPh: "Cercar notícia, tema o any...",
-      archiveHint: "Cerques retalls històrics? Ves a l'Arxiu de Premsa →"
+      meetingsHint: "Cerques reunions o assemblees? Ves a L'entitat →"
     },
-    arxiu: {
-      bannerTitle: "Arxiu de notícies de premsa",
-      bannerSub: "Hemeroteca digital (1975–2026) amb cròniques i retalls publicats als mitjans locals i balears sobre el Davallament de Felanitx.",
-      contributeBtn: "+ Aportar un retall a l'hemeroteca",
-      decAll: "Totes les èpoques (1975–2026)",
-      dec2026: "Edició 2026",
-      dec2025: "50è Aniversari (2025)",
-      dec2010: "Dècada 2010–2024",
-      dec1990: "Anys 1990–2009",
-      dec1975: "Orígens 1975–1989",
-      searchPh: "Cercar titular, mitjà o any...",
-      clickHint: "Fes clic a qualsevol entrada per obrir el retall complet"
+    entitat: {
+      bannerTitle: "L'entitat",
+      bannerSub: "Coneix l'Associació El Davallament de Felanitx, la junta directiva que coordina la representació i les convocatòries a reunions i assemblees.",
+      aboutEyebrow: "Qui som",
+      aboutTitle: "Associació El Davallament de Felanitx",
+      aboutP1: "L'Associació El Davallament de Felanitx és una entitat cultural sense ànim de lucre constituïda per preservar, organitzar i difondre la representació de la Passió i el Davallament que el poble de Felanitx duu a terme cada Divendres Sant a l'escalinata de Sant Miquel.",
+      aboutP2: "La seva tasca es basa en la participació oberta i altruista de més de 160 actors i actrius de totes les edats, equips de vestuari, escenografia, llum i so, en col·laboració estreta amb l'Ajuntament de Felanitx, el Centre Cultural, la Fundació Barceló i la Parròquia de Sant Miquel.",
+      joinBtn: "Contactar o fer-se voluntari →",
+      boardEyebrow: "Òrgan de govern",
+      boardTitle: "Junta Directiva",
+      boardLead: "L'equip encarregat de la gestió, coordinació i continuïtat de l'Associació El Davallament de Felanitx.",
+      meetingsEyebrow: "Vida associativa",
+      meetingsTitle: "Convocatòries a reunions i assemblees",
+      meetingsLead: "Consulta les pròximes cites, assemblees generals i reunions organitzatives de l'Associació, així com el seu ordre del dia."
     },
     galeria: {
       bannerTitle: "Galeria d'imatges",
@@ -198,7 +207,7 @@ window.I18N = {
       historia: "Historia",
       representacio: "Representación",
       noticies: "Noticias",
-      arxiu: "Archivo de Prensa",
+      entitat: "La entidad",
       galeria: "Galería",
       contacte: "Contacto"
     },
@@ -211,7 +220,7 @@ window.I18N = {
       historia: "Historia | El Davallament de Felanitx",
       representacio: "La Representación | El Davallament de Felanitx",
       noticies: "Noticias | El Davallament de Felanitx",
-      arxiu: "Archivo de Prensa | El Davallament de Felanitx",
+      entitat: "La entidad | El Davallament de Felanitx",
       galeria: "Galería de Imágenes | El Davallament de Felanitx",
       contacte: "Contacto | El Davallament de Felanitx"
     },
@@ -221,8 +230,15 @@ window.I18N = {
       discoverScenes: "Descubrir las escenas →",
       viewGallery: "Ver galería →",
       allNews: "Todas las noticias →",
-      consultArchive: "Consultar toda la hemeroteca →",
-      exploreArchive: "Explorar el archivo de prensa →",
+      consultEntity: "Conoce la entidad y la junta →",
+      meetingUpcoming: "Próxima convocatoria",
+      meetingPast: "Realizada",
+      meetingDateLabel: "Fecha y hora",
+      meetingPlaceLabel: "Lugar",
+      meetingAudienceLabel: "Dirigido a",
+      meetingAgendaLabel: "Orden del día",
+      viewAgenda: "Ver el orden del día completo →",
+      noMeetings: "Actualmente no hay convocatorias publicadas.",
       readArticle: "Leer noticia →",
       readShort: "Leer →",
       readFullArticle: "Leer el artículo completo →",
@@ -280,8 +296,8 @@ window.I18N = {
       f3Text: "Un recorrido visual por las escenas más emotivas de la representación: el juicio de Pilato, los armats, la Verónica y el silencio sobrecogedor del descendimiento ante la portada de Sant Miquel.",
       newsEyebrow: "Actualidad",
       newsTitle: "Últimas noticias",
-      pressEyebrow: "Hemeroteca 1975–2026",
-      pressTitle: "Archivo de noticias de prensa",
+      entitatEyebrow: "La entidad",
+      entitatTitle: "Convocatorias y vida asociativa",
       guideEyebrow: "Guía para el Visitante",
       guideTitle: "Cómo vivir el Davallament",
       g1Title: "Ubicación",
@@ -324,20 +340,22 @@ window.I18N = {
       bannerTitle: "Noticias y actualidad",
       bannerSub: "Crónicas de las últimas ediciones, convocatorias de participación, proyectos culturales y novedades de la Asociación.",
       searchPh: "Buscar noticia, tema o año...",
-      archiveHint: "¿Buscas recortes históricos? Ve al Archivo de Prensa →"
+      meetingsHint: "¿Buscas reuniones o asambleas? Ve a La entidad →"
     },
-    arxiu: {
-      bannerTitle: "Archivo de noticias de prensa",
-      bannerSub: "Hemeroteca digital (1975–2026) con crónicas y recortes publicados en los medios locales y baleares sobre el Davallament de Felanitx.",
-      contributeBtn: "+ Aportar un recorte a la hemeroteca",
-      decAll: "Todas las épocas (1975–2026)",
-      dec2026: "Edición 2026",
-      dec2025: "50.º Aniversario (2025)",
-      dec2010: "Década 2010–2024",
-      dec1990: "Años 1990–2009",
-      dec1975: "Orígenes 1975–1989",
-      searchPh: "Buscar titular, medio o año...",
-      clickHint: "Haz clic en cualquier entrada para abrir el recorte completo"
+    entitat: {
+      bannerTitle: "La entidad",
+      bannerSub: "Conoce la Associació El Davallament de Felanitx, la junta directiva que coordina la representación y las convocatorias a reuniones y asambleas.",
+      aboutEyebrow: "Quiénes somos",
+      aboutTitle: "Associació El Davallament de Felanitx",
+      aboutP1: "La Associació El Davallament de Felanitx es una entidad cultural sin ánimo de lucro constituida para preservar, organizar y difundir la representación de la Pasión y el Descendimiento que el pueblo de Felanitx lleva a cabo cada Viernes Santo en la escalinata de Sant Miquel.",
+      aboutP2: "Su labor se basa en la participación abierta y altruista de más de 160 actores y actrices de todas las edades, equipos de vestuario, escenografía, luz y sonido, en estrecha colaboración con el Ayuntamiento de Felanitx, el Centre Cultural, la Fundació Barceló y la Parroquia de Sant Miquel.",
+      joinBtn: "Contactar o hacerse voluntario →",
+      boardEyebrow: "Órgano de gobierno",
+      boardTitle: "Junta Directiva",
+      boardLead: "El equipo encargado de la gestión, coordinación y continuidad de la Associació El Davallament de Felanitx.",
+      meetingsEyebrow: "Vida asociativa",
+      meetingsTitle: "Convocatorias a reuniones y asambleas",
+      meetingsLead: "Consulta las próximas citas, asambleas generales y reuniones organizativas de la Asociación, así como su orden del día."
     },
     galeria: {
       bannerTitle: "Galería de imágenes",
@@ -451,19 +469,44 @@ window.I18N = {
           ]
         }
       },
-      pressArchive: {
-        "uh-2026-04-04": { date: "4 de abril de 2026", section: "Part Forana · Felanitx", headline: "El Davallament de Felanitx vuelve a emocionar en la escalinata de Sant Miquel", summary: "Crónica de la noche de Viernes Santo 2026, destacando el regreso al escenario clásico de la fachada parroquial y el silencio absoluto del público.", excerpt: "«Tras el hito histórico del cincuentenario, Felanitx demostró anoche que la fuerza de su Davallament reside en la piedra de Sant Miquel y en la entrega de cerca de doscientos vecinos.»", context: "Cobertura posterior a la edición del 3 de abril de 2026." },
-        "vf-2026-03-28": { date: "28 de marzo de 2026", section: "Cultura y Tradiciones", headline: "Todo a punto para el Davallament 2026: horarios, música y ensayos en Sant Miquel", summary: "Guía previa a la Semana Santa felanitxera con el horario de Viernes Santo a las 21:00 h y el cortejo con la Banda de Música.", excerpt: "«Los ensayos generales confirman la buena salud del relevo generacional preservando la esencia y la emoción de la representación tradicional.»", context: "Artículo informativo local dirigido a felanitxers y visitantes." },
-        "mc-2026-03-30": { date: "30 de marzo de 2026", section: "Agenda Cultural", headline: "El Davallament de Felanitx, cita imprescindible de la Semana Santa en Mallorca", summary: "Selección cultural de los actos más auténticos de la isla, subrayando el silencio colectivo y el valor patrimonial del teatro sacro.", excerpt: "«Pocos lugares del Mediterráneo consiguen transformar una escalinata parroquial en un teatro a cielo abierto tan sobrecogedor como Felanitx la noche de Viernes Santo.»", context: "Publicación cultural de proyección insular." },
-        "dm-2025-04-19": { date: "19 de abril de 2025", section: "Part Forana · Especial 50.º Aniversario", headline: "Felanitx hace historia en el 50.º aniversario de un Davallament multitudinario y retransmitido por IB3", summary: "Reportaje especial sobre el cincuentenario, el cartel de Miquel Barceló y la implicación de todo el pueblo.", excerpt: "«Medio siglo de historia culminado en una noche irrepetible: seis escenarios, 160 actores aficionados y miles de espectadores presenciales y televisivos.»", context: "Portada de la sección de Part Forana con testimonios de participantes desde 1975." },
-        "db-2025-04-18": { date: "18 de abril de 2025", section: "Cultura · Islas Baleares", headline: "Cincuenta años del Davallament de Felanitx: tradición viva, nueva música y mirada contemporánea", summary: "Análisis de la renovación artística liderada por Joan Toni Sunyer y Marta Obrador y de la banda sonora de Joan Martorell.", excerpt: "«La propuesta del cincuentenario demuestra que la tradición popular es un lenguaje vivo capaz de dialogar con el teatro y la música del siglo XXI.»", context: "Reportaje cultural sobre la dimensión escénica del 50.º aniversario." },
-        "uh-2025-03-15": { date: "15 de marzo de 2025", section: "Cultura y Sociedad", headline: "Miquel Barceló pone imagen a los 50 años del Davallament de Felanitx", summary: "Noticia de la presentación del cartel conmemorativo y de la ampliación de escenarios en la Plaça de sa Font de Santa Margalida.", excerpt: "«El artista felanitxer ha querido sumarse a una conmemoración muy sentida en la villa, aportando un cartel de enorme fuerza plástica.»", context: "Publicado un mes antes del Viernes Santo del cincuentenario." },
-        "ib3-2025-04-18": { date: "18 de abril de 2025", section: "Especial Semana Santa", headline: "Primera retransmisión en directo del Davallament de Felanitx por la televisión pública balear", summary: "Seguimiento del operativo audiovisual desplegado en Felanitx para emitir el acto del 50.º aniversario en todas las islas.", excerpt: "«Un despliegue técnico sin precedentes permitió que todas las Islas Baleares vivieran en directo el descendimiento desde Sant Miquel.»", context: "Hito mediático que multiplicó el alcance histórico del acto." },
-        "sf-2024-03-30": { date: "30 de marzo de 2024", section: "Crónica Local", headline: "Felanitx calienta motores hacia el cincuentenario con un Davallament lleno de sentimiento", summary: "Crónica del 49.º aniversario y primeros anuncios de los preparativos de los 50 años.", excerpt: "«El silencio de la plaza en el momento de la Piedad vuelve a confirmar por qué este acto es insustituible en el calendario felanitxer.»", context: "Publicación semanal de referencia del municipio." },
-        "dm-2022-04-16": { date: "16 de abril de 2022", section: "Part Forana", headline: "El regreso más esperado: Felanitx recupera su Davallament tras la pandemia", summary: "Crónica de la reanudación de la representación al aire libre tras dos años de pausa sanitaria.", excerpt: "«Cuando se encendieron los primeros focos sobre la escalinata de Sant Miquel, un escalofrío compartido recorrió a la multitud reencontrada.»", context: "Testimonio periodístico del reencuentro comunitario de 2022." },
-        "uh-2015-04-04": { date: "4 de abril de 2015", section: "Part Forana · 40.º Aniversario", headline: "Cuarenta años de emoción y devoción popular en la escalinata de Felanitx", summary: "Reportaje conmemorativo de los 40 años del formato exterior con testimonios de tres generaciones de participantes.", excerpt: "«Aquello que nació en 1975 con medios sencillos y mucha ilusión se ha convertido en un referente del teatro popular mallorquín.»", context: "Monográfico del 40.º aniversario." },
-        "sf-2000-04-22": { date: "22 de abril de 2000", section: "25.º Aniversario", headline: "Bodas de plata del Davallament al aire libre: veinticinco años haciendo pueblo", summary: "Edición especial dedicada al 25.º aniversario, rememorando la labor de los impulsores de 1975.", excerpt: "«Veinticinco Viernes Santos consecutivos han consolidado un ritual cívico y religioso que identifica a Felanitx en toda Mallorca.»", context: "Fondo hemerográfico local del cambio de siglo." },
-        "sf-1975-04-05": { date: "5 de abril de 1975", section: "Crónica de Semana Santa", headline: "Éxito abrumador del primer Davallament representado en la escalinata de Sant Miquel", summary: "Crónica histórica del 28 de marzo de 1975, impulsado por la Creuada de l'Amor Diví y los pioneros felanitxers que trasladaron la representación al exterior.", excerpt: "«Nunca se había visto la plaza tan llena ni tan silenciosa. El acierto de trasladar el acto al exterior ha dotado la noche de Viernes Santo de una grandeza inolvidable.»", context: "Documento fundacional de la hemeroteca del Davallament moderno." }
+      board: {
+        "presidencia": { role: "Presidencia", name: "Pendiente de actualizar", area: "Representación institucional y coordinación general de la Asociación." },
+        "vicepresidencia": { role: "Vicepresidencia", name: "Pendiente de actualizar", area: "Apoyo a la presidencia y coordinación de equipos de trabajo." },
+        "secretaria": { role: "Secretaría", name: "Pendiente de actualizar", area: "Actas de reuniones, convocatorias, registro de socios y comunicaciones." },
+        "tresoreria": { role: "Tesorería", name: "Pendiente de actualizar", area: "Gestión económica, presupuestos y tramitación de colaboraciones." },
+        "vocalia-escenografia": { role: "Vocalía de Escenografía y Vestuario", name: "Pendiente de actualizar", area: "Mantenimiento de atrezo, vestuario histórico y montaje en Sant Miquel." },
+        "vocalia-comunicacio": { role: "Vocalía de Comunicación y Archivo", name: "Pendiente de actualizar", area: "Difusión cultural, redes, portal web y preservación documental." }
+      },
+      meetings: {
+        "assemblea-general-2026": {
+          title: "Asamblea General Ordinaria de la Asociación",
+          date: "Fecha pendiente de confirmar",
+          time: "20:00 h (1.ª convocatoria) · 20:30 h (2.ª convocatoria)",
+          location: "Centre Cultural de Felanitx",
+          audience: "Todos los socios, socias y colaboradores",
+          summary: "Balance anual de la 51.ª edición del Davallament y planificación de las actividades y preparativos para la próxima Semana Santa.",
+          agenda: [
+            "Lectura y aprobación del acta de la sesión anterior.",
+            "Valoración de la edición del Davallament 2026.",
+            "Estado de cuentas y balance económico anual.",
+            "Calendario previsto de ensayos, vestuario y preparativos para la próxima edición.",
+            "Ruegos y preguntas."
+          ]
+        },
+        "reunio-participants-2026": {
+          title: "Reunión informativa y organización de ensayos 2026",
+          date: "Febrero de 2026",
+          time: "20:00 h",
+          location: "Entorno de la Parroquia de Sant Miquel",
+          audience: "Actores, actrices, equipo de vestuario y voluntariado",
+          summary: "Encuentro inicial con todos los participantes para repartir calendarios de ensayo, vestuario y coordinación de escenas en la escalinata.",
+          agenda: [
+            "Bienvenida a los nuevos participantes y distribución de papeles.",
+            "Calendario de ensayos semanales y ensayo general.",
+            "Prueba y entrega de vestuario.",
+            "Coordinación de iluminación, sonido y montaje."
+          ]
+        }
       },
       gallery: {
         "davallament-creu": { title: "El Descendimiento de la Cruz", album: "El Davallament", year: "Edición reciente", location: "Portada principal de la Parroquia de Sant Miquel", caption: "El momento culminante de la noche: con las dos escaleras y el lienzo blanco, los santos varones descienden el cuerpo de Jesús bajo la luz azulada y la portada barroca de Sant Miquel." },
@@ -486,7 +529,7 @@ window.I18N = {
       historia: "History",
       representacio: "The Play",
       noticies: "News",
-      arxiu: "Press Archive",
+      entitat: "The Association",
       galeria: "Gallery",
       contacte: "Contact"
     },
@@ -499,7 +542,7 @@ window.I18N = {
       historia: "History | El Davallament de Felanitx",
       representacio: "The Play | El Davallament de Felanitx",
       noticies: "News | El Davallament de Felanitx",
-      arxiu: "Press Archive | El Davallament de Felanitx",
+      entitat: "The Association | El Davallament de Felanitx",
       galeria: "Photo Gallery | El Davallament de Felanitx",
       contacte: "Contact | El Davallament de Felanitx"
     },
@@ -509,8 +552,15 @@ window.I18N = {
       discoverScenes: "Explore the scenes →",
       viewGallery: "View gallery →",
       allNews: "All news →",
-      consultArchive: "Browse full press archive →",
-      exploreArchive: "Explore the press archive →",
+      consultEntity: "Meet the association & board →",
+      meetingUpcoming: "Upcoming meeting",
+      meetingPast: "Completed",
+      meetingDateLabel: "Date & time",
+      meetingPlaceLabel: "Location",
+      meetingAudienceLabel: "Open to",
+      meetingAgendaLabel: "Agenda",
+      viewAgenda: "View full agenda →",
+      noMeetings: "There are currently no published meetings.",
       readArticle: "Read article →",
       readShort: "Read →",
       readFullArticle: "Read full article →",
@@ -568,8 +618,8 @@ window.I18N = {
       f3Text: "A visual journey through the most moving scenes of the night: Pilate's judgement, the Roman soldiers, Veronica, and the hushed Descent before the baroque portal of Sant Miquel.",
       newsEyebrow: "Latest Updates",
       newsTitle: "Recent News",
-      pressEyebrow: "Press Archive 1975–2026",
-      pressTitle: "Newspaper & Press Archive",
+      entitatEyebrow: "The Association",
+      entitatTitle: "Meetings & Association Life",
       guideEyebrow: "Visitor Guide",
       guideTitle: "How to Experience El Davallament",
       g1Title: "Location",
@@ -612,20 +662,22 @@ window.I18N = {
       bannerTitle: "News & Updates",
       bannerSub: "Reports from recent editions, volunteer calls, cultural projects, and announcements from the Association.",
       searchPh: "Search news, topic, or year...",
-      archiveHint: "Looking for historic clippings? Visit the Press Archive →"
+      meetingsHint: "Looking for meetings or assemblies? Visit The Association →"
     },
-    arxiu: {
-      bannerTitle: "Newspaper & Press Archive",
-      bannerSub: "Digital press archive (1975–2026) gathering reviews and articles published in local and Balearic media about El Davallament de Felanitx.",
-      contributeBtn: "+ Submit a clipping to the archive",
-      decAll: "All eras (1975–2026)",
-      dec2026: "2026 Edition",
-      dec2025: "50th Anniversary (2025)",
-      dec2010: "2010–2024",
-      dec1990: "1990–2009",
-      dec1975: "Origins 1975–1989",
-      searchPh: "Search headline, outlet, or year...",
-      clickHint: "Click any entry to read the full newspaper clipping"
+    entitat: {
+      bannerTitle: "The Association",
+      bannerSub: "Meet Associació El Davallament de Felanitx, the board coordinating the play, and upcoming meetings and general assemblies.",
+      aboutEyebrow: "Who we are",
+      aboutTitle: "Associació El Davallament de Felanitx",
+      aboutP1: "Associació El Davallament de Felanitx is a non-profit cultural association dedicated to preserving, organizing, and promoting the Passion Play and Descent from the Cross performed every Good Friday on Sant Miquel's staircase.",
+      aboutP2: "Its work relies on the open, voluntary participation of over 160 actors and actresses of all ages alongside costume, stage, lighting, and sound teams, working closely with Felanitx Town Council, the Cultural Centre, Fundació Barceló, and Sant Miquel Parish.",
+      joinBtn: "Contact us or volunteer →",
+      boardEyebrow: "Governing body",
+      boardTitle: "Board of Directors",
+      boardLead: "The team responsible for the management, coordination, and continuity of Associació El Davallament de Felanitx.",
+      meetingsEyebrow: "Association life",
+      meetingsTitle: "Meetings & Assemblies",
+      meetingsLead: "Check upcoming dates, general assemblies, and organizational meetings along with their agendas."
     },
     galeria: {
       bannerTitle: "Photo Gallery",
@@ -739,19 +791,44 @@ window.I18N = {
           ]
         }
       },
-      pressArchive: {
-        "uh-2026-04-04": { date: "April 4, 2026", section: "Local Mallorca · Felanitx", headline: "El Davallament de Felanitx moves audiences once again on Sant Miquel staircase", summary: "Review of Good Friday 2026 highlighting the return to the classic church facade and the crowd's hushed silence.", excerpt: "“After the milestone 50th anniversary, Felanitx proved last night that its play's true power lies in Sant Miquel's stone steps and nearly two hundred dedicated locals.”", context: "Post-event coverage of the April 3, 2026 edition." },
-        "vf-2026-03-28": { date: "March 28, 2026", section: "Culture & Traditions", headline: "Everything ready for El Davallament 2026: schedule, music, and rehearsals", summary: "Preview guide to Felanitx Holy Week featuring the 21:00 Good Friday schedule and Municipal Band procession.", excerpt: "“Final rehearsals confirm a vibrant generational handover preserving the essence and emotion of the traditional performance.”", context: "Local guide for residents and visitors." },
-        "mc-2026-03-30": { date: "March 30, 2026", section: "Cultural Agenda", headline: "El Davallament de Felanitx, an unmissable Holy Week highlight in Mallorca", summary: "Cultural pick of the island's most authentic traditions, praising the crowd's silence and sacred-theatre heritage.", excerpt: "“Few places in the Mediterranean turn a parish staircase into an open-air theatre as moving as Felanitx on Good Friday night.”", context: "Island-wide cultural feature." },
-        "dm-2025-04-19": { date: "April 19, 2025", section: "Mallorca · 50th Anniversary Special", headline: "Felanitx makes history on the 50th anniversary of a massive Davallament aired live on IB3", summary: "In-depth feature on the jubilee edition, Miquel Barceló's poster, and whole-town involvement.", excerpt: "“Half a century of history culminating in an unforgettable night: six stages, 160 amateur actors, and thousands watching live in person and on television.”", context: "Front-page regional coverage with testimonies from 1975 participants." },
-        "db-2025-04-18": { date: "April 18, 2025", section: "Culture · Balearic Islands", headline: "Fifty years of El Davallament de Felanitx: living tradition, new music, contemporary vision", summary: "Cultural analysis of Joan Toni Sunyer and Marta Obrador's staging and Joan Martorell's new score.", excerpt: "“The 50th anniversary proves that popular tradition is a living language capable of conversing with 21st-century theatre and music.”", context: "In-depth cultural review of the 50th anniversary." },
-        "uh-2025-03-15": { date: "March 15, 2025", section: "Culture & Society", headline: "Miquel Barceló creates the image for 50 years of El Davallament de Felanitx", summary: "Announcement of the commemorative poster and expanded staging across Plaça de sa Font de Santa Margalida.", excerpt: "“The Felanitx-born artist joined a deeply cherished celebration, contributing a poster of remarkable visual power.”", context: "Published one month prior to Good Friday 2025." },
-        "ib3-2025-04-18": { date: "April 18, 2025", section: "Holy Week Special", headline: "First-ever live broadcast of El Davallament de Felanitx on Balearic public television", summary: "Coverage of the broadcast deployment bringing the 50th anniversary live across all Balearic Islands.", excerpt: "“An unprecedented broadcast production enabled viewers across the Balearic Islands to experience the Descent live from Sant Miquel.”", context: "Media milestone broadening the event's historic reach." },
-        "sf-2024-03-30": { date: "March 30, 2024", section: "Local Chronicle", headline: "Felanitx builds momentum toward the 50th anniversary with a heartfelt Davallament", summary: "Report on the 49th edition and initial announcements for the jubilee preparations.", excerpt: "“The silence of the square during the Pietà confirms once more why this evening is irreplaceable in Felanitx's calendar.”", context: "Felanitx's historic local weekly newspaper." },
-        "dm-2022-04-16": { date: "April 16, 2022", section: "Regional News", headline: "The long-awaited return: Felanitx revives El Davallament after the pandemic", summary: "Report on the outdoor revival following two years of health-related hiatus.", excerpt: "“When the first spotlights lit Sant Miquel's steps, a shared shiver rippled through the reunited crowd.”", context: "Press chronicle of the 2022 community reunion." },
-        "uh-2015-04-04": { date: "April 4, 2015", section: "Regional · 40th Anniversary", headline: "Forty years of emotion and devotion on the staircase of Felanitx", summary: "Commemorative feature on four decades outdoors with three generations of participants.", excerpt: "“What started in 1975 with modest means and boundless enthusiasm has become a landmark of Mallorcan community theatre.”", context: "40th-anniversary special feature." },
-        "sf-2000-04-22": { date: "April 22, 2000", section: "25th Anniversary", headline: "Silver jubilee outdoors: twenty-five years building community", summary: "Special edition marking the 25th anniversary and honoring the 1975 pioneers.", excerpt: "“Twenty-five consecutive Good Fridays have cemented a civic and spiritual ritual defining Felanitx across Mallorca.”", context: "Turn-of-the-century local archive item." },
-        "sf-1975-04-05": { date: "April 5, 1975", section: "Holy Week Chronicle", headline: "Overwhelming success of the first Davallament staged on Sant Miquel's staircase", summary: "Historic chronicle of March 28, 1975, driven by the Creuada de l'Amor Diví and local pioneers who brought the ceremony outdoors.", excerpt: "“Never had the square looked so full or so silent. Moving the ceremony outdoors gave Good Friday night an unforgettable grandeur.”", context: "Foundational document of the modern archive." }
+      board: {
+        "presidencia": { role: "Presidency", name: "To be updated", area: "Institutional representation and overall coordination of the Association." },
+        "vicepresidencia": { role: "Vice-Presidency", name: "To be updated", area: "Support to the presidency and working-group coordination." },
+        "secretaria": { role: "Secretary", name: "To be updated", area: "Meeting minutes, notices, membership registry, and communications." },
+        "tresoreria": { role: "Treasury", name: "To be updated", area: "Financial management, budgets, and partnership administration." },
+        "vocalia-escenografia": { role: "Stage & Costumes", name: "To be updated", area: "Maintenance of props, historic costumes, and staging at Sant Miquel." },
+        "vocalia-comunicacio": { role: "Communications & Archive", name: "To be updated", area: "Cultural outreach, social channels, website, and archival preservation." }
+      },
+      meetings: {
+        "assemblea-general-2026": {
+          title: "Ordinary General Assembly of the Association",
+          date: "Date to be confirmed",
+          time: "20:00 (1st call) · 20:30 (2nd call)",
+          location: "Centre Cultural de Felanitx",
+          audience: "All members and collaborators",
+          summary: "Annual review of the 51st edition of El Davallament and planning of activities and preparations for the next Holy Week.",
+          agenda: [
+            "Reading and approval of the previous session's minutes.",
+            "Review of the 2026 edition of El Davallament.",
+            "Annual financial report and accounts.",
+            "Planned rehearsal, costume, and preparation calendar for the next edition.",
+            "Questions and open floor."
+          ]
+        },
+        "reunio-participants-2026": {
+          title: "Information & Rehearsal Planning Meeting 2026",
+          date: "February 2026",
+          time: "20:00",
+          location: "Sant Miquel Parish premises",
+          audience: "Actors, actresses, costume team, and volunteers",
+          summary: "Kick-off gathering with all participants to share rehearsal schedules, costumes, and scene coordination on the staircase.",
+          agenda: [
+            "Welcome to new participants and role assignments.",
+            "Weekly rehearsal schedule and dress rehearsal.",
+            "Costume fitting and distribution.",
+            "Lighting, sound, and stage setup coordination."
+          ]
+        }
       },
       gallery: {
         "davallament-creu": { title: "The Descent from the Cross", album: "El Davallament", year: "Recent edition", location: "Main portal of Sant Miquel Parish Church", caption: "The climax of the night: using two ladders and a white shroud, the body of Jesus is gently lowered beneath blue stage light and Sant Miquel's baroque portal." },
@@ -774,7 +851,7 @@ window.I18N = {
       historia: "Geschichte",
       representacio: "Aufführung",
       noticies: "Nachrichten",
-      arxiu: "Pressearchiv",
+      entitat: "Der Verein",
       galeria: "Galerie",
       contacte: "Kontakt"
     },
@@ -787,7 +864,7 @@ window.I18N = {
       historia: "Geschichte | El Davallament de Felanitx",
       representacio: "Die Aufführung | El Davallament de Felanitx",
       noticies: "Nachrichten | El Davallament de Felanitx",
-      arxiu: "Pressearchiv | El Davallament de Felanitx",
+      entitat: "Der Verein | El Davallament de Felanitx",
       galeria: "Fotogalerie | El Davallament de Felanitx",
       contacte: "Kontakt | El Davallament de Felanitx"
     },
@@ -797,8 +874,15 @@ window.I18N = {
       discoverScenes: "Szenen entdecken →",
       viewGallery: "Galerie ansehen →",
       allNews: "Alle Nachrichten →",
-      consultArchive: "Gesamtes Pressearchiv ansehen →",
-      exploreArchive: "Pressearchiv erkunden →",
+      consultEntity: "Verein & Vorstand kennenlernen →",
+      meetingUpcoming: "Nächster Termin",
+      meetingPast: "Abgeschlossen",
+      meetingDateLabel: "Datum & Uhrzeit",
+      meetingPlaceLabel: "Ort",
+      meetingAudienceLabel: "Eingeladen",
+      meetingAgendaLabel: "Tagesordnung",
+      viewAgenda: "Vollständige Tagesordnung ansehen →",
+      noMeetings: "Derzeit sind keine Termine veröffentlicht.",
       readArticle: "Artikel lesen →",
       readShort: "Lesen →",
       readFullArticle: "Vollständigen Artikel lesen →",
@@ -856,8 +940,8 @@ window.I18N = {
       f3Text: "Eine visuelle Reise durch die bewegendsten Momente des Abends: das Urteil des Pilatus, die römischen Soldaten, Veronika und die ergreifende Stille der Kreuzabnahme vor dem Portal von Sant Miquel.",
       newsEyebrow: "Aktuelles",
       newsTitle: "Neueste Nachrichten",
-      pressEyebrow: "Pressearchiv 1975–2026",
-      pressTitle: "Zeitungs- und Pressearchiv",
+      entitatEyebrow: "Der Verein",
+      entitatTitle: "Termine & Vereinsleben",
       guideEyebrow: "Besucherinformationen",
       guideTitle: "Den Davallament erleben",
       g1Title: "Veranstaltungsort",
@@ -900,20 +984,22 @@ window.I18N = {
       bannerTitle: "Nachrichten & Aktuelles",
       bannerSub: "Berichte der jüngsten Ausgaben, Mitmachaufrufe, Kulturprojekte und Neuigkeiten des Vereins.",
       searchPh: "Nachricht, Thema oder Jahr suchen...",
-      archiveHint: "Suchen Sie historische Ausschnitte? Zum Pressearchiv →"
+      meetingsHint: "Suchen Sie Sitzungen oder Versammlungen? Zu Der Verein →"
     },
-    arxiu: {
-      bannerTitle: "Zeitungs- und Pressearchiv",
-      bannerSub: "Digitales Pressearchiv (1975–2026) mit Berichten und Artikeln aus lokalen und balearischen Medien über den Davallament de Felanitx.",
-      contributeBtn: "+ Ausschnitt zum Archiv beitragen",
-      decAll: "Alle Epochen (1975–2026)",
-      dec2026: "Ausgabe 2026",
-      dec2025: "50. Jubiläum (2025)",
-      dec2010: "2010–2024",
-      dec1990: "1990–2009",
-      dec1975: "Anfänge 1975–1989",
-      searchPh: "Schlagzeile, Medium oder Jahr suchen...",
-      clickHint: "Klicken Sie auf einen Eintrag, um den vollständigen Ausschnitt zu öffnen"
+    entitat: {
+      bannerTitle: "Der Verein",
+      bannerSub: "Lernen Sie die Associació El Davallament de Felanitx, den Vorstand sowie kommende Sitzungen und Mitgliederversammlungen kennen.",
+      aboutEyebrow: "Über uns",
+      aboutTitle: "Associació El Davallament de Felanitx",
+      aboutP1: "Die Associació El Davallament de Felanitx ist ein gemeinnütziger Kulturverein zur Bewahrung, Organisation und Vermittlung des Passionsspiels und der Kreuzabnahme, die jeden Karfreitag auf der Treppe von Sant Miquel stattfinden.",
+      aboutP2: "Ihre Arbeit stützt sich auf das offene und ehrenamtliche Mitwirken von über 160 Darstellerinnen und Darstellern jeden Alters sowie Kostüm-, Bühnen-, Licht- und Tonteams in enger Zusammenarbeit mit der Gemeinde Felanitx, dem Kulturzentrum, der Fundació Barceló und der Pfarrei Sant Miquel.",
+      joinBtn: "Kontakt aufnehmen oder mithelfen →",
+      boardEyebrow: "Leitungsgremium",
+      boardTitle: "Vorstand",
+      boardLead: "Das Team, das für Verwaltung, Koordination und Fortbestand der Associació El Davallament de Felanitx verantwortlich ist.",
+      meetingsEyebrow: "Vereinsleben",
+      meetingsTitle: "Termine & Versammlungen",
+      meetingsLead: "Informieren Sie sich über bevorstehende Mitgliederversammlungen und Organisationstreffen samt Tagesordnung."
     },
     galeria: {
       bannerTitle: "Fotogalerie",
@@ -1027,19 +1113,44 @@ window.I18N = {
           ]
         }
       },
-      pressArchive: {
-        "uh-2026-04-04": { date: "4. April 2026", section: "Lokalteil · Felanitx", headline: "Der Davallament de Felanitx bewegt erneut auf der Treppe von Sant Miquel", summary: "Bericht über die Karfreitagsnacht 2026 mit Fokus auf die Rückkehr zur klassischen Kirchenfassade und die ergriffene Stille.", excerpt: "„Nach dem Meilenstein des 50. Jubiläums bewies Felanitx gestern Abend, dass die Kraft des Davallament im Stein von Sant Miquel und im Einsatz fast zweihundert Einheimischer liegt.“", context: "Berichterstattung zur Ausgabe vom 3. April 2026." },
-        "vf-2026-03-28": { date: "28. März 2026", section: "Kultur & Tradition", headline: "Alles bereit für den Davallament 2026: Zeiten, Musik und Proben in Sant Miquel", summary: "Vorbericht zur Karwoche in Felanitx mit Beginn um 21:00 Uhr und anschließender Prozession mit der Musikkapelle.", excerpt: "„Die Generalproben bestätigen die lebendige Weitergabe an die nächste Generation und bewahren die ganze Emotion der traditionellen Aufführung.“", context: "Lokaler Informationsartikel für Einheimische und Gäste." },
-        "mc-2026-03-30": { date: "30. März 2026", section: "Kulturkalender", headline: "El Davallament de Felanitx – ein unverzichtbarer Termin der Karwoche auf Mallorca", summary: "Kulturelle Auswahl der authentischsten Bräuche der Insel mit Lob für die Stille und den Wert des geistlichen Theaters.", excerpt: "„Nur wenige Orte am Mittelmeer verwandeln eine Kirchentreppe in ein so ergreifendes Freilichttheater wie Felanitx in der Karfreitagsnacht.“", context: "Inselweiter Kulturbeitrag." },
-        "dm-2025-04-19": { date: "19. April 2025", section: "Mallorca · Spezial 50. Jubiläum", headline: "Felanitx schreibt Geschichte beim 50. Jubiläum eines großen Davallament live auf IB3", summary: "Ausführliche Reportage über das Jubiläum, das Plakat von Miquel Barceló und den Zusammenhalt des ganzen Dorfes.", excerpt: "„Ein halbes Jahrhundert Geschichte gipfelte in einer unvergesslichen Nacht: sechs Bühnen, 160 Laiendarsteller und Tausende Zuschauer vor Ort und am Bildschirm.“", context: "Titelbericht mit Stimmen von Mitwirkenden seit 1975." },
-        "db-2025-04-18": { date: "18. April 2025", section: "Kultur · Balearen", headline: "Fünfzig Jahre Davallament de Felanitx: lebendige Tradition, neue Musik und moderner Blick", summary: "Kulturanalyse der Inszenierung von Joan Toni Sunyer und Marta Obrador sowie der Musik von Joan Martorell.", excerpt: "„Das Jubiläum zeigt, dass Volkstradition eine lebendige Sprache ist, die mit Theater und Musik des 21. Jahrhunderts im Dialog steht.“", context: "Kulturreportage zum 50. Jubiläum." },
-        "uh-2025-03-15": { date: "15. März 2025", section: "Kultur & Gesellschaft", headline: "Miquel Barceló gibt den 50 Jahren des Davallament de Felanitx ein Gesicht", summary: "Meldung zur Vorstellung des Jubiläumsplakats und der erweiterten Bühnen auf der Plaça de sa Font de Santa Margalida.", excerpt: "„Der Künstler aus Felanitx schloss sich einer tief verwurzelten Feier an und schuf ein Plakat von enormer Ausdruckskraft.“", context: "Veröffentlicht einen Monat vor Karfreitag 2025." },
-        "ib3-2025-04-18": { date: "18. April 2025", section: "Karwoche Spezial", headline: "Erste Live-Übertragung des Davallament de Felanitx im balearischen Fernsehen", summary: "Bericht über den technischen Einsatz zur Live-Ausstrahlung des 50. Jubiläums auf allen Inseln.", excerpt: "„Ein beispielloser technischer Aufwand ermöglichte es den gesamten Balearen, die Kreuzabnahme live aus Sant Miquel mitzuerleben.“", context: "Medialer Meilenstein in der Geschichte der Aufführung." },
-        "sf-2024-03-30": { date: "30. März 2024", section: "Lokalchronik", headline: "Felanitx stimmt sich mit einem bewegenden Davallament auf das 50. Jubiläum ein", summary: "Bericht über die 49. Ausgabe und erste Ankündigungen der Jubiläumsvorbereitungen.", excerpt: "„Die Stille des Platzes im Moment der Pietà bestätigt erneut, warum dieser Abend im Kalender von Felanitx unersetzlich ist.“", context: "Wöchentliche Lokalzeitung der Gemeinde." },
-        "dm-2022-04-16": { date: "16. April 2022", section: "Mallorca", headline: "Die ersehnte Rückkehr: Felanitx feiert nach der Pandemie wieder seinen Davallament", summary: "Bericht über die Wiederaufnahme der Freilichtaufführung nach zweijähriger Pause.", excerpt: "„Als die ersten Scheinwerfer die Treppe von Sant Miquel erhellten, ging ein gemeinsames Schaudern durch die wiedervereinte Menge.“", context: "Zeitungsbericht zum Wiedersehen 2022." },
-        "uh-2015-04-04": { date: "4. April 2015", section: "Mallorca · 40. Jubiläum", headline: "Vierzig Jahre Emotion und Volksfrömmigkeit auf der Treppe von Felanitx", summary: "Jubiläumsreportage über vier Jahrzehnte im Freien mit drei Generationen von Mitwirkenden.", excerpt: "„Was 1975 mit einfachen Mitteln und großer Begeisterung begann, ist zu einem Maßstab des mallorquinischen Volkstheaters geworden.“", context: "Sonderbericht zum 40. Jubiläum." },
-        "sf-2000-04-22": { date: "22. April 2000", section: "25. Jubiläum", headline: "Silberjubiläum unter freiem Himmel: fünfundzwanzig Jahre Gemeinschaft", summary: "Sonderausgabe zum 25. Jubiläum in Erinnerung an die Pioniere von 1975.", excerpt: "„Fünfundzwanzig aufeinanderfolgende Karfreitage haben ein bürgerliches und geistliches Ritual gefestigt, das Felanitx auf ganz Mallorca prägt.“", context: "Lokaler Archivbeitrag zur Jahrtausendwende." },
-        "sf-1975-04-05": { date: "5. April 1975", section: "Karwochenchronik", headline: "Überwältigender Erfolg des ersten Davallament auf der Treppe von Sant Miquel", summary: "Historische Chronik vom 28. März 1975 über den Umzug der Aufführung ins Freie durch die Creuada de l'Amor Diví und engagierte Einwohner.", excerpt: "„Nie zuvor war der Platz so voll und so still. Die Entscheidung, die Feier ins Freie zu verlegen, verlieh der Karfreitagsnacht eine unvergessliche Größe.“", context: "Gründungsdokument des modernen Pressearchivs." }
+      board: {
+        "presidencia": { role: "Vorsitz", name: "Wird aktualisiert", area: "Institutionelle Vertretung und Gesamtkoordination des Vereins." },
+        "vicepresidencia": { role: "Stellvertretender Vorsitz", name: "Wird aktualisiert", area: "Unterstützung des Vorsitzes und Koordination der Arbeitsgruppen." },
+        "secretaria": { role: "Schriftführung", name: "Wird aktualisiert", area: "Sitzungsprotokolle, Einladungen, Mitgliederregister und Kommunikation." },
+        "tresoreria": { role: "Kassenführung", name: "Wird aktualisiert", area: "Finanzverwaltung, Haushalt und Förderkoordination." },
+        "vocalia-escenografia": { role: "Bühnenbild & Kostüme", name: "Wird aktualisiert", area: "Pflege von Requisiten, historischen Kostümen und Aufbau in Sant Miquel." },
+        "vocalia-comunicacio": { role: "Kommunikation & Archiv", name: "Wird aktualisiert", area: "Öffentlichkeitsarbeit, Webportal und Dokumentation." }
+      },
+      meetings: {
+        "assemblea-general-2026": {
+          title: "Ordentliche Mitgliederversammlung des Vereins",
+          date: "Termin wird noch bekannt gegeben",
+          time: "20:00 Uhr (1. Einberufung) · 20:30 Uhr (2. Einberufung)",
+          location: "Centre Cultural de Felanitx",
+          audience: "Alle Mitglieder und Unterstützer",
+          summary: "Jahresrückblick auf die 51. Ausgabe des Davallament sowie Planung der Aktivitäten und Vorbereitungen für die nächste Karwoche.",
+          agenda: [
+            "Verlesung und Genehmigung des Protokolls der letzten Sitzung.",
+            "Rückblick auf die Ausgabe des Davallament 2026.",
+            "Kassenbericht und Jahresabschluss.",
+            "Geplanter Proben-, Kostüm- und Vorbereitungsplan für die nächste Ausgabe.",
+            "Verschiedenes und Fragen."
+          ]
+        },
+        "reunio-participants-2026": {
+          title: "Informationstreffen & Probenorganisation 2026",
+          date: "Februar 2026",
+          time: "20:00 Uhr",
+          location: "Pfarrkirche Sant Miquel",
+          audience: "Darstellerinnen, Darsteller, Kostümteam und Helfer",
+          summary: "Auftakttreffen mit allen Mitwirkenden zur Abstimmung von Probenplänen, Kostümen und Szenenabläufen auf der Treppe.",
+          agenda: [
+            "Begrüßung neuer Mitwirkender und Rollenverteilung.",
+            "Wöchentlicher Probenplan und Generalprobe.",
+            "Anprobe und Ausgabe der Kostüme.",
+            "Abstimmung von Licht, Ton und Aufbau."
+          ]
+        }
       },
       gallery: {
         "davallament-creu": { title: "Die Kreuzabnahme (El Davallament)", album: "El Davallament", year: "Aktuelle Ausgabe", location: "Hauptportal der Pfarrkirche Sant Miquel", caption: "Der Höhepunkt des Abends: Mit zwei Leitern und weißem Leinentuch wird der Leichnam Jesu unter blauem Licht vor dem Barockportal von Sant Miquel herabgelassen." },

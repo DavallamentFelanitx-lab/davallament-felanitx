@@ -1,0 +1,42 @@
+# ============================================================================
+# JUNTA DIRECTIVA — Associació El Davallament de Felanitx
+# ============================================================================
+# Edita els noms, càrrecs o descripcions directament aquí.
+# Pots afegir o eliminar membres copiant o esborrant un bloc "- id:".
+#
+# Camps:
+#   id:         identificador únic (ex: presidencia)
+#   carrec:     càrrec a la junta (ex: "Presidència", "Secretaria", "Vocalia")
+#   nom:        nom i llinatges de la persona
+#   area:       (opcional) àmbit o tasca principal dins l'Associació
+# ============================================================================
+
+- id: presidencia
+  carrec: "Presidència"
+  nom: "Pendent d'actualitzar"
+  area: "Representació institucional i coordinació general de l'Associació."
+
+- id: vicepresidencia
+  carrec: "Vicepresidència"
+  nom: "Pendent d'actualitzar"
+  area: "Suport a la presidència i coordinació d'equips de treball."
+
+- id: secretaria
+  carrec: "Secretaria"
+  nom: "Pendent d'actualitzar"
+  area: "Actes de reunions, convocatòries, registre de socis i comunicacions."
+
+- id: tresoreria
+  carrec: "Tresoreria"
+  nom: "Pendent d'actualitzar"
+  area: "Gestió econòmica, pressuposts i tramitació de col·laboracions."
+
+- id: vocalia-escenografia
+  carrec: "Vocalia d'Escenografia i Vestuari"
+  nom: "Pendent d'actualitzar"
+  area: "Manteniment d'attrezzo, vestuari històric i muntatge a Sant Miquel."
+
+- id: vocalia-comunicacio
+  carrec: "Vocalia de Comunicació i Arxiu"
+  nom: "Pendent d'actualitzar"
+  area: "Difusió cultural, xarxes, portal web i preservació documental."

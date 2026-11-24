@@ -15,7 +15,7 @@
     { href: "historia.html", key: "historia" },
     { href: "representacio.html", key: "representacio" },
     { href: "noticies.html", key: "noticies" },
-    { href: "arxiu.html", key: "arxiu" },
+    { href: "entitat.html", key: "entitat" },
     { href: "galeria.html", key: "galeria" },
     { href: "contacte.html", key: "contacte" }
   ];
@@ -153,9 +153,26 @@
       .sort((a, b) => b._ts - a._ts);
   }
 
-  function getAllPressItems() {
-    const map = dict().data && dict().data.pressArchive;
-    return DATA.pressArchive.map((p) => (map && map[p.id] ? { ...p, ...map[p.id] } : p));
+  function getLocalizedBoard() {
+    const map = dict().data && dict().data.board;
+    return (DATA.board || []).map((m) => (map && map[m.id] ? { ...m, ...map[m.id] } : m));
+  }
+
+  function getLocalizedMeetings() {
+    const map = dict().data && dict().data.meetings;
+    return (DATA.meetings || [])
+      .map((m) => {
+        const baseTs = getNewsTimestamp(m);
+        const merged = map && map[m.id] ? { ...m, ...map[m.id] } : { ...m };
+        merged._ts = baseTs || getNewsTimestamp(merged);
+        return merged;
+      })
+      .sort((a, b) => {
+        const aUp = a.status === "proxima" ? 1 : 0;
+        const bUp = b.status === "proxima" ? 1 : 0;
+        if (aUp !== bUp) return bUp - aUp;
+        return b._ts - a._ts;
+      });
   }
 
   function getLocalizedGallery() {
@@ -406,38 +423,6 @@
     });
   }
 
-  function openPressClipping(itemId) {
-    const item = getAllPressItems().find((p) => p.id === itemId);
-    if (!item) return;
-    const ui = dict().ui;
-
-    const html = `
-      <div class="modal-content">
-        <div class="clipping-paper">
-          <div class="clipping-masthead">
-            <div class="outlet">${escapeHtml(item.outlet)}</div>
-            <div class="submeta">
-              <span>${escapeHtml(item.section || "Archive")}</span>
-              <span>${escapeHtml(item.date)}</span>
-              <span>Ref. ${escapeHtml(item.ref || "ARXIU")}</span>
-            </div>
-          </div>
-          <h2 style="margin-top:0">${escapeHtml(item.headline)}</h2>
-          <p style="color:var(--text-muted);margin-bottom:16px">${escapeHtml(item.summary)}</p>
-          <blockquote class="clipping-quote">${escapeHtml(item.excerpt)}</blockquote>
-          <p style="font-size:0.88rem;color:var(--text-muted);margin-top:14px">
-            <strong>${escapeHtml(ui.archiveNoteLabel)}</strong> ${escapeHtml(item.context || ui.archiveNoteDefault)}
-          </p>
-        </div>
-        <div style="display:flex;justify-content:flex-end;margin-top:20px">
-          <button type="button" class="btn btn--sm" id="close-clipping-btn">${escapeHtml(ui.backToArchive)}</button>
-        </div>
-      </div>
-    `;
-    openModal(html, item.headline);
-    document.getElementById("close-clipping-btn").addEventListener("click", closeModal);
-  }
-
   /* Lightbox */
   let lbItems = [];
   let lbIndex = 0;
@@ -644,32 +629,12 @@
       });
     }
 
-    const homePress = document.getElementById("home-press-list");
-    if (homePress) {
-      homePress.innerHTML = getAllPressItems()
-        .slice(0, 3)
-        .map(
-          (p) => `
-          <article class="press-row">
-            <div class="press-outlet-col">
-              <span class="press-outlet-name">${escapeHtml(p.outlet)}</span>
-              <span class="press-date">${escapeHtml(p.date)}</span>
-              <span class="press-ref">${escapeHtml(p.ref)}</span>
-            </div>
-            <div class="press-content-col">
-              <h3>${escapeHtml(p.headline)}</h3>
-              <p>${escapeHtml(p.summary)}</p>
-            </div>
-            <div>
-              <button type="button" class="btn btn--outline btn--sm" data-open-press="${escapeHtml(p.id)}">${escapeHtml(ui.viewClipping)}</button>
-            </div>
-          </article>`
-        )
+    const homeMeetings = document.getElementById("home-meetings-list");
+    if (homeMeetings) {
+      homeMeetings.innerHTML = getLocalizedMeetings()
+        .slice(0, 2)
+        .map((m) => renderMeetingCard(m, false))
         .join("");
-
-      homePress.querySelectorAll("[data-open-press]").forEach((btn) => {
-        btn.addEventListener("click", () => openPressClipping(btn.dataset.openPress));
-      });
     }
   }
 
@@ -875,152 +840,74 @@
   }
 
   /* ------------------------------------------------------------------------
-     PAGE: ARXIU DE PREMSA (arxiu.html)
+     PAGE: L'ENTITAT (entitat.html) — Junta Directiva i Convocatòries
      ------------------------------------------------------------------------ */
-  let pressViewMode = "list";
-
-  function initArxiuPage(openDeepLink) {
-    const outletSelect = document.getElementById("press-outlet-filter");
-    const decadeSelect = document.getElementById("press-decade-filter");
-    const searchInput = document.getElementById("press-search");
-    const listBtn = document.getElementById("view-list-btn");
-    const gridBtn = document.getElementById("view-grid-btn");
-    const resultsHost = document.getElementById("press-results");
-    const countHost = document.getElementById("press-count");
-
+  function renderMeetingCard(m, showAgenda) {
     const ui = dict().ui;
-    let selectedOutlet = "Tots";
-    let selectedDecade = decadeSelect ? decadeSelect.value || "Totes" : "Totes";
-    let query = searchInput ? searchInput.value : "";
+    const isUpcoming = m.status === "proxima";
+    const statusBadge = isUpcoming
+      ? `<span class="badge badge--upcoming">${escapeHtml(ui.meetingUpcoming)}</span>`
+      : `<span class="badge badge--past">${escapeHtml(ui.meetingPast)}</span>`;
 
-    if (listBtn) listBtn.textContent = ui.listView;
-    if (gridBtn) gridBtn.textContent = ui.gridView;
+    return `
+      <article class="meeting-card ${isUpcoming ? "" : "meeting-card--past"}">
+        <div class="meeting-top">
+          ${statusBadge}
+          <span style="font-size:0.86rem;font-weight:600;color:var(--text-muted)">${escapeHtml(m.date)}</span>
+        </div>
+        <h3>${escapeHtml(m.title)}</h3>
+        <p style="color:var(--text-muted);margin:0">${escapeHtml(m.summary)}</p>
+        <div class="meeting-meta-grid">
+          <div>
+            <strong>${escapeHtml(ui.meetingDateLabel)}</strong>
+            <span>${escapeHtml(m.date)}${m.time ? " · " + escapeHtml(m.time) : ""}</span>
+          </div>
+          <div>
+            <strong>${escapeHtml(ui.meetingPlaceLabel)}</strong>
+            <span>${escapeHtml(m.location)}</span>
+          </div>
+          <div>
+            <strong>${escapeHtml(ui.meetingAudienceLabel)}</strong>
+            <span>${escapeHtml(m.audience)}</span>
+          </div>
+        </div>
+        ${
+          showAgenda && Array.isArray(m.agenda) && m.agenda.length
+            ? `<div class="meeting-agenda">
+                <h4>${escapeHtml(ui.meetingAgendaLabel)}</h4>
+                <ul>
+                  ${m.agenda.map((pt) => `<li>${escapeHtml(pt)}</li>`).join("")}
+                </ul>
+              </div>`
+            : `<div style="margin-top:12px"><a href="entitat.html#convocatories" class="link-arrow">${escapeHtml(ui.viewAgenda)}</a></div>`
+        }
+      </article>
+    `;
+  }
 
-    function populateOutlets() {
-      const items = getAllPressItems();
-      const outlets = Array.from(new Set(items.map((p) => p.outlet))).sort();
-      const current = outletSelect.value || "Tots";
-      outletSelect.innerHTML =
-        `<option value="Tots">${escapeHtml(ui.allOutlets)} (${outlets.length})</option>` +
-        outlets.map((o) => `<option value="${escapeHtml(o)}">${escapeHtml(o)}</option>`).join("");
-      outletSelect.value = outlets.includes(current) ? current : "Tots";
-      selectedOutlet = outletSelect.value;
+  function initEntitatPage() {
+    const boardHost = document.getElementById("board-grid");
+    if (boardHost) {
+      boardHost.innerHTML = getLocalizedBoard()
+        .map(
+          (m) => `
+          <article class="info-card">
+            <span class="board-role">${escapeHtml(m.role)}</span>
+            <h3>${escapeHtml(m.name)}</h3>
+            <p>${escapeHtml(m.area)}</p>
+          </article>`
+        )
+        .join("");
     }
 
-    function renderArchive() {
-      const all = getAllPressItems();
-      const q = query.trim().toLowerCase();
-      const filtered = all.filter((p) => {
-        const matchOutlet = selectedOutlet === "Tots" || p.outlet === selectedOutlet;
-        const matchDecade = selectedDecade === "Totes" || p.decade === selectedDecade;
-        const matchQ =
-          !q ||
-          p.headline.toLowerCase().includes(q) ||
-          p.summary.toLowerCase().includes(q) ||
-          p.outlet.toLowerCase().includes(q) ||
-          String(p.year).includes(q);
-        return matchOutlet && matchDecade && matchQ;
-      });
-
-      countHost.textContent = ui.pressCount(filtered.length, all.length);
-
-      if (!filtered.length) {
-        resultsHost.className = "";
-        resultsHost.innerHTML = `
-          <div class="empty-state">
-            <p style="margin-bottom:12px">${escapeHtml(ui.noPressFound)}</p>
-            <button type="button" class="btn btn--outline btn--sm" id="reset-press">${escapeHtml(ui.showAllArchive)}</button>
-          </div>`;
-        document.getElementById("reset-press").addEventListener("click", () => {
-          selectedOutlet = "Tots";
-          selectedDecade = "Totes";
-          query = "";
-          outletSelect.value = "Tots";
-          decadeSelect.value = "Totes";
-          searchInput.value = "";
-          renderArchive();
-        });
-        return;
-      }
-
-      if (pressViewMode === "list") {
-        resultsHost.className = "press-list";
-        resultsHost.innerHTML = filtered
-          .map(
-            (p) => `
-            <article class="press-row">
-              <div class="press-outlet-col">
-                <span class="press-outlet-name">${escapeHtml(p.outlet)}</span>
-                <span class="press-date">${escapeHtml(p.date)}</span>
-                <span class="press-ref">${escapeHtml(p.ref)}</span>
-              </div>
-              <div class="press-content-col">
-                <h3>${escapeHtml(p.headline)}</h3>
-                <p>${escapeHtml(p.summary)}</p>
-              </div>
-              <div>
-                <button type="button" class="btn btn--outline btn--sm" data-open-press="${escapeHtml(p.id)}">${escapeHtml(ui.readClipping)}</button>
-              </div>
-            </article>`
-          )
-          .join("");
+    const meetingsHost = document.getElementById("meetings-list");
+    if (meetingsHost) {
+      const meetings = getLocalizedMeetings();
+      if (!meetings.length) {
+        meetingsHost.innerHTML = `<div class="empty-state"><p>${escapeHtml(dict().ui.noMeetings)}</p></div>`;
       } else {
-        resultsHost.className = "press-grid";
-        resultsHost.innerHTML = filtered
-          .map(
-            (p) => `
-            <article class="press-card">
-              <div class="press-card-masthead">
-                <span class="press-outlet-name">${escapeHtml(p.outlet)}</span>
-                <span class="press-date">${escapeHtml(p.year)}</span>
-              </div>
-              <h3 class="card-title" style="font-size:1.35rem">${escapeHtml(p.headline)}</h3>
-              <p class="card-excerpt" style="font-size:0.9rem">${escapeHtml(p.summary)}</p>
-              <div class="card-footer">
-                <span class="press-ref">${escapeHtml(p.date)}</span>
-                <button type="button" class="card-action-btn" data-open-press="${escapeHtml(p.id)}">${escapeHtml(ui.openClipping)}</button>
-              </div>
-            </article>`
-          )
-          .join("");
+        meetingsHost.innerHTML = meetings.map((m) => renderMeetingCard(m, true)).join("");
       }
-
-      resultsHost.querySelectorAll("[data-open-press]").forEach((btn) => {
-        btn.addEventListener("click", () => openPressClipping(btn.dataset.openPress));
-      });
-    }
-
-    outletSelect.onchange = (e) => {
-      selectedOutlet = e.target.value;
-      renderArchive();
-    };
-    decadeSelect.onchange = (e) => {
-      selectedDecade = e.target.value;
-      renderArchive();
-    };
-    searchInput.oninput = (e) => {
-      query = e.target.value;
-      renderArchive();
-    };
-    listBtn.onclick = () => {
-      pressViewMode = "list";
-      listBtn.classList.add("active");
-      gridBtn.classList.remove("active");
-      renderArchive();
-    };
-    gridBtn.onclick = () => {
-      pressViewMode = "grid";
-      gridBtn.classList.add("active");
-      listBtn.classList.remove("active");
-      renderArchive();
-    };
-
-    populateOutlets();
-    renderArchive();
-
-    if (openDeepLink) {
-      const deepId = getQueryParam("id");
-      if (deepId) openPressClipping(deepId);
     }
   }
 
@@ -1156,28 +1043,30 @@
     };
   }
 
-  function normalizePressItem(raw, idx) {
-    const year = Number(raw.any !== undefined ? raw.any : raw.year) || 2026;
-    let decade = String(raw.epoca || raw.decade || "");
-    if (!decade) {
-      if (year >= 2026) decade = "2026";
-      else if (year === 2025) decade = "2025";
-      else if (year >= 2010) decade = "2010-2024";
-      else if (year >= 1990) decade = "1990-2009";
-      else decade = "1975-1989";
-    }
+  function normalizeBoardItem(raw, idx) {
     return {
-      id: raw.id || "premsa-" + (idx + 1),
-      outlet: raw.mitja || raw.outlet || "Premsa",
-      date: raw.data || raw.date || String(year),
-      year,
-      decade,
-      section: raw.seccio || raw.section || "Hemeroteca",
-      ref: raw.ref || `FEL-PREMSA-${year}`,
-      headline: raw.titular || raw.headline || "",
+      id: raw.id || "membre-" + (idx + 1),
+      role: raw.carrec || raw.role || "",
+      name: raw.nom || raw.name || "",
+      area: raw.area || raw.tasca || ""
+    };
+  }
+
+  function normalizeMeetingItem(raw, idx) {
+    let agenda = [];
+    if (Array.isArray(raw.ordreDelDia)) agenda = raw.ordreDelDia.map(String);
+    else if (Array.isArray(raw.agenda)) agenda = raw.agenda.map(String);
+    return {
+      id: raw.id || "reunio-" + (idx + 1),
+      title: raw.titol || raw.title || "",
+      status: String(raw.estat || raw.status || "proxima").toLowerCase(),
+      date: raw.data || raw.date || "",
+      isoDate: raw.dataIso || raw.isoDate || "",
+      time: raw.hora || raw.time || "",
+      location: raw.lloc || raw.location || "",
+      audience: raw.adrecatA || raw.audience || "",
       summary: raw.resum || raw.summary || "",
-      excerpt: raw.fragment || raw.excerpt || "",
-      context: raw.context || ""
+      agenda
     };
   }
 
@@ -1208,11 +1097,21 @@
       );
     }
 
-    if (page === "inici" || page === "arxiu") {
+    if (page === "entitat") {
       tasks.push(
-        window.SimpleYAML.fetchYamlList("data/arxiu-premsa.yaml")
+        window.SimpleYAML.fetchYamlList("data/junta.yaml")
           .then((items) => {
-            if (items && items.length) DATA.pressArchive = items.map(normalizePressItem);
+            if (items && items.length) DATA.board = items.map(normalizeBoardItem);
+          })
+          .catch(() => {})
+      );
+    }
+
+    if (page === "inici" || page === "entitat") {
+      tasks.push(
+        window.SimpleYAML.fetchYamlList("data/convocatories.yaml")
+          .then((items) => {
+            if (items && items.length) DATA.meetings = items.map(normalizeMeetingItem);
           })
           .catch(() => {})
       );
@@ -1236,7 +1135,7 @@
     else if (currentPage === "historia") initHistoriaPage();
     else if (currentPage === "representacio") initRepresentacioPage();
     else if (currentPage === "noticies") initNoticiesPage(Boolean(isInitial));
-    else if (currentPage === "arxiu") initArxiuPage(Boolean(isInitial));
+    else if (currentPage === "entitat") initEntitatPage();
     else if (currentPage === "galeria") initGaleriaPage();
     else if (currentPage === "contacte") initContactePage();
   }
