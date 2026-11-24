@@ -182,34 +182,54 @@ window.DAVALLAMENT_DATA = {
 
   timeline: [
     {
-      year: "Segles XV–XIX",
-      title: "Arrels medievals i representacions dins l'església",
-      text: "Els davallaments enfonsen les arrels en el teatre litúrgic medieval mallorquí. Durant segles, la cerimònia del desclavament es va viure a l'interior de la Parròquia de Sant Miquel com una de les expressions més sentides de la Setmana Santa felanitxera."
-    },
-    {
       year: "28 de març de 1975",
-      title: "El primer Davallament a l'escalinata de Sant Miquel",
-      text: "Impulsat per la Creuada de l'Amor Diví i l'entusiasme dels veïns del poble, el Davallament surt per primera vegada a l'aire lliure al replà i l'escalinata de Sant Miquel."
+      title: "El primer Davallament al replà de Sant Miquel",
+      text: "El 28 de març de 1975 es va celebrar per primera vegada al replà de l'església parroquial. Fins llavors s'havia representat a l'interior del temple. Organitzat per la Creuada de l'Amor Diví, el Davallament se celebrà davant l'emblemàtica portalada de la parròquia."
     },
     {
-      year: "Anys 1980–1990",
-      title: "Arrelament popular i «fer poble»",
-      text: "La cita de Divendres Sant creix ràpidament en implicació ciutadana i afluència de públic. Famílies senceres de Felanitx participen en vestuari, escenografia i interpretació, consolidant l'acte com a referent del Migjorn i de tot Mallorca."
+      year: "Primers anys (1975–1986)",
+      title: "Els inicis: cant sacre, Evangeli i sermó",
+      text: "Durant els primers anys, el Davallament es realitzava amb certa senzillesa. L'acte s'obria amb el cant de diverses peces sacres interpretades per la Coral de Felanitx; tot seguit es llegia l'Evangeli, i a continuació un reconegut orador pronunciava un sermó, que es convertia en part important de la funció."
     },
     {
-      year: "Anys 2000–2024",
-      title: "Evolució escènica i patrimoni compartit",
-      text: "S'incorporen millores progressives d'il·luminació teatral, sonorització i direcció escènica, preservant la sobrietat dels versos tradicionals. Després de l'aturada de la pandèmia, el retorn de 2022 reforça encara més la implicació de joves i veterans."
+      year: "A partir de 1987",
+      title: "De cerimònia a espectacle a l'escalinata",
+      text: "A partir de l'any 1987 –i de forma progressiva– s'incorporen personatges, s'afegeixen escenes de la Passió abans del davallament –que es representen a l'escalinata–, s'introdueix música sacra enregistrada –que és reproduïda per un potent equip de so– i es dota la celebració d'un complet equip de llum, incorporacions que suposen convertir la cerimònia en un espectacle."
     },
     {
-      year: "Abril de 2025",
-      title: "50è Aniversari: una fita històrica",
-      text: "Felanitx celebra mig segle del Davallament a l'exterior amb un cartell commemoratiu creat per l'artista felanitxer Miquel Barceló. Sota la direcció de Joan Toni Sunyer i Marta Obrador, l'espectacle s'expandeix per sis escenaris a la Plaça de sa Font de Santa Margalida, estrena banda sonora original de Joan Martorell i es retransmet per primera vegada en directe a IB3 Televisió."
+      year: "1991",
+      title: "Gent de Bulla i els textos del pare Antoni Oliver C.R.",
+      text: "L'any 1991, la representació dels personatges, a través de quadres estàtics, s'encarrega al grup de teatre Gent de Bulla, i el teatí pare Antoni Oliver C.R. escriu uns textos específicament per al Davallament de Felanitx, que es llegeixen cada any, a fi d'acompanyar, amb la música, les diferents escenes."
     },
     {
-      year: "3 d'abril de 2026",
-      title: "Consolidació del llegat a l'escalinata tradicional",
-      text: "L'edició del 2026 retorna tot el protagonisme a la façana i l'escalinata de Sant Miquel mantenint la força musical de la banda sonora de Joan Martorell i la participació de prop de 180 veïns i veïnes, seguida de la Processó de l'Enterrament amb la Banda de Música de Felanitx."
+      year: "2000",
+      title: "Renovació escènica, voluntariat i Jesús interpretat per una persona",
+      text: "L'any 2000 es produeixen canvis importants. L'organització es concentra en la Confraria del Sant Crist de la Bona Mort; la direcció escènica s'encarrega a Josep Lluís Fernández, i el grup d'actors passen a ser persones voluntàries de Felanitx que, a la llarga, també portaran l'organització de facto de l'acte. Una de les novetats més destacables d'aquell any és que la figura de Jesús passa a ser interpretada per una persona i s'elimina, així, la talla amb què s'havia escenificat el Davallament fins aleshores. Des del 2000, les diverses seqüències cobren més dinamisme –desapareixen quasi totes les estàtiques–, se n'afegeixen de noves, s'incorporen altres personatges, s'utilitzen nous materials i es construeixen escenaris."
+    },
+    {
+      year: "2008–2019",
+      title: "Direcció de Jaume Caldentey i etapa de consolidació",
+      text: "L'any 2008 el Davallament és dirigit per Jaume Caldentey. A partir de l'any 2009, Josep Lluís Fernàndez torna a encarregar-se de la direcció escènica fins a l'any 2019, darrera edició celebrada abans de la pandèmia."
+    },
+    {
+      year: "2023",
+      title: "Renovació tècnica i direcció de Marta Obrador Barceló",
+      text: "L'edició de 2023, dirigida per la felanitxera Marta Obrador Barceló, incorpora novetats importants en la posada en escena: es renoven materials i escenaris i s'introdueixen innovadors efectes sonors i luminotècnics."
+    },
+    {
+      year: "2024",
+      title: "Direcció de Joan Toni Sunyer",
+      text: "L'any 2024 assumeix la direcció escènica l'actor manacorí Joan Toni Sunyer, aprofundint en el llenguatge teatral i la intensitat dramàtica de la representació a l'escalinata de Sant Miquel."
+    },
+    {
+      year: "2025",
+      title: "50è Aniversari: sis escenaris, música original i directe a IB3",
+      text: "Felanitx celebra el 50è aniversari del Davallament a l'exterior amb una edició històrica codirigida per Marta Obrador Barceló i Joan Toni Sunyer. L'espectacle s'expandeix de manera excepcional per sis escenaris diferents a la Plaça de sa Font de Santa Margalida, estrena la banda sonora original de Joan Martorell, compta amb un cartell commemoratiu de Miquel Barceló i es retransmet per primera vegada en directe a IB3 Televisió."
+    },
+    {
+      year: "2026",
+      title: "51a edició i retorn a l'escalinata tradicional",
+      text: "L'any 2026 el torna a dirigir Joan Toni Sunyer, retornant tot el protagonisme a la façana i l'escalinata de Sant Miquel, consolidant la banda sonora de Joan Martorell i batent un rècord de participació amb 160 actors i actrius d'entre 3 i gairebé 80 anys."
     }
   ],
 
