@@ -665,8 +665,7 @@
             <h1 class="hero-slide-title" id="hero-title">${escapeHtml(slidesData[0].title)}</h1>
             <p class="hero-slide-sub" id="hero-sub">${escapeHtml(slidesData[0].subtitle)}</p>
             <div class="hero-actions">
-              <a href="representacio.html" class="btn btn--sand">${escapeHtml(ui.discoverScenes)}</a>
-              <a href="galeria.html#multimedia" class="btn btn--ghost-light">${escapeHtml(ui.watchVideo || "Veure vídeo")}</a>
+              <a href="galeria.html" class="btn btn--sand">${escapeHtml(ui.viewGallery)}</a>
             </div>
           </div>
         </div>
