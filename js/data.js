@@ -267,19 +267,22 @@ window.DAVALLAMENT_DATA = {
     {
       id: "edicio-2026-escalinata",
       category: "Cròniques",
-      date: "4 d'abril de 2026",
-      isoDate: "2026-04-04",
+      date: "3 d'abril de 2026",
+      isoDate: "2026-04-03",
       readTime: "4 min",
       featured: false,
-      image: "img/hero/hero1.jpg",
-      title: "El Davallament de Felanitx 2026 emociona de nou a l'escalinata de Sant Miquel",
-      excerpt: "Prop de dos cents veïns i veïnes varen donar vida a una edició que va recuperar el marc clàssic de la façana parroquial conservant la força sonora del cinquantenari.",
-      tags: ["Edició 2026", "Sant Miquel", "Divendres Sant"],
+      image: "img/noticies/davallament-2026-ultimahora.jpg",
+      source: "Ultima Hora · Gori Vicens",
+      sourceUrl: "https://www.ultimahora.es/noticias/local/2026/04/03/2602649/davallament-felanitx-vuelve-emocionar-fieles.html",
+      title: "El Davallament de Felanitx torna a emocionar els fidels en la seva 51a edició",
+      excerpt: "Enguany s'ha celebrat la 51a edició de la representació al majestuós escenari davant l'església parroquial de Sant Miquel, amb rècord de 160 actors d'entre 3 i gairebé 80 anys.",
+      tags: ["51a Edició", "Sant Miquel", "Divendres Sant"],
       body: [
-        "La nit del Divendres Sant, 3 d'abril de 2026, Felanitx va tornar a congregar centenars de residents i visitants d'arreu de Mallorca a les 21:00 hores davant la Parròquia de Sant Miquel.",
-        "Després de la celebració extraordinària del 50è aniversari el 2025, enguany la posada en escena va tornar a concentrar-se en el seu marc històric original: el replà i l'escalinata de Sant Miquel, recuperant la verticalitat icònica de cada escena.",
-        "La continuïtat de la banda sonora original de Joan Martorell i la il·luminació dramàtica varen envoltar cada escena en un silenci absolut que només es va rompre amb l'ovació final.",
-        "Tot seguit, les confraries del municipi i la Banda de Música de Felanitx varen iniciar la tradicional Processó de l'Enterrament pels carrers del centre històric."
+        "Després de l'especial Davallament de l'any passat per commemorar el 50è aniversari amb diversos escenaris diferents, enguany la representació ha tornat al seu marc habitual, l'escenari incomparable que formen l'escalinata i el replà de l'església parroquial de Sant Miquel de Felanitx. La passió i l'emotivitat de l'escenificació, que ens traslladen a les darreres hores de vida i a la crucifixió de Jesús, varen tornar a sorprendre els centenars d'espectadors que varen seguir l'acte.",
+        "La representació relata alguns dels passatges més representatius de la passió de Jesús: l'Entrada Triomfal a Jerusalem, el Sant Sopar, Jesús davant Caifàs, l'«Ecce Homo», la flagel·lació i la seva presentació davant Pilat, i culmina amb la crucifixió i l'acte propi del Davallament sobre el replà parroquial. El paper de Jesús enguany va ser encarnat per Bernat Monserrat i el de la Mare de Déu per Marta Obrador.",
+        "Cal destacar que enguany s'ha tornat a batre un rècord de participació amb 160 actors, tots amateurs i veïns de Felanitx d'entre 3 i gairebé 80 anys, que es varen ficar de ple en el seu paper sota la direcció de l'actor manacorí Joan Toni Sunyer. L'escenografia, juntament amb els efectes de llum i so preparats per a l'ocasió, atorguen a l'acte una aura especial.",
+        "La música també hi juga un paper fonamental. La banda sonora composta i orquestrada pel músic porrerenc Joan Martorell l'any passat dona una nova dimensió sonora a cadascuna de les escenes. Aquest Divendres Sant la música i l'escenografia varen estar acompanyades per la narració de Maria Mascaró i de l'actor Miquel Gelabert, que varen oferir una sentida lectura dels textos tradicionals escrits expressament per al Davallament.",
+        "Tot i que la representació en aquest emplaçament es fa des de fa 51 anys, anteriorment es celebrava a l'interior de l'església i la seva història es remunta a l'Edat Mitjana. Un cop finalitzat el Davallament, va tenir lloc la tradicional Processó de l'Enterrament, que va concloure al convent de Sant Agustí."
       ]
     },
     {

@@ -417,15 +417,16 @@ window.I18N = {
           ]
         },
         "edicio-2026-escalinata": {
-          category: "Crónicas", date: "4 de abril de 2026", readTime: "4 min",
-          title: "El Davallament de Felanitx 2026 emociona de nuevo en la escalinata de Sant Miquel",
-          excerpt: "Cerca de doscientos vecinos dieron vida a una edición que recuperó el marco clásico de la fachada parroquial conservando la fuerza sonora del cincuentenario.",
-          tags: ["Edición 2026", "Sant Miquel", "Viernes Santo"],
+          category: "Crónicas", date: "3 de abril de 2026", readTime: "4 min",
+          title: "El Davallament de Felanitx vuelve a emocionar a los fieles en su 51.ª edición",
+          excerpt: "Este año se ha celebrado la 51.ª edición de la representación en el majestuoso escenario frente a la iglesia parroquial de Sant Miquel, con récord de 160 actores de entre 3 y casi 80 años.",
+          tags: ["51.ª Edición", "Sant Miquel", "Viernes Santo"],
           body: [
-            "La noche del Viernes Santo, 3 de abril de 2026, Felanitx volvió a congregar a cientos de residentes y visitantes llegados de toda Mallorca a las 21:00 horas ante la Parroquia de Sant Miquel.",
-            "Tras la celebración extraordinaria del 50.º aniversario en 2025, este año la puesta en escena volvió a concentrarse en su marco histórico original: el rellano y la escalinata de Sant Miquel, recuperando la verticalidad icónica de cada escena.",
-            "La continuidad de la banda sonora original de Joan Martorell y la iluminación dramática envolvieron cada escena en un silencio absoluto que solo se rompió con la ovación final.",
-            "A continuación, las cofradías del municipio y la Banda de Música de Felanitx iniciaron la tradicional Procesión del Entierro por las calles del centro histórico."
+            "Tras el especial Davallament del año pasado para conmemorar el 50.º aniversario con varios escenarios diferentes, este año la representación ha vuelto a su marco habitual, el escenario incomparable que forman la escalinata y el rellano de la iglesia parroquial de Sant Miquel de Felanitx. La pasión y emotividad de la escenificación, que nos trasladan a las últimas horas de vida y la crucifixión de Jesús, volvieron a sorprender a los cientos de espectadores que siguieron el acto.",
+            "La representación relata algunos de los pasajes más representativos de la pasión de Jesús: la Entrada Triunfal en Jerusalén, la Última Cena, Jesús ante Caifás, el «Ecce Homo», la flagelación y su presentación ante Pilato, y culmina con la crucifixión y el acto propio del Davallament sobre el rellano parroquial. El papel de Jesús este año fue encarnado por Bernat Monserrat y el de la Virgen María por Marta Obrador.",
+            "Cabe señalar que este año se ha vuelto a batir un récord de participación con 160 actores, todos aficionados y vecinos de Felanitx de entre 3 y casi 80 años, que se metieron de lleno en su papel bajo la dirección del actor manacorí Joan Toni Sunyer. La escenografía, junto con los efectos de luz y sonido preparados para la ocasión, le dan un aura especial.",
+            "La música también juega un papel importante. La banda sonora compuesta y orquestada por el músico porrerenc Joan Martorell el año pasado da una nueva dimensión sonora a cada escena. Este Viernes Santo la música y la escenografía estuvieron acompañadas por la narración de Maria Mascaró y del actor Miquel Gelabert, que realizaron una sentida lectura de los textos tradicionales escritos expresamente para el Davallament.",
+            "Aunque la representación en este emplazamiento se viene realizando desde hace 51 años, anteriormente se hacía en el interior de la iglesia y su historia se remonta a la Edad Media. Una vez finalizado el Davallament, se celebró la Procesión del Entierro, que finalizó en el convento de Sant Agustí."
           ]
         },
         "cinquantenari-2025-historic": {
@@ -724,15 +725,16 @@ window.I18N = {
           ]
         },
         "edicio-2026-escalinata": {
-          category: "Reports", date: "April 4, 2026", readTime: "4 min",
-          title: "El Davallament de Felanitx 2026 moves audiences once more on Sant Miquel steps",
-          excerpt: "Nearly two hundred local residents brought to life a heartfelt edition returning to the classic church facade while retaining the 50th anniversary's musical power.",
-          tags: ["2026 Edition", "Sant Miquel", "Good Friday"],
+          category: "Reports", date: "April 3, 2026", readTime: "4 min",
+          title: "El Davallament de Felanitx moves the faithful once again in its 51st edition",
+          excerpt: "This year marked the 51st edition on the majestic staircase of Sant Miquel Parish Church, setting a participation record with 160 local actors aged 3 to nearly 80.",
+          tags: ["51st Edition", "Sant Miquel", "Good Friday"],
           body: [
-            "On Good Friday night, April 3, 2026, Felanitx once again gathered hundreds of residents and visitors from across Mallorca at 21:00 before Sant Miquel Parish Church.",
-            "Following the extraordinary 50th anniversary celebration in 2025, this year's staging returned to its original historic setting on the landing and staircase of Sant Miquel, restoring the vertical majesty of every scene.",
-            "Joan Martorell's original soundtrack and dramatic lighting wrapped every tableau in complete silence, broken only by the final ovation.",
-            "Immediately afterwards, local brotherhoods and the Felanitx Municipal Band led the traditional Burial Procession through the historic town centre."
+            "Following last year's special 50th-anniversary staging across multiple venues, this year's performance returned to its classic setting: the incomparable grand staircase and landing of Sant Miquel Parish Church in Felanitx. The passion and emotion of the play once again moved hundreds of spectators.",
+            "The production depicts key moments of the Passion—from the Entry into Jerusalem, the Last Supper, Jesus before Caiaphas, Ecce Homo, the Scourging, and Pontius Pilate—culminating in the Crucifixion and the Descent on the parish landing. This year Jesus was portrayed by Bernat Monserrat and the Virgin Mary by Marta Obrador.",
+            "Participation reached a record 160 amateur actors—Felanitx residents aged from 3 to nearly 80—directed by Manacor actor Joan Toni Sunyer, enhanced by evocative staging, lighting, and sound effects.",
+            "Music also played a central role: the symphonic soundtrack composed by Porreres musician Joan Martorell brought rich depth to every scene, accompanied on Good Friday by heartfelt narration from Maria Mascaró and actor Miquel Gelabert reading the traditional texts written specially for El Davallament.",
+            "Though staged outdoors here for 51 years, its origins inside the church reach back to the Middle Ages. Once El Davallament concluded, the solemn Burial Procession proceeded to the Convent of Sant Agustí."
           ]
         },
         "cinquantenari-2025-historic": {
@@ -1031,15 +1033,16 @@ window.I18N = {
           ]
         },
         "edicio-2026-escalinata": {
-          category: "Berichte", date: "4. April 2026", readTime: "4 Min.",
-          title: "El Davallament de Felanitx 2026 bewegt erneut auf der Treppe von Sant Miquel",
-          excerpt: "Fast zweihundert Einwohner gestalteten eine ergreifende Ausgabe an der klassischen Kirchenfassade mit der klanglichen Kraft des Jubiläums.",
-          tags: ["Ausgabe 2026", "Sant Miquel", "Karfreitag"],
+          category: "Berichte", date: "3. April 2026", readTime: "4 Min.",
+          title: "Der Davallament de Felanitx bewegt in seiner 51. Ausgabe erneut die Gläubigen",
+          excerpt: "In diesem Jahr fand die 51. Ausgabe auf der majestätischen Treppe vor der Pfarrkirche Sant Miquel statt – mit einem Rekord von 160 Darstellern zwischen 3 und fast 80 Jahren.",
+          tags: ["51. Ausgabe", "Sant Miquel", "Karfreitag"],
           body: [
-            "Am Karfreitagabend, dem 3. April 2026, versammelte Felanitx um 21:00 Uhr erneut Hunderte Einheimische und Besucher aus ganz Mallorca vor der Pfarrkirche Sant Miquel.",
-            "Nach dem außergewöhnlichen 50. Jubiläum 2025 konzentrierte sich die Inszenierung wieder auf ihren ursprünglichen historischen Rahmen auf Vorplatz und Treppe von Sant Miquel.",
-            "Die Originalmusik von Joan Martorell und die dramatische Beleuchtung hüllten jede Szene in vollkommene Stille, die erst vom Schlussapplaus durchbrochen wurde.",
-            "Im Anschluss führten die Bruderschaften und die Musikkapelle von Felanitx die traditionelle Grablegungsprozession durch die Altstadt."
+            "Nach der Sonderausgabe zum 50. Jubiläum im vergangenen Jahr kehrte die Aufführung an ihren angestammten Platz zurück: die unvergleichliche Treppe und der Vorplatz der Pfarrkirche Sant Miquel in Felanitx. Hunderte Zuschauer ließen sich erneut von der Leidenschaft und Tiefe des Spiels bewegen.",
+            "Die Inszenierung schildert zentrale Stationen der Passion – vom Einzug in Jerusalem über das Letzte Abendmahl, Kaiphas, Ecce Homo, die Geißelung und Pilatus bis zur Kreuzigung und Kreuzabnahme auf dem Kirchenvorplatz. Jesus wurde in diesem Jahr von Bernat Monserrat und die Jungfrau Maria von Marta Obrador dargestellt.",
+            "Mit 160 Laiendarstellern aus Felanitx im Alter von 3 bis fast 80 Jahren unter der Regie des Schauspielers Joan Toni Sunyer aus Manacor wurde erneut ein Beteiligungsrekord erreicht.",
+            "Auch die Musik spielte eine prägende Rolle: Die sinfonische Originalmusik von Joan Martorell aus Porreres verlieh jeder Szene große Klangtiefe, begleitet von den einfühlsamen Lesungen von Maria Mascaró und Schauspieler Miquel Gelabert.",
+            "Obwohl die Freilichtaufführung hier seit 51 Jahren stattfindet, reichen ihre Wurzeln im Kircheninneren bis ins Mittelalter zurück. Im Anschluss zog die feierliche Grablegungsprozession bis zum Kloster Sant Agustí."
           ]
         },
         "cinquantenari-2025-historic": {
