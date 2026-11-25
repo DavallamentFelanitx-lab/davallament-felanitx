@@ -135,13 +135,15 @@ window.I18N = {
       entitatEyebrow: "L'entitat",
       entitatTitle: "Convocatòries i vida associativa",
       guideEyebrow: "Guia per al Visitant",
-      guideTitle: "Com viure el Davallament",
+      guideTitle: "Com gaudir del Davallament de Felanitx",
       g1Title: "Ubicació",
-      g1Html: "<strong>Escalinata de la Parròquia de Sant Miquel</strong> i <strong>Plaça de sa Font de Santa Margalida</strong>, Felanitx (Mallorca).",
+      g1Html: "<strong>Plaça de la Font de Santa Margalida</strong>, Felanitx (Mallorca).",
       g2Title: "Horari i accés",
       g2Html: "Cada <strong>Divendres Sant a les 21:00 h</strong>. Accés lliure i gratuït. Es recomana arribar 30–40 minuts abans.",
-      g3Title: "Participa-hi",
-      g3Html: "Vols formar part del grup d'actors, figurants, vestuari o voluntariat? <a href=\"contacte.html\" style=\"color:var(--primary);font-weight:600;text-decoration:underline\">Contacta amb l'Associació</a>."
+      g3Title: "Durant l'acte",
+      g3Item1: "Guardau silenci durant tota la representació. Mostrau respecte als actors i no destorbeu l'atenció dels altres espectadors.",
+      g3Item2: "Apagau els dispositius mòbils o posau-los en mode silenciós per evitar interrupcions.",
+      g3Item3: "Una vegada acabat el Davallament, vos demanam que no vos mogueu i romangueu al vostre lloc."
     },
     historia: {
       bannerTitle: "Història del Davallament",
@@ -367,13 +369,15 @@ window.I18N = {
       entitatEyebrow: "La entidad",
       entitatTitle: "Convocatorias y vida asociativa",
       guideEyebrow: "Guía para el Visitante",
-      guideTitle: "Cómo vivir el Davallament",
+      guideTitle: "Cómo disfrutar del Davallament de Felanitx",
       g1Title: "Ubicación",
-      g1Html: "<strong>Escalinata de la Parroquia de Sant Miquel</strong> y <strong>Plaça de sa Font de Santa Margalida</strong>, Felanitx (Mallorca).",
+      g1Html: "<strong>Plaça de la Font de Santa Margalida</strong>, Felanitx (Mallorca).",
       g2Title: "Horario y acceso",
       g2Html: "Cada <strong>Viernes Santo a las 21:00 h</strong>. Acceso libre y gratuito. Se recomienda llegar 30–40 minutos antes.",
-      g3Title: "Participa",
-      g3Html: "¿Quieres formar parte del grupo de actores, figurantes, vestuario o voluntariado? <a href=\"contacte.html\" style=\"color:var(--primary);font-weight:600;text-decoration:underline\">Contacta con la Asociación</a>."
+      g3Title: "Durante el acto",
+      g3Item1: "Guardad silencio durante toda la representación. Mostrad respeto a los actores y no distraed la atención de los demás espectadores.",
+      g3Item2: "Apagad los dispositivos móviles o ponedlos en modo silencio para evitar interrupciones.",
+      g3Item3: "Una vez finalizado el Davallament, os pedimos que no os mováis y permanezcáis en vuestro sitio."
     },
     historia: {
       bannerTitle: "Historia del Davallament",
@@ -716,13 +720,15 @@ window.I18N = {
       entitatEyebrow: "The Association",
       entitatTitle: "Meetings & Association Life",
       guideEyebrow: "Visitor Guide",
-      guideTitle: "How to Experience El Davallament",
+      guideTitle: "How to Enjoy El Davallament de Felanitx",
       g1Title: "Location",
-      g1Html: "<strong>Grand Staircase of Sant Miquel Parish Church</strong> & <strong>Plaça de sa Font de Santa Margalida</strong>, Felanitx (Mallorca).",
+      g1Html: "<strong>Plaça de la Font de Santa Margalida</strong>, Felanitx (Mallorca).",
       g2Title: "Time & Admission",
       g2Html: "Every <strong>Good Friday at 21:00</strong>. Free open-air access. Arriving 30–40 minutes early is recommended.",
-      g3Title: "Get Involved",
-      g3Html: "Would you like to join as an actor, extra, costume helper, or volunteer? <a href=\"contacte.html\" style=\"color:var(--primary);font-weight:600;text-decoration:underline\">Contact the Association</a>."
+      g3Title: "During the performance",
+      g3Item1: "Please keep silent throughout the performance. Show respect for the actors and avoid distracting other spectators.",
+      g3Item2: "Switch off mobile devices or set them to silent mode to prevent interruptions.",
+      g3Item3: "Once El Davallament concludes, we kindly ask you not to move and to remain in your place."
     },
     historia: {
       bannerTitle: "History of El Davallament",
@@ -1065,13 +1071,15 @@ window.I18N = {
       entitatEyebrow: "Der Verein",
       entitatTitle: "Termine & Vereinsleben",
       guideEyebrow: "Besucherinformationen",
-      guideTitle: "Den Davallament erleben",
+      guideTitle: "Den Davallament de Felanitx erleben",
       g1Title: "Veranstaltungsort",
-      g1Html: "<strong>Treppe der Pfarrkirche Sant Miquel</strong> & <strong>Plaça de sa Font de Santa Margalida</strong>, Felanitx (Mallorca).",
+      g1Html: "<strong>Plaça de la Font de Santa Margalida</strong>, Felanitx (Mallorca).",
       g2Title: "Uhrzeit & Eintritt",
       g2Html: "Jeden <strong>Karfreitag um 21:00 Uhr</strong>. Freier Eintritt auf dem Platz. Eine Ankunft 30–40 Minuten vorher wird empfohlen.",
-      g3Title: "Mitwirken",
-      g3Html: "Möchten Sie als Darsteller, Statist, im Kostümteam oder als Helfer mitwirken? <a href=\"contacte.html\" style=\"color:var(--primary);font-weight:600;text-decoration:underline\">Kontaktieren Sie den Verein</a>."
+      g3Title: "Während der Aufführung",
+      g3Item1: "Bitte bewahren Sie während der gesamten Aufführung Stille, zeigen Sie Respekt gegenüber den Darstellern und stören Sie andere Zuschauer nicht.",
+      g3Item2: "Schalten Sie Mobilgeräte aus oder stellen Sie sie lautlos, um Unterbrechungen zu vermeiden.",
+      g3Item3: "Nach dem Ende des Davallament bitten wir Sie, an Ihrem Platz zu bleiben und sich nicht sofort fortzubewegen."
     },
     historia: {
       bannerTitle: "Geschichte des Davallament",

@@ -606,12 +606,12 @@ h1, h2, h3, h4 {
 
 .eyebrow {
   display: inline-block;
-  font-size: 0.78rem;
+  font-size: 0.94rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.14em;
   color: var(--secondary-dark);
-  margin-bottom: 8px;
+  margin-bottom: 10px;
 }
 
 .separator {
@@ -1714,7 +1714,105 @@ h1, h2, h3, h4 {
   color: var(--primary);
   display: grid;
   place-items: center;
+  flex-shrink: 0;
   margin-bottom: 14px;
+}
+
+/* Visitor Guide Balanced 2-Column Bento */
+.visitor-guide {
+  display: grid;
+  grid-template-columns: 0.92fr 1.08fr;
+  gap: 24px;
+  align-items: stretch;
+}
+
+.visitor-guide-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.info-card--row {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  flex: 1;
+  padding: 26px 28px;
+}
+
+.info-card--row .info-card-icon {
+  margin-bottom: 0;
+  margin-top: 2px;
+}
+
+.info-card-content h3 {
+  font-size: 1.48rem;
+  margin-bottom: 6px;
+  line-height: 1.2;
+}
+
+.info-card-content p {
+  margin: 0;
+  line-height: 1.65;
+}
+
+.info-card--rules {
+  background: var(--cream-soft);
+  border-top: 3px solid var(--primary);
+  padding: 28px 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.rules-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+.rules-header .info-card-icon {
+  margin-bottom: 0;
+  background: #ffffff;
+  border: 1px solid var(--border);
+}
+
+.rules-header h3 {
+  margin: 0;
+  font-size: 1.56rem;
+}
+
+.guide-rules {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.guide-rules li {
+  position: relative;
+  padding: 13px 0 13px 22px;
+  font-size: 0.97rem;
+  line-height: 1.6;
+  color: var(--text-muted);
+  border-top: 1px solid var(--border);
+}
+
+.guide-rules li:last-child {
+  padding-bottom: 0;
+}
+
+.guide-rules li::before {
+  content: "";
+  position: absolute;
+  left: 2px;
+  top: 22px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--primary);
+  box-shadow: 0 0 0 3px var(--cream);
 }
 
 /* ==========================================================================
@@ -2283,9 +2381,10 @@ h1, h2, h3, h4 {
   .hero { height: 420px; }
   .hero--cinema { height: 480px; }
   .carousel-btn { width: 40px; height: 40px; font-size: 1.2rem; }
-  .cards-grid, .cards-grid--2, .gallery-grid, .visual-portals, .video-grid, .form-row-2, .metrics-grid, .meeting-meta-grid {
+  .cards-grid, .cards-grid--2, .gallery-grid, .visual-portals, .video-grid, .visitor-guide, .form-row-2, .metrics-grid, .meeting-meta-grid {
     grid-template-columns: 1fr;
   }
+  .info-card--row, .info-card--rules { padding: 22px; }
   .visual-portal { min-height: 320px; }
   .photo-mosaic { grid-template-columns: 1fr; grid-template-rows: auto; }
   .mosaic-tile--1, .mosaic-tile--2, .mosaic-tile--3, .mosaic-tile--4 {
