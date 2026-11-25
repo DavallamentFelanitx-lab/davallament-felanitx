@@ -264,16 +264,31 @@
     }
 
     document.querySelectorAll("[data-i18n]").forEach((el) => {
+      if (el.dataset.origText === undefined) el.dataset.origText = el.textContent;
+      if (currentLang === "ca") {
+        el.textContent = el.dataset.origText;
+        return;
+      }
       const val = tKey(el.dataset.i18n);
       if (typeof val === "string") el.textContent = val;
     });
 
     document.querySelectorAll("[data-i18n-html]").forEach((el) => {
+      if (el.dataset.origHtml === undefined) el.dataset.origHtml = el.innerHTML;
+      if (currentLang === "ca") {
+        el.innerHTML = el.dataset.origHtml;
+        return;
+      }
       const val = tKey(el.dataset.i18nHtml);
       if (typeof val === "string") el.innerHTML = val;
     });
 
     document.querySelectorAll("[data-i18n-placeholder]").forEach((el) => {
+      if (el.dataset.origPh === undefined) el.dataset.origPh = el.getAttribute("placeholder") || "";
+      if (currentLang === "ca") {
+        el.setAttribute("placeholder", el.dataset.origPh);
+        return;
+      }
       const val = tKey(el.dataset.i18nPlaceholder);
       if (typeof val === "string") el.setAttribute("placeholder", val);
     });
