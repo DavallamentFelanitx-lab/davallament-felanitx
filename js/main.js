@@ -159,14 +159,7 @@
         { href: "galeria.html#multimedia", key: "galMultimedia" }
       ]
     },
-    {
-      href: "contacte.html",
-      key: "contacte",
-      children: [
-        { href: "contacte.html#informacio", key: "conInfo" },
-        { href: "contacte.html#formulari", key: "conFormulari" }
-      ]
-    }
+    { href: "contacte.html", key: "contacte" }
   ];
 
   let currentPage = "inici";
