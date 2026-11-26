@@ -2125,6 +2125,26 @@ h1, h2, h3, h4 {
   justify-content: space-between;
 }
 
+.lightbox-close {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  background: rgba(35, 24, 17, 0.78);
+  color: #ffffff;
+  font-size: 1.15rem;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  transition: background-color 0.2s, border-color 0.2s, color 0.2s;
+}
+
+.lightbox-close:hover {
+  background: var(--secondary);
+  border-color: var(--secondary);
+  color: #231811;
+}
+
 .lightbox-counter {
   font-size: 0.86rem;
   letter-spacing: 0.12em;

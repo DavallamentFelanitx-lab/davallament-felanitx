@@ -765,7 +765,7 @@
     let lb = document.getElementById("shared-lightbox");
     if (lb) {
       const closeBtn = document.getElementById("lb-close");
-      if (closeBtn) closeBtn.textContent = dict().ui.closeLightbox;
+      if (closeBtn) closeBtn.setAttribute("aria-label", dict().ui.closeLightbox || "Tancar");
       return lb;
     }
     lb = document.createElement("div");
@@ -777,7 +777,7 @@
     lb.innerHTML = `
       <div class="lightbox-top">
         <span class="lightbox-counter" id="lb-counter"></span>
-        <button type="button" class="btn btn--sand btn--sm" id="lb-close">${escapeHtml(dict().ui.closeLightbox)}</button>
+        <button type="button" class="lightbox-close" id="lb-close" aria-label="${escapeHtml(dict().ui.closeLightbox || "Tancar")}">✕</button>
       </div>
       <div class="lightbox-stage">
         <button type="button" class="lightbox-nav lightbox-prev" id="lb-prev" aria-label="Previous">❮</button>
