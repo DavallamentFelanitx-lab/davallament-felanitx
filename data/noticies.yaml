@@ -36,6 +36,7 @@ items:
     destacada: false
     imatge: img/noticies/davallament-2026-ultimahora.jpg
     cartell: ''
+    imatge3: ''
     font: Ultima Hora · Gori Vicens
     fontUrl: https://www.ultimahora.es/noticias/local/2026/04/03/2602649/davallament-felanitx-vuelve-emocionar-fieles.html
     resum: Enguany s'ha celebrat la 51a edició de la representació al majestuós escenari davant l'església parroquial de Sant Miquel, amb rècord de 160 actors d'entre 3 i gairebé 80 anys.
@@ -58,6 +59,7 @@ items:
     destacada: true
     imatge: img/noticies/presentacio-cartell-2026.jpg
     cartell: img/noticies/cartell-2026.jpg
+    imatge3: ''
     font: Viu Felanitx · Ajuntament de Felanitx
     fontUrl: https://viufelanitx.com/art/17924/ahir-vespre-es-va-presentar-el-cartell-que-anuncia-el-davallament-de-felanitx-2026
     resum: Es presenta el cartell que anuncia el Davallament de Felanitx 2026, amb fotografia de Sofia Binimelis Arias i disseny gràfic de Miquel Àngel Roig Maimó.
@@ -78,6 +80,7 @@ items:
     destacada: false
     imatge: /img/noticies/pasted-image-1795688827272.png
     cartell: ''
+    imatge3: ''
     font: Viufelanitx
     fontUrl: https://viufelanitx.com/art/17096/el-davallament-de-felanitx-mes-viu-que-mai
     resum: |-
@@ -102,6 +105,7 @@ items:
     destacada: false
     imatge: /img/noticies/pasted-image-1795690760088.png
     cartell: /img/noticies/pasted-image-1795690770517.png
+    imatge3: ''
     font: Viufelanitx
     fontUrl: https://viufelanitx.com/art/17101/lemocio-i-el-sentiment-del-davallament-a-felanitx-va-tornar-a-ser-espectacular?fbclid=IwAR2uOQ2W4OxvyPhlEJqyM5QXBBdYqmnQmaXcWWIFD0MnIpDOLJ2V9LMYqEs_aem_AVVwC1CGlybjwDfGl3LvAxP2ojfSJMMPTQ0NfSfUbRWpvDoNZo6e5E5u6zVOLKXt0dVIYyESjmBCbQf5ldRybiLS
     resum: Moltíssim públic es va congregar enfront de les escalinates de l'església per a veure una vegada més la magnífica reconstrucció dels últims dies de la passió de Jesús.
@@ -119,6 +123,7 @@ items:
     destacada: false
     imatge: /img/noticies/cartells.jpg
     cartell: /img/noticies/pasted-image-1795693218335.png
+    imatge3: /img/noticies/pasted-image-1795698535690.png
     font: Foravila.net
     fontUrl: https://www.foravila.net/cultura/el-davallament-de-felanitx-celebra-50-anys-amb-novetats-i-un-cartell-de-miquel-barcelo/
     resum: La propera Setmana Santa, la representació del Davallament de Felanitx celebrarà mig segle d’història amb una edició plena de novetats i una participació rècord de més de 200 persones. L’esdeveniment tindrà lloc el Divendres Sant, 18 d’abril, a les 21:00 h a la plaça de la Font de Santa Margalida.
