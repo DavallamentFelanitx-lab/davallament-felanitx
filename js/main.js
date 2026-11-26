@@ -13,6 +13,108 @@
     facebook: "https://www.facebook.com/davallamentdefelanitx/"
   };
   const STORAGE_KEY_LANG = "davallament_felanitx_lang_v1";
+  const STORAGE_KEY_AUTOTRANS = "davallament_autotrans_news_v1";
+  const NEWS_PER_PAGE = 6;
+  let openNewsArticleId = null;
+  const inFlightTranslations = new Set();
+
+  function loadAutoTransCache() {
+    try {
+      return JSON.parse(localStorage.getItem(STORAGE_KEY_AUTOTRANS) || "{}");
+    } catch (_) {
+      return {};
+    }
+  }
+
+  function saveAutoTransCache(cache) {
+    try {
+      localStorage.setItem(STORAGE_KEY_AUTOTRANS, JSON.stringify(cache));
+    } catch (_) {}
+  }
+
+  function hashNewsContent(n) {
+    const str = [n.title, n.excerpt, n.category, n.date, ...(n.tags || []), ...(n.body || [])].join("|");
+    let h = 0;
+    for (let i = 0; i < str.length; i++) {
+      h = ((h << 5) - h + str.charCodeAt(i)) | 0;
+    }
+    return String(h);
+  }
+
+  async function translateTextChunk(text, targetLang) {
+    const clean = String(text || "").trim();
+    if (!clean) return "";
+    try {
+      const url = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=ca&tl=${encodeURIComponent(targetLang)}&dt=t&q=${encodeURIComponent(clean)}`;
+      const res = await fetch(url);
+      if (res.ok) {
+        const data = await res.json();
+        if (Array.isArray(data) && Array.isArray(data[0])) {
+          return data[0].map((seg) => (Array.isArray(seg) ? seg[0] : "")).join("");
+        }
+      }
+    } catch (_) {}
+    try {
+      const url2 = `https://api.mymemory.translated.net/get?q=${encodeURIComponent(clean.slice(0, 480))}&langpair=ca|${encodeURIComponent(targetLang)}`;
+      const res2 = await fetch(url2);
+      if (res2.ok) {
+        const data2 = await res2.json();
+        if (data2 && data2.responseData && data2.responseData.translatedText) {
+          return data2.responseData.translatedText;
+        }
+      }
+    } catch (_) {}
+    return clean;
+  }
+
+  async function ensureAutoTranslatedNews(lang) {
+    if (!lang || lang === "ca" || !Array.isArray(DATA.news)) return;
+    if (currentPage !== "inici" && currentPage !== "noticies") return;
+
+    const manualMap = (I18N && I18N[lang] && I18N[lang].data && I18N[lang].data.news) || {};
+    const cache = loadAutoTransCache();
+    const pending = DATA.news.filter((n) => {
+      if (manualMap[n.id]) return false;
+      const cacheKey = `${lang}:${n.id}:${hashNewsContent(n)}`;
+      return !cache[cacheKey] && !inFlightTranslations.has(cacheKey);
+    });
+
+    if (!pending.length) return;
+
+    let changed = false;
+    await Promise.all(
+      pending.map(async (n) => {
+        const cacheKey = `${lang}:${n.id}:${hashNewsContent(n)}`;
+        inFlightTranslations.add(cacheKey);
+        try {
+          const [title, excerpt, category, date, tags, body] = await Promise.all([
+            translateTextChunk(n.title, lang),
+            translateTextChunk(n.excerpt, lang),
+            translateTextChunk(n.category, lang),
+            translateTextChunk(n.date, lang),
+            Promise.all((n.tags || []).map((t) => translateTextChunk(t, lang))),
+            Promise.all((n.body || []).map((p) => translateTextChunk(p, lang)))
+          ]);
+          const latestCache = loadAutoTransCache();
+          latestCache[cacheKey] = { title, excerpt, category, date, tags, body };
+          saveAutoTransCache(latestCache);
+          changed = true;
+        } finally {
+          inFlightTranslations.delete(cacheKey);
+        }
+      })
+    );
+
+    if (changed && currentLang === lang) {
+      renderCurrentPage(false);
+      if (openNewsArticleId) {
+        const modal = document.getElementById("shared-modal-backdrop");
+        if (modal && modal.classList.contains("open")) {
+          openNewsArticle(openNewsArticleId);
+        }
+      }
+    }
+  }
 
   const NAV_LINKS = [
     { href: "index.html", key: "inici" },
@@ -190,10 +292,16 @@
 
   function getLocalizedNews() {
     const map = dict().data && dict().data.news;
+    const autoCache = currentLang !== "ca" ? loadAutoTransCache() : null;
     return DATA.news
       .map((n) => {
         const baseTs = getNewsTimestamp(n);
-        const merged = map && map[n.id] ? { ...n, ...map[n.id] } : { ...n };
+        let override = map && map[n.id] ? map[n.id] : null;
+        if (!override && autoCache) {
+          const key = `${currentLang}:${n.id}:${hashNewsContent(n)}`;
+          if (autoCache[key]) override = autoCache[key];
+        }
+        const merged = override ? { ...n, ...override } : { ...n };
         merged._ts = baseTs || getNewsTimestamp(merged);
         return merged;
       })
@@ -468,6 +576,7 @@
     renderLayout();
     applyStaticTranslations();
     renderCurrentPage();
+    ensureAutoTranslatedNews(currentLang);
     showToast(dict().toastLang);
   }
 
@@ -506,11 +615,13 @@
       backdrop.classList.remove("open");
       document.body.classList.remove("modal-open");
     }
+    openNewsArticleId = null;
   }
 
   function openNewsArticle(articleId) {
     const item = getLocalizedNews().find((n) => n.id === articleId);
     if (!item) return;
+    openNewsArticleId = articleId;
     const ui = dict().ui;
 
     const html = `
@@ -544,14 +655,12 @@
         <div class="tags-row" style="margin-bottom:22px">
           ${item.tags.map((tag) => `<span class="badge badge--sand">${escapeHtml(tag)}</span>`).join("")}
         </div>
-        <div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;padding-top:16px;border-top:1px solid var(--border)">
+        <div style="display:flex;flex-wrap:wrap;justify-content:flex-start;gap:12px;padding-top:16px;border-top:1px solid var(--border)">
           <button type="button" class="btn btn--outline btn--sm" id="copy-news-link">${escapeHtml(ui.copyLink)}</button>
-          <button type="button" class="btn btn--sm" id="close-news-btn">${escapeHtml(ui.closeReading)}</button>
         </div>
       </div>
     `;
     openModal(html, item.title);
-    document.getElementById("close-news-btn").addEventListener("click", closeModal);
     document.getElementById("copy-news-link").addEventListener("click", () => {
       const shareUrl = `${window.location.origin}${window.location.pathname.replace(/[^/]*$/, "")}noticies.html?id=${encodeURIComponent(item.id)}`;
       if (navigator.clipboard && navigator.clipboard.writeText) {
@@ -871,10 +980,12 @@
     const searchInput = document.getElementById("news-search");
     const gridHost = document.getElementById("news-grid");
     const countHost = document.getElementById("news-count");
+    const paginationHost = document.getElementById("news-pagination");
 
     const ui = dict().ui;
     const newsList = getLocalizedNews();
     let query = searchInput ? searchInput.value : "";
+    let pageNum = 1;
 
     const lead = newsList[0];
     if (featuredHost && lead) {
@@ -899,6 +1010,36 @@
       featuredHost.querySelector("[data-open-news]").addEventListener("click", () => openNewsArticle(lead.id));
     }
 
+    function renderPagination(totalItems) {
+      if (!paginationHost) return;
+      const totalPages = Math.ceil(totalItems / NEWS_PER_PAGE);
+      if (totalPages <= 1) {
+        paginationHost.innerHTML = "";
+        return;
+      }
+      const pages = Array.from({ length: totalPages }, (_, i) => i + 1);
+      paginationHost.innerHTML = `
+        <button type="button" class="page-btn" data-page="${pageNum - 1}" ${pageNum <= 1 ? "disabled" : ""}>${escapeHtml(ui.prevPage || "← Anterior")}</button>
+        ${pages
+          .map(
+            (p) =>
+              `<button type="button" class="page-btn ${p === pageNum ? "active" : ""}" data-page="${p}" ${p === pageNum ? 'aria-current="page"' : ""}>${p}</button>`
+          )
+          .join("")}
+        <button type="button" class="page-btn" data-page="${pageNum + 1}" ${pageNum >= totalPages ? "disabled" : ""}>${escapeHtml(ui.nextPage || "Següent →")}</button>
+      `;
+      paginationHost.querySelectorAll("[data-page]").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const target = Number(btn.dataset.page);
+          if (target < 1 || target > totalPages || target === pageNum) return;
+          pageNum = target;
+          renderGrid();
+          const listTop = document.getElementById("llistat");
+          if (listTop) listTop.scrollIntoView({ behavior: "smooth", block: "start" });
+        });
+      });
+    }
+
     function renderGrid() {
       const terms = normalizeSearchText(query).trim().split(/\s+/).filter(Boolean);
       const filtered = newsList.filter((n) => {
@@ -918,6 +1059,9 @@
         return terms.every((term) => haystack.includes(term));
       });
 
+      const totalPages = Math.max(1, Math.ceil(filtered.length / NEWS_PER_PAGE));
+      if (pageNum > totalPages) pageNum = totalPages;
+
       countHost.textContent = ui.newsCount(filtered.length, newsList.length);
 
       if (!filtered.length) {
@@ -926,15 +1070,20 @@
             <p style="margin-bottom:12px">${escapeHtml(ui.noNewsFound)}</p>
             <button type="button" class="btn btn--outline btn--sm" id="reset-news">${escapeHtml(ui.showAll)}</button>
           </div>`;
+        if (paginationHost) paginationHost.innerHTML = "";
         document.getElementById("reset-news").addEventListener("click", () => {
           query = "";
+          pageNum = 1;
           if (searchInput) searchInput.value = "";
           renderGrid();
         });
         return;
       }
 
-      gridHost.innerHTML = filtered
+      const startIdx = (pageNum - 1) * NEWS_PER_PAGE;
+      const pageItems = filtered.slice(startIdx, startIdx + NEWS_PER_PAGE);
+
+      gridHost.innerHTML = pageItems
         .map(
           (n) => `
           <article class="card">
@@ -956,11 +1105,14 @@
       gridHost.querySelectorAll("[data-open-news]").forEach((btn) => {
         btn.addEventListener("click", () => openNewsArticle(btn.dataset.openNews));
       });
+
+      renderPagination(filtered.length);
     }
 
     if (searchInput) {
       searchInput.oninput = (e) => {
         query = e.target.value;
+        pageNum = 1;
         renderGrid();
       };
     }
@@ -1214,7 +1366,7 @@
       readTime: raw.lectura || raw.readTime || "3 min",
       featured: Boolean(raw.destacada !== undefined ? raw.destacada : raw.featured),
       image: normalizeAssetPath(raw.imatge || raw.image, "img/hero/hero1.jpg"),
-      poster: normalizeAssetPath(raw.cartell || raw.poster, ""),
+      poster: normalizeAssetPath(raw.cartell || raw.imatge2 || raw.poster, ""),
       source: raw.font || raw.source || "",
       sourceUrl: raw.fontUrl || raw.sourceUrl || "",
       title: raw.titol || raw.title || "Sense títol",
@@ -1372,5 +1524,6 @@
     applyStaticTranslations();
     await loadExternalYaml(currentPage);
     renderCurrentPage(true);
+    ensureAutoTranslatedNews(currentLang);
   });
 })();

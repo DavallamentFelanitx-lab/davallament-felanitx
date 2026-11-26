@@ -47,8 +47,8 @@ collections:
               - { name: "dataIso", label: "Data per ordenar (AAAA-MM-DD)", widget: "string", hint: "Exemple: 2027-03-26" }
               - { name: "lectura", label: "Temps de lectura", widget: "string", default: "3 min", required: false }
               - { name: "destacada", label: "Destacada", widget: "boolean", default: false, required: false }
-              - { name: "imatge", label: "Fotografia principal", widget: "image", media_folder: "/img/noticies", public_folder: "img/noticies" }
-              - { name: "cartell", label: "Cartell o segona imatge (opcional)", widget: "image", media_folder: "/img/noticies", public_folder: "img/noticies", required: false }
+              - { name: "imatge", label: "Fotografia principal (Foto 1)", widget: "image", media_folder: "/img/noticies", public_folder: "img/noticies" }
+              - { name: "cartell", label: "Segona fotografia o cartell (Foto 2, opcional)", widget: "image", media_folder: "/img/noticies", public_folder: "img/noticies", required: false }
               - { name: "font", label: "Font / Mitjà (opcional)", widget: "string", required: false }
               - { name: "fontUrl", label: "Enllaç a la font (opcional)", widget: "string", required: false }
               - { name: "resum", label: "Resum breu (targeta)", widget: "text" }
