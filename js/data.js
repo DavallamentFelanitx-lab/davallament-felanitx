@@ -452,5 +452,44 @@ window.DAVALLAMENT_DATA = {
       youtubeUrl: "https://www.youtube.com/watch?v=paEAKhoOjV4",
       description: "Retransmissió televisiva del cinquantenari del Davallament de Felanitx, celebrat el Divendres Sant de 2025 a la Plaça de sa Font de Santa Margalida."
     }
+  ],
+
+  repSections: [
+    {
+      id: "text",
+      eyebrow: "Paraula i Dramatúrgia",
+      title: "El text",
+      image: "img/historia/historia.jpg",
+      paragraphs: [
+        "El text del Davallament de Felanitx combina la tradició dels textos evangèlics i litúrgics de la Setmana Santa mallorquina amb l'aportació literària creada expressament per a la nostra representació.",
+        "L'any 1991, el teatí pare Antoni Oliver C.R. va escriure uns textos específics per al Davallament de Felanitx que, llegits i narrats en directe, acompanyen cada quadre dramàtic i donen coherència, ritme i solemnitat a tota l'escenificació."
+      ],
+      quote: "",
+      quoteCite: ""
+    },
+    {
+      id: "banda-sonora",
+      eyebrow: "Música Original",
+      title: "La banda sonora",
+      image: "img/hero/hero1.jpg",
+      paragraphs: [
+        "La música és un dels pilars emocionals del Davallament de Felanitx. Des de la celebració del 50è aniversari el 2025, la representació compta amb una banda sonora simfònica composta i orquestrada expressament pel músic porrerenc Joan Martorell.",
+        "Cada passatge de la Passió disposa d'un paisatge sonor propi que subratlla la tensió dramàtica, el recolliment i el silenci colpidor del descendiment davant la portalada de Sant Miquel."
+      ],
+      quote: "",
+      quoteCite: ""
+    },
+    {
+      id: "posada-en-escena",
+      eyebrow: "Escenografia, Llum i Interpretació",
+      title: "La posada en escena",
+      image: "img/representacio/representacio.jpg",
+      paragraphs: [
+        "L'escalinata de pedra de marès, la balconada lateral, el rosetó i la portalada barroca de la Parròquia de Sant Miquel conformen un retaule arquitectònic únic que permet desenvolupar l'acció en diversos nivells a cel obert.",
+        "Més de 160 actors i actrius voluntaris de totes les edats, juntament amb els equips de vestuari històric, escenografia, il·luminació teatral i efectes sonors, transformen cada Divendres Sant la plaça en un autèntic teatre sacre."
+      ],
+      quote: "",
+      quoteCite: ""
+    }
   ]
 };

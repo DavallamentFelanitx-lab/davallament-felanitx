@@ -1,0 +1,35 @@
+# ============================================================================
+# LA REPRESENTACIÓ (TEXT, BANDA SONORA I POSADA EN ESCENA)
+# ============================================================================
+# Editable fàcilment des de Sveltia CMS (/admin/) o directament aquí.
+
+items:
+  - id: "text"
+    etiqueta: "Paraula i Dramatúrgia"
+    titol: "El text"
+    imatge: "img/historia/historia.jpg"
+    paragrefs:
+      - "El text del Davallament de Felanitx combina la tradició dels textos evangèlics i litúrgics de la Setmana Santa mallorquina amb l'aportació literària creada expressament per a la nostra representació."
+      - "L'any 1991, el teatí pare Antoni Oliver C.R. va escriure uns textos específics per al Davallament de Felanitx que, llegits i narrats en directe, acompanyen cada quadre dramàtic i donen coherència, ritme i solemnitat a tota l'escenificació."
+    cita: ""
+    autorCita: ""
+
+  - id: "banda-sonora"
+    etiqueta: "Música Original"
+    titol: "La banda sonora"
+    imatge: "img/hero/hero1.jpg"
+    paragrefs:
+      - "La música és un dels pilars emocionals del Davallament de Felanitx. Des de la celebració del 50è aniversari el 2025, la representació compta amb una banda sonora simfònica composta i orquestrada expressament pel músic porrerenc Joan Martorell."
+      - "Cada passatge de la Passió disposa d'un paisatge sonor propi que subratlla la tensió dramàtica, el recolliment i el silenci colpidor del descendiment davant la portalada de Sant Miquel."
+    cita: ""
+    autorCita: ""
+
+  - id: "posada-en-escena"
+    etiqueta: "Escenografia, Llum i Interpretació"
+    titol: "La posada en escena"
+    imatge: "img/representacio/representacio.jpg"
+    paragrefs:
+      - "L'escalinata de pedra de marès, la balconada lateral, el rosetó i la portalada barroca de la Parròquia de Sant Miquel conformen un retaule arquitectònic únic que permet desenvolupar l'acció en diversos nivells a cel obert."
+      - "Més de 160 actors i actrius voluntaris de totes les edats, juntament amb els equips de vestuari històric, escenografia, il·luminació teatral i efectes sonors, transformen cada Divendres Sant la plaça en un autèntic teatre sacre."
+    cita: ""
+    autorCita: ""

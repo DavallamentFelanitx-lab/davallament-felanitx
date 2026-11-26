@@ -126,7 +126,16 @@
         { href: "historia.html#cronologia", key: "historiaCronologia" }
       ]
     },
-    { href: "representacio.html", key: "representacio" },
+    {
+      href: "representacio.html",
+      key: "representacio",
+      children: [
+        { href: "representacio.html#escenes", key: "repEscenes" },
+        { href: "representacio.html#text", key: "repText" },
+        { href: "representacio.html#banda-sonora", key: "repBandaSonora" },
+        { href: "representacio.html#posada-en-escena", key: "repPosadaEscena" }
+      ]
+    },
     {
       href: "entitat.html",
       key: "entitat",
@@ -227,6 +236,63 @@
   function getLocalizedScenes() {
     const map = dict().data && dict().data.scenes;
     return DATA.scenes.map((s) => (map && map[s.id] ? { ...s, ...map[s.id] } : s));
+  }
+
+  function hashRepSection(s) {
+    const str = [s.eyebrow, s.title, ...(s.paragraphs || []), s.quote, s.quoteCite].join("|");
+    let h = 0;
+    for (let i = 0; i < str.length; i++) {
+      h = ((h << 5) - h + str.charCodeAt(i)) | 0;
+    }
+    return String(h);
+  }
+
+  function getLocalizedRepSections() {
+    const autoCache = currentLang !== "ca" ? loadAutoTransCache() : null;
+    return (DATA.repSections || []).map((s) => {
+      if (autoCache) {
+        const key = `rep:${currentLang}:${s.id}:${hashRepSection(s)}`;
+        if (autoCache[key]) return { ...s, ...autoCache[key] };
+      }
+      return s;
+    });
+  }
+
+  async function ensureAutoTranslatedRepSections(lang) {
+    if (!lang || lang === "ca" || currentPage !== "representacio" || !Array.isArray(DATA.repSections)) return;
+    const cache = loadAutoTransCache();
+    const pending = DATA.repSections.filter((s) => {
+      const key = `rep:${lang}:${s.id}:${hashRepSection(s)}`;
+      return !cache[key] && !inFlightTranslations.has(key);
+    });
+    if (!pending.length) return;
+
+    let changed = false;
+    await Promise.all(
+      pending.map(async (s) => {
+        const key = `rep:${lang}:${s.id}:${hashRepSection(s)}`;
+        inFlightTranslations.add(key);
+        try {
+          const [eyebrow, title, paragraphs, quote, quoteCite] = await Promise.all([
+            translateTextChunk(s.eyebrow, lang),
+            translateTextChunk(s.title, lang),
+            Promise.all((s.paragraphs || []).map((p) => translateTextChunk(p, lang))),
+            translateTextChunk(s.quote, lang),
+            translateTextChunk(s.quoteCite, lang)
+          ]);
+          const latest = loadAutoTransCache();
+          latest[key] = { eyebrow, title, paragraphs, quote, quoteCite };
+          saveAutoTransCache(latest);
+          changed = true;
+        } finally {
+          inFlightTranslations.delete(key);
+        }
+      })
+    );
+
+    if (changed && currentLang === lang) {
+      renderRepresentacioSections();
+    }
   }
 
   function getLocalizedTimeline() {
@@ -567,6 +633,7 @@
     applyStaticTranslations();
     renderCurrentPage();
     ensureAutoTranslatedNews(currentLang);
+    ensureAutoTranslatedRepSections(currentLang);
     showToast(dict().toastLang);
   }
 
@@ -985,6 +1052,57 @@
       btn.addEventListener("click", () => selectScene(Number(btn.dataset.sceneIdx)));
     });
     selectScene(activeSceneIdx);
+    renderRepresentacioSections();
+  }
+
+  function renderRepresentacioSections() {
+    const host = document.getElementById("representacio-seccions");
+    if (!host) return;
+    const sections = getLocalizedRepSections();
+    host.innerHTML = sections
+      .map((s, idx) => {
+        const isCream = idx % 2 === 0;
+        const isReverse = idx % 2 === 1;
+        const paragraphsHtml = (s.paragraphs || [])
+          .map((p) => `<p>${escapeHtml(p)}</p>`)
+          .join("");
+        const quoteHtml = s.quote
+          ? `<blockquote class="quote-box">
+              <p>${escapeHtml(s.quote)}</p>
+              ${s.quoteCite ? `<cite>${escapeHtml(s.quoteCite)}</cite>` : ""}
+            </blockquote>`
+          : "";
+        if (s.image) {
+          return `
+            <section class="feature-band${isCream ? " feature-band--cream" : ""}" id="${escapeHtml(s.id)}">
+              <div class="feature${isReverse ? " reverse" : ""}">
+                <div class="image">
+                  <img src="${escapeHtml(s.image)}" alt="${escapeHtml(s.title)}" loading="lazy">
+                </div>
+                <div class="text">
+                  ${s.eyebrow ? `<span class="eyebrow">${escapeHtml(s.eyebrow)}</span>` : ""}
+                  <h2>${escapeHtml(s.title)}</h2>
+                  <div class="separator left"></div>
+                  ${paragraphsHtml}
+                  ${quoteHtml}
+                </div>
+              </div>
+            </section>`;
+        }
+        return `
+          <section class="section${isCream ? " section--cream" : ""}" id="${escapeHtml(s.id)}">
+            <div class="container">
+              <div style="max-width:860px">
+                ${s.eyebrow ? `<span class="eyebrow">${escapeHtml(s.eyebrow)}</span>` : ""}
+                <h2 class="section-title">${escapeHtml(s.title)}</h2>
+                <div class="separator left"></div>
+                <div class="article-body">${paragraphsHtml}</div>
+                ${quoteHtml}
+              </div>
+            </div>
+          </section>`;
+      })
+      .join("");
   }
 
   /* ------------------------------------------------------------------------
@@ -1459,9 +1577,37 @@
     };
   }
 
+  function normalizeRepSectionItem(raw, idx) {
+    let paragraphs = [];
+    if (Array.isArray(raw.paragrefs)) paragraphs = raw.paragrefs.map(String);
+    else if (Array.isArray(raw.paragraphs)) paragraphs = raw.paragraphs.map(String);
+    else if (typeof raw.paragrefs === "string" && raw.paragrefs.trim()) {
+      paragraphs = raw.paragrefs.split(/\n\s*\n/).map((s) => s.trim()).filter(Boolean);
+    }
+    return {
+      id: raw.id || "seccio-" + (idx + 1),
+      eyebrow: raw.etiqueta || raw.eyebrow || "",
+      title: raw.titol || raw.title || "",
+      image: normalizeAssetPath(raw.imatge || raw.image, ""),
+      paragraphs,
+      quote: raw.cita || raw.quote || "",
+      quoteCite: raw.autorCita || raw.quoteCite || ""
+    };
+  }
+
   async function loadExternalYaml(page) {
     if (!window.SimpleYAML || window.location.protocol === "file:") return;
     const tasks = [];
+
+    if (page === "representacio") {
+      tasks.push(
+        window.SimpleYAML.fetchYamlList("data/representacio.yaml")
+          .then((items) => {
+            if (items && items.length) DATA.repSections = items.map(normalizeRepSectionItem);
+          })
+          .catch(() => {})
+      );
+    }
 
     if (page === "historia") {
       tasks.push(
@@ -1548,5 +1694,6 @@
     await loadExternalYaml(currentPage);
     renderCurrentPage(true);
     ensureAutoTranslatedNews(currentLang);
+    ensureAutoTranslatedRepSections(currentLang);
   });
 })();
