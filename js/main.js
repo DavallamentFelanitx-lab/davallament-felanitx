@@ -126,14 +126,7 @@
         { href: "historia.html#cronologia", key: "historiaCronologia" }
       ]
     },
-    {
-      href: "representacio.html",
-      key: "representacio",
-      children: [
-        { href: "representacio.html#escenes", key: "repEscenes" },
-        { href: "representacio.html#elements", key: "repElements" }
-      ]
-    },
+    { href: "representacio.html", key: "representacio" },
     {
       href: "entitat.html",
       key: "entitat",
