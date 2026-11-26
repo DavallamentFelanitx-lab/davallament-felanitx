@@ -624,25 +624,35 @@
     openNewsArticleId = articleId;
     const ui = dict().ui;
 
+    const allNewsPhotos = [item.image, item.poster, item.extraImage].filter(Boolean);
+    const lightboxPhotos = allNewsPhotos.map((src) => ({
+      src,
+      title: item.title,
+      album: item.category || "Notícies",
+      caption: item.date || "",
+      location: item.source || "Felanitx",
+      credit: "Associació El Davallament de Felanitx"
+    }));
+
     const extraPhotos = [item.poster, item.extraImage].filter(Boolean);
     const extraPhotosHtml =
       extraPhotos.length === 1
         ? `<figure style="margin:22px 0;text-align:center">
-            <img src="${escapeHtml(extraPhotos[0])}" alt="${escapeHtml(item.title)}" style="max-height:520px;margin:0 auto;border-radius:8px;box-shadow:var(--shadow-md)">
+            <img class="news-zoomable" data-news-zoom="1" src="${escapeHtml(extraPhotos[0])}" alt="${escapeHtml(item.title)}" title="${escapeHtml(ui.zoomPill || "Ampliar")}" style="max-height:520px;margin:0 auto;border-radius:8px;box-shadow:var(--shadow-md)">
           </figure>`
         : extraPhotos.length >= 2
         ? `<div class="article-gallery">
             ${extraPhotos
               .map(
-                (src) =>
-                  `<figure><img src="${escapeHtml(src)}" alt="${escapeHtml(item.title)}" loading="lazy"></figure>`
+                (src, i) =>
+                  `<figure><img class="news-zoomable" data-news-zoom="${i + 1}" src="${escapeHtml(src)}" alt="${escapeHtml(item.title)}" title="${escapeHtml(ui.zoomPill || "Ampliar")}" loading="lazy"></figure>`
               )
               .join("")}
           </div>`
         : "";
 
     const html = `
-      <img class="modal-hero-img" src="${escapeHtml(item.image)}" alt="${escapeHtml(item.title)}">
+      <img class="modal-hero-img news-zoomable" data-news-zoom="0" src="${escapeHtml(item.image)}" alt="${escapeHtml(item.title)}" title="${escapeHtml(ui.zoomPill || "Ampliar")}">
       <div class="modal-content">
         <div class="card-meta">
           <span class="badge badge--primary">${escapeHtml(item.category)}</span>
@@ -672,6 +682,14 @@
       </div>
     `;
     openModal(html, item.title);
+    const dialog = document.getElementById("shared-modal-dialog");
+    if (dialog) {
+      dialog.querySelectorAll("[data-news-zoom]").forEach((imgEl) => {
+        imgEl.addEventListener("click", () => {
+          openLightbox(lightboxPhotos, Number(imgEl.dataset.newsZoom) || 0);
+        });
+      });
+    }
     document.getElementById("copy-news-link").addEventListener("click", () => {
       const shareUrl = `${window.location.origin}${window.location.pathname.replace(/[^/]*$/, "")}noticies.html?id=${encodeURIComponent(item.id)}`;
       if (navigator.clipboard && navigator.clipboard.writeText) {
@@ -756,7 +774,10 @@
     const lb = document.getElementById("shared-lightbox");
     if (lb) {
       lb.classList.remove("open");
-      document.body.classList.remove("modal-open");
+      const modal = document.getElementById("shared-modal-backdrop");
+      if (!modal || !modal.classList.contains("open")) {
+        document.body.classList.remove("modal-open");
+      }
     }
   }
 

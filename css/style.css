@@ -2040,6 +2040,19 @@ h1, h2, h3, h4 {
   display: block;
 }
 
+.news-zoomable {
+  cursor: zoom-in;
+  transition: transform 0.28s ease, filter 0.25s ease;
+}
+
+.news-zoomable:hover {
+  filter: brightness(0.95);
+}
+
+.article-gallery .news-zoomable:hover {
+  transform: scale(1.03);
+}
+
 /* Newspaper Clipping Style */
 .clipping-paper {
   background: #fbf8f1;
