@@ -49,6 +49,7 @@ collections:
               - { name: "destacada", label: "Destacada", widget: "boolean", default: false, required: false }
               - { name: "imatge", label: "Fotografia principal (Foto 1)", widget: "image", media_folder: "/img/noticies", public_folder: "img/noticies" }
               - { name: "cartell", label: "Segona fotografia o cartell (Foto 2, opcional)", widget: "image", media_folder: "/img/noticies", public_folder: "img/noticies", required: false }
+              - { name: "imatge3", label: "Tercera fotografia (Foto 3, opcional)", widget: "image", media_folder: "/img/noticies", public_folder: "img/noticies", required: false }
               - { name: "font", label: "Font / Mitjà (opcional)", widget: "string", required: false }
               - { name: "fontUrl", label: "Enllaç a la font (opcional)", widget: "string", required: false }
               - { name: "resum", label: "Resum breu (targeta)", widget: "text" }

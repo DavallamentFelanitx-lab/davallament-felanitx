@@ -624,6 +624,23 @@
     openNewsArticleId = articleId;
     const ui = dict().ui;
 
+    const extraPhotos = [item.poster, item.extraImage].filter(Boolean);
+    const extraPhotosHtml =
+      extraPhotos.length === 1
+        ? `<figure style="margin:22px 0;text-align:center">
+            <img src="${escapeHtml(extraPhotos[0])}" alt="${escapeHtml(item.title)}" style="max-height:520px;margin:0 auto;border-radius:8px;box-shadow:var(--shadow-md)">
+          </figure>`
+        : extraPhotos.length >= 2
+        ? `<div class="article-gallery">
+            ${extraPhotos
+              .map(
+                (src) =>
+                  `<figure><img src="${escapeHtml(src)}" alt="${escapeHtml(item.title)}" loading="lazy"></figure>`
+              )
+              .join("")}
+          </div>`
+        : "";
+
     const html = `
       <img class="modal-hero-img" src="${escapeHtml(item.image)}" alt="${escapeHtml(item.title)}">
       <div class="modal-content">
@@ -637,13 +654,7 @@
         <div class="article-body">
           ${item.body.map((p) => `<p>${escapeHtml(p)}</p>`).join("")}
         </div>
-        ${
-          item.poster
-            ? `<figure style="margin:22px 0;text-align:center">
-                <img src="${escapeHtml(item.poster)}" alt="${escapeHtml(item.title)}" style="max-height:520px;margin:0 auto;border-radius:8px;box-shadow:var(--shadow-md)">
-              </figure>`
-            : ""
-        }
+        ${extraPhotosHtml}
         ${
           item.sourceUrl
             ? `<p style="font-size:0.88rem;color:var(--text-muted);margin:14px 0 18px">
@@ -1367,6 +1378,7 @@
       featured: Boolean(raw.destacada !== undefined ? raw.destacada : raw.featured),
       image: normalizeAssetPath(raw.imatge || raw.image, "img/hero/hero1.jpg"),
       poster: normalizeAssetPath(raw.cartell || raw.imatge2 || raw.poster, ""),
+      extraImage: normalizeAssetPath(raw.imatge3 || raw.extraImage, ""),
       source: raw.font || raw.source || "",
       sourceUrl: raw.fontUrl || raw.sourceUrl || "",
       title: raw.titol || raw.title || "Sense títol",
