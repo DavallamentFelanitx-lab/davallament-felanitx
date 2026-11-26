@@ -17,7 +17,7 @@ window.I18N = {
       contacte: "Contacte"
     },
     subnav: {
-      historiaMemoria: "Orígens i memòria",
+      historiaMemoria: "Memòria col·lectiva",
       historiaCronologia: "Fites principals (1975–2026)",
       historiaProtagonistes: "Protagonistes",
       repEscenes: "Escena per escena",
@@ -251,7 +251,7 @@ window.I18N = {
       contacte: "Contacto"
     },
     subnav: {
-      historiaMemoria: "Orígenes y memoria",
+      historiaMemoria: "Memoria colectiva",
       historiaCronologia: "Hitos principales (1975–2026)",
       historiaProtagonistes: "Protagonistas",
       repEscenes: "Escena por escena",
@@ -602,7 +602,7 @@ window.I18N = {
       contacte: "Contact"
     },
     subnav: {
-      historiaMemoria: "Origins & Memory",
+      historiaMemoria: "Collective Memory",
       historiaCronologia: "Key Milestones (1975–2026)",
       historiaProtagonistes: "Key Figures",
       repEscenes: "Scene-by-Scene",
@@ -953,7 +953,7 @@ window.I18N = {
       contacte: "Kontakt"
     },
     subnav: {
-      historiaMemoria: "Ursprünge & Erinnerung",
+      historiaMemoria: "Kollektives Gedächtnis",
       historiaCronologia: "Meilensteine (1975–2026)",
       historiaProtagonistes: "Persönlichkeiten",
       repEscenes: "Szene für Szene",

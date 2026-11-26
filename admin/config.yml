@@ -1,0 +1,173 @@
+# yaml-language-server: $schema=https://unpkg.com/@sveltia/cms/schema/sveltia-cms.json
+# ============================================================================
+# SVELTIA CMS — Associació El Davallament de Felanitx
+# ============================================================================
+# Accés al gestor:
+#   - En local:        http://127.0.0.1:8096/admin/  ("Treballa amb el repositori local" a Chrome/Edge)
+#   - A GitHub Pages:  https://davallamentfelanitx-lab.github.io/davallament-felanitx/admin/
+#                      (Inicia sessió amb un Personal Access Token de GitHub o via OAuth Worker)
+
+backend:
+  name: github
+  repo: DavallamentFelanitx-lab/davallament-felanitx
+  branch: develop
+  # Opcional: si en un futur desplegues un Cloudflare Worker (sveltia-cms-auth) per a OAuth amb 1 clic:
+  # base_url: https://el-teu-worker.workers.dev
+
+site_url: https://davallamentfelanitx-lab.github.io/davallament-felanitx/
+logo_url: ../img/logo/logo.png
+locale: ca
+
+media_folder: "img/uploads"
+public_folder: "img/uploads"
+
+collections:
+  - name: "contingut"
+    label: "Contingut del web"
+    label_singular: "Secció"
+    files:
+      # ----------------------------------------------------------------------
+      # 1. NOTÍCIES (data/noticies.yaml)
+      # ----------------------------------------------------------------------
+      - name: "noticies"
+        label: "Notícies"
+        file: "data/noticies.yaml"
+        description: "Afegeix, edita o elimina notícies. S'ordenen automàticament per data i la més recent surt destacada."
+        fields:
+          - name: "items"
+            label: "Llistat de notícies"
+            label_singular: "Notícia"
+            widget: "list"
+            summary: "{{fields.dataIso}} · {{fields.titol}}"
+            fields:
+              - { name: "id", label: "Identificador (sense espais)", widget: "string", hint: "Exemple: edicio-2027-cronica" }
+              - { name: "titol", label: "Titular", widget: "string" }
+              - { name: "categoria", label: "Categoria", widget: "string", default: "Actualitat" }
+              - { name: "data", label: "Data visible", widget: "string", hint: "Exemple: 26 de març de 2027" }
+              - { name: "dataIso", label: "Data per ordenar (AAAA-MM-DD)", widget: "string", hint: "Exemple: 2027-03-26" }
+              - { name: "lectura", label: "Temps de lectura", widget: "string", default: "3 min", required: false }
+              - { name: "destacada", label: "Destacada", widget: "boolean", default: false, required: false }
+              - { name: "imatge", label: "Fotografia principal", widget: "image", media_folder: "/img/noticies", public_folder: "img/noticies" }
+              - { name: "cartell", label: "Cartell o segona imatge (opcional)", widget: "image", media_folder: "/img/noticies", public_folder: "img/noticies", required: false }
+              - { name: "font", label: "Font / Mitjà (opcional)", widget: "string", required: false }
+              - { name: "fontUrl", label: "Enllaç a la font (opcional)", widget: "string", required: false }
+              - { name: "resum", label: "Resum breu (targeta)", widget: "text" }
+              - name: "etiquetes"
+                label: "Etiquetes"
+                widget: "list"
+                required: false
+                field: { name: "etiqueta", label: "Etiqueta", widget: "string" }
+              - name: "cos"
+                label: "Paràgrafs de la notícia"
+                widget: "list"
+                field: { name: "paragraf", label: "Paràgraf", widget: "text" }
+
+      # ----------------------------------------------------------------------
+      # 2. GALERIA DE FOTOGRAFIES (data/galeria.yaml)
+      # ----------------------------------------------------------------------
+      - name: "galeria"
+        label: "Galeria de fotografies"
+        file: "data/galeria.yaml"
+        description: "Fotografies que apareixen a la pàgina Galeria amb filtres per àlbum i visor a pantalla completa."
+        fields:
+          - name: "items"
+            label: "Fotografies"
+            label_singular: "Fotografia"
+            widget: "list"
+            summary: "{{fields.album}} · {{fields.titol}}"
+            fields:
+              - { name: "id", label: "Identificador (sense espais)", widget: "string" }
+              - { name: "titol", label: "Títol de la fotografia", widget: "string" }
+              - { name: "album", label: "Àlbum", widget: "string", hint: "Exemple: El Davallament, Camí del Calvari, Passió i Judici" }
+              - { name: "any", label: "Any o edició", widget: "string", required: false }
+              - { name: "lloc", label: "Lloc", widget: "string", default: "Escalinata de Sant Miquel", required: false }
+              - { name: "credit", label: "Autoria / Crèdit", widget: "string", default: "Associació El Davallament de Felanitx", required: false }
+              - { name: "imatge", label: "Imatge", widget: "image", media_folder: "/img/galeria", public_folder: "img/galeria" }
+              - { name: "descripcio", label: "Peu de foto", widget: "text", required: false }
+
+      # ----------------------------------------------------------------------
+      # 3. MULTIMÈDIA — VÍDEOS DE YOUTUBE (data/multimedia.yaml)
+      # ----------------------------------------------------------------------
+      - name: "multimedia"
+        label: "Multimèdia (Vídeos YouTube)"
+        file: "data/multimedia.yaml"
+        description: "Vídeos de YouTube incrustats a l'apartat Multimèdia de Galeria."
+        fields:
+          - name: "items"
+            label: "Vídeos"
+            label_singular: "Vídeo"
+            widget: "list"
+            summary: "{{fields.any}} · {{fields.titol}}"
+            fields:
+              - { name: "id", label: "Identificador (sense espais)", widget: "string" }
+              - { name: "titol", label: "Títol del vídeo", widget: "string" }
+              - { name: "any", label: "Any", widget: "string", required: false }
+              - { name: "font", label: "Canal o font", widget: "string", required: false }
+              - { name: "youtubeUrl", label: "Enllaç de YouTube", widget: "string", hint: "Enganxa qualsevol URL de YouTube (ex: https://www.youtube.com/watch?v=...)" }
+              - { name: "descripcio", label: "Descripció", widget: "text", required: false }
+
+      # ----------------------------------------------------------------------
+      # 4. JUNTA DIRECTIVA (data/junta.yaml)
+      # ----------------------------------------------------------------------
+      - name: "junta"
+        label: "Junta Directiva"
+        file: "data/junta.yaml"
+        description: "Membres de la Junta Directiva que es mostren a la pàgina L'entitat."
+        fields:
+          - name: "items"
+            label: "Membres de la Junta"
+            label_singular: "Membre"
+            widget: "list"
+            summary: "{{fields.carrec}} — {{fields.nom}}"
+            fields:
+              - { name: "id", label: "Identificador (sense espais)", widget: "string" }
+              - { name: "carrec", label: "Càrrec", widget: "string" }
+              - { name: "nom", label: "Nom i llinatges", widget: "string" }
+              - { name: "area", label: "Àrea o tasca principal", widget: "text", required: false }
+
+      # ----------------------------------------------------------------------
+      # 5. CONVOCATÒRIES I ASSEMBLEES (data/convocatories.yaml)
+      # ----------------------------------------------------------------------
+      - name: "convocatories"
+        label: "Convocatòries i assemblees"
+        file: "data/convocatories.yaml"
+        description: "Reunions i assemblees de l'Associació (secció actualment comentada a entitat.html)."
+        fields:
+          - name: "items"
+            label: "Convocatòries"
+            label_singular: "Convocatòria"
+            widget: "list"
+            summary: "{{fields.estat}} · {{fields.titol}}"
+            fields:
+              - { name: "id", label: "Identificador (sense espais)", widget: "string" }
+              - { name: "titol", label: "Títol de la convocatòria", widget: "string" }
+              - { name: "estat", label: "Estat", widget: "select", options: ["proxima", "realitzada"], default: "proxima" }
+              - { name: "data", label: "Data visible", widget: "string" }
+              - { name: "dataIso", label: "Data per ordenar (AAAA-MM-DD)", widget: "string" }
+              - { name: "hora", label: "Hora", widget: "string", required: false }
+              - { name: "lloc", label: "Lloc", widget: "string", required: false }
+              - { name: "adrecatA", label: "Adreçat a", widget: "string", required: false }
+              - { name: "resum", label: "Resum", widget: "text", required: false }
+              - name: "ordreDelDia"
+                label: "Ordre del dia"
+                widget: "list"
+                required: false
+                field: { name: "punt", label: "Punt", widget: "string" }
+
+      # ----------------------------------------------------------------------
+      # 6. HISTÒRIA — LÍNIA TEMPORAL (data/cronologia.yaml)
+      # ----------------------------------------------------------------------
+      - name: "cronologia"
+        label: "Història · Línia temporal (1975–2026)"
+        file: "data/cronologia.yaml"
+        description: "Fites històriques mostrades a la línia temporal de la pàgina Història."
+        fields:
+          - name: "items"
+            label: "Fites històriques"
+            label_singular: "Fita"
+            widget: "list"
+            summary: "{{fields.any}} · {{fields.titol}}"
+            fields:
+              - { name: "any", label: "Any o període", widget: "string" }
+              - { name: "titol", label: "Títol de la fita", widget: "string" }
+              - { name: "text", label: "Descripció", widget: "text" }

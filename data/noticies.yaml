@@ -26,70 +26,70 @@
 #   cos:        paràgrafs de la notícia, un per cada línia començada amb "    - "
 # ============================================================================
 
-- id: edicio-2026-escalinata
-  titol: "El Davallament de Felanitx torna a emocionar els fidels en la seva 51a edició"
-  categoria: "Cròniques"
-  data: "3 d'abril de 2026"
-  dataIso: "2026-04-03"
-  lectura: "4 min"
-  destacada: false
-  imatge: "img/noticies/davallament-2026-ultimahora.jpg"
-  font: "Ultima Hora · Gori Vicens"
-  fontUrl: "https://www.ultimahora.es/noticias/local/2026/04/03/2602649/davallament-felanitx-vuelve-emocionar-fieles.html"
-  resum: "Enguany s'ha celebrat la 51a edició de la representació al majestuós escenari davant l'església parroquial de Sant Miquel, amb rècord de 160 actors d'entre 3 i gairebé 80 anys."
-  etiquetes: ["51a Edició", "Sant Miquel", "Divendres Sant"]
-  cos:
-    - "Després de l'especial Davallament de l'any passat per commemorar el 50è aniversari amb diversos escenaris diferents, enguany la representació ha tornat al seu marc habitual, l'escenari incomparable que formen l'escalinata i el replà de l'església parroquial de Sant Miquel de Felanitx. La passió i l'emotivitat de l'escenificació, que ens traslladen a les darreres hores de vida i a la crucifixió de Jesús, varen tornar a sorprendre els centenars d'espectadors que varen seguir l'acte."
-    - "La representació relata alguns dels passatges més representatius de la passió de Jesús: l'Entrada Triomfal a Jerusalem, el Sant Sopar, Jesús davant Caifàs, l'«Ecce Homo», la flagel·lació i la seva presentació davant Pilat, i culmina amb la crucifixió i l'acte propi del Davallament sobre el replà parroquial. El paper de Jesús enguany va ser encarnat per Bernat Monserrat i el de la Mare de Déu per Marta Obrador."
-    - "Cal destacar que enguany s'ha tornat a batre un rècord de participació amb 160 actors, tots amateurs i veïns de Felanitx d'entre 3 i gairebé 80 anys, que es varen ficar de ple en el seu paper sota la direcció de l'actor manacorí Joan Toni Sunyer. L'escenografia, juntament amb els efectes de llum i so preparats per a l'ocasió, atorguen a l'acte una aura especial."
-    - "La música també hi juga un paper fonamental. La banda sonora composta i orquestrada pel músic porrerenc Joan Martorell l'any passat dona una nova dimensió sonora a cadascuna de les escenes. Aquest Divendres Sant la música i l'escenografia varen estar acompanyades per la narració de Maria Mascaró i de l'actor Miquel Gelabert, que varen oferir una sentida lectura dels textos tradicionals escrits expressament per al Davallament."
-    - "Tot i que la representació en aquest emplaçament es fa des de fa 51 anys, anteriorment es celebrava a l'interior de l'església i la seva història es remunta a l'Edat Mitjana. Un cop finalitzat el Davallament, va tenir lloc la tradicional Processó de l'Enterrament, que va concloure al convent de Sant Agustí."
-
-- id: presentacio-cartell-2026
-  titol: "Presentació del cartell del Davallament de Felanitx 2026"
-  categoria: "Edició 2026"
-  data: "19 de febrer de 2026"
-  dataIso: "2026-02-19"
-  lectura: "3 min"
-  destacada: true
-  imatge: "img/noticies/presentacio-cartell-2026.jpg"
-  cartell: "img/noticies/cartell-2026.jpg"
-  font: "Viu Felanitx · Ajuntament de Felanitx"
-  fontUrl: "https://viufelanitx.com/art/17924/ahir-vespre-es-va-presentar-el-cartell-que-anuncia-el-davallament-de-felanitx-2026"
-  resum: "Es presenta el cartell que anuncia el Davallament de Felanitx 2026, amb fotografia de Sofia Binimelis Arias i disseny gràfic de Miquel Àngel Roig Maimó."
-  etiquetes: ["Cartell 2026"]
-  cos:
-    - "El vespre del 18 de febrer de 2026 es va presentar oficialment el cartell que anuncia el Davallament de Felanitx 2026, obra fotogràfica de l'artista Sofia Binimelis Arias, que ha sabut captar amb sensibilitat i força expressiva l'essència d'aquesta representació tan arrelada al nostre poble."
-    - "El disseny gràfic del cartell ha anat a càrrec de Miquel Àngel Roig Maimó."
-    - "Després de la celebració del cinquantenari, el Davallament de 2026 vol donar continuïtat a aquesta fita, tot posant un èmfasi especial en la banda sonora creada expressament per a l'ocasió, així com en la consolidació dels nous elements incorporats en els darrers anys."
-    - "El Davallament de Felanitx se celebra el Divendres Sant, dia 3 d'abril de 2026, a les 21:00 h, al replà de l'església parroquial de Sant Miquel, amb la direcció artística de Joan Toni Sunyer."
-    - "Des de l'organització s'ha volgut expressar un agraïment especial a l'Ajuntament de Felanitx, al Centre Cultural, a la Fundació Barceló i a la Parròquia de Sant Miquel per la seva col·laboració i suport constant, que fan possible que aquesta tradició es mantingui viva any rere any."
-
-- id: cinquantenari-2025-historic
-  titol: "Un 50è aniversari històric: sis escenaris, música original i directe a IB3"
-  categoria: "50è Aniversari"
-  data: "19 d'abril de 2025"
-  dataIso: "2025-04-19"
-  lectura: "5 min"
-  destacada: false
-  imatge: "img/hero/hero4.jpg"
-  resum: "Felanitx va commemorar mig segle del Davallament a l'aire lliure amb un desplegament sense precedents a la Plaça de sa Font de Santa Margalida."
-  etiquetes: ["50è Aniversari", "IB3 Televisió", "Cinquantenari"]
-  cos:
-    - "Cinquanta anys després d'aquell 28 de març de 1975 en què la representació va sortir a l'exterior, Felanitx va viure una edició commemorativa inoblidable."
-    - "Sota la direcció de Joan Toni Sunyer i Marta Obrador, l'escenificació es va desplegar per sis escenaris al voltant de la Plaça de sa Font de Santa Margalida, estrenant la música original de Joan Martorell."
-    - "Per primera vegada, IB3 Televisió va retransmetre l'acte en directe per a totes les Illes Balears, apropant la tradició a milers d'espectadors."
-
-- id: cartell-miquel-barcelo
-  titol: "Miquel Barceló signa el cartell commemoratiu dels 50 anys del Davallament"
-  categoria: "50è Aniversari"
-  data: "14 de març de 2025"
-  dataIso: "2025-03-14"
-  lectura: "3 min"
-  destacada: false
-  imatge: "img/hero/hero2.jpg"
-  resum: "L'artista felanitxer va col·laborar en l'efemèride regalant a la seva vila una imatge carregada de força expressiva i simbolisme."
-  etiquetes: ["Miquel Barceló", "Art", "Cartell"]
-  cos:
-    - "La presentació oficial del 50è aniversari va incloure la descoberta del cartell commemoratiu dissenyat per l'artista internacional nascut a Felanitx, Miquel Barceló."
-    - "L'Associació El Davallament de Felanitx va agrair públicament aquest gest generós que vincula la creació contemporània amb mig segle de memòria popular i patrimoni compartit."
+items:
+  - id: edicio-2026-escalinata
+    titol: El Davallament de Felanitx torna a emocionar els fidels en la seva 51a edició
+    categoria: Cròniques
+    data: 3 d'abril de 2026
+    dataIso: 2026-04-03
+    lectura: 4 min
+    destacada: false
+    imatge: img/noticies/davallament-2026-ultimahora.jpg
+    cartell: ''
+    font: Ultima Hora · Gori Vicens
+    fontUrl: https://www.ultimahora.es/noticias/local/2026/04/03/2602649/davallament-felanitx-vuelve-emocionar-fieles.html
+    resum: Enguany s'ha celebrat la 51a edició de la representació al majestuós escenari davant l'església parroquial de Sant Miquel, amb rècord de 160 actors d'entre 3 i gairebé 80 anys.
+    etiquetes:
+      - 51a Edició
+      - Sant Miquel
+      - Divendres Sant
+    cos:
+      - Després de l'especial Davallament de l'any passat per commemorar el 50è aniversari amb diversos escenaris diferents, enguany la representació ha tornat al seu marc habitual, l'escenari incomparable que formen l'escalinata i el replà de l'església parroquial de Sant Miquel de Felanitx. La passió i l'emotivitat de l'escenificació, que ens traslladen a les darreres hores de vida i a la crucifixió de Jesús, varen tornar a sorprendre els centenars d'espectadors que varen seguir l'acte.
+      - "La representació relata alguns dels passatges més representatius de la passió de Jesús: l'Entrada Triomfal a Jerusalem, el Sant Sopar, Jesús davant Caifàs, l'«Ecce Homo», la flagel·lació i la seva presentació davant Pilat, i culmina amb la crucifixió i l'acte propi del Davallament sobre el replà parroquial. El paper de Jesús enguany va ser encarnat per Bernat Monserrat i el de la Mare de Déu per Marta Obrador."
+      - Cal destacar que enguany s'ha tornat a batre un rècord de participació amb 160 actors, tots amateurs i veïns de Felanitx d'entre 3 i gairebé 80 anys, que es varen ficar de ple en el seu paper sota la direcció de l'actor manacorí Joan Toni Sunyer. L'escenografia, juntament amb els efectes de llum i so preparats per a l'ocasió, atorguen a l'acte una aura especial.
+      - La música també hi juga un paper fonamental. La banda sonora composta i orquestrada pel músic porrerenc Joan Martorell l'any passat dona una nova dimensió sonora a cadascuna de les escenes. Aquest Divendres Sant la música i l'escenografia varen estar acompanyades per la narració de Maria Mascaró i de l'actor Miquel Gelabert, que varen oferir una sentida lectura dels textos tradicionals escrits expressament per al Davallament.
+      - Tot i que la representació en aquest emplaçament es fa des de fa 51 anys, anteriorment es celebrava a l'interior de l'església i la seva història es remunta a l'Edat Mitjana. Un cop finalitzat el Davallament, va tenir lloc la tradicional Processó de l'Enterrament, que va concloure al convent de Sant Agustí.
+  - id: presentacio-cartell-2026
+    titol: Presentació del cartell del Davallament de Felanitx 2026
+    categoria: Edició 2026
+    data: 19 de febrer de 2026
+    dataIso: 2026-02-19
+    lectura: 3 min
+    destacada: true
+    imatge: img/noticies/presentacio-cartell-2026.jpg
+    cartell: img/noticies/cartell-2026.jpg
+    font: Viu Felanitx · Ajuntament de Felanitx
+    fontUrl: https://viufelanitx.com/art/17924/ahir-vespre-es-va-presentar-el-cartell-que-anuncia-el-davallament-de-felanitx-2026
+    resum: Es presenta el cartell que anuncia el Davallament de Felanitx 2026, amb fotografia de Sofia Binimelis Arias i disseny gràfic de Miquel Àngel Roig Maimó.
+    etiquetes:
+      - Cartell 2026
+    cos:
+      - El vespre del 18 de febrer de 2026 es va presentar oficialment el cartell que anuncia el Davallament de Felanitx 2026, obra fotogràfica de l'artista Sofia Binimelis Arias, que ha sabut captar amb sensibilitat i força expressiva l'essència d'aquesta representació tan arrelada al nostre poble.
+      - El disseny gràfic del cartell ha anat a càrrec de Miquel Àngel Roig Maimó.
+      - Després de la celebració del cinquantenari, el Davallament de 2026 vol donar continuïtat a aquesta fita, tot posant un èmfasi especial en la banda sonora creada expressament per a l'ocasió, així com en la consolidació dels nous elements incorporats en els darrers anys.
+      - El Davallament de Felanitx se celebra el Divendres Sant, dia 3 d'abril de 2026, a les 21:00 h, al replà de l'església parroquial de Sant Miquel, amb la direcció artística de Joan Toni Sunyer.
+      - Des de l'organització s'ha volgut expressar un agraïment especial a l'Ajuntament de Felanitx, al Centre Cultural, a la Fundació Barceló i a la Parròquia de Sant Miquel per la seva col·laboració i suport constant, que fan possible que aquesta tradició es mantingui viva any rere any.
+  - id: davallament2024
+    titol: El Davallament de Felanitx més viu que mai!
+    categoria: Edició 2024
+    data: 26 de març de 2024
+    dataIso: 2024-03-26
+    lectura: 3 min
+    destacada: false
+    imatge: /img/noticies/pasted-image-1795688827272.png
+    cartell: ''
+    font: Viufelanitx
+    fontUrl: https://viufelanitx.com/art/17096/el-davallament-de-felanitx-mes-viu-que-mai
+    resum: |-
+      Divendres Sant, a les 21.00h, a l’escalinata i replà de l’Església Parroquial, tornarà a celebrar-se el Davallament de Felanitx.
+      I ho farà més viu que mai. Enguany es batran rècords de participació, essent més de 150 els actors que cuidaran de representar diferents passos de la Passió i Mort de Jesucrist, tot acompanyat per uns efectes sonors i luminotècnics que atorgaran major espectacularitat a l’acte.
+    etiquetes:
+      - Edició 2024
+    cos:
+      - Divendres Sant, a les 21.00h, a l’escalinata i replà de l’Església Parroquial, tornarà a celebrar-se el Davallament de Felanitx.
+      - I ho farà més viu que mai. Enguany es batran rècords de participació, essent més de 150 els actors que cuidaran de representar diferents passos de la Passió i Mort de Jesucrist, tot acompanyat per uns efectes sonors i luminotècnics que atorgaran major espectacularitat a l’acte.
+      - 'En aquesta edició s’introduiran diversos detalls i canvis en l’escenificació i muntatge de les escenes que es representaran: Entrada Triomfal a Jerusalem, El Darrer Sopar, Traïció de Judes i captura a l’hort de Getsemaní, Jesús davant Caifàs, ‘Ecce homo’ (Jesús davant Pilat i flagel·lació), Trobada amb Maria, Camí del Calvari, Primera Caiguda i la Verònica, Crucifixió, Davallament i Pietat.'
+      - 'També es recuperarà un element antic restaurat que forma part de la història del Davallament: la inscripció INRI que es col·loca a la part més alta de la creu. La restauració ha estat duta a terme -acuradament, per l’estat en què es trobava- per Sebastià Rigo.'
+      - El cartell que anuncia el Davallament ha estat obra de la ceramista Maria Ramis.
+      - Una altra novetat serà el canvi de direcció escènica, enguany a càrrec de Joan Toni Sunyer. Nascut a Manacor l'any 1988, ha cursat estudis d'art dramàtic, especialitat interpretació textual, a l'Institut del teatre i a l'ESADIB.
+      - Actor i director de nombroses produccions i espectacles i amb diverses companyies, ha guanyat diversos premis a nivell autonòmic i estatal.

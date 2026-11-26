@@ -21,8 +21,7 @@
       key: "historia",
       children: [
         { href: "historia.html#memoria", key: "historiaMemoria" },
-        { href: "historia.html#cronologia", key: "historiaCronologia" },
-        { href: "historia.html#protagonistes", key: "historiaProtagonistes" }
+        { href: "historia.html#cronologia", key: "historiaCronologia" }
       ]
     },
     {
@@ -38,8 +37,8 @@
       key: "entitat",
       children: [
         { href: "entitat.html#qui-som", key: "entQuiSom" },
-        { href: "entitat.html#junta", key: "entJunta" },
-        { href: "entitat.html#convocatories", key: "entConvocatories" }
+        { href: "entitat.html#junta", key: "entJunta" }
+        // { href: "entitat.html#convocatories", key: "entConvocatories" }
       ]
     },
     {
@@ -1187,6 +1186,13 @@
   /* ------------------------------------------------------------------------
      YAML Data Loader
      ------------------------------------------------------------------------ */
+  function normalizeAssetPath(p, fallback) {
+    const raw = String(p || "").trim();
+    if (!raw) return fallback || "";
+    if (/^https?:\/\//i.test(raw)) return raw;
+    return raw.replace(/^\/+/, "");
+  }
+
   function normalizeNewsItem(raw, idx) {
     let body = [];
     if (Array.isArray(raw.cos)) body = raw.cos.map(String);
@@ -1207,8 +1213,8 @@
       isoDate: raw.dataIso || raw.isoDate || "",
       readTime: raw.lectura || raw.readTime || "3 min",
       featured: Boolean(raw.destacada !== undefined ? raw.destacada : raw.featured),
-      image: raw.imatge || raw.image || "img/hero/hero1.jpg",
-      poster: raw.cartell || raw.poster || "",
+      image: normalizeAssetPath(raw.imatge || raw.image, "img/hero/hero1.jpg"),
+      poster: normalizeAssetPath(raw.cartell || raw.poster, ""),
       source: raw.font || raw.source || "",
       sourceUrl: raw.fontUrl || raw.sourceUrl || "",
       title: raw.titol || raw.title || "Sense títol",
@@ -1253,8 +1259,16 @@
       year: String(raw.any !== undefined ? raw.any : raw.year || ""),
       location: raw.lloc || raw.location || "Felanitx",
       credit: raw.credit || "Associació El Davallament de Felanitx",
-      src: raw.imatge || raw.src || "img/hero/hero1.jpg",
+      src: normalizeAssetPath(raw.imatge || raw.src, "img/hero/hero1.jpg"),
       caption: raw.descripcio || raw.caption || ""
+    };
+  }
+
+  function normalizeTimelineItem(raw) {
+    return {
+      year: String(raw.any !== undefined ? raw.any : raw.year || ""),
+      title: raw.titol || raw.title || "",
+      text: raw.text || raw.descripcio || ""
     };
   }
 
@@ -1273,6 +1287,16 @@
   async function loadExternalYaml(page) {
     if (!window.SimpleYAML || window.location.protocol === "file:") return;
     const tasks = [];
+
+    if (page === "historia") {
+      tasks.push(
+        window.SimpleYAML.fetchYamlList("data/cronologia.yaml")
+          .then((items) => {
+            if (items && items.length) DATA.timeline = items.map(normalizeTimelineItem);
+          })
+          .catch(() => {})
+      );
+    }
 
     if (page === "inici" || page === "noticies") {
       tasks.push(

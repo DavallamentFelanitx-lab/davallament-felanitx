@@ -6,9 +6,10 @@
 # Si hi ha 1 vídeo es mostra centrat en format cinema; amb 2 o més es mostra
 # en graella de dues columnes.
 
-- id: "davallament-2025-ib3"
-  titol: "El Davallament de Felanitx 2025 — 50è Aniversari"
-  any: "2025"
-  font: "IB3 Televisió"
-  youtubeUrl: "https://www.youtube.com/watch?v=paEAKhoOjV4"
-  descripcio: "Retransmissió televisiva del cinquantenari del Davallament de Felanitx, celebrat el Divendres Sant de 2025 a la Plaça de sa Font de Santa Margalida."
+items:
+  - id: "davallament-2025-ib3"
+    titol: "El Davallament de Felanitx 2025 — 50è Aniversari"
+    any: "2025"
+    font: "IB3 Televisió"
+    youtubeUrl: "https://www.youtube.com/watch?v=paEAKhoOjV4"
+    descripcio: "Retransmissió televisiva del cinquantenari del Davallament de Felanitx, celebrat el Divendres Sant de 2025 a la Plaça de sa Font de Santa Margalida."

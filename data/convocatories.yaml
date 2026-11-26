@@ -21,18 +21,19 @@
 #   ordreDelDia:  llista de punts a tractar (un per cada guió "    - ")
 # ============================================================================
 
-- id: assemblea-general-2026
-  titol: "Assemblea General Ordinària de l'Associació"
-  estat: "proxima"
-  data: "Data pendent de confirmar"
-  dataIso: "2026-12-15"
-  hora: "20:00 h (1a convocatòria) · 20:30 h (2a convocatòria)"
-  lloc: "Centre Cultural de Felanitx"
-  adrecatA: "Tots els socis, sòcies i col·laboradors"
-  resum: "Balanç anual de la 51a edició del Davallament i planificació de les activitats i preparatius per a la propera Setmana Santa."
-  ordreDelDia:
-    - "Lectura i aprovació de l'acta de la sessió anterior."
-    - "Valoració de l'edició del Davallament 2026."
-    - "Estat de comptes i balanç econòmic anual."
-    - "Calendari previst d'assajos, vestuari i preparatius per a la propera edició."
-    - "Precs i preguntes."
+items:
+  - id: assemblea-general-2026
+    titol: "Assemblea General Ordinària de l'Associació"
+    estat: "proxima"
+    data: "Data pendent de confirmar"
+    dataIso: "2026-12-15"
+    hora: "20:00 h (1a convocatòria) · 20:30 h (2a convocatòria)"
+    lloc: "Centre Cultural de Felanitx"
+    adrecatA: "Tots els socis, sòcies i col·laboradors"
+    resum: "Balanç anual de la 51a edició del Davallament i planificació de les activitats i preparatius per a la propera Setmana Santa."
+    ordreDelDia:
+      - "Lectura i aprovació de l'acta de la sessió anterior."
+      - "Valoració de l'edició del Davallament 2026."
+      - "Estat de comptes i balanç econòmic anual."
+      - "Calendari previst d'assajos, vestuari i preparatius per a la propera edició."
+      - "Precs i preguntes."

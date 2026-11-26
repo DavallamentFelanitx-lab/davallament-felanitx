@@ -45,9 +45,24 @@ davallament-felanitx/
 
 ---
 
-## Com editar el contingut fàcilment (YAML)
+## Com editar el contingut fàcilment (Sveltia CMS o YAML)
 
-No cal tocar cap fitxer HTML ni JavaScript per actualitzar notícies, retalls de premsa o fotografies. Pots editar els fitxers `.yaml` dins la carpeta `data/` directament des de **GitHub** (fent clic al fitxer → icona del llapis **Edit** → **Commit changes**).
+### Opció A — Gestor visual **Sveltia CMS** (recomanat)
+
+Pots editar notícies, fotografies de galeria, vídeos de YouTube, la Junta Directiva, convocatòries i la línia temporal d'Història des d'un panell visual sense tocar cap codi:
+
+- **En local (sense contrasenyes ni servidor extra):**
+  1. Obre **http://127.0.0.1:8096/admin/** amb **Chrome** o **Edge**.
+  2. Fes clic a **«Work with Local Repository»** (*Treballa amb el repositori local*) i selecciona la carpeta del projecte (`davallament-felanitx-repo`).
+  3. Edita i desa directament els fitxers del projecte!
+- **A GitHub Pages (en línia des de qualsevol dispositiu):**
+  1. Obre **https://davallamentfelanitx-lab.github.io/davallament-felanitx/admin/**.
+  2. Fes clic a **«Sign in with Token»** i introdueix un *Personal Access Token (classic)* de GitHub amb permís `repo` (o *Fine-grained token* amb permís *Contents: Read and write* sobre aquest repositori).
+  3. Cada vegada que facis clic a **Desar / Publicar**, Sveltia CMS farà el `commit` automàticament a la branca `develop` i GitHub Pages actualitzarà la web en 1–2 minuts.
+
+### Opció B — Editar directament els fitxers YAML a GitHub
+
+També pots editar els fitxers `.yaml` dins la carpeta `data/` directament des de **GitHub** (fent clic al fitxer → icona del llapis **Edit** → **Commit changes**).
 
 ### 1. Afegir o editar una notícia (`data/noticies.yaml`)
 

@@ -6,38 +6,39 @@
 #   2. Afegeix una fitxa com les de sota en aquest fitxer.
 # ============================================================================
 
-- id: davallament-creu
-  titol: "El Davallament de la Creu"
-  album: "El Davallament"
-  any: "Edició recent"
-  lloc: "Portalada principal de la Parròquia de Sant Miquel"
-  credit: "Associació El Davallament de Felanitx"
-  imatge: "img/hero/hero1.jpg"
-  descripcio: "El moment culminant de la nit: amb les dues escales i el llençol blanc, els sants homes davallen el cos de Jesús sota la llum blavosa i la portalada barroca de Sant Miquel."
+items:
+  - id: davallament-creu
+    titol: "El Davallament de la Creu"
+    album: "El Davallament"
+    any: "Edició recent"
+    lloc: "Portalada principal de la Parròquia de Sant Miquel"
+    credit: "Associació El Davallament de Felanitx"
+    imatge: "img/hero/hero1.jpg"
+    descripcio: "El moment culminant de la nit: amb les dues escales i el llençol blanc, els sants homes davallen el cos de Jesús sota la llum blavosa i la portalada barroca de Sant Miquel."
 
-- id: cami-calvari-veronica
-  titol: "La Caiguda amb la Creu i la Verònica"
-  album: "Camí del Calvari"
-  any: "Edició recent"
-  lloc: "Replà superior de Sant Miquel"
-  credit: "Associació El Davallament de Felanitx"
-  imatge: "img/hero/hero4.jpg"
-  descripcio: "Sota el rosetó de l'església parroquial, la Verònica mostra el mocador mentre Jesús cau amb la creu envoltat pels soldats romans i el poble de Felanitx."
+  - id: cami-calvari-veronica
+    titol: "La Caiguda amb la Creu i la Verònica"
+    album: "Camí del Calvari"
+    any: "Edició recent"
+    lloc: "Replà superior de Sant Miquel"
+    credit: "Associació El Davallament de Felanitx"
+    imatge: "img/hero/hero4.jpg"
+    descripcio: "Sota el rosetó de l'església parroquial, la Verònica mostra el mocador mentre Jesús cau amb la creu envoltat pels soldats romans i el poble de Felanitx."
 
-- id: armats-escalinata
-  titol: "Escorta dels Armats per l'escalinata"
-  album: "Camí del Calvari"
-  any: "Edició recent"
-  lloc: "Escalinata de pedra de marès de Sant Miquel"
-  credit: "Associació El Davallament de Felanitx"
-  imatge: "img/hero/hero2.jpg"
-  descripcio: "La tensió dramàtica de l'ascens cap al Calvari amb els armats romans, les llances i la llum vermellosa reflectida sobre cada esglaó de marès."
+  - id: armats-escalinata
+    titol: "Escorta dels Armats per l'escalinata"
+    album: "Camí del Calvari"
+    any: "Edició recent"
+    lloc: "Escalinata de pedra de marès de Sant Miquel"
+    credit: "Associació El Davallament de Felanitx"
+    imatge: "img/hero/hero2.jpg"
+    descripcio: "La tensió dramàtica de l'ascens cap al Calvari amb els armats romans, les llances i la llum vermellosa reflectida sobre cada esglaó de marès."
 
-- id: judici-pilat-flagellacio
-  titol: "El Judici de Ponç Pilat i la Flagel·lació"
-  album: "Passió i Judici"
-  any: "Edició recent"
-  lloc: "Balconada lateral i escalinata de Sant Miquel"
-  credit: "Associació El Davallament de Felanitx"
-  imatge: "img/hero/hero3.jpg"
-  descripcio: "Ponç Pilat presideix el pretori des de l'arc de pedra lateral mentre té lloc l'escena de la flagel·lació davant la mirada del poble."
+  - id: judici-pilat-flagellacio
+    titol: "El Judici de Ponç Pilat i la Flagel·lació"
+    album: "Passió i Judici"
+    any: "Edició recent"
+    lloc: "Balconada lateral i escalinata de Sant Miquel"
+    credit: "Associació El Davallament de Felanitx"
+    imatge: "img/hero/hero3.jpg"
+    descripcio: "Ponç Pilat presideix el pretori des de l'arc de pedra lateral mentre té lloc l'escena de la flagel·lació davant la mirada del poble."

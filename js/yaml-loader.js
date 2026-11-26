@@ -1,16 +1,13 @@
 /* ==========================================================================
-   Lightweight Zero-Dependency YAML List Parser for Browser (GitHub Pages Ready)
+   Lightweight Zero-Dependency YAML List Parser for Browser (GitHub Pages + Sveltia CMS Ready)
    Supports:
      - Comments (#)
-     - Root lists of objects (- key: value)
+     - Root lists of objects (- key: value) AND Sveltia CMS wrapped lists (items:\n  - key: value)
      - Quoted strings ("..." / '...') with escaped quotes & colons
      - Booleans (true/false) & numbers
      - Inline arrays: ["A", "B", "C"]
-     - Multi-line child lists:
-         cos:
-           - "Paràgraf 1"
-           - "Paràgraf 2"
-     - Multi-line block scalars (| or >)
+     - Multi-line child lists (scalars or objects)
+     - Multi-line block scalars (|, |-, >, >-) and wrapped plain scalars
    ========================================================================== */
 
 window.SimpleYAML = (function () {
@@ -20,21 +17,19 @@ window.SimpleYAML = (function () {
     const val = raw.trim();
     if (!val) return "";
 
-    // Double-quoted string
     if (val.startsWith('"') && val.endsWith('"') && val.length >= 2) {
       return val
         .slice(1, -1)
         .replace(/\\"/g, '"')
         .replace(/\\n/g, "\n")
+        .replace(/\\t/g, "\t")
         .replace(/\\\\/g, "\\");
     }
 
-    // Single-quoted string
     if (val.startsWith("'") && val.endsWith("'") && val.length >= 2) {
       return val.slice(1, -1).replace(/''/g, "'");
     }
 
-    // Inline array [a, b, c]
     if (val.startsWith("[") && val.endsWith("]")) {
       const inner = val.slice(1, -1).trim();
       if (!inner) return [];
@@ -111,10 +106,43 @@ window.SimpleYAML = (function () {
   }
 
   function parseList(yamlText) {
-    const lines = yamlText.replace(/\r\n/g, "\n").split("\n");
+    const rawLines = yamlText.replace(/\r\n/g, "\n").split("\n");
+
+    // Detect if the file is a Sveltia CMS wrapper object (e.g. "items:\n  - id: ...")
+    // and determine the base indent of the list items.
+    let listItemIndent = 0;
+    for (let i = 0; i < rawLines.length; i++) {
+      const cleaned = stripInlineComment(rawLines[i]);
+      const trimmed = cleaned.trim();
+      if (!trimmed) continue;
+      const ind = cleaned.length - cleaned.trimStart().length;
+      if (trimmed.startsWith("- ") || trimmed === "-") {
+        listItemIndent = ind;
+        break;
+      }
+      // Top-level wrapper key like "items:" or "noticies:" -> look for first list item below it
+      const kv = splitKeyValue(trimmed);
+      if (kv && kv[1] === "") {
+        for (let j = i + 1; j < rawLines.length; j++) {
+          const c2 = stripInlineComment(rawLines[j]);
+          const t2 = c2.trim();
+          if (!t2) continue;
+          const ind2 = c2.length - c2.trimStart().length;
+          if (t2.startsWith("- ") || t2 === "-") {
+            listItemIndent = ind2;
+          }
+          break;
+        }
+        break;
+      }
+      break;
+    }
+
     const result = [];
     let currentObj = null;
     let activeListKey = null;
+    let activeScalarKey = null;
+    let activePropIndent = 0;
     let blockKey = null;
     let blockMode = null; // '|' or '>'
     let blockIndent = 0;
@@ -133,10 +161,13 @@ window.SimpleYAML = (function () {
       blockLines = [];
     }
 
-    for (let i = 0; i < lines.length; i++) {
-      const rawLine = lines[i];
+    function isBlockMarker(v) {
+      return v === "|" || v === "|-" || v === "|+" || v === ">" || v === ">-" || v === ">+";
+    }
 
-      // Handle active block scalar (| or >)
+    for (let i = 0; i < rawLines.length; i++) {
+      const rawLine = rawLines[i];
+
       if (blockKey) {
         const trimmed = rawLine.trim();
         const indent = rawLine.length - rawLine.trimStart().length;
@@ -144,7 +175,14 @@ window.SimpleYAML = (function () {
           blockLines.push("");
           continue;
         }
-        if (indent >= blockIndent) {
+        if (blockIndent === -1) {
+          if (indent > activePropIndent) {
+            blockIndent = indent;
+          } else {
+            flushBlock();
+          }
+        }
+        if (blockKey && indent >= blockIndent) {
           blockLines.push(rawLine.slice(blockIndent));
           continue;
         }
@@ -157,9 +195,15 @@ window.SimpleYAML = (function () {
 
       const indent = cleaned.length - cleaned.trimStart().length;
 
-      // New top-level item: "- key: value" or "-"
-      if (indent === 0 && (trimmed.startsWith("- ") || trimmed === "-")) {
+      // Skip top-level wrapper key (e.g. "items:") when listItemIndent > 0
+      if (listItemIndent > 0 && indent < listItemIndent) {
+        continue;
+      }
+
+      // New list item at listItemIndent: "- key: value" or "-"
+      if (indent === listItemIndent && (trimmed.startsWith("- ") || trimmed === "-")) {
         activeListKey = null;
+        activeScalarKey = null;
         currentObj = {};
         result.push(currentObj);
         const rest = trimmed.slice(1).trim();
@@ -167,16 +211,18 @@ window.SimpleYAML = (function () {
           const kv = splitKeyValue(rest);
           if (kv) {
             const [k, v] = kv;
-            if (v === "|" || v === ">") {
+            activePropIndent = indent + 2;
+            if (isBlockMarker(v)) {
               blockKey = k;
-              blockMode = v;
-              blockIndent = 4;
+              blockMode = v[0];
+              blockIndent = -1;
               blockLines = [];
             } else if (v === "") {
               currentObj[k] = [];
               activeListKey = k;
             } else {
               currentObj[k] = parseScalar(v);
+              activeScalarKey = typeof currentObj[k] === "string" ? k : null;
             }
           }
         }
@@ -185,32 +231,50 @@ window.SimpleYAML = (function () {
 
       if (!currentObj) continue;
 
-      // Indented child list item under activeListKey (e.g. "    - Paràgraf")
-      if (activeListKey && trimmed.startsWith("- ")) {
-        const itemVal = parseScalar(trimmed.slice(2));
+      // Indented child list item under activeListKey
+      if (activeListKey && indent > listItemIndent && trimmed.startsWith("- ")) {
+        const itemText = trimmed.slice(2);
+        const itemVal = parseScalar(itemText);
         if (!Array.isArray(currentObj[activeListKey])) {
           currentObj[activeListKey] = [];
         }
         currentObj[activeListKey].push(itemVal);
+        activeScalarKey = null;
         continue;
       }
 
-      // Property on current object
+      // Wrapped continuation line for a plain scalar or list item (emitted by Sveltia / js-yaml)
+      if (activeListKey && indent > activePropIndent + 1 && Array.isArray(currentObj[activeListKey]) && currentObj[activeListKey].length) {
+        const lastIdx = currentObj[activeListKey].length - 1;
+        if (typeof currentObj[activeListKey][lastIdx] === "string") {
+          currentObj[activeListKey][lastIdx] = (currentObj[activeListKey][lastIdx] + " " + trimmed).trim();
+          continue;
+        }
+      }
+
       const kv = splitKeyValue(trimmed);
-      if (kv) {
+      if (kv && indent <= listItemIndent + 2) {
         const [k, v] = kv;
         activeListKey = null;
-        if (v === "|" || v === ">") {
+        activeScalarKey = null;
+        activePropIndent = indent;
+        if (isBlockMarker(v)) {
           blockKey = k;
-          blockMode = v;
-          blockIndent = indent + 2;
+          blockMode = v[0];
+          blockIndent = -1;
           blockLines = [];
         } else if (v === "") {
           currentObj[k] = [];
           activeListKey = k;
         } else {
           currentObj[k] = parseScalar(v);
+          activeScalarKey = typeof currentObj[k] === "string" ? k : null;
         }
+        continue;
+      }
+
+      if (activeScalarKey && indent > activePropIndent) {
+        currentObj[activeScalarKey] = (String(currentObj[activeScalarKey]) + " " + trimmed).trim();
       }
     }
 

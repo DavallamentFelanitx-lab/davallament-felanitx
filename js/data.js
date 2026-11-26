@@ -65,27 +65,27 @@ window.DAVALLAMENT_DATA = {
   heroSlides: [
     {
       src: "img/hero/hero1.jpg",
-      kicker: "Divendres Sant · Escalinata de Sant Miquel",
+      kicker: "Divendres Sant · Escalinata i replà de la parròquia de Sant Miquel",
       title: "El Davallament de Felanitx",
-      subtitle: "El moment culminant del descendiment de la creu davant la portalada barroca de la Parròquia de Sant Miquel."
+      subtitle: "El patrimoni viu de tot un poble"
     },
     {
       src: "img/hero/hero4.jpg",
-      kicker: "Patrimoni Viu des de 1975",
-      title: "El Camí del Calvari",
-      subtitle: "Prop de dos cents veïns i veïnes transformen cada any l'escalinata de pedra de marès en un teatre sacre a cel obert."
+      kicker: "Divendres Sant · Escalinata i replà de la parròquia de Sant Miquel",
+      title: "El Davallament de Felanitx",
+      subtitle: "El patrimoni viu de tot un poble"
     },
     {
       src: "img/hero/hero2.jpg",
-      kicker: "Escenografia i Llum",
-      title: "Davant els Armats i el Poble",
-      subtitle: "Teatre popular, il·luminació dramàtica i una posada en escena plena de solemnitat."
+      kicker: "Divendres Sant · Escalinata i replà de la parròquia de Sant Miquel",
+      title: "El Davallament de Felanitx",
+      subtitle: "El patrimoni viu de tot un poble"
     },
     {
       src: "img/hero/hero3.jpg?v=2",
-      kicker: "Tradició i Emoció",
-      title: "El Sant Sopar",
-      subtitle: "El comiat dels deixebles i el pa compartit sota una posada en escena íntima i solemne davant el poble de Felanitx."
+      kicker: "Divendres Sant · Escalinata i replà de la parròquia de Sant Miquel",
+      title: "El Davallament de Felanitx",
+      subtitle: "El patrimoni viu de tot un poble"
     }
   ],
 
