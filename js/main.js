@@ -176,10 +176,12 @@
       .replace(/'/g, "&#39;");
   }
 
+  const SUPPORTED_LANGS = ["ca", "es", "en"];
+
   function getStoredLang() {
     try {
       const saved = localStorage.getItem(STORAGE_KEY_LANG);
-      if (saved && I18N && I18N[saved]) return saved;
+      if (saved && SUPPORTED_LANGS.includes(saved) && I18N && I18N[saved]) return saved;
     } catch (_) {}
     return "ca";
   }
@@ -409,7 +411,7 @@
         <header class="site-header" id="site-header">
           <div class="top-bar">
             <div class="language-selector" role="group" aria-label="Language">
-              ${["ca", "es", "en", "de"]
+              ${SUPPORTED_LANGS
                 .map(
                   (code) =>
                     `<button type="button" data-lang="${code}" class="${code === currentLang ? "active" : ""}" aria-pressed="${code === currentLang}">${code.toUpperCase()}</button>`

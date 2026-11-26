@@ -30,7 +30,7 @@ davallament-felanitx/
 │   └── multimedia.yaml     # Fitxer editable dels vídeos de YouTube (apartat Multimèdia)
 ├── js/
 │   ├── data.js             # Textos base, escenes, cronologia i dades de reserva
-│   ├── i18n.js             # Traduccions completes de tota la web (CA, ES, EN, DE)
+│   ├── i18n.js             # Traduccions completes de tota la web (CA, ES, EN)
 │   ├── yaml-loader.js      # Lector YAML lleuger sense dependències per al navegador
 │   └── main.js             # Capçalera, peu, carrusel, filtres, modals, lightbox i idiomes
 └── img/
@@ -153,7 +153,7 @@ Edita `data/multimedia.yaml` i enganxa qualsevol enllaç de YouTube a `youtubeUr
   - Crema suau (fons alternats): `#EDE2C9` / `#F8F5EF`
   - Capçalera blanca neta amb el logotip oficial (`img/logo/logo.png`).
 - **Tipografies:** *Cormorant Garamond* (títols) i *Source Sans 3* (text).
-- **Navegació:** capçalera fixa (*sticky*) que redueix suaument la mida en fer *scroll*, menú hamburguesa en mòbil i selector d'idioma de la interfície (`CA / ES / EN / DE`).
+- **Navegació:** capçalera fixa (*sticky*) que redueix suaument la mida en fer *scroll*, menú hamburguesa en mòbil i selector d'idioma de la interfície (`CA / ES / EN`).
 - **Components interactius:** carrusel de fotos reals a l'inici, explorador de les 8 escenes a `representacio.html`, lector modal de notícies amb botó per copiar enllaç directe (`noticies.html?id=...`), visor de retalls d'hemeroteca i visor *lightbox* amb navegació per teclat (`←`, `→`, `Esc`).
 
 ---
