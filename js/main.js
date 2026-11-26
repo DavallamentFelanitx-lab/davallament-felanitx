@@ -499,11 +499,13 @@
         toggle.addEventListener("click", () => {
           const open = nav.classList.toggle("open");
           toggle.setAttribute("aria-expanded", String(open));
+          document.body.classList.toggle("menu-open", open);
         });
         nav.querySelectorAll("a").forEach((a) => {
           a.addEventListener("click", () => {
             nav.classList.remove("open");
             toggle.setAttribute("aria-expanded", "false");
+            document.body.classList.remove("menu-open");
           });
         });
       }
