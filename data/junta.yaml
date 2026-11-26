@@ -14,21 +14,21 @@
 items:
   - id: presidencia
     carrec: President
-    nom: Llorenç Vadell Adrover
+    nom: President
     area: ''
   - id: vicepresidencia
     carrec: Vicepresidenta
-    nom: Maria Servera Fuster
+    nom: Vicepresidenta
     area: ''
   - id: secretaria
     carrec: Secretària
-    nom: Maria Monserrat Barceló
+    nom: Secretària
     area: ''
   - id: tresoreria
     carrec: Tresorer
-    nom: Pere Oliver Cantallops
+    nom: Tresorer
     area: ''
   - id: vocalia-escenografia
     carrec: Vocal
-    nom: Llorenç Nicolau Sagrera
+    nom: Vocal
     area: ''
