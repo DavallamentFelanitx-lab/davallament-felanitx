@@ -7,9 +7,15 @@
 # en graella de dues columnes.
 
 items:
-  - id: "davallament-2025-ib3"
-    titol: "El Davallament de Felanitx 2025 — 50è Aniversari"
-    any: "2025"
-    font: "IB3 Televisió"
-    youtubeUrl: "https://www.youtube.com/watch?v=paEAKhoOjV4"
-    descripcio: "Retransmissió televisiva del cinquantenari del Davallament de Felanitx, celebrat el Divendres Sant de 2025 a la Plaça de sa Font de Santa Margalida."
+  - id: davallament-2025-ib3
+    titol: El Davallament de Felanitx 2025 — 50è Aniversari
+    any: '2025'
+    font: IB3 Televisió
+    youtubeUrl: https://www.youtube.com/watch?v=paEAKhoOjV4
+    descripcio: Retransmissió televisiva del cinquantenari del Davallament de Felanitx, celebrat el Divendres Sant de 2025 a la Plaça de sa Font de Santa Margalida.
+  - id: assajos2026
+    titol: Reportatge del programa "A dins" d'IB3 on es mostren els preparatius i assajos previs a la representació
+    any: '2026'
+    font: IB3
+    youtubeUrl: https://www.instagram.com/reel/DWgZDXQjSo0/?utm_source=ig_web_copy_link&bqrl=MzRlODBiNWFlZA==&avpt=MzRlODBiNWFlZA==
+    descripcio: El Davallament de Felanitx va ser protagonista al programa A dins d’IB3, en un reportatge que mostrava, els preparatius i assajos previs a la representació.
