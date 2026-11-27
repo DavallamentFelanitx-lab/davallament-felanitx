@@ -4,42 +4,33 @@
 # Editable fàcilment des de Sveltia CMS (/admin/) o directament aquí.
 
 items:
-  - any: "1975"
-    titol: "El primer Davallament al replà de la Parròquia de Sant Miquel"
-    text: "Impulsat per la Creuada de l'Amor Diví, el 28 de març de 1975 el Davallament es va representar per primera vegada al replà de la parròquia. Fins llavors s'havia representat a l'interior del temple."
-
-  - any: "Primers anys (1975–1986)"
-    titol: "Els inicis: cant sacre, Evangeli i sermó"
-    text: "Durant els primers anys, el Davallament es realitzava amb certa senzillesa. L'acte s'obria amb el cant de diverses peces sacres interpretades per la Coral de Felanitx; tot seguit es llegia l'Evangeli, i a continuació un reconegut orador pronunciava un sermó, que es convertia en part important de la funció."
-
-  - any: "A partir de 1987"
-    titol: "De cerimònia a espectacle a l'escalinata"
-    text: "A partir de l’any 1987 –i de forma progressiva– s’incorporen personatges, s’afegeixen escenes de la Passió abans del davallament –que es representen a l’escalinata–, s’introdueix música sacra enregistrada –que és reproduïda per un potent equip de so– i es dota la celebració d’un complet equip de llum, incorporacions que suposen convertir la cerimònia en un espectacle."
-
-  - any: "1991"
-    titol: "Gent de Bulla i els textos del pare Antoni Oliver C.R."
-    text: "L'any 1991, la representació dels personatges, a través de quadres estàtics, s'encarrega al grup de teatre felanitxer Gent de Bulla, i el teatí pare Antoni Oliver C.R. escriu uns textos específicament per al Davallament de Felanitx, que es llegeixen cada any, a fi d'acompanyar, amb la música, les diferents escenes."
-
-  - any: "2000"
-    titol: "Renovació escènica, voluntariat i Jesús interpretat per una persona"
-    text: "L'any 2000 es produeixen canvis importants. L'organització es concentra en la Confraria del Sant Crist de la Bona Mort; la direcció escènica s'encarrega a Josep Lluís Fernández, i el grup d'actors passen a ser persones voluntàries de Felanitx que, a la llarga, també portaran l'organització de facto de l'acte. Una de les novetats més destacables d'aquell any és que la figura de Jesús passa a ser interpretada per una persona i s'elimina, així, la talla amb què s'havia escenificat el Davallament fins aleshores. Des del 2000, les diverses seqüències cobren més dinamisme –desapareixen quasi totes les estàtiques–, se n'afegeixen de noves, s'incorporen altres personatges, s'utilitzen nous materials i es construeixen escenaris."
-
-  - any: "2008–2019"
-    titol: "Direcció de Jaume Caldentey i etapa de consolidació"
-    text: "L'any 2008 el Davallament és dirigit per Jaume Caldentey. A partir de l'any 2009, Josep Lluís Fernàndez torna a encarregar-se de la direcció escènica fins a l'any 2019, darrera edició celebrada abans de la pandèmia."
-
-  - any: "2023"
-    titol: "Renovació tècnica i direcció de Marta Obrador"
+  - any: '1975'
+    titol: El primer Davallament al replà de la Parròquia de Sant Miquel
+    text: Impulsat per la Creuada de l'Amor Diví, el 28 de març de 1975 el Davallament es va representar per primera vegada al replà de la parròquia. Fins llavors s'havia representat a l'interior del temple.
+  - any: Primers anys (1975–1986)
+    titol: 'Els inicis: cant sacre, Evangeli i sermó'
+    text: Durant els primers anys, el Davallament es realitzava amb certa senzillesa. L'acte s'obria amb el cant de diverses peces sacres interpretades per la Coral de Felanitx; tot seguit es llegia l'Evangeli, i a continuació un reconegut orador pronunciava un sermó, que es convertia en part important de la funció.
+  - any: A partir de 1987
+    titol: De cerimònia a espectacle a l'escalinata
+    text: A partir de l’any 1987 –i de forma progressiva– s’incorporen personatges, s’afegeixen escenes de la Passió abans del davallament –que es representen a l’escalinata–, s’introdueix música sacra enregistrada –que és reproduïda per un potent equip de so– i es dota la celebració d’un complet equip de llum, incorporacions que suposen convertir la cerimònia en un espectacle.
+  - any: '1991'
+    titol: Gent de Bulla i els textos del pare Antoni Oliver C.R.
+    text: L'any 1991, la representació dels personatges, a través de quadres estàtics, s'encarrega al grup de teatre felanitxer Gent de Bulla, i el teatí pare Antoni Oliver C.R. escriu uns textos específicament per al Davallament de Felanitx, que es llegeixen cada any, a fi d'acompanyar, amb la música, les diferents escenes.
+  - any: '2000'
+    titol: Renovació escènica, voluntariat i Jesús interpretat per una persona
+    text: L'any 2000 es produeixen canvis importants. L'organització es concentra en la Confraria del Sant Crist de la Bona Mort; la direcció escènica s'encarrega a Josep Lluís Fernández, i el grup d'actors passen a ser persones voluntàries de Felanitx que, a la llarga, també portaran l'organització de facto de l'acte. Una de les novetats més destacables d'aquell any és que la figura de Jesús passa a ser interpretada per una persona i s'elimina, així, la talla amb què s'havia escenificat el Davallament fins aleshores. Des del 2000, les diverses seqüències cobren més dinamisme –desapareixen quasi totes les estàtiques–, se n'afegeixen de noves, s'incorporen altres personatges, s'utilitzen nous materials i es construeixen escenaris.
+  - any: 2008–2019
+    titol: Direcció de Jaume Caldentey i etapa de consolidació
+    text: L'any 2008 el Davallament és dirigit per Jaume Caldentey. A partir de l'any 2009, Josep Lluís Fernàndez torna a encarregar-se de la direcció escènica fins a l'any 2019, darrera edició celebrada abans de la pandèmia.
+  - any: '2023'
+    titol: Renovació tècnica i direcció de Marta Obrador
     text: "L'edició de 2023, dirigida per la felanitxera Marta Obrador, incorpora novetats importants en la posada en escena: es renoven materials i escenaris i s'introdueixen innovadors efectes sonors i luminotècnics."
-
-  - any: "2024"
-    titol: "Direcció de Joan Toni Sunyer"
-    text: "L'any 2024 assumeix la direcció escènica l'actor i director Joan Toni Sunyer, introduint diversos detalls i canvis en l’escenificació i el muntatge de les escenes que es representaran."
-
-  - any: "2025"
-    titol: "50è Aniversari: sis escenaris i nova banda sonora"
-    text: "Felanitx celebra el 50è aniversari del Davallament a l'exterior amb una edició històrica codirigida per Marta Obrador i Joan Toni Sunyer. L'espectacle s'expandeix de manera excepcional per sis escenaris diferents a la Plaça de sa Font de Santa Margalida, estrena la banda sonora original de Joan Martorell, compta amb un cartell commemoratiu de Miquel Barceló i es retransmet en directe a IB3 Televisió. Per primera vegada, el Davallament s'enllaça amb la processó del Divendres Sant i s'incorpora el pas vivent de Jesús jacent."
-
-  - any: "2026"
-    titol: "51a edició i retorn a l'escalinata tradicional"
-    text: "L'any 2026 el Davallament torna a ser dirigit per Joan Toni Sunyer, retornant tot el protagonisme a la façana i l'escalinata de Sant Miquel, consolidant la banda sonora de Joan Martorell i batent un rècord de participació amb 160 actors i actrius d'entre 3 i gairebé 80 anys."
+  - any: '2024'
+    titol: Direcció de Joan Toni Sunyer
+    text: L'any 2024 assumeix la direcció escènica l'actor i director Joan Toni Sunyer, introduint diversos detalls i canvis en l’escenificació i el muntatge de les escenes representades.
+  - any: '2025'
+    titol: '50è Aniversari: sis escenaris i nova banda sonora'
+    text: Felanitx celebra el 50è aniversari del Davallament a l'exterior amb una edició històrica codirigida per Marta Obrador i Joan Toni Sunyer. L'espectacle s'expandeix de manera excepcional per sis escenaris diferents a la Plaça de sa Font de Santa Margalida, estrena la banda sonora original de Joan Martorell, compta amb un cartell commemoratiu de Miquel Barceló i es retransmet en directe a IB3 Televisió. Per primera vegada, el Davallament s'enllaça amb la processó del Divendres Sant i s'incorpora el pas vivent de Jesús jacent.
+  - any: '2026'
+    titol: 51a edició i retorn a l'escalinata tradicional
+    text: L'any 2026 el Davallament torna a ser dirigit per Joan Toni Sunyer, retornant tot el protagonisme a la façana i l'escalinata de Sant Miquel, consolidant la banda sonora de Joan Martorell i batent un rècord de participació amb 160 actors i actrius d'entre 3 i gairebé 80 anys.
