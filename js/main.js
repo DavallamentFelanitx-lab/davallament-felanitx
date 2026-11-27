@@ -1664,8 +1664,10 @@
         ...years.map((y) => `<option value="${escapeHtml(y)}"${y === activeYear ? " selected" : ""}>${escapeHtml(y)}</option>`)
       ].join("");
       yearSelect.value = activeYear;
+      yearSelect.classList.toggle("active", Boolean(activeYear));
       yearSelect.onchange = () => {
         activeYear = yearSelect.value;
+        yearSelect.classList.toggle("active", Boolean(activeYear));
         renderGrid();
       };
     }
