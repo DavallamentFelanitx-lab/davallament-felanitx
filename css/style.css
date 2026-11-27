@@ -107,18 +107,22 @@ button, input, select, textarea {
 }
 
 /* ==========================================================================
-   HEADER (Fidel a l'estil blanc net amb logo oficial i shrink-on-scroll)
+   HEADER (Fidel a l'estil blanc net amb logo oficial i shrink-on-scroll sense vibració)
    ========================================================================== */
 #site-header-host {
-  position: sticky;
-  top: 0;
-  z-index: 1000;
+  height: 172px; /* Reserva fija en flujo para evitar saltos de scroll al encoger el header */
 }
 
 .site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
   background: #ffffff;
   box-shadow: 0 2px 12px rgba(30, 25, 22, 0.06);
   transition: box-shadow 0.3s ease;
+  will-change: transform;
 }
 
 .site-header.scrolled {
@@ -2428,6 +2432,7 @@ h1, h2, h3, h4 {
 
 @media (max-width: 860px) {
   body.menu-open { overflow: hidden; }
+  #site-header-host { height: 132px; }
   .brand img { height: 78px; }
   .site-header.scrolled .brand img { height: 58px; }
   .menu-toggle { display: block; }

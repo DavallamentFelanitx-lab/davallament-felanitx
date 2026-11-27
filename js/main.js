@@ -15,6 +15,42 @@
   const STORAGE_KEY_LANG = "davallament_felanitx_lang_v1";
   const STORAGE_KEY_AUTOTRANS = "davallament_autotrans_news_v1";
   const NEWS_PER_PAGE = 6;
+  const USE_CLEAN_URLS =
+    window.location.protocol.startsWith("http") &&
+    !["127.0.0.1", "localhost"].includes(window.location.hostname);
+
+  function formatHref(href) {
+    if (!USE_CLEAN_URLS || !href) return href;
+    const str = String(href);
+    if (/^(https?:|mailto:|tel:|#|javascript:)/i.test(str)) return str;
+    if (/^index\.html($|[?#])/.test(str)) {
+      return str.replace(/^index\.html/, "./");
+    }
+    return str.replace(/^([a-z0-9_-]+)\.html($|[?#])/i, "$1$2");
+  }
+
+  function cleanCurrentAddressBar() {
+    if (!USE_CLEAN_URLS || !window.history || !window.history.replaceState) return;
+    const path = window.location.pathname;
+    let nextPath = path;
+    if (path.endsWith("/index.html")) {
+      nextPath = path.slice(0, -10);
+    } else if (path.endsWith(".html")) {
+      nextPath = path.slice(0, -5);
+    }
+    if (nextPath !== path) {
+      window.history.replaceState(null, "", nextPath + window.location.search + window.location.hash);
+    }
+  }
+
+  function rewriteStaticLinks() {
+    if (!USE_CLEAN_URLS) return;
+    document.querySelectorAll("a[href]").forEach((a) => {
+      const raw = a.getAttribute("href");
+      const next = formatHref(raw);
+      if (next !== raw) a.setAttribute("href", next);
+    });
+  }
   let openNewsArticleId = null;
   const inFlightTranslations = new Set();
 
@@ -480,7 +516,7 @@
           </div>
 
           <div class="main-header">
-            <a href="index.html" class="brand" aria-label="El Davallament de Felanitx">
+            <a href="${formatHref("index.html")}" class="brand" aria-label="El Davallament de Felanitx">
               <img src="img/logo/logo.png" alt="Logo El Davallament de Felanitx">
             </a>
 
@@ -503,7 +539,7 @@
                         ${item.children
                           .map(
                             (sub) =>
-                              `<a href="${sub.href}" role="menuitem">${escapeHtml((d.subnav && d.subnav[sub.key]) || sub.key)}</a>`
+                              `<a href="${formatHref(sub.href)}" role="menuitem">${escapeHtml((d.subnav && d.subnav[sub.key]) || sub.key)}</a>`
                           )
                           .join("")}
                       </div>
@@ -511,7 +547,7 @@
                   : "";
                 return `
                   <div class="nav-item${hasChildren ? " nav-item--has-sub" : ""}">
-                    <a href="${item.href}" data-nav-key="${item.key}" class="${isActive ? "active" : ""}" ${isActive ? 'aria-current="page"' : ""}>
+                    <a href="${formatHref(item.href)}" data-nav-key="${item.key}" class="${isActive ? "active" : ""}" ${isActive ? 'aria-current="page"' : ""}>
                       ${escapeHtml(d.nav[item.key])}${chevron}
                     </a>
                     ${subMenu}
@@ -526,24 +562,30 @@
       const toggle = document.getElementById("menu-toggle");
       const nav = document.getElementById("main-nav");
 
-      if (window.scrollY > 60 && header) header.classList.add("scrolled");
+      if (window.scrollY > 80 && header) header.classList.add("scrolled");
 
       if (!scrollListenerBound) {
         scrollListenerBound = true;
-        let isScrolled = window.scrollY > 60;
+        let isScrolled = window.scrollY > 80;
+        let ticking = false;
         window.addEventListener(
           "scroll",
           () => {
-            const hdr = document.getElementById("site-header");
-            if (!hdr) return;
-            const y = window.scrollY;
-            if (!isScrolled && y > 60) {
-              isScrolled = true;
-              hdr.classList.add("scrolled");
-            } else if (isScrolled && y < 20) {
-              isScrolled = false;
-              hdr.classList.remove("scrolled");
-            }
+            if (ticking) return;
+            ticking = true;
+            window.requestAnimationFrame(() => {
+              ticking = false;
+              const hdr = document.getElementById("site-header");
+              if (!hdr) return;
+              const y = window.scrollY;
+              if (!isScrolled && y > 80) {
+                isScrolled = true;
+                hdr.classList.add("scrolled");
+              } else if (isScrolled && y < 30) {
+                isScrolled = false;
+                hdr.classList.remove("scrolled");
+              }
+            });
           },
           { passive: true }
         );
@@ -576,7 +618,7 @@
         <footer class="site-footer">
           <div class="container">
             <div class="footer-top-bar">
-              <a href="index.html" class="footer-brand-name">${escapeHtml(d.footer.title)}</a>
+              <a href="${formatHref("index.html")}" class="footer-brand-name">${escapeHtml(d.footer.title)}</a>
               <div class="footer-social" aria-label="Xarxes socials">
                 <a href="${SOCIAL_LINKS.instagram}" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Instagram @davallament_felanitx" title="Instagram · @davallament_felanitx">
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -599,12 +641,12 @@
                   const children = Array.isArray(col.children) ? col.children : [];
                   return `
                     <div class="footer-col">
-                      <a href="${col.href}" class="footer-col-title">${escapeHtml(d.nav[col.key])}</a>
+                      <a href="${formatHref(col.href)}" class="footer-col-title">${escapeHtml(d.nav[col.key])}</a>
                       <ul class="footer-sublinks">
                         ${children
                           .map(
                             (sub) =>
-                              `<li><a href="${sub.href}">${escapeHtml((d.subnav && d.subnav[sub.key]) || sub.key)}</a></li>`
+                              `<li><a href="${formatHref(sub.href)}">${escapeHtml((d.subnav && d.subnav[sub.key]) || sub.key)}</a></li>`
                           )
                           .join("")}
                       </ul>
@@ -748,11 +790,12 @@
       });
     }
     document.getElementById("copy-news-link").addEventListener("click", () => {
-      const shareUrl = `${window.location.origin}${window.location.pathname.replace(/[^/]*$/, "")}noticies.html?id=${encodeURIComponent(item.id)}`;
+      const sharePage = formatHref("noticies.html");
+      const shareUrl = `${window.location.origin}${window.location.pathname.replace(/[^/]*$/, "")}${sharePage}?id=${encodeURIComponent(item.id)}`;
       if (navigator.clipboard && navigator.clipboard.writeText) {
         navigator.clipboard.writeText(shareUrl).then(() => showToast(ui.linkCopied));
       } else {
-        showToast("noticies.html?id=" + item.id);
+        showToast(`${sharePage}?id=` + item.id);
       }
     });
   }
@@ -877,7 +920,7 @@
             <h1 class="hero-slide-title" id="hero-title">${escapeHtml(slidesData[0].title)}</h1>
             <p class="hero-slide-sub" id="hero-sub">${escapeHtml(slidesData[0].subtitle)}</p>
             <div class="hero-actions">
-              <a href="galeria.html" class="btn btn--sand">${escapeHtml(ui.viewGallery)}</a>
+              <a href="${formatHref("galeria.html")}" class="btn btn--sand">${escapeHtml(ui.viewGallery)}</a>
             </div>
           </div>
         </div>
@@ -1689,10 +1732,13 @@
     currentPage = document.body.dataset.page || "inici";
     currentLang = getStoredLang();
 
+    cleanCurrentAddressBar();
     renderLayout();
     applyStaticTranslations();
+    rewriteStaticLinks();
     await loadExternalYaml(currentPage);
     renderCurrentPage(true);
+    rewriteStaticLinks();
     ensureAutoTranslatedNews(currentLang);
     ensureAutoTranslatedRepSections(currentLang);
   });
