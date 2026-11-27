@@ -29,15 +29,3 @@ items:
     spotifyUrl: https://open.spotify.com/album/3yO5HMCSckVIZf1rTO9Nlo
     youtubeUrl: https://www.youtube.com/playlist?list=OLAK5uy_k9lZe3m1sb0Z--rrACGVllag6XFrORrWs
     audioUrl: ''
-  - id: posada-en-escena
-    etiqueta: Escenografia, Llum i Interpretació
-    titol: La posada en escena
-    imatge: img/representacio/representacio.jpg
-    paragrefs:
-      - L'escalinata i el replà de la Parròquia de Sant Miquel conformen un escenari únic que permet desenvolupar l'acció a cel obert.
-      - Més de 160 actors i actrius voluntaris de totes les edats, fan possible la representació cada Divendres Sant.
-    cita: ''
-    autorCita: ''
-    spotifyUrl: ''
-    youtubeUrl: ''
-    audioUrl: ''
