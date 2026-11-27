@@ -18,15 +18,15 @@ items:
       - Poble de Jerusalem
   - id: sant-sopar
     numero: II
-    titol: El Sant Sopar i Getsemaní
-    lloc: Replà mitjà i espai escènic de l'oliverar
-    imatge: img/hero/hero3.jpg
-    descripcio: Sota una il·luminació continguda i solemne, el Sant Sopar dona pas a la nit de Getsemaní. La banda sonora original de Joan Martorell acompanya el silenci colpidor de la plaça abans de l'arribada dels soldats.
-    atmosfera: Llum íntima, recolliment i intensitat musical
+    titol: El Sant Sopar
+    lloc: ''
+    imatge: /img/representacio/5.jpeg
+    descripcio: ''
+    atmosfera: ''
     audioUrl: https://open.spotify.com/track/2wQKylUSz0doTU1FzrUQkq
     personatges:
       - Jesús
-      - Els dotze Apòstols
+      - Apòstols
       - Judes Iscariot
   - id: caifas-pilat
     numero: III
