@@ -10,9 +10,11 @@ items:
     imatge: /img/representacio/textDavallament.jpg
     paragrefs:
       - El text del Davallament de Felanitx combina la tradició dels textos evangèlics i litúrgics de la Setmana Santa mallorquina amb l'aportació literària creada expressament per a la nostra representació.
-      - L'any 1991, el teatí pare Antoni Oliver C.R. va escriure uns textos específics per al Davallament de Felanitx que, llegits i narrats en directe, acompanyen cada quadre dramàtic i donen coherència, ritme i solemnitat a tota l'escenificació.
+      - L'any 1991, el teatí pare Antoni Oliver C.R. va escriure uns textos específics per al Davallament de Felanitx que, narrats per Maria Mascaró i Miquel Gelabert, acompanyen cada quadre dramàtic i donen coherència, ritme i solemnitat a tota l'escenificació.
     cita: ''
     autorCita: ''
+    spotifyUrl: ''
+    youtubeUrl: ''
     audioUrl: ''
   - id: banda-sonora
     etiqueta: Música Original
@@ -24,9 +26,9 @@ items:
       - "L'obra compta amb la participació destacada de dues artistes felanitxeres estretament vinculades a l'acte: la veu de Mar Grimalt i el violí solista de Roser Julià."
     cita: ''
     autorCita: ''
-    audioUrl: ''
     spotifyUrl: https://open.spotify.com/album/3yO5HMCSckVIZf1rTO9Nlo
     youtubeUrl: https://www.youtube.com/playlist?list=OLAK5uy_k9lZe3m1sb0Z--rrACGVllag6XFrORrWs
+    audioUrl: ''
   - id: posada-en-escena
     etiqueta: Escenografia, Llum i Interpretació
     titol: La posada en escena
@@ -36,4 +38,6 @@ items:
       - Més de 160 actors i actrius voluntaris de totes les edats, fan possible la representació cada Divendres Sant.
     cita: ''
     autorCita: ''
+    spotifyUrl: ''
+    youtubeUrl: ''
     audioUrl: ''
