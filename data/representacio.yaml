@@ -5,7 +5,7 @@
 
 items:
   - id: text
-    etiqueta: Paraula i Dramatúrgia
+    etiqueta: ''
     titol: El text
     imatge: /img/representacio/textDavallament.jpg
     paragrefs:
@@ -17,7 +17,7 @@ items:
     youtubeUrl: ''
     audioUrl: ''
   - id: banda-sonora
-    etiqueta: Música Original
+    etiqueta: ''
     titol: La banda sonora
     imatge: /img/representacio/bandaSonora.jpg
     paragrefs:
