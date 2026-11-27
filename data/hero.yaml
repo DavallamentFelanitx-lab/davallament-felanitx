@@ -4,22 +4,23 @@
 # Editable fàcilment des de Sveltia CMS (/admin/) o directament aquí.
 
 items:
-  - imatge: "img/hero/hero1.jpg"
-    etiqueta: "Divendres Sant · Escalinata de Sant Miquel"
-    titol: "El Davallament de Felanitx"
-    subtitol: "El moment culminant del descendiment de la creu davant la portalada barroca de la Parròquia de Sant Miquel."
-
-  - imatge: "img/hero/hero4.jpg"
-    etiqueta: "Patrimoni Viu des de 1975"
-    titol: "El Camí del Calvari"
-    subtitol: "Prop de dos cents veïns i veïnes transformen cada any l'escalinata de pedra de marès en un teatre sacre a cel obert."
-
-  - imatge: "img/hero/hero2.jpg"
-    etiqueta: "Escenografia i Llum"
-    titol: "Davant els Armats i el Poble"
-    subtitol: "Teatre popular, il·luminació dramàtica i una posada en escena plena de solemnitat."
-
-  - imatge: "img/hero/hero3.jpg"
-    etiqueta: "Tradició i Emoció"
-    titol: "El Sant Sopar"
-    subtitol: "El comiat dels deixebles i el pa compartit sota una posada en escena íntima i solemne davant el poble de Felanitx."
+  - imatge: img/hero/hero1.jpg
+    etiqueta: Divendres Sant · Escalinata i replà de la parròquia de Sant Miquel
+    titol: El Davallament de Felanitx
+    subtitol: ''
+  - imatge: /img/hero/hero1-1.jpg
+    etiqueta: Divendres Sant · Escalinata i replà de la parròquia de Sant Miquel
+    titol: El Davallament de Felanitx
+    subtitol: ''
+  - imatge: /img/hero/sopar1.jpg
+    etiqueta: Divendres Sant · Escalinata i replà de la parròquia de Sant Miquel
+    titol: El Davallament de Felanitx
+    subtitol: ''
+  - imatge: img/hero/hero3.jpg
+    etiqueta: Divendres Sant · Escalinata i replà de la parròquia de Sant Miquel
+    titol: El Davallament de Felanitx
+    subtitol: ''
+  - imatge: /img/hero/caifàs1.jpeg
+    etiqueta: Divendres Sant · Escalinata i replà de la parròquia de Sant Miquel
+    titol: El Davallament de Felanitx
+    subtitol: ''
