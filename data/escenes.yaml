@@ -111,7 +111,7 @@ items:
       - Poble
   - id: crucifixio
     numero: IX
-    titol: Crucifixió
+    titol: Crucifixió de Jesús
     lloc: ''
     imatge: /img/representacio/crucifixioJesus.jpg
     descripcio: ''
@@ -120,4 +120,15 @@ items:
     personatges:
       - Jesús
       - Enterradors
+      - Romans
+  - id: jesusCrucificat-HissatEntreCeliTerra
+    numero: X
+    titol: Mort de Jesús
+    lloc: ''
+    imatge: /img/representacio/jesusMort.jpg
+    descripcio: ''
+    atmosfera: ''
+    audioUrl: https://open.spotify.com/track/2U7VDatnZVkVh3OO71wg4I?si=d7457cabc2824956
+    personatges:
+      - Jesús
       - Romans
