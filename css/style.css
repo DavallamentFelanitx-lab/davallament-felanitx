@@ -549,7 +549,6 @@ div[id] {
 .page-banner-inner {
   position: relative;
   z-index: 2;
-  max-width: 780px;
 }
 
 .breadcrumb {

@@ -263,9 +263,61 @@
   /* ------------------------------------------------------------------------
      Localized Data Getters (combinen YAML/base + traduccions ES/EN/DE per id)
      ------------------------------------------------------------------------ */
+  function hashHeroSlide(s) {
+    const str = [s.kicker, s.title, s.subtitle].join("|");
+    let h = 0;
+    for (let i = 0; i < str.length; i++) {
+      h = ((h << 5) - h + str.charCodeAt(i)) | 0;
+    }
+    return String(h);
+  }
+
   function getLocalizedHeroSlides() {
+    const autoCache = currentLang !== "ca" ? loadAutoTransCache() : null;
     const d = dict().data && dict().data.heroSlides;
-    return DATA.heroSlides.map((slide, i) => (d && d[i] ? { ...slide, ...d[i] } : slide));
+    return DATA.heroSlides.map((slide, i) => {
+      if (autoCache) {
+        const key = `hero:${currentLang}:${hashHeroSlide(slide)}`;
+        if (autoCache[key]) return { ...slide, ...autoCache[key] };
+      }
+      if (!slide._fromYaml && d && d[i]) return { ...slide, ...d[i] };
+      return slide;
+    });
+  }
+
+  async function ensureAutoTranslatedHero(lang) {
+    if (!lang || lang === "ca" || currentPage !== "inici" || !Array.isArray(DATA.heroSlides)) return;
+    const cache = loadAutoTransCache();
+    const pending = DATA.heroSlides.filter((s) => {
+      const key = `hero:${lang}:${hashHeroSlide(s)}`;
+      return !cache[key] && !inFlightTranslations.has(key);
+    });
+    if (!pending.length) return;
+
+    let changed = false;
+    await Promise.all(
+      pending.map(async (s) => {
+        const key = `hero:${lang}:${hashHeroSlide(s)}`;
+        inFlightTranslations.add(key);
+        try {
+          const [kicker, title, subtitle] = await Promise.all([
+            translateTextChunk(s.kicker, lang),
+            translateTextChunk(s.title, lang),
+            translateTextChunk(s.subtitle, lang)
+          ]);
+          const latest = loadAutoTransCache();
+          latest[key] = { kicker, title, subtitle };
+          saveAutoTransCache(latest);
+          changed = true;
+        } finally {
+          inFlightTranslations.delete(key);
+        }
+      })
+    );
+
+    if (changed && currentLang === lang) {
+      initHomePage();
+    }
   }
 
   function getLocalizedScenes() {
@@ -673,6 +725,7 @@
     renderLayout();
     applyStaticTranslations();
     renderCurrentPage();
+    ensureAutoTranslatedHero(currentLang);
     ensureAutoTranslatedNews(currentLang);
     ensureAutoTranslatedRepSections(currentLang);
     showToast(dict().toastLang);
@@ -1844,9 +1897,29 @@
     };
   }
 
+  function normalizeHeroSlideItem(raw) {
+    return {
+      src: normalizeAssetPath(raw.imatge || raw.src, "img/hero/hero1.jpg"),
+      kicker: raw.etiqueta || raw.kicker || "",
+      title: raw.titol || raw.title || "",
+      subtitle: raw.subtitol || raw.subtitle || "",
+      _fromYaml: true
+    };
+  }
+
   async function loadExternalYaml(page) {
     if (!window.SimpleYAML || window.location.protocol === "file:") return;
     const tasks = [];
+
+    if (page === "inici") {
+      tasks.push(
+        window.SimpleYAML.fetchYamlList("data/hero.yaml")
+          .then((items) => {
+            if (items && items.length) DATA.heroSlides = items.map(normalizeHeroSlideItem);
+          })
+          .catch(() => {})
+      );
+    }
 
     if (page === "representacio") {
       tasks.push(
@@ -1952,6 +2025,7 @@
     await loadExternalYaml(currentPage);
     renderCurrentPage(true);
     rewriteStaticLinks();
+    ensureAutoTranslatedHero(currentLang);
     ensureAutoTranslatedNews(currentLang);
     ensureAutoTranslatedRepSections(currentLang);
   });

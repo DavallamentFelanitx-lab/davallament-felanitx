@@ -27,6 +27,25 @@ collections:
     label_singular: "Secció"
     files:
       # ----------------------------------------------------------------------
+      # 0. INICI — CARRUSEL PRINCIPAL / HERO (data/hero.yaml)
+      # ----------------------------------------------------------------------
+      - name: "hero"
+        label: "Inici · Carrusel principal (Hero)"
+        file: "data/hero.yaml"
+        description: "Fotografies i textos del carrusel gran de la pàgina d'inici. Pots reordenar-les, canviar les fotos o afegir-ne de noves."
+        fields:
+          - name: "items"
+            label: "Diapositives del carrusel"
+            label_singular: "Diapositiva"
+            widget: "list"
+            summary: "{{fields.titol}}"
+            fields:
+              - { name: "imatge", label: "Fotografia", widget: "image", media_folder: "/img/hero", public_folder: "img/hero" }
+              - { name: "etiqueta", label: "Etiqueta superior (opcional)", widget: "string", required: false }
+              - { name: "titol", label: "Títol gran", widget: "string", required: false }
+              - { name: "subtitol", label: "Subtítol descriptiu (opcional)", widget: "text", required: false }
+
+      # ----------------------------------------------------------------------
       # 1. NOTÍCIES (data/noticies.yaml)
       # ----------------------------------------------------------------------
       - name: "noticies"
