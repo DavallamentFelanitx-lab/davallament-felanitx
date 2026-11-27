@@ -473,7 +473,10 @@
 
   function getLocalizedGallery() {
     const map = dict().data && dict().data.gallery;
-    return DATA.gallery.map((g) => (map && map[g.id] ? { ...g, ...map[g.id] } : g));
+    return DATA.gallery.map((g) => {
+      if (g._fromYaml) return g;
+      return map && map[g.id] ? { ...g, ...map[g.id] } : g;
+    });
   }
 
   function getLocalizedVideos() {
@@ -900,13 +903,27 @@
   function renderLightbox() {
     const item = lbItems[lbIndex];
     if (!item) return;
-    document.getElementById("lb-counter").textContent = `${lbIndex + 1} / ${lbItems.length} · ${item.album}`;
+    const counterParts = [`${lbIndex + 1} / ${lbItems.length}`];
+    if (item.album) counterParts.push(item.album);
+    if (item.year) counterParts.push(item.year);
+    document.getElementById("lb-counter").textContent = counterParts.join(" · ");
     const img = document.getElementById("lb-img");
     img.src = item.src;
-    img.alt = item.title;
-    document.getElementById("lb-title").textContent = item.title;
-    document.getElementById("lb-caption").textContent = item.caption;
-    document.getElementById("lb-meta").textContent = `${item.location} · ${item.credit}`;
+    img.alt = item.title || item.album || "El Davallament de Felanitx";
+
+    const titleEl = document.getElementById("lb-title");
+    titleEl.textContent = item.title || "";
+    titleEl.style.display = item.title ? "" : "none";
+
+    const captionEl = document.getElementById("lb-caption");
+    captionEl.textContent = item.caption || "";
+    captionEl.style.display = item.caption ? "" : "none";
+
+    const locText = item.location && item.location.trim().toLowerCase() !== "felanitx" ? item.location.trim() : "";
+    const metaText = [locText, item.credit].filter(Boolean).join(" · ");
+    const metaEl = document.getElementById("lb-meta");
+    metaEl.textContent = metaText;
+    metaEl.style.display = metaText ? "" : "none";
   }
 
   function openLightbox(items, startIndex) {
@@ -1607,14 +1624,21 @@
      ------------------------------------------------------------------------ */
   function initGaleriaPage() {
     const pillsHost = document.getElementById("gallery-albums");
+    const yearSelect = document.getElementById("gallery-year");
     const gridHost = document.getElementById("gallery-grid");
     const countHost = document.getElementById("gallery-count");
 
     const ui = dict().ui;
     const photos = getLocalizedGallery();
     const allLabel = ui.allCategory;
-    const albums = [allLabel, ...Array.from(new Set(photos.map((g) => g.album)))];
+    const allYearsLabel = ui.allYears || "Tots els anys";
+    const albums = [allLabel, ...Array.from(new Set(photos.map((g) => (g.album || "").trim()).filter(Boolean)))];
+    const years = Array.from(new Set(photos.map((g) => String(g.year || "").trim()).filter(Boolean))).sort((a, b) =>
+      b.localeCompare(a, undefined, { numeric: true })
+    );
+
     let activeAlbum = allLabel;
+    let activeYear = "";
 
     const requestedAlbum = getQueryParam("album");
     if (requestedAlbum) {
@@ -1628,6 +1652,24 @@
           return aNorm.includes(targetNorm) || targetNorm.includes(aNorm);
         });
       if (partialMatch) activeAlbum = partialMatch;
+    }
+
+    const requestedYear = getQueryParam("any") || getQueryParam("year");
+    if (requestedYear && years.includes(String(requestedYear).trim())) {
+      activeYear = String(requestedYear).trim();
+    }
+
+    function renderYearSelect() {
+      if (!yearSelect) return;
+      yearSelect.innerHTML = [
+        `<option value="">${escapeHtml(allYearsLabel)}</option>`,
+        ...years.map((y) => `<option value="${escapeHtml(y)}"${y === activeYear ? " selected" : ""}>${escapeHtml(y)}</option>`)
+      ].join("");
+      yearSelect.value = activeYear;
+      yearSelect.onchange = () => {
+        activeYear = yearSelect.value;
+        renderGrid();
+      };
     }
 
     function renderPills() {
@@ -1647,27 +1689,61 @@
     }
 
     function renderGrid() {
-      const filtered = photos.filter((g) => activeAlbum === allLabel || g.album === activeAlbum);
+      const filtered = photos.filter((g) => {
+        const albumMatch = activeAlbum === allLabel || (g.album || "").trim() === activeAlbum;
+        const yearMatch = !activeYear || String(g.year || "").trim() === activeYear;
+        return albumMatch && yearMatch;
+      });
       countHost.textContent = ui.galleryCount(filtered.length);
 
+      if (!filtered.length) {
+        gridHost.innerHTML = `
+          <div class="empty-state" style="grid-column:1/-1">
+            <p>${escapeHtml(ui.noPhotosFound || "No s'han trobat fotografies amb els filtres actuals.")}</p>
+            <button type="button" class="btn btn--outline btn--sm" id="gallery-reset-filters" style="margin-top:12px">${escapeHtml(ui.showAll || "Mostrar totes")}</button>
+          </div>`;
+        const resetBtn = document.getElementById("gallery-reset-filters");
+        if (resetBtn) {
+          resetBtn.addEventListener("click", () => {
+            activeAlbum = allLabel;
+            activeYear = "";
+            renderPills();
+            renderYearSelect();
+            renderGrid();
+          });
+        }
+        return;
+      }
+
       gridHost.innerHTML = filtered
-        .map(
-          (g, idx) => `
+        .map((g, idx) => {
+          const hasMeta = Boolean(g.album || g.year);
+          const hasInfo = Boolean(hasMeta || g.title || g.caption);
+          const altText = g.title || g.album || "El Davallament de Felanitx";
+          return `
           <button type="button" class="gallery-card" data-photo-idx="${idx}">
             <div class="gallery-thumb">
-              <img src="${escapeHtml(g.src)}" alt="${escapeHtml(g.title)}" loading="lazy">
+              <img src="${escapeHtml(g.src)}" alt="${escapeHtml(altText)}" loading="lazy">
               <span class="gallery-zoom-pill">${escapeHtml(ui.zoomPill)}</span>
             </div>
-            <div class="gallery-info">
-              <div class="card-meta">
-                <span class="badge badge--sand">${escapeHtml(g.album)}</span>
-                <span>${escapeHtml(g.location)}</span>
-              </div>
-              <h3>${escapeHtml(g.title)}</h3>
-              <p>${escapeHtml(g.caption)}</p>
-            </div>
-          </button>`
-        )
+            ${
+              hasInfo
+                ? `<div class="gallery-info">
+                    ${
+                      hasMeta
+                        ? `<div class="card-meta">
+                            ${g.album ? `<span class="badge badge--sand">${escapeHtml(g.album)}</span>` : ""}
+                            ${g.year ? `<span>${escapeHtml(g.year)}</span>` : ""}
+                          </div>`
+                        : ""
+                    }
+                    ${g.title ? `<h3>${escapeHtml(g.title)}</h3>` : ""}
+                    ${g.caption ? `<p>${escapeHtml(g.caption)}</p>` : ""}
+                  </div>`
+                : ""
+            }
+          </button>`;
+        })
         .join("");
 
       gridHost.querySelectorAll("[data-photo-idx]").forEach((btn) => {
@@ -1676,6 +1752,7 @@
     }
 
     renderPills();
+    renderYearSelect();
     renderGrid();
 
     const videosHost = document.getElementById("gallery-videos");
@@ -1827,12 +1904,13 @@
     return {
       id: raw.id || "foto-" + (idx + 1),
       title: raw.titol || raw.title || "",
-      album: raw.album || "General",
-      year: String(raw.any !== undefined ? raw.any : raw.year || ""),
-      location: raw.lloc || raw.location || "Felanitx",
-      credit: raw.credit || "Associació El Davallament de Felanitx",
+      album: raw.album || "",
+      year: String(raw.any !== undefined ? raw.any : raw.year || "").trim(),
+      location: raw.lloc || raw.location || "",
+      credit: raw.credit || "",
       src: normalizeAssetPath(raw.imatge || raw.src, "img/hero/hero1.jpg"),
-      caption: raw.descripcio || raw.caption || ""
+      caption: raw.descripcio || raw.caption || "",
+      _fromYaml: true
     };
   }
 

@@ -88,22 +88,22 @@ collections:
       - name: "galeria"
         label: "Galeria de fotografies"
         file: "data/galeria.yaml"
-        description: "Fotografies que apareixen a la pàgina Galeria amb filtres per àlbum i visor a pantalla completa."
+        description: "Fotografies que apareixen a la pàgina Galeria amb filtres per etiqueta i per any, i visor a pantalla completa."
         fields:
           - name: "items"
             label: "Fotografies"
             label_singular: "Fotografia"
             widget: "list"
-            summary: "{{fields.album}} · {{fields.titol}}"
+            summary: "{{fields.album}} · {{fields.any}} · {{fields.titol}}"
             fields:
-              - { name: "id", label: "Identificador (sense espais)", widget: "string" }
-              - { name: "titol", label: "Títol de la fotografia", widget: "string" }
-              - { name: "album", label: "Àlbum", widget: "string", hint: "Exemple: El Davallament, Camí del Calvari, Passió i Judici" }
-              - { name: "any", label: "Any o edició", widget: "string", required: false }
-              - { name: "lloc", label: "Lloc", widget: "string", default: "Escalinata de Sant Miquel", required: false }
-              - { name: "credit", label: "Autoria / Crèdit", widget: "string", default: "Associació El Davallament de Felanitx", required: false }
+              - { name: "id", label: "Identificador (opcional, sense espais)", widget: "string", required: false }
+              - { name: "titol", label: "Títol de la fotografia (opcional)", widget: "string", required: false }
+              - { name: "album", label: "Etiqueta / Àlbum", widget: "string", required: false, hint: "Exemple: Entrada a Jerusalem, Davallament, Verònica, Jesús davant Pilat" }
+              - { name: "any", label: "Any o edició (opcional)", widget: "string", required: false, hint: "Exemple: 2026, 2025, 2023" }
+              - { name: "lloc", label: "Lloc (opcional)", widget: "string", required: false }
+              - { name: "credit", label: "Autoria / Crèdit (opcional)", widget: "string", required: false }
               - { name: "imatge", label: "Imatge", widget: "image", media_folder: "/img/galeria", public_folder: "img/galeria" }
-              - { name: "descripcio", label: "Peu de foto", widget: "text", required: false }
+              - { name: "descripcio", label: "Peu de foto (opcional)", widget: "text", required: false }
 
       # ----------------------------------------------------------------------
       # 3. MULTIMÈDIA — VÍDEOS DE YOUTUBE (data/multimedia.yaml)
