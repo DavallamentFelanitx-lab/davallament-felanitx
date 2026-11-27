@@ -4,35 +4,34 @@
 # Editable fàcilment des de Sveltia CMS (/admin/) o directament aquí.
 
 items:
-  - id: "text"
-    etiqueta: "Paraula i Dramatúrgia"
-    titol: "El text"
-    imatge: "img/historia/historia.jpg"
+  - id: text
+    etiqueta: Paraula i Dramatúrgia
+    titol: El text
+    imatge: ''
     paragrefs:
-      - "El text del Davallament de Felanitx combina la tradició dels textos evangèlics i litúrgics de la Setmana Santa mallorquina amb l'aportació literària creada expressament per a la nostra representació."
-      - "L'any 1991, el teatí pare Antoni Oliver C.R. va escriure uns textos específics per al Davallament de Felanitx que, llegits i narrats en directe, acompanyen cada quadre dramàtic i donen coherència, ritme i solemnitat a tota l'escenificació."
-    cita: ""
-    autorCita: ""
-    audioUrl: ""
-
-  - id: "banda-sonora"
-    etiqueta: "Música Original"
-    titol: "La banda sonora"
-    imatge: "img/hero/hero1.jpg"
+      - El text del Davallament de Felanitx combina la tradició dels textos evangèlics i litúrgics de la Setmana Santa mallorquina amb l'aportació literària creada expressament per a la nostra representació.
+      - L'any 1991, el teatí pare Antoni Oliver C.R. va escriure uns textos específics per al Davallament de Felanitx que, llegits i narrats en directe, acompanyen cada quadre dramàtic i donen coherència, ritme i solemnitat a tota l'escenificació.
+    cita: ''
+    autorCita: ''
+    audioUrl: ''
+  - id: banda-sonora
+    etiqueta: Música Original
+    titol: La banda sonora
+    imatge: /img/representacio/bandaSonora.jpg
     paragrefs:
-      - "La música és un dels pilars emocionals del Davallament de Felanitx. Des de la celebració del 50è aniversari el 2025, la representació compta amb una banda sonora simfònica composta i orquestrada expressament pel músic porrerenc Joan Martorell."
-      - "Cada passatge de la Passió disposa d'un paisatge sonor propi que subratlla la tensió dramàtica, el recolliment i el silenci colpidor del descendiment davant la portalada de Sant Miquel."
-    cita: ""
-    autorCita: ""
-    audioUrl: "https://open.spotify.com/album/3yO5HMCSckVIZf1rTO9Nlo"
-
-  - id: "posada-en-escena"
-    etiqueta: "Escenografia, Llum i Interpretació"
-    titol: "La posada en escena"
-    imatge: "img/representacio/representacio.jpg"
+      - Amb motiu del 50è aniversari, el Davallament va estrenar una banda sonora original composta expressament per a l'ocasió pel músic i compositor porrerenc Joan Martorell i enregistrada per la Budapest Symphony Orchestra.
+      - La banda sonora del Davallament acompanya cada escena amb una música creada a mida per potenciar la força dramàtica de l'obra.
+      - "L'obra compta amb la participació destacada de dues artistes felanitxeres estretament vinculades a l'acte: la veu de Mar Grimalt i el violí solista de Roser Julià."
+    cita: ''
+    autorCita: ''
+    audioUrl: https://open.spotify.com/album/3yO5HMCSckVIZf1rTO9Nlo
+  - id: posada-en-escena
+    etiqueta: Escenografia, Llum i Interpretació
+    titol: La posada en escena
+    imatge: img/representacio/representacio.jpg
     paragrefs:
-      - "L'escalinata de pedra de marès, la balconada lateral, el rosetó i la portalada barroca de la Parròquia de Sant Miquel conformen un retaule arquitectònic únic que permet desenvolupar l'acció en diversos nivells a cel obert."
-      - "Més de 160 actors i actrius voluntaris de totes les edats, juntament amb els equips de vestuari històric, escenografia, il·luminació teatral i efectes sonors, transformen cada Divendres Sant la plaça en un autèntic teatre sacre."
-    cita: ""
-    autorCita: ""
-    audioUrl: ""
+      - L'escalinata de pedra de marès, la balconada lateral, el rosetó i la portalada barroca de la Parròquia de Sant Miquel conformen un retaule arquitectònic únic que permet desenvolupar l'acció en diversos nivells a cel obert.
+      - Més de 160 actors i actrius voluntaris de totes les edats, juntament amb els equips de vestuari històric, escenografia, il·luminació teatral i efectes sonors, transformen cada Divendres Sant la plaça en un autèntic teatre sacre.
+    cita: ''
+    autorCita: ''
+    audioUrl: ''
