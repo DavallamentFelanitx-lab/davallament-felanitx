@@ -2579,9 +2579,22 @@ h1, h2, h3, h4 {
   transform: translateY(-1px);
 }
 
+.footer-email {
+  font-size: 0.94rem;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  color: rgba(255, 255, 255, 0.86);
+  transition: color 0.2s;
+}
+
+.footer-email:hover {
+  color: var(--cream);
+  text-decoration: underline;
+}
+
 .footer-sitemap {
   display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr)) minmax(225px, 1.45fr);
+  grid-template-columns: repeat(5, minmax(0, 1fr));
   gap: 24px;
   padding-bottom: 2.4rem;
 }

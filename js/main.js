@@ -195,14 +195,6 @@
         { href: "galeria.html#fotografies", key: "galFotos" },
         { href: "galeria.html#multimedia", key: "galMultimedia" }
       ]
-    },
-    {
-      href: `mailto:${CONTACT_EMAIL}`,
-      key: "contacte",
-      footerOnly: true,
-      children: [
-        { href: `mailto:${CONTACT_EMAIL}`, label: CONTACT_EMAIL }
-      ]
     }
   ];
 
@@ -696,6 +688,7 @@
                   </svg>
                 </a>
               </div>
+              <a href="mailto:${CONTACT_EMAIL}" class="footer-email">${CONTACT_EMAIL}</a>
             </div>
 
             <nav class="footer-sitemap" aria-label="Mapa del web">
