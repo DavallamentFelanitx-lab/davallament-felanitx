@@ -4,116 +4,108 @@
 # Tots els camps són opcionals i editables des de Sveltia CMS (/admin/).
 
 items:
-  - id: "entrada-jerusalem"
-    numero: "I"
-    titol: "Entrada a Jerusalem"
-    lloc: "Peu de l'escalinata de Sant Miquel"
-    imatge: "img/hero/hero4.jpg"
+  - id: entrada-jerusalem
+    numero: I
+    titol: Entrada a Jerusalem
+    lloc: ''
+    imatge: /img/representacio/EntradaJerusalem.jpg
+    descripcio: ''
+    atmosfera: ''
+    audioUrl: https://open.spotify.com/track/2jOfP83jP6ry26ZsUCThqA
     personatges:
-      - "Jesús"
-      - "Apòstols"
-      - "Poble de Jerusalem"
-      - "Infants amb palmes"
-    atmosfera: "Clima coral que obre el relat evangèlic entre els esglaons de pedra de marès"
-    descripcio: "La representació arrenca amb la participació coral de famílies i infants del poble que donen vida a Jerusalem amb branques d'olivera i palmes, establint des del primer instant el caràcter comunitari del Davallament."
-    audioUrl: "https://open.spotify.com/track/2jOfP83jP6ry26ZsUCThqA"
-
-  - id: "sant-sopar"
-    numero: "II"
-    titol: "El Sant Sopar i Getsemaní"
-    lloc: "Replà mitjà i espai escènic de l'oliverar"
-    imatge: "img/hero/hero3.jpg"
+      - Jesús
+      - Apòstols
+      - Poble de Jerusalem
+  - id: sant-sopar
+    numero: II
+    titol: El Sant Sopar i Getsemaní
+    lloc: Replà mitjà i espai escènic de l'oliverar
+    imatge: img/hero/hero3.jpg
+    descripcio: Sota una il·luminació continguda i solemne, el Sant Sopar dona pas a la nit de Getsemaní. La banda sonora original de Joan Martorell acompanya el silenci colpidor de la plaça abans de l'arribada dels soldats.
+    atmosfera: Llum íntima, recolliment i intensitat musical
+    audioUrl: https://open.spotify.com/track/2wQKylUSz0doTU1FzrUQkq
     personatges:
-      - "Jesús"
-      - "Els dotze Apòstols"
-      - "Judes Iscariot"
-    atmosfera: "Llum íntima, recolliment i intensitat musical"
-    descripcio: "Sota una il·luminació continguda i solemne, el Sant Sopar dona pas a la nit de Getsemaní. La banda sonora original de Joan Martorell acompanya el silenci colpidor de la plaça abans de l'arribada dels soldats."
-    audioUrl: "https://open.spotify.com/track/2wQKylUSz0doTU1FzrUQkq"
-
-  - id: "caifas-pilat"
-    numero: "III"
-    titol: "Davant Caifàs i Ponç Pilat"
-    lloc: "Balconada lateral i escalinata superior"
-    imatge: "img/hero/hero2.jpg"
+      - Jesús
+      - Els dotze Apòstols
+      - Judes Iscariot
+  - id: caifas-pilat
+    numero: III
+    titol: Davant Caifàs i Ponç Pilat
+    lloc: Balconada lateral i escalinata superior
+    imatge: img/hero/hero2.jpg
+    descripcio: Aprofitant l'arc apuntat i la balconada lateral de la parròquia, l'escena davant Ponç Pilat combina la força dels textos dramàtics amb la presència imponent dels armats romans i la multitud.
+    atmosfera: Tensió dramàtica, llum carmesí i arquitectures de pedra
+    audioUrl: https://open.spotify.com/track/0CHxSzmBIfKXRKH0judgXn
     personatges:
-      - "Jesús"
-      - "Caifàs"
-      - "Ponç Pilat"
-      - "Sacerdots"
-      - "Armats"
-    atmosfera: "Tensió dramàtica, llum carmesí i arquitectures de pedra"
-    descripcio: "Aprofitant l'arc apuntat i la balconada lateral de la parròquia, l'escena davant Ponç Pilat combina la força dels textos dramàtics amb la presència imponent dels armats romans i la multitud."
-    audioUrl: "https://open.spotify.com/track/0CHxSzmBIfKXRKH0judgXn"
-
-  - id: "ecce-homo"
-    numero: "IV"
-    titol: "Flagel·lació i Ecce Homo"
-    lloc: "Escalinata central"
-    imatge: "img/representacio/representacio.jpg"
+      - Jesús
+      - Caifàs
+      - Ponç Pilat
+      - Sacerdots
+      - Armats
+  - id: ecce-homo
+    numero: IV
+    titol: Flagel·lació i Ecce Homo
+    lloc: Escalinata central
+    imatge: img/representacio/representacio.jpg
+    descripcio: Una seqüència d'una gran potència visual on els esglaons il·luminats de vermell emmarquen el patiment de Jesús mentre centenars d'espectadors mantenen un respecte absolut des de la Plaça de sa Font de Santa Margalida.
+    atmosfera: Contrastos cromàtics intensos i silenci sepulcral
+    audioUrl: https://open.spotify.com/track/38wyE2b906GRdYz0oxesMm
     personatges:
-      - "Jesús"
-      - "Soldats romans"
-      - "Ponç Pilat"
-      - "Multitud"
-    atmosfera: "Contrastos cromàtics intensos i silenci sepulcral"
-    descripcio: "Una seqüència d'una gran potència visual on els esglaons il·luminats de vermell emmarquen el patiment de Jesús mentre centenars d'espectadors mantenen un respecte absolut des de la Plaça de sa Font de Santa Margalida."
-    audioUrl: "https://open.spotify.com/track/38wyE2b906GRdYz0oxesMm"
-
-  - id: "via-crucis"
-    numero: "V"
-    titol: "El Camí del Calvari i la Verònica"
-    lloc: "Ascens per l'escalinata de Sant Miquel"
-    imatge: "img/hero/hero2.jpg"
+      - Jesús
+      - Soldats romans
+      - Ponç Pilat
+      - Multitud
+  - id: via-crucis
+    numero: V
+    titol: El Camí del Calvari i la Verònica
+    lloc: Ascens per l'escalinata de Sant Miquel
+    imatge: img/hero/hero2.jpg
+    descripcio: L'escalinata sencera es converteix en la Via Dolorosa. L'encontre amb Maria i el gest de la Verònica desplegant el llençol blanc sota el rosetó de Sant Miquel configuren algunes de les estampes més icòniques de la nit.
+    atmosfera: Ritme processional pausat i emoció continguda
+    audioUrl: https://open.spotify.com/track/56iwhyNflNA5Ei8rXKdgKv
     personatges:
-      - "Jesús"
-      - "La Mare de Déu"
-      - "La Verònica"
-      - "Simó de Cirene"
-      - "Armats"
-    atmosfera: "Ritme processional pausat i emoció continguda"
-    descripcio: "L'escalinata sencera es converteix en la Via Dolorosa. L'encontre amb Maria i el gest de la Verònica desplegant el llençol blanc sota el rosetó de Sant Miquel configuren algunes de les estampes més icòniques de la nit."
-    audioUrl: "https://open.spotify.com/track/56iwhyNflNA5Ei8rXKdgKv"
-
-  - id: "crucifixio"
-    numero: "VI"
-    titol: "La Crucifixió"
-    lloc: "Capdamunt del replà parroquial"
-    imatge: "img/hero/hero4.jpg"
+      - Jesús
+      - La Mare de Déu
+      - La Verònica
+      - Simó de Cirene
+      - Armats
+  - id: crucifixio
+    numero: VI
+    titol: La Crucifixió
+    lloc: Capdamunt del replà parroquial
+    imatge: img/hero/hero4.jpg
+    descripcio: Al punt més alt del replà s'alça la creu. Amb els fanals públics del nucli antic apagats, tota l'atenció de la plaça convergeix en les darreres paraules i la mort de Jesús.
+    atmosfera: Llums zenitals i foscor absoluta a la plaça
+    audioUrl: https://open.spotify.com/track/3r1BjmuHUj4zfyLRTIdcuH
     personatges:
-      - "Jesús"
-      - "La Mare de Déu"
-      - "Sant Joan"
-      - "Maria Magdalena"
-      - "Centurió"
-    atmosfera: "Llums zenitals i foscor absoluta a la plaça"
-    descripcio: "Al punt més alt del replà s'alça la creu. Amb els fanals públics del nucli antic apagats, tota l'atenció de la plaça convergeix en les darreres paraules i la mort de Jesús."
-    audioUrl: "https://open.spotify.com/track/3r1BjmuHUj4zfyLRTIdcuH"
-
-  - id: "el-davallament"
-    numero: "VII"
-    titol: "El Davallament de la Creu"
-    lloc: "Portalada principal de Sant Miquel"
-    imatge: "img/hero/hero1.jpg"
+      - Jesús
+      - La Mare de Déu
+      - Sant Joan
+      - Maria Magdalena
+      - Centurió
+  - id: el-davallament
+    numero: VII
+    titol: El Davallament de la Creu
+    lloc: Portalada principal de Sant Miquel
+    imatge: img/hero/hero1.jpg
+    descripcio: És l'instant central que inspira fins i tot el nostre logotip. Amb dues escales recolzades a la creu i un llarg llençol blanc, els sants homes davallen el cos sense vida de Jesús per dipositar-lo a la falda de sa Mare en una Pietat vivent.
+    atmosfera: Llum blavosa, boira suau, escales i llençol blanc
+    audioUrl: https://open.spotify.com/track/5GHbAlNrD0o7KnZHgrd08H
     personatges:
-      - "Josep d'Arimatea"
-      - "Nicodem"
-      - "La Mare de Déu"
-      - "Sant Joan"
-      - "Santes Dones"
-    atmosfera: "Llum blavosa, boira suau, escales i llençol blanc"
-    descripcio: "És l'instant central que inspira fins i tot el nostre logotip. Amb dues escales recolzades a la creu i un llarg llençol blanc, els sants homes davallen el cos sense vida de Jesús per dipositar-lo a la falda de sa Mare en una Pietat vivent."
-    audioUrl: "https://open.spotify.com/track/5GHbAlNrD0o7KnZHgrd08H"
-
-  - id: "processo-enterrament"
-    numero: "VIII"
-    titol: "Processó de l'Enterrament"
-    lloc: "Carrers del nucli antic de Felanitx"
-    imatge: "img/hero/hero1.jpg"
+      - Josep d'Arimatea
+      - Nicodem
+      - La Mare de Déu
+      - Sant Joan
+      - Santes Dones
+  - id: processo-enterrament
+    numero: VIII
+    titol: Processó de l'Enterrament
+    lloc: Carrers del nucli antic de Felanitx
+    imatge: img/hero/hero1.jpg
+    descripcio: En concloure la representació, el teatre sacre enllaça amb la solemne Processó del Sant Enterrament. Quan l'ovació col·lectiva trenca finalment el silenci de la plaça, les confraries i la Banda de Música de Felanitx inicien la processó pels carrers foscos de la vila.
+    atmosfera: Ciris, fanals i marxes fúnebres
+    audioUrl: ''
     personatges:
-      - "Confraries locals"
-      - "Banda de Música de Felanitx"
-      - "Fidels"
-    atmosfera: "Ciris, fanals i marxes fúnebres"
-    descripcio: "En concloure la representació, el teatre sacre enllaça amb la solemne Processó del Sant Enterrament. Quan l'ovació col·lectiva trenca finalment el silenci de la plaça, les confraries i la Banda de Música de Felanitx inicien la processó pels carrers foscos de la vila."
-    audioUrl: ""
+      - Confraries locals
+      - Banda de Música de Felanitx
+      - Fidels
