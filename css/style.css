@@ -1487,6 +1487,43 @@ h1, h2, h3, h4 {
   display: block;
 }
 
+.media-link-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 22px;
+}
+
+.btn--media {
+  padding: 11px 20px;
+  border-radius: 999px;
+  font-size: 0.92rem;
+}
+
+.btn--spotify {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: #ffffff;
+}
+
+.btn--spotify:hover {
+  background: #1a7a3e;
+  border-color: #1a7a3e;
+  color: #ffffff;
+}
+
+.btn--youtube {
+  background: transparent;
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.btn--youtube:hover {
+  background: #b91c1c;
+  border-color: #b91c1c;
+  color: #ffffff;
+}
+
 /* ==========================================================================
    GALLERY & LIGHTBOX (Fotografies reals)
    ========================================================================== */

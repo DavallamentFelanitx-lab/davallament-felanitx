@@ -179,7 +179,8 @@ collections:
                 field: { name: "paragraf", label: "Paràgraf", widget: "text" }
               - { name: "cita", label: "Cita destacada (opcional)", widget: "text", required: false }
               - { name: "autorCita", label: "Autor o referència de la cita (opcional)", widget: "string", required: false }
-              - { name: "audioUrl", label: "Reproductor d'àudio (Spotify, YouTube o MP3, opcional)", widget: "string", required: false, hint: "Enganxa un enllaç de Spotify (cançó/àlbum/llista), YouTube o fitxer .mp3" }
+              - { name: "spotifyUrl", label: "Enllaç a Spotify (botó, opcional)", widget: "string", required: false, hint: "Exemple: https://open.spotify.com/album/..." }
+              - { name: "youtubeUrl", label: "Enllaç a YouTube (botó, opcional)", widget: "string", required: false, hint: "Exemple: https://www.youtube.com/playlist?list=..." }
 
       # ----------------------------------------------------------------------
       # 7. LA REPRESENTACIÓ — ESCENA PER ESCENA (data/escenes.yaml)
@@ -202,6 +203,7 @@ collections:
               - { name: "imatge", label: "Fotografia de l'escena", widget: "image", media_folder: "/img/representacio", public_folder: "img/representacio", required: false }
               - { name: "descripcio", label: "Descripció de l'escena", widget: "text", required: false }
               - { name: "atmosfera", label: "Atmosfera / Il·luminació", widget: "string", required: false }
+              - { name: "audioUrl", label: "Música de l'escena (Spotify, YouTube o MP3, opcional)", widget: "string", required: false, hint: "Enganxa l'enllaç de la cançó de Spotify (ex: https://open.spotify.com/track/...), YouTube o .mp3" }
               - name: "personatges"
                 label: "Personatges"
                 widget: "list"

@@ -1079,6 +1079,7 @@
       else if (s.location) eyebrowParts.push(s.location);
       const eyebrowText = eyebrowParts.join(" · ");
       const chars = Array.isArray(s.characters) ? s.characters.filter(Boolean) : [];
+      const sceneAudioHtml = buildAudioEmbedHtml(s.audioUrl, s.title);
       panelEl.innerHTML = `
         ${s.image ? `<img class="scene-detail-img" src="${escapeHtml(s.image)}" alt="${escapeHtml(s.title || "")}">` : ""}
         <div class="scene-detail-body">
@@ -1093,6 +1094,7 @@
                 </div>`
               : ""
           }
+          ${sceneAudioHtml}
         </div>
       `;
     }
@@ -1161,8 +1163,8 @@
   }
 
   function renderSingleRepSection(s, idx) {
+    const ui = dict().ui;
     const isCream = idx % 2 === 1;
-    const isReverse = idx % 2 === 1;
     const paragraphsHtml = (s.paragraphs || [])
       .filter(Boolean)
       .map((p) => `<p>${escapeHtml(p)}</p>`)
@@ -1173,12 +1175,28 @@
           ${s.quoteCite ? `<cite>${escapeHtml(s.quoteCite)}</cite>` : ""}
         </blockquote>`
       : "";
+    const links = [];
+    if (s.spotifyUrl) {
+      links.push(`
+        <a href="${escapeHtml(s.spotifyUrl)}" target="_blank" rel="noopener noreferrer" class="btn btn--media btn--spotify">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm4.58 14.42a.75.75 0 0 1-1.03.25c-2.82-1.72-6.37-2.11-10.55-1.16a.75.75 0 1 1-.33-1.46c4.58-1.05 8.5-.6 11.66 1.34a.75.75 0 0 1 .25 1.03zm1.22-2.72a.94.94 0 0 1-1.29.31c-3.23-1.99-8.15-2.56-11.97-1.4a.94.94 0 0 1-.55-1.8c4.37-1.33 9.79-.68 13.5 1.6a.94.94 0 0 1 .31 1.29zm.11-2.84c-3.87-2.3-10.26-2.51-13.96-1.39a1.12 1.12 0 1 1-.65-2.15c4.25-1.29 11.31-1.04 15.76 1.6a1.12 1.12 0 0 1-1.15 1.94z"/></svg>
+          <span>${escapeHtml(ui.listenSpotify || "Escoltar a Spotify")}</span>
+        </a>`);
+    }
+    if (s.youtubeUrl) {
+      links.push(`
+        <a href="${escapeHtml(s.youtubeUrl)}" target="_blank" rel="noopener noreferrer" class="btn btn--media btn--youtube">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31.4 31.4 0 0 0 0 12a31.4 31.4 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31.4 31.4 0 0 0 24 12a31.4 31.4 0 0 0-.5-5.8zM9.6 15.6V8.4l6.3 3.6-6.3 3.6z"/></svg>
+          <span>${escapeHtml(ui.listenYouTube || "Escoltar a YouTube")}</span>
+        </a>`);
+    }
+    const buttonsHtml = links.length ? `<div class="media-link-buttons">${links.join("")}</div>` : "";
     const audioHtml = buildAudioEmbedHtml(s.audioUrl, s.title);
 
     if (s.image) {
       return `
         <section class="feature-band${isCream ? " feature-band--cream" : ""}" id="${escapeHtml(s.id)}">
-          <div class="feature${isReverse ? " reverse" : ""}">
+          <div class="feature reverse">
             <div class="image">
               <img src="${escapeHtml(s.image)}" alt="${escapeHtml(s.title)}" loading="lazy">
             </div>
@@ -1188,6 +1206,7 @@
               <div class="separator left"></div>
               ${paragraphsHtml}
               ${quoteHtml}
+              ${buttonsHtml}
               ${audioHtml}
             </div>
           </div>
@@ -1202,6 +1221,7 @@
             <div class="separator left"></div>
             <div class="article-body">${paragraphsHtml}</div>
             ${quoteHtml}
+            ${buttonsHtml}
             ${audioHtml}
           </div>
         </div>
@@ -1710,7 +1730,8 @@
       image: normalizeAssetPath(raw.imatge || raw.image, ""),
       characters: chars,
       atmosphere: raw.atmosfera || raw.atmosphere || "",
-      fullDesc: raw.descripcio || raw.fullDesc || raw.shortDesc || ""
+      fullDesc: raw.descripcio || raw.fullDesc || raw.shortDesc || "",
+      audioUrl: raw.audioUrl || ""
     };
   }
 
@@ -1729,6 +1750,8 @@
       paragraphs,
       quote: raw.cita || raw.quote || "",
       quoteCite: raw.autorCita || raw.quoteCite || "",
+      spotifyUrl: raw.spotifyUrl || "",
+      youtubeUrl: raw.youtubeUrl || "",
       audioUrl: raw.audioUrl || ""
     };
   }
