@@ -10,7 +10,7 @@
 backend:
   name: github
   repo: DavallamentFelanitx-lab/davallament-felanitx
-  branch: develop
+  branch: main
   # Opcional: si en un futur desplegues un Cloudflare Worker (sveltia-cms-auth) per a OAuth amb 1 clic:
   # base_url: https://el-teu-worker.workers.dev
 
