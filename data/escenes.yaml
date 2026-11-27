@@ -41,7 +41,7 @@ items:
       - Judes Iscariot
       - Sanedrins
   - id: caifas-pilat
-    numero: III
+    numero: IV
     titol: Captura a l'hort de Getsemaní i Jesús davant Caifàs
     lloc: ''
     imatge: /img/representacio/CaifàsJesús2026.jpg
@@ -52,7 +52,7 @@ items:
       - Jesús
       - Caifàs
   - id: flagelacio
-    numero: IV
+    numero: V
     titol: Flagel·lació
     lloc: ''
     imatge: /img/representacio/Flagel·lació.jpg
@@ -63,7 +63,7 @@ items:
       - Jesús
       - Flagel·ladors
   - id: ponçPilat
-    numero: V
+    numero: VI
     titol: Jesús davant Ponç Pilat
     lloc: ''
     imatge: /img/representacio/JesúsPilat.jpg
@@ -75,7 +75,7 @@ items:
       - Ponç Pilat
       - Poble
   - id: crucifixioLladres
-    numero: VI
+    numero: VII
     titol: Crucifixió dels lladres
     lloc: ''
     imatge: /img/representacio/Lladre1.jpg
@@ -86,7 +86,7 @@ items:
       - Lladres
       - Romans
   - id: trobadaMaria
-    numero: VII
+    numero: VIII
     titol: Trobada amb Maria
     lloc: ''
     imatge: /img/representacio/trobadaMaria.jpg
@@ -98,7 +98,7 @@ items:
       - Mare de Déu
       - Romans
   - id: veronica
-    numero: VIII
+    numero: IX
     titol: Verònica
     lloc: ''
     imatge: /img/representacio/veronicaMocador.jpg
@@ -110,7 +110,7 @@ items:
       - Verònica
       - Poble
   - id: crucifixio
-    numero: IX
+    numero: X
     titol: Crucifixió de Jesús
     lloc: ''
     imatge: /img/representacio/crucifixioJesus.jpg
@@ -122,7 +122,7 @@ items:
       - Enterradors
       - Romans
   - id: jesusCrucificat-HissatEntreCeliTerra
-    numero: X
+    numero: XI
     titol: Mort de Jesús
     lloc: ''
     imatge: /img/representacio/jesusMort.jpg
@@ -132,3 +132,16 @@ items:
     personatges:
       - Jesús
       - Romans
+  - id: davallament
+    numero: XII
+    titol: Davallament
+    lloc: ''
+    imatge: /img/representacio/Davallament.jpg
+    descripcio: ''
+    atmosfera: ''
+    audioUrl: https://open.spotify.com/track/5GHbAlNrD0o7KnZHgrd08H?si=a36f83b5c1464452
+    personatges:
+      - Jesús
+      - Enterradors
+      - Mare de Déu
+      - Sant Joan
