@@ -9,33 +9,25 @@
 items:
   - id: davallament-creu
     titol: Davallament
-    album: El Davallament
+    album: Davallament
     any: '2023'
     lloc: ''
     credit: ''
     imatge: img/hero/hero1.jpg
     descripcio: ''
   - id: cami-calvari-veronica
-    titol: La Caiguda amb la Creu i la Verònica
-    album: Via Crucis
+    titol: Verònica
+    album: Verònica
     any: ''
     lloc: ''
     credit: Associació El Davallament de Felanitx
     imatge: img/hero/hero4.jpg
     descripcio: ''
-  - id: armats-escalinata
-    titol: Jesús en mans dels romans
-    album: Via Crucis
-    any: ''
-    lloc: ''
+  - id: palauPilat
+    titol: Jesús al Palau de Ponç Pilat
+    album: Jesús davant Pilat
+    any: '2023'
+    lloc: Escalinata de Sant Miquel
     credit: Associació El Davallament de Felanitx
-    imatge: img/hero/hero2.jpg
-    descripcio: ''
-  - id: judici-pilat-flagellacio
-    titol: El Judici de Ponç Pilat i la Flagel·lació
-    album: Ponç Pilat
-    any: ''
-    lloc: ''
-    credit: Associació El Davallament de Felanitx
-    imatge: img/hero/hero3.jpg
+    imatge: /img/uploads/palauPilat.jpg
     descripcio: ''
