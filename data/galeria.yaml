@@ -8,7 +8,7 @@
 
 items:
   - id: davallament-creu
-    titol: Davallament
+    titol: ''
     album: Davallament
     any: '2023'
     lloc: ''
@@ -16,7 +16,7 @@ items:
     imatge: img/hero/hero1.jpg
     descripcio: ''
   - id: cami-calvari-veronica
-    titol: Verònica
+    titol: ''
     album: Verònica
     any: ''
     lloc: ''
@@ -24,7 +24,7 @@ items:
     imatge: img/hero/hero4.jpg
     descripcio: ''
   - id: palauPilat
-    titol: Jesús al Palau de Ponç Pilat
+    titol: ''
     album: Jesús davant Pilat
     any: '2023'
     lloc: Escalinata de Sant Miquel
