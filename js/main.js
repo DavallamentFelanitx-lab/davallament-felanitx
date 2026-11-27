@@ -168,8 +168,8 @@
       children: [
         { href: "representacio.html#text", key: "repText" },
         { href: "representacio.html#banda-sonora", key: "repBandaSonora" },
-        { href: "representacio.html#escenes", key: "repEscenes" },
-        { href: "representacio.html#posada-en-escena", key: "repPosadaEscena" }
+        { href: "representacio.html#posada-en-escena", key: "repPosadaEscena" },
+        { href: "representacio.html#escenes", key: "repEscenes" }
       ]
     },
     {
@@ -1079,7 +1079,7 @@
       else if (s.location) eyebrowParts.push(s.location);
       const eyebrowText = eyebrowParts.join(" · ");
       const chars = Array.isArray(s.characters) ? s.characters.filter(Boolean) : [];
-      const sceneAudioHtml = buildAudioEmbedHtml(s.audioUrl, s.title);
+      const sceneAudioHtml = buildAudioEmbedHtml(s.audioUrl, s.title, true);
       panelEl.innerHTML = `
         ${s.image ? `<img class="scene-detail-img" src="${escapeHtml(s.image)}" alt="${escapeHtml(s.title || "")}">` : ""}
         <div class="scene-detail-body">
@@ -1118,7 +1118,7 @@
     selectScene(activeSceneIdx);
   }
 
-  function buildAudioEmbedHtml(rawUrl, title) {
+  function buildAudioEmbedHtml(rawUrl, title, compact) {
     const url = String(rawUrl || "").trim();
     if (!url) return "";
 
@@ -1127,9 +1127,11 @@
     if (spotifyMatch) {
       const kind = spotifyMatch[1].toLowerCase();
       const id = spotifyMatch[2];
-      const height = kind === "track" || kind === "episode" ? 152 : 352;
+      const height = compact
+        ? (kind === "track" || kind === "episode" ? 80 : 152)
+        : (kind === "track" || kind === "episode" ? 152 : 352);
       return `
-        <div class="audio-embed audio-embed--spotify">
+        <div class="audio-embed audio-embed--spotify${compact ? " audio-embed--compact" : ""}">
           <iframe src="https://open.spotify.com/embed/${kind}/${id}?utm_source=generator" width="100%" height="${height}" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" title="${escapeHtml(title || "Spotify")}"></iframe>
         </div>`;
     }
@@ -1139,13 +1141,13 @@
     const ytId = extractYouTubeId(url);
     if (ytListMatch && !ytId) {
       return `
-        <div class="audio-embed audio-embed--youtube">
+        <div class="audio-embed audio-embed--youtube${compact ? " audio-embed--compact" : ""}">
           <iframe src="https://www.youtube.com/embed/videoseries?list=${escapeHtml(ytListMatch[1])}" title="${escapeHtml(title || "YouTube")}" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
         </div>`;
     }
     if (ytId) {
       return `
-        <div class="audio-embed audio-embed--youtube">
+        <div class="audio-embed audio-embed--youtube${compact ? " audio-embed--compact" : ""}">
           <iframe src="https://www.youtube.com/embed/${escapeHtml(ytId)}?rel=0" title="${escapeHtml(title || "YouTube")}" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
         </div>`;
     }
@@ -1154,7 +1156,7 @@
     if (/\.(mp3|ogg|wav|m4a|aac)(\?.*)?$/i.test(url)) {
       const safeSrc = normalizeAssetPath(url, "");
       return `
-        <div class="audio-embed audio-embed--native">
+        <div class="audio-embed audio-embed--native${compact ? " audio-embed--compact" : ""}">
           <audio controls preload="metadata" src="${escapeHtml(safeSrc)}"></audio>
         </div>`;
     }
@@ -1230,18 +1232,9 @@
 
   function renderRepresentacioSections() {
     const topHost = document.getElementById("representacio-seccions-top");
-    const bottomHost = document.getElementById("representacio-seccions-bottom");
-    if (!topHost && !bottomHost) return;
+    if (!topHost) return;
     const sections = getLocalizedRepSections();
-    const topIds = new Set(["text", "banda-sonora"]);
-    const topSections = sections.filter((s) => topIds.has(s.id));
-    const bottomSections = sections.filter((s) => !topIds.has(s.id));
-    if (topHost) {
-      topHost.innerHTML = topSections.map((s, i) => renderSingleRepSection(s, i)).join("");
-    }
-    if (bottomHost) {
-      bottomHost.innerHTML = bottomSections.map((s, i) => renderSingleRepSection(s, i + 1)).join("");
-    }
+    topHost.innerHTML = sections.map((s, i) => renderSingleRepSection(s, i)).join("");
   }
 
   /* ------------------------------------------------------------------------

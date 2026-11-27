@@ -1468,6 +1468,10 @@ h1, h2, h3, h4 {
   background: #14100d;
 }
 
+.audio-embed--youtube.audio-embed--compact {
+  max-width: 440px;
+}
+
 .audio-embed--youtube iframe {
   position: absolute;
   inset: 0;
