@@ -114,3 +114,14 @@ items:
       - Confraries locals
       - Banda de Música de Felanitx
       - Fidels
+  - id: crucifixioLladres
+    numero: VI
+    titol: Crucifixió dels lladres
+    lloc: ''
+    imatge: /img/representacio/Lladre.jpg
+    descripcio: ''
+    atmosfera: ''
+    audioUrl: https://open.spotify.com/track/0JcJrXfGj5hOqFOdGWFkye?si=9ad8df0f810845ca
+    personatges:
+      - Lladres
+      - Romans
