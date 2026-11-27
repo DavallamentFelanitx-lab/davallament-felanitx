@@ -168,7 +168,6 @@
       children: [
         { href: "representacio.html#text", key: "repText" },
         { href: "representacio.html#banda-sonora", key: "repBandaSonora" },
-        { href: "representacio.html#posada-en-escena", key: "repPosadaEscena" },
         { href: "representacio.html#escenes", key: "repEscenes" }
       ]
     },
@@ -1310,6 +1309,10 @@
     if (!topHost) return;
     const sections = getLocalizedRepSections();
     topHost.innerHTML = sections.map((s, i) => renderSingleRepSection(s, i)).join("");
+    const escenesEl = document.getElementById("escenes");
+    if (escenesEl) {
+      escenesEl.classList.toggle("section--cream", sections.length % 2 === 1);
+    }
   }
 
   /* ------------------------------------------------------------------------
