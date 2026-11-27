@@ -1057,7 +1057,8 @@
     if (!tabsEl || !panelEl) return;
 
     const scenes = getLocalizedScenes();
-    const ui = dict().ui;
+    const d = dict();
+    const ui = d.ui;
 
     if (!scenes.length) {
       tabsEl.innerHTML = "";
@@ -1074,16 +1075,38 @@
         b.classList.toggle("active", i === index);
         b.setAttribute("aria-selected", String(i === index));
       });
-      const eyebrowParts = [];
-      if (s.number) eyebrowParts.push(ui.sceneEyebrow(s.number, s.location || "").replace(/\s*·\s*$/, ""));
-      else if (s.location) eyebrowParts.push(s.location);
-      const eyebrowText = eyebrowParts.join(" · ");
       const chars = Array.isArray(s.characters) ? s.characters.filter(Boolean) : [];
       const sceneAudioHtml = buildAudioEmbedHtml(s.audioUrl, s.title, true);
+      const allScenePhotos = [s.image, s.image2, s.image3].filter(Boolean);
+      const sceneLightboxPhotos = allScenePhotos.map((src) => ({
+        src,
+        title: s.title || "",
+        album: d.nav.representacio || "Representació",
+        caption: s.fullDesc || "",
+        location: s.location || "Felanitx",
+        credit: "Associació El Davallament de Felanitx"
+      }));
+      const extraScenePhotos = [s.image2, s.image3].filter(Boolean);
+      const extraScenePhotosHtml =
+        extraScenePhotos.length === 1
+          ? `<figure style="margin:18px 0 6px;text-align:center">
+              <img class="news-zoomable" data-scene-zoom="1" src="${escapeHtml(extraScenePhotos[0])}" alt="${escapeHtml(s.title || "")}" style="max-height:420px;margin:0 auto;border-radius:8px;box-shadow:var(--shadow-md)">
+            </figure>`
+          : extraScenePhotos.length >= 2
+          ? `<div class="article-gallery">
+              ${extraScenePhotos
+                .map(
+                  (src, i) =>
+                    `<figure><img class="news-zoomable" data-scene-zoom="${i + 1}" src="${escapeHtml(src)}" alt="${escapeHtml(s.title || "")}" loading="lazy"></figure>`
+                )
+                .join("")}
+            </div>`
+          : "";
+
       panelEl.innerHTML = `
-        ${s.image ? `<img class="scene-detail-img" src="${escapeHtml(s.image)}" alt="${escapeHtml(s.title || "")}">` : ""}
+        ${s.image ? `<img class="scene-detail-img news-zoomable" data-scene-zoom="0" src="${escapeHtml(s.image)}" alt="${escapeHtml(s.title || "")}" title="${escapeHtml(ui.zoomPill || "Ampliar")}">` : ""}
         <div class="scene-detail-body">
-          ${eyebrowText ? `<span class="eyebrow">${escapeHtml(eyebrowText)}</span>` : ""}
+          ${s.location ? `<span class="eyebrow">${escapeHtml(s.location)}</span>` : ""}
           ${s.title ? `<h3>${escapeHtml(s.title)}</h3>` : ""}
           ${s.fullDesc ? `<p style="color:var(--text-muted);margin-bottom:14px">${escapeHtml(s.fullDesc)}</p>` : ""}
           ${s.atmosphere ? `<p style="font-size:0.94rem;color:var(--primary)"><strong>${escapeHtml(ui.atmosphereLabel)}</strong> ${escapeHtml(s.atmosphere)}</p>` : ""}
@@ -1094,9 +1117,19 @@
                 </div>`
               : ""
           }
+          ${extraScenePhotosHtml}
           ${sceneAudioHtml}
+          <div class="scene-footer">
+            <a href="${formatHref("galeria.html")}" class="btn btn--outline btn--sm">${escapeHtml(ui.moreInGallery || "Veure més imatges a la Galeria →")}</a>
+          </div>
         </div>
       `;
+
+      panelEl.querySelectorAll("[data-scene-zoom]").forEach((imgEl) => {
+        imgEl.addEventListener("click", () => {
+          openLightbox(sceneLightboxPhotos, Number(imgEl.dataset.sceneZoom) || 0);
+        });
+      });
     }
 
     tabsEl.innerHTML = scenes
@@ -1721,6 +1754,8 @@
       title: raw.titol || raw.title || "",
       location: raw.lloc || raw.location || "",
       image: normalizeAssetPath(raw.imatge || raw.image, ""),
+      image2: normalizeAssetPath(raw.imatge2 || raw.image2, ""),
+      image3: normalizeAssetPath(raw.imatge3 || raw.image3, ""),
       characters: chars,
       atmosphere: raw.atmosfera || raw.atmosphere || "",
       fullDesc: raw.descripcio || raw.fullDesc || raw.shortDesc || "",

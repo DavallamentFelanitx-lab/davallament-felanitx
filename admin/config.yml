@@ -200,7 +200,9 @@ collections:
               - { name: "numero", label: "Número o ordre (ex: I, II, III...)", widget: "string", required: false }
               - { name: "titol", label: "Títol de l'escena", widget: "string", required: false }
               - { name: "lloc", label: "Ubicació a l'escalinata", widget: "string", required: false }
-              - { name: "imatge", label: "Fotografia de l'escena", widget: "image", media_folder: "/img/representacio", public_folder: "img/representacio", required: false }
+              - { name: "imatge", label: "Fotografia principal (Foto 1)", widget: "image", media_folder: "/img/representacio", public_folder: "img/representacio", required: false }
+              - { name: "imatge2", label: "Segona fotografia (Foto 2, opcional)", widget: "image", media_folder: "/img/representacio", public_folder: "img/representacio", required: false }
+              - { name: "imatge3", label: "Tercera fotografia (Foto 3, opcional)", widget: "image", media_folder: "/img/representacio", public_folder: "img/representacio", required: false }
               - { name: "descripcio", label: "Descripció de l'escena", widget: "text", required: false }
               - { name: "atmosfera", label: "Atmosfera / Il·luminació", widget: "string", required: false }
               - { name: "audioUrl", label: "Música de l'escena (Spotify, YouTube o MP3, opcional)", widget: "string", required: false, hint: "Enganxa l'enllaç de la cançó de Spotify (ex: https://open.spotify.com/track/...), YouTube o .mp3" }
