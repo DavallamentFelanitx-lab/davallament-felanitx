@@ -8,11 +8,11 @@
 
 items:
   - id: davallament-creu
-    titol: El Davallament de la Creu
+    titol: Davallament
     album: El Davallament
-    any: ''
+    any: '2023'
     lloc: ''
-    credit: Associació El Davallament de Felanitx
+    credit: ''
     imatge: img/hero/hero1.jpg
     descripcio: ''
   - id: cami-calvari-veronica
