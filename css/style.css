@@ -1529,9 +1529,9 @@ h1, h2, h3, h4 {
 }
 
 .btn--youtube {
-  background: transparent;
+  background: var(--primary);
   border-color: var(--primary);
-  color: var(--primary);
+  color: #ffffff;
 }
 
 .btn--youtube:hover {

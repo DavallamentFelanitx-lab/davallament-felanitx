@@ -206,6 +206,7 @@ collections:
               - { name: "descripcio", label: "Descripció de l'escena", widget: "text", required: false }
               - { name: "atmosfera", label: "Atmosfera / Il·luminació", widget: "string", required: false }
               - { name: "audioUrl", label: "Música de l'escena (Spotify, YouTube o MP3, opcional)", widget: "string", required: false, hint: "Enganxa l'enllaç de la cançó de Spotify (ex: https://open.spotify.com/track/...), YouTube o .mp3" }
+              - { name: "albumGaleria", label: "Àlbum de la Galeria (opcional)", widget: "string", required: false, hint: "Si es deixa buit, filtrarà la Galeria pel títol de l'escena (ex: Entrada a Jerusalem)" }
               - name: "personatges"
                 label: "Personatges"
                 widget: "list"

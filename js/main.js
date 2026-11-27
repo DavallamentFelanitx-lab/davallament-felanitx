@@ -1120,7 +1120,7 @@
           ${extraScenePhotosHtml}
           ${sceneAudioHtml}
           <div class="scene-footer">
-            <a href="${formatHref("galeria.html")}" class="btn btn--outline btn--sm">${escapeHtml(ui.moreInGallery || "Veure més imatges a la Galeria →")}</a>
+            <a href="${formatHref("galeria.html")}${s.galleryAlbum || s.title ? `?album=${encodeURIComponent(s.galleryAlbum || s.title)}` : ""}#fotografies" class="btn btn--outline btn--sm">${escapeHtml(ui.moreInGallery || "Veure més imatges a la Galeria →")}</a>
           </div>
         </div>
       `;
@@ -1516,6 +1516,20 @@
     const albums = [allLabel, ...Array.from(new Set(photos.map((g) => g.album)))];
     let activeAlbum = allLabel;
 
+    const requestedAlbum = getQueryParam("album");
+    if (requestedAlbum) {
+      const targetNorm = normalizeSearchText(requestedAlbum).trim();
+      const exactMatch = albums.find((a) => normalizeSearchText(a).trim() === targetNorm);
+      const partialMatch =
+        exactMatch ||
+        albums.find((a) => {
+          if (a === allLabel) return false;
+          const aNorm = normalizeSearchText(a).trim();
+          return aNorm.includes(targetNorm) || targetNorm.includes(aNorm);
+        });
+      if (partialMatch) activeAlbum = partialMatch;
+    }
+
     function renderPills() {
       pillsHost.innerHTML = albums
         .map(
@@ -1759,7 +1773,8 @@
       characters: chars,
       atmosphere: raw.atmosfera || raw.atmosphere || "",
       fullDesc: raw.descripcio || raw.fullDesc || raw.shortDesc || "",
-      audioUrl: raw.audioUrl || ""
+      audioUrl: raw.audioUrl || "",
+      galleryAlbum: raw.albumGaleria || raw.galleryAlbum || ""
     };
   }
 
