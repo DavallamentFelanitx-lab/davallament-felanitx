@@ -109,3 +109,15 @@ items:
       - Confraries locals
       - Banda de Música de Felanitx
       - Fidels
+  - id: JudesGetsemaní
+    numero: III
+    titol: Venda de Judes i Hort de Getsemaní
+    lloc: ''
+    imatge: /img/representacio/pasted-image-1795775333409.png
+    descripcio: ''
+    atmosfera: ''
+    audioUrl: https://open.spotify.com/track/48u0f5srQ11hMomuHgSGtN?si=8d95260961dd4c8f
+    personatges:
+      - Jesús
+      - Judes
+      - Caifàs
