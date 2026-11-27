@@ -9,9 +9,12 @@ items:
     titol: Entrada a Jerusalem
     lloc: ''
     imatge: /img/representacio/EntradaJerusalem.jpg
+    imatge2: /img/representacio/EntradaJerusalem2025.jpg
+    imatge3: ''
     descripcio: ''
     atmosfera: ''
     audioUrl: https://open.spotify.com/track/2jOfP83jP6ry26ZsUCThqA
+    albumGaleria: ''
     personatges:
       - Jesús
       - Apòstols
@@ -21,9 +24,12 @@ items:
     titol: El Darrer Sopar
     lloc: ''
     imatge: /img/representacio/5.jpeg
+    imatge2: ''
+    imatge3: ''
     descripcio: ''
     atmosfera: ''
     audioUrl: https://open.spotify.com/track/2wQKylUSz0doTU1FzrUQkq
+    albumGaleria: ''
     personatges:
       - Jesús
       - Apòstols
@@ -33,9 +39,12 @@ items:
     titol: Venda de Judes
     lloc: ''
     imatge: /img/representacio/pasted-image-1795775333409.png
+    imatge2: ''
+    imatge3: ''
     descripcio: ''
     atmosfera: ''
     audioUrl: https://open.spotify.com/track/48u0f5srQ11hMomuHgSGtN?si=8d95260961dd4c8f
+    albumGaleria: ''
     personatges:
       - Jesús
       - Judes Iscariot
@@ -45,9 +54,12 @@ items:
     titol: Captura a l'hort de Getsemaní i Jesús davant Caifàs
     lloc: ''
     imatge: /img/representacio/CaifàsJesús2026.jpg
+    imatge2: ''
+    imatge3: ''
     descripcio: ''
     atmosfera: ''
     audioUrl: https://open.spotify.com/track/0CHxSzmBIfKXRKH0judgXn
+    albumGaleria: ''
     personatges:
       - Jesús
       - Caifàs
@@ -56,9 +68,12 @@ items:
     titol: Flagel·lació
     lloc: ''
     imatge: /img/representacio/Flagel·lació.jpg
+    imatge2: ''
+    imatge3: ''
     descripcio: ''
     atmosfera: ''
     audioUrl: https://open.spotify.com/track/38wyE2b906GRdYz0oxesMm?si=a4d6c9e9066846d7
+    albumGaleria: ''
     personatges:
       - Jesús
       - Flagel·ladors
@@ -67,9 +82,12 @@ items:
     titol: Jesús davant Ponç Pilat
     lloc: ''
     imatge: /img/representacio/JesúsPilat.jpg
+    imatge2: ''
+    imatge3: ''
     descripcio: ''
     atmosfera: ''
     audioUrl: https://open.spotify.com/track/7DwQpOdnntDTRnoZyHH2b5?si=8ea0f6fe0c014fe7
+    albumGaleria: ''
     personatges:
       - Jesús
       - Ponç Pilat
@@ -79,9 +97,12 @@ items:
     titol: Crucifixió dels lladres
     lloc: ''
     imatge: /img/representacio/Lladre1.jpg
+    imatge2: ''
+    imatge3: ''
     descripcio: ''
     atmosfera: ''
     audioUrl: https://open.spotify.com/track/0JcJrXfGj5hOqFOdGWFkye?si=9ad8df0f810845ca
+    albumGaleria: ''
     personatges:
       - Lladres
       - Romans
@@ -90,9 +111,12 @@ items:
     titol: Trobada amb Maria
     lloc: ''
     imatge: /img/representacio/trobadaMaria.jpg
+    imatge2: ''
+    imatge3: ''
     descripcio: ''
     atmosfera: ''
     audioUrl: https://open.spotify.com/track/56iwhyNflNA5Ei8rXKdgKv?si=9886d04eb53c4f3d
+    albumGaleria: ''
     personatges:
       - Jesús
       - Mare de Déu
@@ -102,9 +126,12 @@ items:
     titol: Verònica
     lloc: ''
     imatge: /img/representacio/veronicaMocador.jpg
+    imatge2: ''
+    imatge3: ''
     descripcio: ''
     atmosfera: ''
     audioUrl: https://open.spotify.com/track/3r1BjmuHUj4zfyLRTIdcuH?si=2644b52a7a8a4d1d
+    albumGaleria: ''
     personatges:
       - Jesús
       - Verònica
@@ -114,9 +141,12 @@ items:
     titol: Crucifixió de Jesús
     lloc: ''
     imatge: /img/representacio/crucifixioJesus.jpg
+    imatge2: ''
+    imatge3: ''
     descripcio: ''
     atmosfera: ''
     audioUrl: https://open.spotify.com/track/3r1BjmuHUj4zfyLRTIdcuH?si=01e66c34155940d7
+    albumGaleria: ''
     personatges:
       - Jesús
       - Enterradors
@@ -126,9 +156,12 @@ items:
     titol: Mort de Jesús
     lloc: ''
     imatge: /img/representacio/jesusMort.jpg
+    imatge2: ''
+    imatge3: ''
     descripcio: ''
     atmosfera: ''
     audioUrl: https://open.spotify.com/track/2U7VDatnZVkVh3OO71wg4I?si=d7457cabc2824956
+    albumGaleria: ''
     personatges:
       - Jesús
       - Romans
@@ -137,9 +170,12 @@ items:
     titol: Davallament
     lloc: ''
     imatge: /img/representacio/Davallament.jpg
+    imatge2: ''
+    imatge3: ''
     descripcio: ''
     atmosfera: ''
     audioUrl: https://open.spotify.com/track/5GHbAlNrD0o7KnZHgrd08H?si=a36f83b5c1464452
+    albumGaleria: ''
     personatges:
       - Jesús
       - Enterradors
