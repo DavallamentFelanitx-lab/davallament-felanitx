@@ -166,9 +166,9 @@
       href: "representacio.html",
       key: "representacio",
       children: [
-        { href: "representacio.html#escenes", key: "repEscenes" },
         { href: "representacio.html#text", key: "repText" },
         { href: "representacio.html#banda-sonora", key: "repBandaSonora" },
+        { href: "representacio.html#escenes", key: "repEscenes" },
         { href: "representacio.html#posada-en-escena", key: "repPosadaEscena" }
       ]
     },
@@ -1050,12 +1050,22 @@
      PAGE: REPRESENTACIÓ (representacio.html)
      ------------------------------------------------------------------------ */
   function initRepresentacioPage() {
+    renderRepresentacioSections();
+
     const tabsEl = document.getElementById("scene-tabs");
     const panelEl = document.getElementById("scene-panel");
     if (!tabsEl || !panelEl) return;
 
     const scenes = getLocalizedScenes();
     const ui = dict().ui;
+
+    if (!scenes.length) {
+      tabsEl.innerHTML = "";
+      panelEl.innerHTML = "";
+      return;
+    }
+
+    if (activeSceneIdx >= scenes.length) activeSceneIdx = 0;
 
     function selectScene(index) {
       activeSceneIdx = index;
@@ -1064,16 +1074,25 @@
         b.classList.toggle("active", i === index);
         b.setAttribute("aria-selected", String(i === index));
       });
+      const eyebrowParts = [];
+      if (s.number) eyebrowParts.push(ui.sceneEyebrow(s.number, s.location || "").replace(/\s*·\s*$/, ""));
+      else if (s.location) eyebrowParts.push(s.location);
+      const eyebrowText = eyebrowParts.join(" · ");
+      const chars = Array.isArray(s.characters) ? s.characters.filter(Boolean) : [];
       panelEl.innerHTML = `
-        <img class="scene-detail-img" src="${escapeHtml(s.image)}" alt="${escapeHtml(s.title)}">
+        ${s.image ? `<img class="scene-detail-img" src="${escapeHtml(s.image)}" alt="${escapeHtml(s.title || "")}">` : ""}
         <div class="scene-detail-body">
-          <span class="eyebrow">${escapeHtml(ui.sceneEyebrow(s.number, s.location))}</span>
-          <h3>${escapeHtml(s.title)}</h3>
-          <p style="color:var(--text-muted);margin-bottom:14px">${escapeHtml(s.fullDesc)}</p>
-          <p style="font-size:0.94rem;color:var(--primary)"><strong>${escapeHtml(ui.atmosphereLabel)}</strong> ${escapeHtml(s.atmosphere)}</p>
-          <div class="tags-row">
-            ${s.characters.map((c) => `<span class="badge badge--primary">${escapeHtml(c)}</span>`).join("")}
-          </div>
+          ${eyebrowText ? `<span class="eyebrow">${escapeHtml(eyebrowText)}</span>` : ""}
+          ${s.title ? `<h3>${escapeHtml(s.title)}</h3>` : ""}
+          ${s.fullDesc ? `<p style="color:var(--text-muted);margin-bottom:14px">${escapeHtml(s.fullDesc)}</p>` : ""}
+          ${s.atmosphere ? `<p style="font-size:0.94rem;color:var(--primary)"><strong>${escapeHtml(ui.atmosphereLabel)}</strong> ${escapeHtml(s.atmosphere)}</p>` : ""}
+          ${
+            chars.length
+              ? `<div class="tags-row">
+                  ${chars.map((c) => `<span class="badge badge--primary">${escapeHtml(c)}</span>`).join("")}
+                </div>`
+              : ""
+          }
         </div>
       `;
     }
@@ -1082,10 +1101,10 @@
       .map(
         (s, idx) => `
         <button type="button" role="tab" class="scene-tab-btn ${idx === activeSceneIdx ? "active" : ""}" aria-selected="${idx === activeSceneIdx}" data-scene-idx="${idx}">
-          <span class="scene-tab-num">${escapeHtml(s.number)}</span>
+          ${s.number ? `<span class="scene-tab-num">${escapeHtml(s.number)}</span>` : ""}
           <span>
-            <strong style="display:block;font-size:0.96rem">${escapeHtml(s.title)}</strong>
-            <small style="opacity:0.78;font-size:0.8rem">${escapeHtml(s.location)}</small>
+            ${s.title ? `<strong style="display:block;font-size:0.96rem">${escapeHtml(s.title)}</strong>` : ""}
+            ${s.location ? `<small style="opacity:0.78;font-size:0.8rem">${escapeHtml(s.location)}</small>` : ""}
           </span>
         </button>`
       )
@@ -1095,57 +1114,114 @@
       btn.addEventListener("click", () => selectScene(Number(btn.dataset.sceneIdx)));
     });
     selectScene(activeSceneIdx);
-    renderRepresentacioSections();
+  }
+
+  function buildAudioEmbedHtml(rawUrl, title) {
+    const url = String(rawUrl || "").trim();
+    if (!url) return "";
+
+    // Spotify (track, album, playlist, episode, show)
+    const spotifyMatch = url.match(/open\.spotify\.com\/(?:intl-[a-z]+\/)?(track|album|playlist|episode|show)\/([a-zA-Z0-9]+)/i);
+    if (spotifyMatch) {
+      const kind = spotifyMatch[1].toLowerCase();
+      const id = spotifyMatch[2];
+      const height = kind === "track" || kind === "episode" ? 152 : 352;
+      return `
+        <div class="audio-embed audio-embed--spotify">
+          <iframe src="https://open.spotify.com/embed/${kind}/${id}?utm_source=generator" width="100%" height="${height}" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" title="${escapeHtml(title || "Spotify")}"></iframe>
+        </div>`;
+    }
+
+    // YouTube playlist or video
+    const ytListMatch = url.match(/[?&]list=([a-zA-Z0-9_-]+)/);
+    const ytId = extractYouTubeId(url);
+    if (ytListMatch && !ytId) {
+      return `
+        <div class="audio-embed audio-embed--youtube">
+          <iframe src="https://www.youtube.com/embed/videoseries?list=${escapeHtml(ytListMatch[1])}" title="${escapeHtml(title || "YouTube")}" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+        </div>`;
+    }
+    if (ytId) {
+      return `
+        <div class="audio-embed audio-embed--youtube">
+          <iframe src="https://www.youtube.com/embed/${escapeHtml(ytId)}?rel=0" title="${escapeHtml(title || "YouTube")}" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+        </div>`;
+    }
+
+    // Direct audio file (.mp3, .ogg, .wav, .m4a)
+    if (/\.(mp3|ogg|wav|m4a|aac)(\?.*)?$/i.test(url)) {
+      const safeSrc = normalizeAssetPath(url, "");
+      return `
+        <div class="audio-embed audio-embed--native">
+          <audio controls preload="metadata" src="${escapeHtml(safeSrc)}"></audio>
+        </div>`;
+    }
+
+    return "";
+  }
+
+  function renderSingleRepSection(s, idx) {
+    const isCream = idx % 2 === 1;
+    const isReverse = idx % 2 === 1;
+    const paragraphsHtml = (s.paragraphs || [])
+      .filter(Boolean)
+      .map((p) => `<p>${escapeHtml(p)}</p>`)
+      .join("");
+    const quoteHtml = s.quote
+      ? `<blockquote class="quote-box">
+          <p>${escapeHtml(s.quote)}</p>
+          ${s.quoteCite ? `<cite>${escapeHtml(s.quoteCite)}</cite>` : ""}
+        </blockquote>`
+      : "";
+    const audioHtml = buildAudioEmbedHtml(s.audioUrl, s.title);
+
+    if (s.image) {
+      return `
+        <section class="feature-band${isCream ? " feature-band--cream" : ""}" id="${escapeHtml(s.id)}">
+          <div class="feature${isReverse ? " reverse" : ""}">
+            <div class="image">
+              <img src="${escapeHtml(s.image)}" alt="${escapeHtml(s.title)}" loading="lazy">
+            </div>
+            <div class="text">
+              ${s.eyebrow ? `<span class="eyebrow">${escapeHtml(s.eyebrow)}</span>` : ""}
+              <h2>${escapeHtml(s.title)}</h2>
+              <div class="separator left"></div>
+              ${paragraphsHtml}
+              ${quoteHtml}
+              ${audioHtml}
+            </div>
+          </div>
+        </section>`;
+    }
+    return `
+      <section class="section${isCream ? " section--cream" : ""}" id="${escapeHtml(s.id)}">
+        <div class="container">
+          <div style="max-width:860px">
+            ${s.eyebrow ? `<span class="eyebrow">${escapeHtml(s.eyebrow)}</span>` : ""}
+            <h2 class="section-title">${escapeHtml(s.title)}</h2>
+            <div class="separator left"></div>
+            <div class="article-body">${paragraphsHtml}</div>
+            ${quoteHtml}
+            ${audioHtml}
+          </div>
+        </div>
+      </section>`;
   }
 
   function renderRepresentacioSections() {
-    const host = document.getElementById("representacio-seccions");
-    if (!host) return;
+    const topHost = document.getElementById("representacio-seccions-top");
+    const bottomHost = document.getElementById("representacio-seccions-bottom");
+    if (!topHost && !bottomHost) return;
     const sections = getLocalizedRepSections();
-    host.innerHTML = sections
-      .map((s, idx) => {
-        const isCream = idx % 2 === 0;
-        const isReverse = idx % 2 === 1;
-        const paragraphsHtml = (s.paragraphs || [])
-          .map((p) => `<p>${escapeHtml(p)}</p>`)
-          .join("");
-        const quoteHtml = s.quote
-          ? `<blockquote class="quote-box">
-              <p>${escapeHtml(s.quote)}</p>
-              ${s.quoteCite ? `<cite>${escapeHtml(s.quoteCite)}</cite>` : ""}
-            </blockquote>`
-          : "";
-        if (s.image) {
-          return `
-            <section class="feature-band${isCream ? " feature-band--cream" : ""}" id="${escapeHtml(s.id)}">
-              <div class="feature${isReverse ? " reverse" : ""}">
-                <div class="image">
-                  <img src="${escapeHtml(s.image)}" alt="${escapeHtml(s.title)}" loading="lazy">
-                </div>
-                <div class="text">
-                  ${s.eyebrow ? `<span class="eyebrow">${escapeHtml(s.eyebrow)}</span>` : ""}
-                  <h2>${escapeHtml(s.title)}</h2>
-                  <div class="separator left"></div>
-                  ${paragraphsHtml}
-                  ${quoteHtml}
-                </div>
-              </div>
-            </section>`;
-        }
-        return `
-          <section class="section${isCream ? " section--cream" : ""}" id="${escapeHtml(s.id)}">
-            <div class="container">
-              <div style="max-width:860px">
-                ${s.eyebrow ? `<span class="eyebrow">${escapeHtml(s.eyebrow)}</span>` : ""}
-                <h2 class="section-title">${escapeHtml(s.title)}</h2>
-                <div class="separator left"></div>
-                <div class="article-body">${paragraphsHtml}</div>
-                ${quoteHtml}
-              </div>
-            </div>
-          </section>`;
-      })
-      .join("");
+    const topIds = new Set(["text", "banda-sonora"]);
+    const topSections = sections.filter((s) => topIds.has(s.id));
+    const bottomSections = sections.filter((s) => !topIds.has(s.id));
+    if (topHost) {
+      topHost.innerHTML = topSections.map((s, i) => renderSingleRepSection(s, i)).join("");
+    }
+    if (bottomHost) {
+      bottomHost.innerHTML = bottomSections.map((s, i) => renderSingleRepSection(s, i + 1)).join("");
+    }
   }
 
   /* ------------------------------------------------------------------------
@@ -1620,6 +1696,24 @@
     };
   }
 
+  function normalizeSceneItem(raw, idx) {
+    const chars = Array.isArray(raw.personatges)
+      ? raw.personatges.map(String).filter(Boolean)
+      : Array.isArray(raw.characters)
+      ? raw.characters.map(String).filter(Boolean)
+      : [];
+    return {
+      id: raw.id || "escena-" + (idx + 1),
+      number: String(raw.numero !== undefined ? raw.numero : raw.number || ""),
+      title: raw.titol || raw.title || "",
+      location: raw.lloc || raw.location || "",
+      image: normalizeAssetPath(raw.imatge || raw.image, ""),
+      characters: chars,
+      atmosphere: raw.atmosfera || raw.atmosphere || "",
+      fullDesc: raw.descripcio || raw.fullDesc || raw.shortDesc || ""
+    };
+  }
+
   function normalizeRepSectionItem(raw, idx) {
     let paragraphs = [];
     if (Array.isArray(raw.paragrefs)) paragraphs = raw.paragrefs.map(String);
@@ -1634,7 +1728,8 @@
       image: normalizeAssetPath(raw.imatge || raw.image, ""),
       paragraphs,
       quote: raw.cita || raw.quote || "",
-      quoteCite: raw.autorCita || raw.quoteCite || ""
+      quoteCite: raw.autorCita || raw.quoteCite || "",
+      audioUrl: raw.audioUrl || ""
     };
   }
 
@@ -1647,6 +1742,13 @@
         window.SimpleYAML.fetchYamlList("data/representacio.yaml")
           .then((items) => {
             if (items && items.length) DATA.repSections = items.map(normalizeRepSectionItem);
+          })
+          .catch(() => {})
+      );
+      tasks.push(
+        window.SimpleYAML.fetchYamlList("data/escenes.yaml")
+          .then((items) => {
+            if (items && items.length) DATA.scenes = items.map(normalizeSceneItem);
           })
           .catch(() => {})
       );

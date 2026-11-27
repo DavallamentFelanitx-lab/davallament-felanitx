@@ -477,7 +477,8 @@ window.DAVALLAMENT_DATA = {
         "Cada passatge de la Passió disposa d'un paisatge sonor propi que subratlla la tensió dramàtica, el recolliment i el silenci colpidor del descendiment davant la portalada de Sant Miquel."
       ],
       quote: "",
-      quoteCite: ""
+      quoteCite: "",
+      audioUrl: "https://open.spotify.com/album/3yO5HMCSckVIZf1rTO9Nlo"
     },
     {
       id: "posada-en-escena",
