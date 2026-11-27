@@ -51,19 +51,17 @@ items:
     personatges:
       - Jesús
       - Caifàs
-  - id: ecce-homo
+  - id: flagelacio
     numero: IV
-    titol: Flagel·lació i Ecce Homo
-    lloc: Escalinata central
+    titol: Flagel·lació
+    lloc: ''
     imatge: img/representacio/representacio.jpg
-    descripcio: Una seqüència d'una gran potència visual on els esglaons il·luminats de vermell emmarquen el patiment de Jesús mentre centenars d'espectadors mantenen un respecte absolut des de la Plaça de sa Font de Santa Margalida.
-    atmosfera: Contrastos cromàtics intensos i silenci sepulcral
-    audioUrl: https://open.spotify.com/track/38wyE2b906GRdYz0oxesMm
+    descripcio: ''
+    atmosfera: ''
+    audioUrl: https://open.spotify.com/track/38wyE2b906GRdYz0oxesMm?si=a4d6c9e9066846d7
     personatges:
       - Jesús
-      - Soldats romans
-      - Ponç Pilat
-      - Multitud
+      - Flagel·ladors
   - id: via-crucis
     numero: V
     titol: El Camí del Calvari i la Verònica
