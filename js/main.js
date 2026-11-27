@@ -196,7 +196,14 @@
         { href: "galeria.html#multimedia", key: "galMultimedia" }
       ]
     },
-    { href: "contacte.html", key: "contacte" }
+    {
+      href: `mailto:${CONTACT_EMAIL}`,
+      key: "contacte",
+      footerOnly: true,
+      children: [
+        { href: `mailto:${CONTACT_EMAIL}`, label: CONTACT_EMAIL }
+      ]
+    }
   ];
 
   let currentPage = "inici";
@@ -581,7 +588,7 @@
             </button>
 
             <nav class="main-nav" id="main-nav" aria-label="Main navigation">
-              ${NAV_LINKS.map((item) => {
+              ${NAV_LINKS.filter((item) => !item.footerOnly).map((item) => {
                 const isActive = item.key === currentPage;
                 const hasChildren = Array.isArray(item.children) && item.children.length > 0;
                 const chevron = hasChildren
@@ -702,7 +709,7 @@
                         ${children
                           .map(
                             (sub) =>
-                              `<li><a href="${formatHref(sub.href)}">${escapeHtml((d.subnav && d.subnav[sub.key]) || sub.key)}</a></li>`
+                              `<li><a href="${formatHref(sub.href)}">${escapeHtml(sub.label || (d.subnav && d.subnav[sub.key]) || sub.key)}</a></li>`
                           )
                           .join("")}
                       </ul>
