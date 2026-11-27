@@ -16,7 +16,7 @@ items:
       - "Infants amb palmes"
     atmosfera: "Clima coral que obre el relat evangèlic entre els esglaons de pedra de marès"
     descripcio: "La representació arrenca amb la participació coral de famílies i infants del poble que donen vida a Jerusalem amb branques d'olivera i palmes, establint des del primer instant el caràcter comunitari del Davallament."
-    audioUrl: ""
+    audioUrl: "https://open.spotify.com/track/2jOfP83jP6ry26ZsUCThqA"
 
   - id: "sant-sopar"
     numero: "II"
@@ -29,7 +29,7 @@ items:
       - "Judes Iscariot"
     atmosfera: "Llum íntima, recolliment i intensitat musical"
     descripcio: "Sota una il·luminació continguda i solemne, el Sant Sopar dona pas a la nit de Getsemaní. La banda sonora original de Joan Martorell acompanya el silenci colpidor de la plaça abans de l'arribada dels soldats."
-    audioUrl: ""
+    audioUrl: "https://open.spotify.com/track/2wQKylUSz0doTU1FzrUQkq"
 
   - id: "caifas-pilat"
     numero: "III"
@@ -44,7 +44,7 @@ items:
       - "Armats"
     atmosfera: "Tensió dramàtica, llum carmesí i arquitectures de pedra"
     descripcio: "Aprofitant l'arc apuntat i la balconada lateral de la parròquia, l'escena davant Ponç Pilat combina la força dels textos dramàtics amb la presència imponent dels armats romans i la multitud."
-    audioUrl: ""
+    audioUrl: "https://open.spotify.com/track/0CHxSzmBIfKXRKH0judgXn"
 
   - id: "ecce-homo"
     numero: "IV"
@@ -58,7 +58,7 @@ items:
       - "Multitud"
     atmosfera: "Contrastos cromàtics intensos i silenci sepulcral"
     descripcio: "Una seqüència d'una gran potència visual on els esglaons il·luminats de vermell emmarquen el patiment de Jesús mentre centenars d'espectadors mantenen un respecte absolut des de la Plaça de sa Font de Santa Margalida."
-    audioUrl: ""
+    audioUrl: "https://open.spotify.com/track/38wyE2b906GRdYz0oxesMm"
 
   - id: "via-crucis"
     numero: "V"
@@ -73,7 +73,7 @@ items:
       - "Armats"
     atmosfera: "Ritme processional pausat i emoció continguda"
     descripcio: "L'escalinata sencera es converteix en la Via Dolorosa. L'encontre amb Maria i el gest de la Verònica desplegant el llençol blanc sota el rosetó de Sant Miquel configuren algunes de les estampes més icòniques de la nit."
-    audioUrl: ""
+    audioUrl: "https://open.spotify.com/track/56iwhyNflNA5Ei8rXKdgKv"
 
   - id: "crucifixio"
     numero: "VI"
@@ -88,7 +88,7 @@ items:
       - "Centurió"
     atmosfera: "Llums zenitals i foscor absoluta a la plaça"
     descripcio: "Al punt més alt del replà s'alça la creu. Amb els fanals públics del nucli antic apagats, tota l'atenció de la plaça convergeix en les darreres paraules i la mort de Jesús."
-    audioUrl: ""
+    audioUrl: "https://open.spotify.com/track/3r1BjmuHUj4zfyLRTIdcuH"
 
   - id: "el-davallament"
     numero: "VII"
@@ -103,7 +103,7 @@ items:
       - "Santes Dones"
     atmosfera: "Llum blavosa, boira suau, escales i llençol blanc"
     descripcio: "És l'instant central que inspira fins i tot el nostre logotip. Amb dues escales recolzades a la creu i un llarg llençol blanc, els sants homes davallen el cos sense vida de Jesús per dipositar-lo a la falda de sa Mare en una Pietat vivent."
-    audioUrl: ""
+    audioUrl: "https://open.spotify.com/track/5GHbAlNrD0o7KnZHgrd08H"
 
   - id: "processo-enterrament"
     numero: "VIII"
