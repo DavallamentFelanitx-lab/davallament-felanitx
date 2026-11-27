@@ -671,7 +671,6 @@
             <div class="footer-top-bar">
               <a href="${formatHref("index.html")}" class="footer-brand" aria-label="${escapeHtml(d.footer.title)}">
                 <img src="img/logo/logo-blanc.png" alt="Logo El Davallament de Felanitx" class="footer-logo">
-                <span class="footer-brand-name">${escapeHtml(d.footer.title)}</span>
               </a>
               <div class="footer-social" aria-label="Xarxes socials">
                 <a href="${SOCIAL_LINKS.instagram}" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Instagram @davallament_felanitx" title="Instagram · @davallament_felanitx">
