@@ -32,7 +32,7 @@ items:
     categoria: Cròniques
     data: 3 d'abril de 2026
     dataIso: 2026-04-03
-    lectura: 4 min
+    lectura: ''
     destacada: false
     imatge: img/noticies/davallament-2026-ultimahora.jpg
     cartell: ''
@@ -55,7 +55,7 @@ items:
     categoria: Edició 2026
     data: 19 de febrer de 2026
     dataIso: 2026-02-19
-    lectura: 3 min
+    lectura: ''
     destacada: true
     imatge: img/noticies/presentacio-cartell-2026.jpg
     cartell: img/noticies/cartell-2026.jpg
@@ -76,7 +76,7 @@ items:
     categoria: Edició 2024
     data: 26 de març de 2024
     dataIso: 2024-03-26
-    lectura: 3 min
+    lectura: ''
     destacada: false
     imatge: /img/noticies/pasted-image-1795688827272.png
     cartell: ''
@@ -101,7 +101,7 @@ items:
     categoria: Edició 2024
     data: 30 de març de 2024
     dataIso: 2024-03-30
-    lectura: 3 min
+    lectura: ''
     destacada: false
     imatge: /img/noticies/pasted-image-1795690760088.png
     cartell: /img/noticies/pasted-image-1795690770517.png
@@ -119,7 +119,7 @@ items:
     categoria: 50è aniversari
     data: 5 de març de 2025
     dataIso: 2025-03-05
-    lectura: 5 min
+    lectura: ''
     destacada: false
     imatge: /img/noticies/cartells.jpg
     cartell: /img/noticies/pasted-image-1795693218335.png
@@ -141,7 +141,7 @@ items:
     categoria: Edició 2023
     data: 3 d'abril de 2023
     dataIso: 2023-04-03
-    lectura: 3 min
+    lectura: ''
     destacada: false
     imatge: /img/noticies/pasted-image-1795730097542.png
     cartell: ''
@@ -171,7 +171,7 @@ items:
     categoria: 50è aniversari
     data: 19 d'abril de 2025
     dataIso: 2025-04-19
-    lectura: 3 min
+    lectura: ''
     destacada: false
     imatge: /img/noticies/pasted-image-1795731135012.png
     cartell: ''
