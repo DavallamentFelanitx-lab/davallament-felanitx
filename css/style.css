@@ -2581,7 +2581,7 @@ h1, h2, h3, h4 {
 
 .footer-sitemap {
   display: grid;
-  grid-template-columns: repeat(6, minmax(0, 1fr));
+  grid-template-columns: repeat(5, minmax(0, 1fr)) minmax(225px, 1.45fr);
   gap: 24px;
   padding-bottom: 2.4rem;
 }
@@ -2614,6 +2614,17 @@ h1, h2, h3, h4 {
   color: rgba(255, 255, 255, 0.8);
   transition: color 0.2s;
   word-break: break-word;
+}
+
+.footer-sublinks a[href^="mailto:"] {
+  white-space: nowrap;
+}
+
+@media (max-width: 640px) {
+  .footer-sublinks a[href^="mailto:"] {
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
 }
 
 .footer-sublinks a:hover {
