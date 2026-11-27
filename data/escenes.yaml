@@ -97,20 +97,18 @@ items:
       - Jesús
       - Mare de Déu
       - Romans
-  - id: el-davallament
-    numero: VII
-    titol: El Davallament de la Creu
-    lloc: Portalada principal de Sant Miquel
-    imatge: img/hero/hero1.jpg
-    descripcio: És l'instant central que inspira fins i tot el nostre logotip. Amb dues escales recolzades a la creu i un llarg llençol blanc, els sants homes davallen el cos sense vida de Jesús per dipositar-lo a la falda de sa Mare en una Pietat vivent.
-    atmosfera: Llum blavosa, boira suau, escales i llençol blanc
-    audioUrl: https://open.spotify.com/track/5GHbAlNrD0o7KnZHgrd08H
+  - id: veronica
+    numero: VIII
+    titol: Verònica
+    lloc: ''
+    imatge: /img/representacio/veronicaMocador.jpg
+    descripcio: ''
+    atmosfera: ''
+    audioUrl: https://open.spotify.com/track/3r1BjmuHUj4zfyLRTIdcuH?si=2644b52a7a8a4d1d
     personatges:
-      - Josep d'Arimatea
-      - Nicodem
-      - La Mare de Déu
-      - Sant Joan
-      - Santes Dones
+      - Jesús
+      - Verònica
+      - Poble
   - id: processo-enterrament
     numero: VIII
     titol: Processó de l'Enterrament
