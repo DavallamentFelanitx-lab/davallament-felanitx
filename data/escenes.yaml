@@ -78,27 +78,25 @@ items:
     numero: VI
     titol: Crucifixió dels lladres
     lloc: ''
-    imatge: /img/representacio/Lladre.jpg
+    imatge: /img/representacio/Lladre1.jpg
     descripcio: ''
     atmosfera: ''
     audioUrl: https://open.spotify.com/track/0JcJrXfGj5hOqFOdGWFkye?si=9ad8df0f810845ca
     personatges:
       - Lladres
       - Romans
-  - id: crucifixio
-    numero: VI
-    titol: La Crucifixió
-    lloc: Capdamunt del replà parroquial
-    imatge: img/hero/hero4.jpg
-    descripcio: Al punt més alt del replà s'alça la creu. Amb els fanals públics del nucli antic apagats, tota l'atenció de la plaça convergeix en les darreres paraules i la mort de Jesús.
-    atmosfera: Llums zenitals i foscor absoluta a la plaça
-    audioUrl: https://open.spotify.com/track/3r1BjmuHUj4zfyLRTIdcuH
+  - id: trobadaMaria
+    numero: VII
+    titol: Trobada amb Maria
+    lloc: ''
+    imatge: /img/representacio/trobadaMaria.jpg
+    descripcio: ''
+    atmosfera: ''
+    audioUrl: https://open.spotify.com/track/56iwhyNflNA5Ei8rXKdgKv?si=9886d04eb53c4f3d
     personatges:
       - Jesús
-      - La Mare de Déu
-      - Sant Joan
-      - Maria Magdalena
-      - Centurió
+      - Mare de Déu
+      - Romans
   - id: el-davallament
     numero: VII
     titol: El Davallament de la Creu
