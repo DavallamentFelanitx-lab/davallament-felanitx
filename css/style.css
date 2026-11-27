@@ -1327,19 +1327,27 @@ h1, h2, h3, h4 {
 
 .timeline-item {
   position: relative;
-  padding: 24px 28px;
+  padding: 26px 30px;
   background: #ffffff;
   border: 1px solid var(--border);
+  border-left: 4px solid var(--secondary);
   border-radius: var(--radius-md);
-  margin-bottom: 22px;
+  margin-bottom: 24px;
   box-shadow: var(--shadow-sm);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-left-color 0.25s ease;
+}
+
+.timeline-item:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+  border-left-color: var(--primary);
 }
 
 .timeline-item::before {
   content: "";
   position: absolute;
-  left: -31px;
-  top: 30px;
+  left: -34px;
+  top: 32px;
   width: 14px;
   height: 14px;
   border-radius: 50%;
@@ -1349,16 +1357,24 @@ h1, h2, h3, h4 {
 }
 
 .timeline-year {
-  display: inline-block;
-  font-family: var(--font-serif);
-  font-size: 1.5rem;
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
   font-weight: 700;
-  color: var(--primary);
-  margin-bottom: 4px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: var(--primary);
+  color: var(--cream);
+  padding: 5px 14px;
+  border-radius: 999px;
+  margin-bottom: 12px;
+  box-shadow: 0 3px 10px rgba(111, 64, 36, 0.2);
 }
 
 .timeline-item h3 {
-  font-size: 1.45rem;
+  font-size: 1.62rem;
+  line-height: 1.22;
   margin-bottom: 8px;
 }
 
@@ -2475,6 +2491,25 @@ h1, h2, h3, h4 {
   padding-bottom: 2rem;
   margin-bottom: 2.2rem;
   border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+.footer-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.footer-logo {
+  height: 62px;
+  width: auto;
+  display: block;
+  opacity: 0.96;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.footer-brand:hover .footer-logo {
+  opacity: 1;
+  transform: scale(1.03);
 }
 
 .footer-brand-name {
