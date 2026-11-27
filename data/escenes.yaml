@@ -62,20 +62,18 @@ items:
     personatges:
       - Jesús
       - Flagel·ladors
-  - id: via-crucis
+  - id: ponçPilat
     numero: V
-    titol: El Camí del Calvari i la Verònica
-    lloc: Ascens per l'escalinata de Sant Miquel
-    imatge: img/hero/hero2.jpg
-    descripcio: L'escalinata sencera es converteix en la Via Dolorosa. L'encontre amb Maria i el gest de la Verònica desplegant el llençol blanc sota el rosetó de Sant Miquel configuren algunes de les estampes més icòniques de la nit.
-    atmosfera: Ritme processional pausat i emoció continguda
-    audioUrl: https://open.spotify.com/track/56iwhyNflNA5Ei8rXKdgKv
+    titol: Jesús davant Ponç Pilat
+    lloc: ''
+    imatge: /img/representacio/JesúsPilat.jpg
+    descripcio: ''
+    atmosfera: ''
+    audioUrl: https://open.spotify.com/track/7DwQpOdnntDTRnoZyHH2b5?si=8ea0f6fe0c014fe7
     personatges:
       - Jesús
-      - La Mare de Déu
-      - La Verònica
-      - Simó de Cirene
-      - Armats
+      - Ponç Pilat
+      - Poble
   - id: crucifixio
     numero: VI
     titol: La Crucifixió
