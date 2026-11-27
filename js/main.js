@@ -1086,25 +1086,34 @@
         location: s.location || "Felanitx",
         credit: "Associació El Davallament de Felanitx"
       }));
-      const extraScenePhotos = [s.image2, s.image3].filter(Boolean);
-      const extraScenePhotosHtml =
-        extraScenePhotos.length === 1
-          ? `<figure style="margin:18px 0 6px;text-align:center">
-              <img class="news-zoomable" data-scene-zoom="1" src="${escapeHtml(extraScenePhotos[0])}" alt="${escapeHtml(s.title || "")}" style="max-height:420px;margin:0 auto;border-radius:8px;box-shadow:var(--shadow-md)">
-            </figure>`
-          : extraScenePhotos.length >= 2
-          ? `<div class="article-gallery">
-              ${extraScenePhotos
-                .map(
-                  (src, i) =>
-                    `<figure><img class="news-zoomable" data-scene-zoom="${i + 1}" src="${escapeHtml(src)}" alt="${escapeHtml(s.title || "")}" loading="lazy"></figure>`
-                )
-                .join("")}
-            </div>`
-          : "";
+
+      const sceneMediaHtml = allScenePhotos.length
+        ? `<div class="scene-carousel" id="scene-carousel">
+            ${allScenePhotos
+              .map(
+                (src, i) =>
+                  `<img class="scene-carousel-slide news-zoomable${i === 0 ? " active" : ""}" data-scene-zoom="${i}" src="${escapeHtml(src)}" alt="${escapeHtml(s.title || "")}" title="${escapeHtml(ui.zoomPill || "Ampliar")}">`
+              )
+              .join("")}
+            ${
+              allScenePhotos.length > 1
+                ? `<button type="button" class="scene-carousel-btn prev" id="scene-prev" aria-label="Previous">❮</button>
+                   <button type="button" class="scene-carousel-btn next" id="scene-next" aria-label="Next">❯</button>
+                   <div class="scene-carousel-dots" id="scene-dots">
+                     ${allScenePhotos
+                       .map(
+                         (_, i) =>
+                           `<button type="button" class="dot${i === 0 ? " active" : ""}" data-slide-idx="${i}" aria-label="${i + 1}"></button>`
+                       )
+                       .join("")}
+                   </div>`
+                : ""
+            }
+          </div>`
+        : "";
 
       panelEl.innerHTML = `
-        ${s.image ? `<img class="scene-detail-img news-zoomable" data-scene-zoom="0" src="${escapeHtml(s.image)}" alt="${escapeHtml(s.title || "")}" title="${escapeHtml(ui.zoomPill || "Ampliar")}">` : ""}
+        ${sceneMediaHtml}
         <div class="scene-detail-body">
           ${s.location ? `<span class="eyebrow">${escapeHtml(s.location)}</span>` : ""}
           ${s.title ? `<h3>${escapeHtml(s.title)}</h3>` : ""}
@@ -1117,13 +1126,46 @@
                 </div>`
               : ""
           }
-          ${extraScenePhotosHtml}
           ${sceneAudioHtml}
           <div class="scene-footer">
             <a href="${formatHref("galeria.html")}${s.galleryAlbum || s.title ? `?album=${encodeURIComponent(s.galleryAlbum || s.title)}` : ""}#fotografies" class="btn btn--outline btn--sm">${escapeHtml(ui.moreInGallery || "Veure més imatges a la Galeria →")}</a>
           </div>
         </div>
       `;
+
+      let sceneSlideIdx = 0;
+      const carouselEl = document.getElementById("scene-carousel");
+      if (carouselEl && allScenePhotos.length > 1) {
+        const slides = carouselEl.querySelectorAll(".scene-carousel-slide");
+        const dots = carouselEl.querySelectorAll(".dot");
+        function showSceneSlide(nextIdx) {
+          sceneSlideIdx = (nextIdx + slides.length) % slides.length;
+          slides.forEach((el, i) => el.classList.toggle("active", i === sceneSlideIdx));
+          dots.forEach((el, i) => el.classList.toggle("active", i === sceneSlideIdx));
+        }
+        document.getElementById("scene-prev").addEventListener("click", (e) => {
+          e.stopPropagation();
+          showSceneSlide(sceneSlideIdx - 1);
+        });
+        document.getElementById("scene-next").addEventListener("click", (e) => {
+          e.stopPropagation();
+          showSceneSlide(sceneSlideIdx + 1);
+        });
+        dots.forEach((dot) => {
+          dot.addEventListener("click", (e) => {
+            e.stopPropagation();
+            showSceneSlide(Number(dot.dataset.slideIdx));
+          });
+        });
+        let touchStartX = 0;
+        carouselEl.addEventListener("touchstart", (e) => {
+          touchStartX = e.changedTouches[0].clientX;
+        }, { passive: true });
+        carouselEl.addEventListener("touchend", (e) => {
+          const dx = e.changedTouches[0].clientX - touchStartX;
+          if (Math.abs(dx) > 40) showSceneSlide(dx < 0 ? sceneSlideIdx + 1 : sceneSlideIdx - 1);
+        }, { passive: true });
+      }
 
       panelEl.querySelectorAll("[data-scene-zoom]").forEach((imgEl) => {
         imgEl.addEventListener("click", () => {
