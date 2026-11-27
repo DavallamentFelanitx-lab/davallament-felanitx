@@ -24,15 +24,16 @@ items:
       - "L'obra compta amb la participació destacada de dues artistes felanitxeres estretament vinculades a l'acte: la veu de Mar Grimalt i el violí solista de Roser Julià."
     cita: ''
     autorCita: ''
-    spotifyUrl: 'https://open.spotify.com/album/3yO5HMCSckVIZf1rTO9Nlo'
-    youtubeUrl: 'https://www.youtube.com/playlist?list=OLAK5uy_k9lZe3m1sb0Z--rrACGVllag6XFrORrWs'
+    audioUrl: ''
+    spotifyUrl: https://open.spotify.com/album/3yO5HMCSckVIZf1rTO9Nlo
+    youtubeUrl: https://www.youtube.com/playlist?list=OLAK5uy_k9lZe3m1sb0Z--rrACGVllag6XFrORrWs
   - id: posada-en-escena
     etiqueta: Escenografia, Llum i Interpretació
     titol: La posada en escena
     imatge: img/representacio/representacio.jpg
     paragrefs:
-      - L'escalinata de pedra de marès, la balconada lateral, el rosetó i la portalada barroca de la Parròquia de Sant Miquel conformen un retaule arquitectònic únic que permet desenvolupar l'acció en diversos nivells a cel obert.
-      - Més de 160 actors i actrius voluntaris de totes les edats, juntament amb els equips de vestuari històric, escenografia, il·luminació teatral i efectes sonors, transformen cada Divendres Sant la plaça en un autèntic teatre sacre.
+      - L'escalinata i el replà de la Parròquia de Sant Miquel conformen un escenari únic que permet desenvolupar l'acció a cel obert.
+      - Més de 160 actors i actrius voluntaris de totes les edats, fan possible la representació cada Divendres Sant.
     cita: ''
     autorCita: ''
     audioUrl: ''
