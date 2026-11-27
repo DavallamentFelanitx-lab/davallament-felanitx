@@ -42,18 +42,15 @@ items:
       - Sanedrins
   - id: caifas-pilat
     numero: III
-    titol: Davant Caifàs i Ponç Pilat
-    lloc: Balconada lateral i escalinata superior
-    imatge: img/hero/hero2.jpg
-    descripcio: Aprofitant l'arc apuntat i la balconada lateral de la parròquia, l'escena davant Ponç Pilat combina la força dels textos dramàtics amb la presència imponent dels armats romans i la multitud.
-    atmosfera: Tensió dramàtica, llum carmesí i arquitectures de pedra
+    titol: Captura a l'hort de Getsemaní i Jesús davant Caifàs
+    lloc: ''
+    imatge: /img/representacio/CaifàsJesús2026.jpg
+    descripcio: ''
+    atmosfera: ''
     audioUrl: https://open.spotify.com/track/0CHxSzmBIfKXRKH0judgXn
     personatges:
       - Jesús
       - Caifàs
-      - Ponç Pilat
-      - Sacerdots
-      - Armats
   - id: ecce-homo
     numero: IV
     titol: Flagel·lació i Ecce Homo
