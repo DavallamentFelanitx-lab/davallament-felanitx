@@ -109,15 +109,15 @@ items:
       - Jesús
       - Verònica
       - Poble
-  - id: processo-enterrament
-    numero: VIII
-    titol: Processó de l'Enterrament
-    lloc: Carrers del nucli antic de Felanitx
-    imatge: img/hero/hero1.jpg
-    descripcio: En concloure la representació, el teatre sacre enllaça amb la solemne Processó del Sant Enterrament. Quan l'ovació col·lectiva trenca finalment el silenci de la plaça, les confraries i la Banda de Música de Felanitx inicien la processó pels carrers foscos de la vila.
-    atmosfera: Ciris, fanals i marxes fúnebres
-    audioUrl: ''
+  - id: crucifixio
+    numero: IX
+    titol: Crucifixió
+    lloc: ''
+    imatge: /img/representacio/crucifixioJesus.jpg
+    descripcio: ''
+    atmosfera: ''
+    audioUrl: https://open.spotify.com/track/3r1BjmuHUj4zfyLRTIdcuH?si=01e66c34155940d7
     personatges:
-      - Confraries locals
-      - Banda de Música de Felanitx
-      - Fidels
+      - Jesús
+      - Enterradors
+      - Romans
