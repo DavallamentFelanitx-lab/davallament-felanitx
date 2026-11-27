@@ -813,8 +813,6 @@
         <div class="card-meta">
           <span class="badge badge--primary">${escapeHtml(item.category)}</span>
           <span>${escapeHtml(item.date)}</span>
-          <span>·</span>
-          <span>${escapeHtml(item.readTime)}${escapeHtml(ui.readTimeSuffix)}</span>
         </div>
         <h2>${escapeHtml(item.title)}</h2>
         <div class="article-body">
@@ -1067,7 +1065,7 @@
               <img src="${escapeHtml(n.image)}" alt="${escapeHtml(n.title)}" loading="lazy">
             </div>
             <div class="card-body">
-              <div class="card-meta"><span>${escapeHtml(n.date)}</span> · <span>${escapeHtml(n.readTime)}</span></div>
+              <div class="card-meta"><span>${escapeHtml(n.date)}</span></div>
               <h3 class="card-title">${escapeHtml(n.title)}</h3>
               <p class="card-excerpt">${escapeHtml(n.excerpt)}</p>
               <div class="card-footer">
@@ -1513,7 +1511,7 @@
               <img src="${escapeHtml(n.image)}" alt="${escapeHtml(n.title)}" loading="lazy">
             </div>
             <div class="card-body">
-              <div class="card-meta"><span>${escapeHtml(n.date)}</span> · <span>${escapeHtml(n.readTime)}</span></div>
+              <div class="card-meta"><span>${escapeHtml(n.date)}</span></div>
               <h3 class="card-title">${escapeHtml(n.title)}</h3>
               <p class="card-excerpt">${escapeHtml(n.excerpt)}</p>
               <div class="card-footer">
