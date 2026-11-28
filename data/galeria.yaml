@@ -39,3 +39,11 @@ items:
     credit: ''
     imatge: /img/galeria/Entrada2025.jpg
     descripcio: ''
+  - id: sopar2024
+    titol: ''
+    album: ''
+    any: '2024'
+    lloc: ''
+    credit: Gabriel Aparicio
+    imatge: /img/galeria/pasted-image-1795863650931.png
+    descripcio: ''
