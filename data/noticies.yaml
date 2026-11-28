@@ -73,7 +73,7 @@ items:
     data: 26 de març de 2024
     dataIso: 2024-03-26
     destacada: false
-    imatge: /img/noticies/pasted-image-1795688827272.png
+    imatge: /img/noticies/pasted-image-1795688827272.webp
     cartell: ''
     imatge3: ''
     font: Viufelanitx
@@ -97,8 +97,8 @@ items:
     data: 30 de març de 2024
     dataIso: 2024-03-30
     destacada: false
-    imatge: /img/noticies/pasted-image-1795690760088.png
-    cartell: /img/noticies/pasted-image-1795690770517.png
+    imatge: /img/noticies/pasted-image-1795690760088.webp
+    cartell: /img/noticies/pasted-image-1795690770517.webp
     imatge3: ''
     font: Viufelanitx
     fontUrl: https://viufelanitx.com/art/17101/lemocio-i-el-sentiment-del-davallament-a-felanitx-va-tornar-a-ser-espectacular?fbclid=IwAR2uOQ2W4OxvyPhlEJqyM5QXBBdYqmnQmaXcWWIFD0MnIpDOLJ2V9LMYqEs_aem_AVVwC1CGlybjwDfGl3LvAxP2ojfSJMMPTQ0NfSfUbRWpvDoNZo6e5E5u6zVOLKXt0dVIYyESjmBCbQf5ldRybiLS
@@ -115,8 +115,8 @@ items:
     dataIso: 2025-03-05
     destacada: false
     imatge: /img/noticies/cartells.jpg
-    cartell: /img/noticies/pasted-image-1795693218335.png
-    imatge3: /img/noticies/pasted-image-1795698535690.png
+    cartell: /img/noticies/pasted-image-1795693218335.webp
+    imatge3: /img/noticies/pasted-image-1795698535690.webp
     font: Foravila.net
     fontUrl: https://www.foravila.net/cultura/el-davallament-de-felanitx-celebra-50-anys-amb-novetats-i-un-cartell-de-miquel-barcelo/
     resum: La propera Setmana Santa, la representació del Davallament de Felanitx celebrarà mig segle d’història amb una edició plena de novetats i una participació rècord de més de 200 persones. L’esdeveniment tindrà lloc el Divendres Sant, 18 d’abril, a les 21:00 h a la plaça de la Font de Santa Margalida.
@@ -136,7 +136,7 @@ items:
     data: 3 d'abril de 2023
     dataIso: 2023-04-03
     destacada: false
-    imatge: /img/noticies/pasted-image-1795730097542.png
+    imatge: /img/noticies/pasted-image-1795730097542.webp
     cartell: ''
     imatge3: ''
     font: Viufelanitx
@@ -166,7 +166,7 @@ items:
     data: 19 d'abril de 2025
     dataIso: 2025-04-19
     destacada: false
-    imatge: /img/noticies/pasted-image-1795731135012.png
+    imatge: /img/noticies/pasted-image-1795731135012.webp
     cartell: ''
     imatge3: ''
     font: Canal4

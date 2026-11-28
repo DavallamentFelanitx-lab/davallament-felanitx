@@ -21,6 +21,17 @@ locale: ca
 media_folder: "img/uploads"
 public_folder: "img/uploads"
 
+media_libraries:
+  default:
+    config:
+      slugify_filename: true
+      transformations:
+        raster_image:
+          format: webp
+          quality: 85
+          width: 1920
+          height: 1920
+
 collections:
   - name: "contingut"
     label: "Contingut del web"
