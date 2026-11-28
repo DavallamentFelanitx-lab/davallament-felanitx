@@ -858,7 +858,7 @@
         try {
           await navigator.share({
             title: item.title,
-            text: item.excerpt || item.title,
+            text: item.title,
             url: shareUrl
           });
           return;
