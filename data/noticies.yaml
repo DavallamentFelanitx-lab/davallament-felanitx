@@ -29,7 +29,7 @@
 items:
   - id: edicio-2026-escalinata
     titol: El Davallament de Felanitx torna a emocionar els fidels en la seva 51a edició
-    categoria: Cròniques
+    categoria: ''
     data: 3 d'abril de 2026
     dataIso: 2026-04-03
     destacada: false
@@ -49,7 +49,7 @@ items:
     lectura: ''
   - id: presentacio-cartell-2026
     titol: Presentació del cartell del Davallament de Felanitx 2026
-    categoria: Edició 2026
+    categoria: ''
     data: 19 de febrer de 2026
     dataIso: 2026-02-19
     destacada: true
@@ -69,7 +69,7 @@ items:
     lectura: ''
   - id: davallament2024
     titol: El Davallament de Felanitx més viu que mai!
-    categoria: Edició 2024
+    categoria: ''
     data: 26 de març de 2024
     dataIso: 2024-03-26
     destacada: false
@@ -93,7 +93,7 @@ items:
     lectura: ''
   - id: davallament2024-cronica
     titol: L'emoció i el sentiment del Davallament a Felanitx va tornar a ser espectacular
-    categoria: Edició 2024
+    categoria: ''
     data: 30 de març de 2024
     dataIso: 2024-03-30
     destacada: false
@@ -110,7 +110,7 @@ items:
     lectura: ''
   - id: cartell2025
     titol: El Davallament de Felanitx celebra 50 anys amb novetats i un cartell de Miquel Barceló
-    categoria: 50è aniversari
+    categoria: ''
     data: 5 de març de 2025
     dataIso: 2025-03-05
     destacada: false
@@ -132,7 +132,7 @@ items:
     lectura: ''
   - id: Davallament2023
     titol: El Davallament de Felanitx se renova
-    categoria: Edició 2023
+    categoria: ''
     data: 3 d'abril de 2023
     dataIso: 2023-04-03
     destacada: false
