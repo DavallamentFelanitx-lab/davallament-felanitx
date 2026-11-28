@@ -1644,21 +1644,21 @@
      PAGE: GALERIA (galeria.html)
      ------------------------------------------------------------------------ */
   function initGaleriaPage() {
-    const pillsHost = document.getElementById("gallery-albums");
+    const albumSelect = document.getElementById("gallery-album");
     const yearSelect = document.getElementById("gallery-year");
     const gridHost = document.getElementById("gallery-grid");
     const countHost = document.getElementById("gallery-count");
 
     const ui = dict().ui;
     const photos = getLocalizedGallery();
-    const allLabel = ui.allCategory;
+    const allTagsLabel = ui.allTags || "Totes les etiquetes";
     const allYearsLabel = ui.allYears || "Tots els anys";
-    const albums = [allLabel, ...Array.from(new Set(photos.map((g) => (g.album || "").trim()).filter(Boolean)))];
+    const albums = Array.from(new Set(photos.map((g) => (g.album || "").trim()).filter(Boolean)));
     const years = Array.from(new Set(photos.map((g) => String(g.year || "").trim()).filter(Boolean))).sort((a, b) =>
       b.localeCompare(a, undefined, { numeric: true })
     );
 
-    let activeAlbum = allLabel;
+    let activeAlbum = "";
     let activeYear = "";
 
     const requestedAlbum = getQueryParam("album");
@@ -1668,7 +1668,6 @@
       const partialMatch =
         exactMatch ||
         albums.find((a) => {
-          if (a === allLabel) return false;
           const aNorm = normalizeSearchText(a).trim();
           return aNorm.includes(targetNorm) || targetNorm.includes(aNorm);
         });
@@ -1678,6 +1677,21 @@
     const requestedYear = getQueryParam("any") || getQueryParam("year");
     if (requestedYear && years.includes(String(requestedYear).trim())) {
       activeYear = String(requestedYear).trim();
+    }
+
+    function renderAlbumSelect() {
+      if (!albumSelect) return;
+      albumSelect.innerHTML = [
+        `<option value="">${escapeHtml(allTagsLabel)}</option>`,
+        ...albums.map((a) => `<option value="${escapeHtml(a)}"${a === activeAlbum ? " selected" : ""}>${escapeHtml(a)}</option>`)
+      ].join("");
+      albumSelect.value = activeAlbum;
+      albumSelect.classList.toggle("active", Boolean(activeAlbum));
+      albumSelect.onchange = () => {
+        activeAlbum = albumSelect.value;
+        albumSelect.classList.toggle("active", Boolean(activeAlbum));
+        renderGrid();
+      };
     }
 
     function renderYearSelect() {
@@ -1695,25 +1709,9 @@
       };
     }
 
-    function renderPills() {
-      pillsHost.innerHTML = albums
-        .map(
-          (a) =>
-            `<button type="button" class="pill-btn ${a === activeAlbum ? "active" : ""}" data-album="${escapeHtml(a)}">${escapeHtml(a)}</button>`
-        )
-        .join("");
-      pillsHost.querySelectorAll("button").forEach((btn) => {
-        btn.addEventListener("click", () => {
-          activeAlbum = btn.dataset.album;
-          renderPills();
-          renderGrid();
-        });
-      });
-    }
-
     function renderGrid() {
       const filtered = photos.filter((g) => {
-        const albumMatch = activeAlbum === allLabel || (g.album || "").trim() === activeAlbum;
+        const albumMatch = !activeAlbum || (g.album || "").trim() === activeAlbum;
         const yearMatch = !activeYear || String(g.year || "").trim() === activeYear;
         return albumMatch && yearMatch;
       });
@@ -1728,9 +1726,9 @@
         const resetBtn = document.getElementById("gallery-reset-filters");
         if (resetBtn) {
           resetBtn.addEventListener("click", () => {
-            activeAlbum = allLabel;
+            activeAlbum = "";
             activeYear = "";
-            renderPills();
+            renderAlbumSelect();
             renderYearSelect();
             renderGrid();
           });
@@ -1747,7 +1745,6 @@
           <button type="button" class="gallery-card" data-photo-idx="${idx}">
             <div class="gallery-thumb">
               <img src="${escapeHtml(g.src)}" alt="${escapeHtml(altText)}" loading="lazy">
-              <span class="gallery-zoom-pill">${escapeHtml(ui.zoomPill)}</span>
             </div>
             ${
               hasInfo
@@ -1774,7 +1771,7 @@
       });
     }
 
-    renderPills();
+    renderAlbumSelect();
     renderYearSelect();
     renderGrid();
 

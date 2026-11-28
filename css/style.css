@@ -1688,10 +1688,17 @@ h1, h2, h3, h4 {
 /* ==========================================================================
    GALLERY & LIGHTBOX (Fotografies reals)
    ========================================================================== */
+.gallery-filters {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+
 .gallery-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 26px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
 }
 
 .gallery-card {
@@ -1747,17 +1754,22 @@ h1, h2, h3, h4 {
 }
 
 .gallery-info {
-  padding: 20px 24px 24px;
+  padding: 12px 16px 14px;
+}
+
+.gallery-info .card-meta {
+  margin-bottom: 0;
 }
 
 .gallery-info h3 {
-  font-size: 1.5rem;
-  margin: 6px 0;
+  font-size: 1.18rem;
+  margin: 6px 0 2px;
 }
 
 .gallery-info p {
-  font-size: 0.94rem;
+  font-size: 0.88rem;
   color: var(--text-muted);
+  margin-top: 4px;
 }
 
 /* ==========================================================================
@@ -2699,7 +2711,7 @@ h1, h2, h3, h4 {
 @media (max-width: 1024px) {
   .feature, .featured-news, .scene-explorer, .contact-layout { grid-template-columns: 1fr; gap: 2.2rem; }
   .feature.reverse .image, .feature.reverse .text { order: unset; }
-  .cards-grid, .press-grid, .visual-portals, .video-grid { grid-template-columns: repeat(2, 1fr); }
+  .cards-grid, .press-grid, .visual-portals, .video-grid, .gallery-grid { grid-template-columns: repeat(2, 1fr); }
   .photo-mosaic { grid-template-columns: 1fr 1fr; grid-template-rows: 260px 220px; }
   .mosaic-tile--1 { grid-column: 1 / 2; grid-row: 1 / 2; }
   .mosaic-tile--2 { grid-column: 2 / 3; grid-row: 1 / 2; }
