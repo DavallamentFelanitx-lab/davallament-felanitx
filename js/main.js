@@ -1083,7 +1083,7 @@
         .slice(0, 3)
         .map(
           (n) => `
-          <article class="card">
+          <article class="card card--clickable" data-open-news="${escapeHtml(n.id)}">
             <div class="card-media">
               <img src="${escapeHtml(n.image)}" alt="${escapeHtml(n.title)}" loading="lazy">
             </div>
@@ -1092,15 +1092,15 @@
               <h3 class="card-title">${escapeHtml(n.title)}</h3>
               <p class="card-excerpt">${escapeHtml(n.excerpt)}</p>
               <div class="card-footer">
-                <button type="button" class="card-action-btn" data-open-news="${escapeHtml(n.id)}">${escapeHtml(ui.readArticle)}</button>
+                <button type="button" class="card-action-btn">${escapeHtml(ui.readArticle)}</button>
               </div>
             </div>
           </article>`
         )
         .join("");
 
-      homeNews.querySelectorAll("[data-open-news]").forEach((btn) => {
-        btn.addEventListener("click", () => openNewsArticle(btn.dataset.openNews));
+      homeNews.querySelectorAll("[data-open-news]").forEach((card) => {
+        card.addEventListener("click", () => openNewsArticle(card.dataset.openNews));
       });
     }
   }
@@ -1433,7 +1433,7 @@
     const lead = newsList[0];
     if (featuredHost && lead) {
       featuredHost.innerHTML = `
-        <article class="featured-news">
+        <article class="featured-news featured-news--clickable" data-open-news="${escapeHtml(lead.id)}">
           <div class="featured-news-media">
             <img src="${escapeHtml(lead.image)}" alt="${escapeHtml(lead.title)}">
           </div>
@@ -1445,7 +1445,7 @@
             <h2>${escapeHtml(lead.title)}</h2>
             <p style="color:var(--text-muted);margin-bottom:22px">${escapeHtml(lead.excerpt)}</p>
             <div>
-              <button type="button" class="btn" data-open-news="${escapeHtml(lead.id)}">${escapeHtml(ui.readFullArticle)}</button>
+              <button type="button" class="btn">${escapeHtml(ui.readFullArticle)}</button>
             </div>
           </div>
         </article>
@@ -1529,7 +1529,7 @@
       gridHost.innerHTML = pageItems
         .map(
           (n) => `
-          <article class="card">
+          <article class="card card--clickable" data-open-news="${escapeHtml(n.id)}">
             <div class="card-media">
               <img src="${escapeHtml(n.image)}" alt="${escapeHtml(n.title)}" loading="lazy">
             </div>
@@ -1538,15 +1538,15 @@
               <h3 class="card-title">${escapeHtml(n.title)}</h3>
               <p class="card-excerpt">${escapeHtml(n.excerpt)}</p>
               <div class="card-footer">
-                <button type="button" class="card-action-btn" data-open-news="${escapeHtml(n.id)}">${escapeHtml(ui.readArticle)}</button>
+                <button type="button" class="card-action-btn">${escapeHtml(ui.readArticle)}</button>
               </div>
             </div>
           </article>`
         )
         .join("");
 
-      gridHost.querySelectorAll("[data-open-news]").forEach((btn) => {
-        btn.addEventListener("click", () => openNewsArticle(btn.dataset.openNews));
+      gridHost.querySelectorAll("[data-open-news]").forEach((card) => {
+        card.addEventListener("click", () => openNewsArticle(card.dataset.openNews));
       });
 
       renderPagination(filtered.length);
