@@ -811,7 +811,7 @@
       <img class="modal-hero-img news-zoomable" data-news-zoom="0" src="${escapeHtml(item.image)}" alt="${escapeHtml(item.title)}" title="${escapeHtml(ui.zoomPill || "Ampliar")}">
       <div class="modal-content">
         <div class="card-meta">
-          <span class="badge badge--primary">${escapeHtml(item.category)}</span>
+          ${item.category ? `<span class="badge badge--primary">${escapeHtml(item.category)}</span>` : ""}
           <span>${escapeHtml(item.date)}</span>
         </div>
         <h2>${escapeHtml(item.title)}</h2>
@@ -827,9 +827,13 @@
               </p>`
             : ""
         }
-        <div class="tags-row" style="margin-bottom:22px">
-          ${item.tags.map((tag) => `<span class="badge badge--sand">${escapeHtml(tag)}</span>`).join("")}
-        </div>
+        ${
+          Array.isArray(item.tags) && item.tags.filter(Boolean).length
+            ? `<div class="tags-row" style="margin-bottom:22px">
+                ${item.tags.filter(Boolean).map((tag) => `<span class="badge badge--sand">${escapeHtml(tag)}</span>`).join("")}
+              </div>`
+            : ""
+        }
         <div style="display:flex;flex-wrap:wrap;justify-content:flex-start;gap:12px;padding-top:16px;border-top:1px solid var(--border)">
           <button type="button" class="btn btn--outline btn--sm btn--share" id="share-news-btn">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -1867,15 +1871,19 @@
     else if (Array.isArray(raw.body)) body = raw.body.map(String);
     else if (raw.resum) body = [String(raw.resum)];
 
-    const tags = Array.isArray(raw.etiquetes)
-      ? raw.etiquetes
-      : Array.isArray(raw.tags)
-      ? raw.tags
-      : [];
+    const tags = (
+      Array.isArray(raw.etiquetes)
+        ? raw.etiquetes
+        : Array.isArray(raw.tags)
+        ? raw.tags
+        : []
+    )
+      .map((t) => String(t || "").trim())
+      .filter(Boolean);
 
     return {
       id: raw.id || "noticia-" + (idx + 1),
-      category: raw.categoria || raw.category || "Actualitat",
+      category: raw.categoria !== undefined ? String(raw.categoria || "").trim() : raw.category || "",
       date: raw.data || raw.date || "",
       isoDate: raw.dataIso || raw.isoDate || "",
       readTime: raw.lectura || raw.readTime || "3 min",

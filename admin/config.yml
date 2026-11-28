@@ -61,7 +61,7 @@ collections:
             fields:
               - { name: "id", label: "Identificador (sense espais)", widget: "string", hint: "Exemple: edicio-2027-cronica" }
               - { name: "titol", label: "Titular", widget: "string" }
-              - { name: "categoria", label: "Categoria", widget: "string", default: "Actualitat" }
+              - { name: "categoria", label: "Categoria (opcional)", widget: "string", required: false }
               - { name: "data", label: "Data visible", widget: "string", hint: "Exemple: 26 de març de 2027" }
               - { name: "dataIso", label: "Data per ordenar (AAAA-MM-DD)", widget: "string", hint: "Exemple: 2027-03-26" }
               - { name: "destacada", label: "Destacada", widget: "boolean", default: false, required: false }
@@ -72,10 +72,10 @@ collections:
               - { name: "fontUrl", label: "Enllaç a la font (opcional)", widget: "string", required: false }
               - { name: "resum", label: "Resum breu (targeta)", widget: "text" }
               - name: "etiquetes"
-                label: "Etiquetes"
+                label: "Etiquetes (opcional)"
                 widget: "list"
                 required: false
-                field: { name: "etiqueta", label: "Etiqueta", widget: "string" }
+                field: { name: "etiqueta", label: "Etiqueta", widget: "string", required: false }
               - name: "cos"
                 label: "Paràgrafs de la notícia"
                 widget: "list"
