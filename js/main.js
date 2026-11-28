@@ -1644,8 +1644,8 @@
      PAGE: GALERIA (galeria.html)
      ------------------------------------------------------------------------ */
   function initGaleriaPage() {
-    const albumSelect = document.getElementById("gallery-album");
-    const yearSelect = document.getElementById("gallery-year");
+    const albumDd = document.getElementById("gallery-album-dd");
+    const yearDd = document.getElementById("gallery-year-dd");
     const gridHost = document.getElementById("gallery-grid");
     const countHost = document.getElementById("gallery-count");
 
@@ -1653,7 +1653,40 @@
     const photos = getLocalizedGallery();
     const allTagsLabel = ui.allTags || "Totes les etiquetes";
     const allYearsLabel = ui.allYears || "Tots els anys";
-    const albums = Array.from(new Set(photos.map((g) => (g.album || "").trim()).filter(Boolean)));
+
+    const sceneOrderList = (DATA.scenes || []).map((s) => ({
+      albumNorm: normalizeSearchText(s.galleryAlbum || "").trim(),
+      titleNorm: normalizeSearchText(s.title || "").trim()
+    }));
+
+    function getSceneOrderIndex(albumName) {
+      const target = normalizeSearchText(albumName).trim();
+      if (!target) return 9999;
+      for (let i = 0; i < sceneOrderList.length; i++) {
+        const s = sceneOrderList[i];
+        if ((s.albumNorm && s.albumNorm === target) || (s.titleNorm && s.titleNorm === target)) {
+          return i;
+        }
+      }
+      for (let i = 0; i < sceneOrderList.length; i++) {
+        const s = sceneOrderList[i];
+        if (
+          (s.albumNorm && (s.albumNorm.includes(target) || target.includes(s.albumNorm))) ||
+          (s.titleNorm && (s.titleNorm.includes(target) || target.includes(s.titleNorm)))
+        ) {
+          return i;
+        }
+      }
+      return 9999;
+    }
+
+    const albums = Array.from(new Set(photos.map((g) => (g.album || "").trim()).filter(Boolean))).sort((a, b) => {
+      const ia = getSceneOrderIndex(a);
+      const ib = getSceneOrderIndex(b);
+      if (ia !== ib) return ia - ib;
+      return a.localeCompare(b, "ca");
+    });
+
     const years = Array.from(new Set(photos.map((g) => String(g.year || "").trim()).filter(Boolean))).sort((a, b) =>
       b.localeCompare(a, undefined, { numeric: true })
     );
@@ -1679,34 +1712,106 @@
       activeYear = String(requestedYear).trim();
     }
 
-    function renderAlbumSelect() {
-      if (!albumSelect) return;
-      albumSelect.innerHTML = [
-        `<option value="">${escapeHtml(allTagsLabel)}</option>`,
-        ...albums.map((a) => `<option value="${escapeHtml(a)}"${a === activeAlbum ? " selected" : ""}>${escapeHtml(a)}</option>`)
-      ].join("");
-      albumSelect.value = activeAlbum;
-      albumSelect.classList.toggle("active", Boolean(activeAlbum));
-      albumSelect.onchange = () => {
-        activeAlbum = albumSelect.value;
-        albumSelect.classList.toggle("active", Boolean(activeAlbum));
-        renderGrid();
-      };
+    function closeAllDropdowns(exceptEl) {
+      [albumDd, yearDd].forEach((dd) => {
+        if (dd && dd !== exceptEl) {
+          dd.classList.remove("open");
+          const btn = dd.querySelector(".custom-select-btn");
+          if (btn) btn.setAttribute("aria-expanded", "false");
+        }
+      });
     }
 
-    function renderYearSelect() {
-      if (!yearSelect) return;
-      yearSelect.innerHTML = [
-        `<option value="">${escapeHtml(allYearsLabel)}</option>`,
-        ...years.map((y) => `<option value="${escapeHtml(y)}"${y === activeYear ? " selected" : ""}>${escapeHtml(y)}</option>`)
-      ].join("");
-      yearSelect.value = activeYear;
-      yearSelect.classList.toggle("active", Boolean(activeYear));
-      yearSelect.onchange = () => {
-        activeYear = yearSelect.value;
-        yearSelect.classList.toggle("active", Boolean(activeYear));
-        renderGrid();
-      };
+    function renderCustomDropdown(host, { defaultLabel, options, value, ariaLabel, onChange }) {
+      if (!host) return;
+      const currentLabel = value || defaultLabel;
+      const allOptions = [{ value: "", label: defaultLabel }, ...options.map((opt) => ({ value: opt, label: opt }))];
+      host.innerHTML = `
+        <button type="button" class="custom-select-btn ${value ? "active" : ""}" aria-haspopup="listbox" aria-expanded="false" aria-label="${escapeHtml(ariaLabel)}">
+          <span>${escapeHtml(currentLabel)}</span>
+          <svg class="custom-select-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </button>
+        <div class="custom-select-menu" role="listbox">
+          ${allOptions
+            .map(
+              (opt) => `
+              <button type="button" class="custom-select-option ${opt.value === value ? "selected" : ""}" role="option" aria-selected="${opt.value === value ? "true" : "false"}" data-value="${escapeHtml(opt.value)}">
+                <span>${escapeHtml(opt.label)}</span>
+                ${opt.value === value ? '<span class="custom-select-check" aria-hidden="true">✓</span>' : ""}
+              </button>`
+            )
+            .join("")}
+        </div>
+      `;
+
+      const trigger = host.querySelector(".custom-select-btn");
+      trigger.addEventListener("click", (e) => {
+        e.stopPropagation();
+        const willOpen = !host.classList.contains("open");
+        closeAllDropdowns(host);
+        host.classList.toggle("open", willOpen);
+        trigger.setAttribute("aria-expanded", String(willOpen));
+      });
+
+      host.querySelectorAll(".custom-select-option").forEach((optBtn) => {
+        optBtn.addEventListener("click", (e) => {
+          e.stopPropagation();
+          const nextVal = optBtn.dataset.value;
+          host.classList.remove("open");
+          trigger.setAttribute("aria-expanded", "false");
+          onChange(nextVal);
+        });
+      });
+    }
+
+    function renderAlbumDropdown() {
+      renderCustomDropdown(albumDd, {
+        defaultLabel: allTagsLabel,
+        options: albums,
+        value: activeAlbum,
+        ariaLabel: allTagsLabel,
+        onChange: (val) => {
+          activeAlbum = val;
+          renderAlbumDropdown();
+          renderGrid();
+        }
+      });
+    }
+
+    function renderYearDropdown() {
+      renderCustomDropdown(yearDd, {
+        defaultLabel: allYearsLabel,
+        options: years,
+        value: activeYear,
+        ariaLabel: allYearsLabel,
+        onChange: (val) => {
+          activeYear = val;
+          renderYearDropdown();
+          renderGrid();
+        }
+      });
+    }
+
+    if (!window._galleryDdBound) {
+      window._galleryDdBound = true;
+      document.addEventListener("click", () => {
+        document.querySelectorAll(".custom-select.open").forEach((dd) => {
+          dd.classList.remove("open");
+          const btn = dd.querySelector(".custom-select-btn");
+          if (btn) btn.setAttribute("aria-expanded", "false");
+        });
+      });
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") {
+          document.querySelectorAll(".custom-select.open").forEach((dd) => {
+            dd.classList.remove("open");
+            const btn = dd.querySelector(".custom-select-btn");
+            if (btn) btn.setAttribute("aria-expanded", "false");
+          });
+        }
+      });
     }
 
     function renderGrid() {
@@ -1728,8 +1833,8 @@
           resetBtn.addEventListener("click", () => {
             activeAlbum = "";
             activeYear = "";
-            renderAlbumSelect();
-            renderYearSelect();
+            renderAlbumDropdown();
+            renderYearDropdown();
             renderGrid();
           });
         }
@@ -1751,9 +1856,10 @@
                 ? `<div class="gallery-info">
                     ${
                       hasMeta
-                        ? `<div class="card-meta">
-                            ${g.album ? `<span class="badge badge--sand">${escapeHtml(g.album)}</span>` : ""}
-                            ${g.year ? `<span>${escapeHtml(g.year)}</span>` : ""}
+                        ? `<div class="gallery-meta-line">
+                            ${g.album ? `<span class="gallery-meta-item">${escapeHtml(g.album)}</span>` : ""}
+                            ${g.album && g.year ? `<span class="gallery-meta-sep" aria-hidden="true">·</span>` : ""}
+                            ${g.year ? `<span class="gallery-meta-item">${escapeHtml(g.year)}</span>` : ""}
                           </div>`
                         : ""
                     }
@@ -1771,8 +1877,8 @@
       });
     }
 
-    renderAlbumSelect();
-    renderYearSelect();
+    renderAlbumDropdown();
+    renderYearDropdown();
     renderGrid();
 
     const videosHost = document.getElementById("gallery-videos");
@@ -2090,9 +2196,13 @@
           })
           .catch(() => {})
       );
-    }
-
-    if (page === "galeria") {
+      tasks.push(
+        window.SimpleYAML.fetchYamlList("data/escenes.yaml")
+          .then((items) => {
+            if (items && items.length) DATA.scenes = items.map(normalizeSceneItem);
+          })
+          .catch(() => {})
+      );
       tasks.push(
         window.SimpleYAML.fetchYamlList("data/multimedia.yaml")
           .then((items) => {
