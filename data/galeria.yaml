@@ -18,7 +18,7 @@ items:
   - id: cami-calvari-veronica
     titol: ''
     album: Verònica
-    any: ''
+    any: '2023'
     lloc: ''
     credit: Associació El Davallament de Felanitx
     imatge: img/hero/hero4.jpg
@@ -86,4 +86,12 @@ items:
     lloc: ''
     credit: Gabriel Aparicio
     imatge: /img/galeria/pasted-image-1795865216321.png
+    descripcio: ''
+  - id: ''
+    titol: ''
+    album: Flagel·lació
+    any: '2054'
+    lloc: ''
+    credit: Gabriel Aparicio
+    imatge: /img/galeria/pasted-image-1795865322482.png
     descripcio: ''
