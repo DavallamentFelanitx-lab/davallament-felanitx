@@ -15,6 +15,7 @@
   const STORAGE_KEY_LANG = "davallament_felanitx_lang_v1";
   const STORAGE_KEY_AUTOTRANS = "davallament_autotrans_news_v1";
   const NEWS_PER_PAGE = 6;
+  const GALLERY_PER_PAGE = 12;
   const USE_CLEAN_URLS =
     window.location.protocol.startsWith("http") &&
     !["127.0.0.1", "localhost"].includes(window.location.hostname);
@@ -1648,9 +1649,14 @@
     const yearDd = document.getElementById("gallery-year-dd");
     const gridHost = document.getElementById("gallery-grid");
     const countHost = document.getElementById("gallery-count");
+    const paginationHost = document.getElementById("gallery-pagination");
 
     const ui = dict().ui;
-    const photos = getLocalizedGallery();
+    function extractPhotoYearNum(y) {
+      const m = String(y || "").match(/\b(19\d{2}|20\d{2})\b/);
+      return m ? Number(m[1]) : 0;
+    }
+    const photos = getLocalizedGallery().slice().sort((a, b) => extractPhotoYearNum(b.year) - extractPhotoYearNum(a.year));
     const allTagsLabel = ui.allTags || "Totes les etiquetes";
     const allYearsLabel = ui.allYears || "Tots els anys";
 
@@ -1693,6 +1699,7 @@
 
     let activeAlbum = "";
     let activeYear = "";
+    let pageNum = 1;
 
     const requestedAlbum = getQueryParam("album");
     if (requestedAlbum) {
@@ -1774,6 +1781,7 @@
         ariaLabel: allTagsLabel,
         onChange: (val) => {
           activeAlbum = val;
+          pageNum = 1;
           renderAlbumDropdown();
           renderGrid();
         }
@@ -1788,6 +1796,7 @@
         ariaLabel: allYearsLabel,
         onChange: (val) => {
           activeYear = val;
+          pageNum = 1;
           renderYearDropdown();
           renderGrid();
         }
@@ -1814,12 +1823,45 @@
       });
     }
 
+    function renderPagination(totalItems) {
+      if (!paginationHost) return;
+      const totalPages = Math.ceil(totalItems / GALLERY_PER_PAGE);
+      if (totalPages <= 1) {
+        paginationHost.innerHTML = "";
+        return;
+      }
+      const pages = Array.from({ length: totalPages }, (_, i) => i + 1);
+      paginationHost.innerHTML = `
+        <button type="button" class="page-btn" data-page="${pageNum - 1}" ${pageNum <= 1 ? "disabled" : ""}>${escapeHtml(ui.prevPage || "← Anterior")}</button>
+        ${pages
+          .map(
+            (p) =>
+              `<button type="button" class="page-btn ${p === pageNum ? "active" : ""}" data-page="${p}" ${p === pageNum ? 'aria-current="page"' : ""}>${p}</button>`
+          )
+          .join("")}
+        <button type="button" class="page-btn" data-page="${pageNum + 1}" ${pageNum >= totalPages ? "disabled" : ""}>${escapeHtml(ui.nextPage || "Següent →")}</button>
+      `;
+      paginationHost.querySelectorAll("[data-page]").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const target = Number(btn.dataset.page);
+          if (target < 1 || target > totalPages || target === pageNum) return;
+          pageNum = target;
+          renderGrid();
+          const topEl = document.getElementById("fotografies");
+          if (topEl) topEl.scrollIntoView({ behavior: "smooth", block: "start" });
+        });
+      });
+    }
+
     function renderGrid() {
       const filtered = photos.filter((g) => {
         const albumMatch = !activeAlbum || (g.album || "").trim() === activeAlbum;
         const yearMatch = !activeYear || String(g.year || "").trim() === activeYear;
         return albumMatch && yearMatch;
       });
+      const totalPages = Math.max(1, Math.ceil(filtered.length / GALLERY_PER_PAGE));
+      if (pageNum > totalPages) pageNum = totalPages;
+
       countHost.textContent = ui.galleryCount(filtered.length);
 
       if (!filtered.length) {
@@ -1828,11 +1870,13 @@
             <p>${escapeHtml(ui.noPhotosFound || "No s'han trobat fotografies amb els filtres actuals.")}</p>
             <button type="button" class="btn btn--outline btn--sm" id="gallery-reset-filters" style="margin-top:12px">${escapeHtml(ui.showAll || "Mostrar totes")}</button>
           </div>`;
+        if (paginationHost) paginationHost.innerHTML = "";
         const resetBtn = document.getElementById("gallery-reset-filters");
         if (resetBtn) {
           resetBtn.addEventListener("click", () => {
             activeAlbum = "";
             activeYear = "";
+            pageNum = 1;
             renderAlbumDropdown();
             renderYearDropdown();
             renderGrid();
@@ -1841,13 +1885,16 @@
         return;
       }
 
-      gridHost.innerHTML = filtered
+      const startIdx = (pageNum - 1) * GALLERY_PER_PAGE;
+      const pageItems = filtered.slice(startIdx, startIdx + GALLERY_PER_PAGE);
+
+      gridHost.innerHTML = pageItems
         .map((g, idx) => {
           const hasMeta = Boolean(g.album || g.year);
           const hasInfo = Boolean(hasMeta || g.title || g.caption);
           const altText = g.title || g.album || "El Davallament de Felanitx";
           return `
-          <button type="button" class="gallery-card" data-photo-idx="${idx}">
+          <button type="button" class="gallery-card" data-photo-idx="${startIdx + idx}">
             <div class="gallery-thumb">
               <img src="${escapeHtml(g.src)}" alt="${escapeHtml(altText)}" loading="lazy">
             </div>
@@ -1875,6 +1922,8 @@
       gridHost.querySelectorAll("[data-photo-idx]").forEach((btn) => {
         btn.addEventListener("click", () => openLightbox(filtered, Number(btn.dataset.photoIdx)));
       });
+
+      renderPagination(filtered.length);
     }
 
     renderAlbumDropdown();
